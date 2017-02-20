@@ -1,0 +1,16 @@
+body, ul {
+  font-family: $body-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font;
+}
+
+a {
+  text-decoration: none;
+  color: $blue;
+  &:hover {
+    font-weight: bold;
+    color: $yellow;
+  }
+}

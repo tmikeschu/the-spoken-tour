@@ -1,24 +1,48 @@
-.App {
-  text-align: center;
-}
+@import url(./reset.css);
+@import url("https://fonts.googleapis.com/css?family=Raleway|Josefin+Sans");
+body, ul {
+  font-family: "Josefin Sans", sans-serif; }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", serif; }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+a {
+  text-decoration: none;
+  color: #5399FF; }
+  a:hover {
+    font-weight: bold;
+    color: #FFB72E; }
 
-.App-intro {
-  font-size: large;
-}
+.header {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFF; }
+  .header h2 {
+    color: #003307;
+    font-size: 3em; }
+  .header .header-logo {
+    animation: header-logo-spin infinite 20s linear;
+    height: 80px;
+    padding: 10px 20px; }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes header-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+article.nav {
+  background-color: #003307; }
+  article.nav ul {
+    margin: 20px auto;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.5em; }
+    article.nav ul li a {
+      color: #fff; }
+      article.nav ul li a:hover {
+        color: #FFB72E; }

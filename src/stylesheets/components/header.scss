@@ -1,0 +1,20 @@
+.header {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFF;
+  h2 {
+    color: $green;
+    font-size: 3em;
+  }
+  .header-logo {
+    animation: header-logo-spin infinite 20s linear;
+    height: 80px;
+    padding: 10px 20px;
+  }
+  @keyframes header-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
