@@ -23,15 +23,8 @@ a {
     color: #003307;
     font-size: 3em; }
   .header .header-logo {
-    animation: header-logo-spin infinite 20s linear;
     height: 80px;
     padding: 10px 20px; }
-
-@keyframes header-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
 
 article.nav {
   background-color: #003307; }
@@ -46,3 +39,61 @@ article.nav {
       color: #fff; }
       article.nav ul li a:hover {
         color: #FFB72E; }
+
+article.about {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: url("../spoken-logo.jpg") no-repeat center center fixed; }
+  article.about section {
+    width: 90%;
+    color: #fff;
+    display: inline-flex;
+    padding: 10px; }
+    article.about section h3 {
+      flex: 1;
+      font-size: 2em;
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.7); }
+    article.about section p {
+      flex: 2;
+      padding: 25px; }
+    article.about section.who h3 {
+      justify-content: flex-end;
+      padding-right: 1%; }
+    article.about section.who p {
+      background-color: #5399FF; }
+    article.about section.what {
+      display: inline-flex;
+      padding: 10px; }
+      article.about section.what h3 {
+        order: 2;
+        justify-content: flex-start;
+        padding-left: 1%; }
+      article.about section.what p {
+        flex: 2;
+        order: 1;
+        background-color: #FFB72E;
+        color: #fff;
+        padding: 25px; }
+    article.about section.where h3 {
+      justify-content: flex-end;
+      padding-right: 1%; }
+    article.about section.where p {
+      background-color: #98B4F5; }
+    article.about section.why {
+      display: inline-flex;
+      padding: 10px; }
+      article.about section.why h3 {
+        order: 2;
+        justify-content: flex-start;
+        padding-left: 1%; }
+      article.about section.why p {
+        flex: 2;
+        order: 1;
+        background-color: #B2782F;
+        color: #fff;
+        padding: 25px; }
