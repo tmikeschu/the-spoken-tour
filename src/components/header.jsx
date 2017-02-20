@@ -7,7 +7,7 @@ class Header extends Component {
     return (
       <article className="header">
         <img src={logo} className="header-logo" alt="logo" />
-        <h2>Spoken</h2>
+        <h2><a href="#">The Spoken Tour</a></h2>
         <img src={logo} className="header-logo" alt="logo" />
       </article>
     );

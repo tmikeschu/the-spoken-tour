@@ -5,8 +5,10 @@
   align-items: center;
   background-color: #FFF;
   h2 {
-    color: $green;
-    font-size: 3em;
+    a {
+      color: $green;
+      font-size: 3em;
+    }
   }
   .header-logo {
     height: 80px;
