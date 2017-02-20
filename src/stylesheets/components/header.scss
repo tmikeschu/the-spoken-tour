@@ -1,0 +1,17 @@
+.header {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFF;
+  h2 {
+    a {
+      color: $green;
+      font-size: 3em;
+    }
+  }
+  .header-logo {
+    height: 80px;
+    padding: 10px 20px;
+  }
+}

@@ -1,0 +1,19 @@
+article.nav {
+  background-color: $green;
+  ul {
+    margin: 20px auto;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.5em;
+    li {
+      a {
+        color: #fff;
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  }
+}
