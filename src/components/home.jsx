@@ -9,7 +9,7 @@ class Home extends Component {
     return (
       <article className="home">
         <div className="content">
-          <Link to="/main">Find out more...</Link>
+          <Link to="/about">Find out more...</Link>
         </div>
       </article>
     );

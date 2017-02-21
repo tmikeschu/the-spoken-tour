@@ -6,7 +6,6 @@ class About extends Component {
   render() {
     return (
       <div className="container">
-        <App />
         <article className="about">
           <section className="who">
             <h3>Who</h3>
