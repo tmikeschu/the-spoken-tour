@@ -1,0 +1,33 @@
+.header {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFF;
+  h2 {
+    a {
+      color: $green;
+      font-size: 3em;
+    }
+  }
+  .header-logo {
+    height: 80px;
+    padding: 10px 20px;
+  }
+  @media (max-width: 640px) {
+    display: flex;
+    flex-flow: column nowrap;
+    h2 {
+      order: 1;
+      font-size: .8em;
+      text-align: center;
+    }
+    .header-logo {
+      order: 2;
+      height: 100px;
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+}

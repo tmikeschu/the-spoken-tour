@@ -6,22 +6,23 @@ article.about {
   background: url("https://images.unsplash.com/photo-1477064200359-f0f9f7e3a9e8") no-repeat center center fixed;
   height: 60em;
   section {
-    width: 90%;
+    width: 60%;
     color: #fff;
     display: inline-flex;
     padding: 10px;
     margin: 0 auto;
     h3 {
       flex: 1;
-      font-size: 2em;
+      font-size: 4em;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       color: #fff;;
       background: rgba(0,0,0,.7);
     }
     p {
       flex: 2;
       padding: 25px;
+      font-size: 1.2em;
     }
     &.who {
       h3 {
@@ -74,4 +75,31 @@ article.about {
       }
     }
   }
+  @media (max-width: 640px) {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    section {
+      &.who, &.what, &.where, &.why {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+        h3 {
+          font-size: 1.5em;
+          justify-content: flex-end;
+          font-weight: bold;
+          padding: 5px;
+          order: 1
+        }
+        p {
+          order: 2;
+          padding: 5px;
+        }
+      }
+    }
+  }
 }
+
