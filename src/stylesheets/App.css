@@ -180,3 +180,9 @@ article.about {
         article.about section.who p, article.about section.what p, article.about section.where p, article.about section.why p {
           order: 2;
           padding: 5px; } }
+
+.spacer article.home {
+  background: url(../spoken-logo.jpg) no-repeat center/cover fixed;
+  background-position: 50px top;
+  padding-top: 10%;
+  min-height: 1000px; }
