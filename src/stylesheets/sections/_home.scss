@@ -1,8 +1,10 @@
-.spacer{
-  article.home {
-    background: url(../spoken-logo.jpg) no-repeat center/cover fixed;
-    background-position: 50px top;
-    padding-top: 10%;
-    min-height: 1000px;
+article.home {
+  background: url(../spoken-logo.jpg) no-repeat center/cover fixed;
+  background-position: 50px top;
+  padding-top: 10%;
+  min-height: 1000px;
+  .content {
+    font-size: 2.5em;
+    margin: 25%;
   }
 }
