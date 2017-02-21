@@ -1,9 +1,13 @@
+// Libraries
 import React, { Component } from 'react';
 import { Router, Route, browserHistory } from 'react-router'
+
+// Components
 import Header from './Header.jsx';
 import Nav from './Nav.jsx';
 import About from './About.jsx';
-import Home from './Home.jsx';
+
+//  Styles
 import '../stylesheets/App.css';
 
 class App extends Component {
@@ -12,11 +16,6 @@ class App extends Component {
       <div className="container">
         <Header />
         <Nav />
-        <Router history={browserHistory}>
-          <Route path="/" component={Home}>
-            <Route path="about" component={About}/>
-          </Route>
-        </Router>,
       </div>
     );
   }

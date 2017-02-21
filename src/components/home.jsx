@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
+// Styles
 import '../stylesheets/App.css';
 
 class Home extends Component {
@@ -7,7 +10,7 @@ class Home extends Component {
       <div className="spacer">
         <article className="home">
           <div className="content">
-            {this.props.children}
+            <Link to="/main">Hello</Link>
           </div>
         </article>
       </div>
