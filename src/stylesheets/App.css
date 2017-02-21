@@ -61,6 +61,19 @@ a {
   .header .header-logo {
     height: 80px;
     padding: 10px 20px; }
+  @media (max-width: 640px) {
+    .header {
+      display: flex;
+      flex-flow: column nowrap; }
+      .header h2 {
+        order: 1;
+        font-size: .8em;
+        text-align: center; }
+      .header .header-logo {
+        order: 2;
+        height: 100px; }
+        .header .header-logo:last-child {
+          display: none; } }
 
 article.nav {
   background-color: #003307; }
@@ -81,7 +94,7 @@ article.nav {
       flex-flow: column nowrap;
       margin: 0 auto; }
       article.nav ul li {
-        margin: 5px 0;
+        padding: 5px 0;
         width: 100%; }
         article.nav ul li:nth-child(even) {
           background: rgba(0, 0, 0, 0.2); } }
