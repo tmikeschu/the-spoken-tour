@@ -205,12 +205,32 @@ article.about section.why p {
 
 article.home {
   background-image: url(../spoken-logo.jpg);
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: top;
+  background-position: 76%;
   background-size: cover;
-  min-height: 1000px; }
+  min-height: 36em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-end; }
 
 article.home .content {
   font-size: 2.5em;
-  padding-top: 39%;
-  padding-left: 16%; }
+  margin-bottom: 5%; }
+
+article.home .content a {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px; }
+
+@media (min-width: 640px) {
+  article.home {
+    background-position: 76%;
+    justify-content: space-around;
+    align-items: baseline;
+    min-height: 60em; }
+  article.home .content {
+    margin-left: 14%;
+    margin-top: 6%; }
+  article.home .content a {
+    background: none; } }
