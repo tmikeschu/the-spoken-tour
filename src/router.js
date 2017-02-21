@@ -3,9 +3,9 @@ import React from 'react';
 import { Router, Route, browserHistory } from 'react-router'
 
 // Components
-import App from './components/App';
-import Home from './components/Home';
-import About from './components/About';
+import App from './components/App.jsx';
+import Home from './components/Home.jsx';
+import About from './components/About.jsx';
 
 // Styles
 import './stylesheets/App.css';
