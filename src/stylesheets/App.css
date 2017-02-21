@@ -182,30 +182,27 @@ article.about {
           padding: 5px; } }
 
 article.home {
-  background-image: url(../spoken-logo.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 76%;
+  background: url(../spoken-logo.jpg);
   background-size: cover;
-  min-height: 36em;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  min-height: 60em;
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
-  justify-content: flex-end; }
+  justify-content: center; }
   article.home .content {
     font-size: 2.5em;
-    margin-bottom: 5%; }
-    article.home .content a {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 5px; }
-  @media (min-width: 640px) {
+    margin-left: 14%;
+    margin-top: 3%; }
+  @media (max-width: 640px) {
     article.home {
+      min-height: 36em;
       background-position: 76%;
-      justify-content: space-around;
-      align-items: baseline;
-      min-height: 60em; }
+      justify-content: flex-end; }
       article.home .content {
-        margin-left: 14%;
-        margin-top: 6%; }
+        margin-bottom: 4%;
+        margin-left: 12%; }
         article.home .content a {
-          background: none; } }
+          background-color: rgba(0, 0, 0, 0.7);
+          padding: 2px;
+          padding-bottom: 0px; } }
