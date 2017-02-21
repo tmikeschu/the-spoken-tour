@@ -4,7 +4,6 @@ import { Router, Route, browserHistory } from 'react-router'
 
 // Components
 import App from './components/App';
-import Nav from './components/Nav';
 import Home from './components/Home';
 import About from './components/About';
 

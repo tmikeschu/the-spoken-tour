@@ -1,5 +1,5 @@
 // Libraries
-import React from 'react';
+import 'react';
 import { render } from 'react-dom';
 
 // Routes
