@@ -1,26 +1,15 @@
 // Libraries
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router'
+import { render } from 'react-dom';
 
-// Components
-import App from './components/App';
-import Nav from './components/Nav';
-import Home from './components/Home';
-import About from './components/About';
-import TripMap from './components/Map';
+// Routes
+import routes from './router.js'
 
 // Styles
 import './stylesheets/App.css';
 
-ReactDOM.render(
-  // <App />,
-  <Router history={browserHistory}>
-    <Route path="/" component={Home}/>
-    <Route component={App}>
-      <Route path="about" component={About} />
-      <Route path="map" component={TripMap} />
-    </Route>
-  </Router>,
+// Render
+render(
+  routes,
   document.getElementById('root')
 );

@@ -1,10 +1,16 @@
 article.home {
-  background: url(../spoken-logo.jpg) no-repeat center/cover fixed;
-  background-position: 50px top;
-  padding-top: 10%;
+  background-image: url(../spoken-logo.jpg);
+  // background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
   min-height: 1000px;
   .content {
     font-size: 2.5em;
-    margin: 25%;
+    padding-top: 39%;
+    padding-left: 16%;
+  }
+  @media (max-width: 640px) {
+
   }
 }
