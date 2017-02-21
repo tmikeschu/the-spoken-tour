@@ -10,7 +10,7 @@ class Nav extends Component {
           {/*<li><a href="/about">The Trip</a></li>*/}
           <li><Link to="about">The Trip</Link></li>
           <li><a href="#">Podcast Episodes</a></li>
-          <li><a href="#">Map</a></li>
+          <li><a href="map">Map</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </article>
