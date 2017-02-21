@@ -16,4 +16,18 @@ article.nav {
       }
     }
   }
+  @media (max-width: 640px) {
+    ul {
+      display: flex;
+      flex-flow: column nowrap;
+      margin: 0 auto;
+      li {
+        padding: 5px 0;
+        width: 100%;
+        &:nth-child(even) {
+          background: rgba(0,0,0,.2);
+        }
+      }
+    }
+  }
 }
