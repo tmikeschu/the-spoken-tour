@@ -1,7 +1,11 @@
+// Libraries
 import React, { Component } from 'react';
-import Header from './header.jsx';
-import Nav from './nav.jsx';
-import About from './about.jsx';
+
+// Components
+import Header from './Header.jsx';
+import Nav from './Nav.jsx';
+
+//  Styles
 import '../stylesheets/App.css';
 
 class App extends Component {
@@ -10,7 +14,7 @@ class App extends Component {
       <div className="container">
         <Header />
         <Nav />
-        <About />
+        { this.props.children }
       </div>
     );
   }
