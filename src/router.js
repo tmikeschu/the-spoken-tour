@@ -11,7 +11,6 @@ import About from './components/About.jsx';
 import './stylesheets/App.css';
 
 // Routes
-
 const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Home}/>
