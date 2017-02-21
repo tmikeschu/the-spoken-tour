@@ -1,10 +1,30 @@
 article.home {
-  background: url(../spoken-logo.jpg) no-repeat center/cover fixed;
-  background-position: 50px top;
-  padding-top: 10%;
-  min-height: 1000px;
+  background: url(../spoken-logo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  min-height: 60em;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
   .content {
     font-size: 2.5em;
-    margin: 25%;
+    margin-left: 14%;
+    margin-top: 3%;
+  }
+
+  @media (max-width: 640px) {
+    min-height: 36em;
+    background-position: 76%;
+    justify-content: flex-end;
+    .content{
+      margin-bottom: 4%;
+      margin-left: 12%;
+      a {
+        background-color: rgba(0,0,0,.7);
+        padding: 2px;
+        padding-bottom: 0px;
+      }
+    }
   }
 }
