@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Router, Route, browserHistory } from 'react-router'
-import Header from './header.jsx';
-import Nav from './nav.jsx';
-import About from './about.jsx';
-import Home from './home.jsx';
+import Header from './Header.jsx';
+import Nav from './Nav.jsx';
+import About from './About.jsx';
+import Home from './Home.jsx';
 import '../stylesheets/App.css';
 
 class App extends Component {
