@@ -7,8 +7,8 @@ class Nav extends Component {
     return (
       <article className="nav">
         <ul>
-          {/*<li><a href="/about">The Trip</a></li>*/}
           <li><Link to="about">The Trip</Link></li>
+          <li><Link to="instagram">Instagram</Link></li>
           <li><a href="#">Podcast Episodes</a></li>
           <li><a href="#">Map</a></li>
           <li><a href="#">Contact</a></li>
