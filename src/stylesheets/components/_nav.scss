@@ -10,7 +10,7 @@ article.nav {
     li {
       a {
         color: #fff;
-        &:hover {
+        &:hover, &.active {
           color: $yellow;
         }
       }
