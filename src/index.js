@@ -1,6 +1,6 @@
 // Libraries
 import 'react';
-import { render} from 'react-dom';
+import { render } from 'react-dom';
 
 // Routes
 import routes from './router.js';

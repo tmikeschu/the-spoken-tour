@@ -9,9 +9,9 @@ class Nav extends Component {
         <ul>
           {/*<li><a href="/about">The Trip</a></li>*/}
           <li><Link to="about">The Trip</Link></li>
-          <li><a href="#">Podcast Episodes</a></li>
-          <li><a href="map">Map</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><Link to="#">Podcast Episodes</Link></li>
+          <li><Link to="map">Map</Link></li>
+          <li><Link to="#">Contact</Link></li>
         </ul>
       </article>
     );
