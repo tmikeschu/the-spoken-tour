@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router'
 import '../stylesheets/App.css';
 
-class Nav extends Component {
+export default class Nav extends Component {
   render() {
     return (
       <article className="nav">
@@ -16,5 +16,3 @@ class Nav extends Component {
     );
   }
 }
-
-export default Nav;
