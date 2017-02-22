@@ -5,6 +5,7 @@
   "devDependencies": {
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.1",
+    "react-google-maps": "^4.11.0",
     "react-scripts": "0.7.0",
     "sass-loader": "^6.0.1",
     "webpack": "^0.1.6"
