@@ -1,22 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Map from './Map';
 
-export class Container extends React.Component {
+export default class Container extends Component {
   render() {
-    const style = {
-      width: '100vw',
-      height: '100vh'
-    }
-    if (!this.props.loaded) {
-      return <div>Loading...</div>
-    }
+    const style = { width: '100vw', height: '100vh' };
+
     return (
       <div style={style}>
-        <Map google={this.props.google} />
+        <Map />
       </div>
     )
   }
 }
-
-export default GoogleApiComponent({
-  apiKey: __GAPI_KEY__
-})(Container)
