@@ -14,17 +14,17 @@ export default class Map extends Component {
       return <Marker key={i} {...marker} />
     })
 
-    const polylinePts = this.props.polylinePoints.map((pin) => {
+    const denverRoute = this.props.denverRoute.map((pin) => {
       return {
         lat: parseFloat(pin.location.lat),
         lng: parseFloat(pin.location.lng)
       }
     })
     const polyOptions = {
-      geodsic: true,
+      // geodsic: true,
       strokeColor: "#A00",
     }
-    const polyline = <Polyline path={polylinePts} options={polyOptions} />
+    const polyline = <Polyline path={denverRoute} options={polyOptions} />
 
     return(
       <GoogleMapLoader

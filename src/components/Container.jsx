@@ -7,18 +7,21 @@ export default class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      polylinePoints: [],
+      denverRoute: [],
+      carslbadRoute: [],
+      costaRicaRoute: [],
+      darienGapRoute: [],
     }
   }
 
   componentDidMount() {
     var self = this;
     $.ajax({
-      url: "http://spoken-api.herokuapp.com/api/v1/route_pins?api_key="+process.env.REACT_APP_RAILS_KEY,
+      url: "http://spoken-api.herokuapp.com/api/v1/route_pins/denver_to_carlsbad?api_key="+process.env.REACT_APP_RAILS_KEY,
       method: "GET",
     }).done(function(response) {
       self.setState({
-        polylinePoints: response
+        denverRoute: response
       })
     }).fail(function(error) {
       console.error("No");
@@ -45,7 +48,7 @@ export default class Container extends Component {
 
     return (
       <div style={fullHeightAndWidth}>
-        <Map zoom={mapZoom} center={mapCenter} markers={markers} polylinePoints={this.state.polylinePoints}/>
+        <Map zoom={mapZoom} center={mapCenter} markers={markers} denverRoute={this.state.denverRoute}/>
       </div>
     )
   }
