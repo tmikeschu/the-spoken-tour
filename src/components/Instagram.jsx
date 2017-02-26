@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import '../stylesheets/App.css';
 
 export default class Instagram extends Component {
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div className="instagram">
