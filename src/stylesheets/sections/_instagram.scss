@@ -1,0 +1,83 @@
+.instagram {
+  display: flex;
+  flex-direction: column;
+  a {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    img {
+      width: 50px;
+    }
+  }
+  .photos {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    div {
+      margin: 5%;
+      display: flex;
+      align-items: center;
+      &:nth-child(even) {
+       a {
+         order: 2
+       }
+       section {
+         order: 1
+       }
+      }
+      &:nth-child(odd) {
+        a {
+          order: 1;
+        }
+        section {
+          order: 2;
+        }
+      }
+      a {
+        width: 100%;
+        img {
+          width: 100%;
+          border: thin solid black;
+        }
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: stretch;
+        p {
+          font-size: 1.6em;
+          padding: 5%;
+          &:last-of-type {
+            font-size: 1em;
+            color: $yellow;
+            text-shadow: none;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 640px) {
+    .photos {
+      width: 100%;
+      div {
+        flex-direction: column;
+        a {
+          order: 1;
+          img {
+            width: 100%;
+          }
+        }
+        section {
+          order: 2;
+          p {
+            text-align: center;
+            padding: 1px;
+          }
+        }
+      }
+    }
+  }
+}

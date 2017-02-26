@@ -8,7 +8,7 @@ import Nav from './Nav.jsx';
 //  Styles
 import '../stylesheets/App.css';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="container">
@@ -19,5 +19,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
