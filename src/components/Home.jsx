@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 // Styles
 import '../stylesheets/App.css';
 
-class Home extends Component {
+export default class Home extends Component {
   render() {
     return (
       <article className="home">
@@ -15,5 +15,3 @@ class Home extends Component {
     );
   }
 }
-
-export default Home;

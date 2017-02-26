@@ -7,6 +7,7 @@ import App from './components/App.jsx';
 import Home from './components/Home.jsx';
 import About from './components/About.jsx';
 import Instagram from './components/Instagram.jsx';
+import EmbeddedMap from './components/EmbeddedMap.jsx';
 
 // Styles
 import './stylesheets/App.css';
@@ -18,6 +19,7 @@ const routes = (
     <Route component={App}>
       <Route path="about" component={About} />
       <Route path="instagram" component={Instagram} />
+      <Route path="map" component={EmbeddedMap} />
     </Route>
   </Router>
 );
