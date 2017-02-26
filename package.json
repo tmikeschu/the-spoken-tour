@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "jquery": "^3.1.1",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.1",
+    "react-google-maps": "^4.11.0",
     "react-scripts": "0.7.0",
     "sass-loader": "^6.0.1",
     "webpack": "^0.1.6"
   },
   "dependencies": {
-    "google-maps-react": "^1.0.19",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2"

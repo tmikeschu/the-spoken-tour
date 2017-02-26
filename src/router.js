@@ -6,6 +6,7 @@ import { Router, Route, browserHistory } from 'react-router'
 import App from './components/App.jsx';
 import Home from './components/Home.jsx';
 import About from './components/About.jsx';
+import EmbeddedMap from './components/EmbeddedMap.jsx';
 
 // Styles
 import './stylesheets/App.css';
@@ -16,6 +17,7 @@ const routes = (
     <Route path="/" component={Home}/>
     <Route component={App}>
       <Route path="about" component={About} />
+      <Route path="map" component={EmbeddedMap} />
     </Route>
   </Router>
 );

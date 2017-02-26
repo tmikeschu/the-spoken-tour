@@ -3,7 +3,7 @@ import {  Link } from 'react-router'
 import logo from '../wheel.svg';
 import '../stylesheets/App.css';
 
-class Header extends Component {
+export default class Header extends Component {
   render() {
     return (
       <article className="header">
@@ -14,5 +14,3 @@ class Header extends Component {
     );
   }
 }
-
-export default Header;
