@@ -13,7 +13,7 @@ export default class Instagram extends Component {
   componentDidMount() {
     var self = this;
     $.ajax({
-      url: "http://spoken-api.herokuapp.com/api/v1/route_pins/instagram_photos?api_key="+process.env.REACT_APP_RAILS_KEY,
+      url: "http://spoken-api.herokuapp.com/api/v1/instagram_photos?api_key="+process.env.REACT_APP_RAILS_KEY,
       method: "GET",
     }).done(function(response) {
       self.setState({
@@ -24,12 +24,27 @@ export default class Instagram extends Component {
     });
   }
 
+
   render() {
+    const photos = this.state.instagramPhotos.map((photo, i) => {
+      return (
+        <div key={i} >
+          <a href={photo.link}>
+            <img src={photo.image} alt={photo.caption}/>
+          </a>
+          <section>
+            <article></article>
+            <p>"{photo.caption}"</p>
+            <p>click image to follow on Instagram</p>
+          </section>
+        </div>
+      )
+    });
+
     return (
       <div className="instagram">
-        <h2>Instagram</h2>
         <article className="photos">
-
+          { photos }
         </article>
       </div>
     );
