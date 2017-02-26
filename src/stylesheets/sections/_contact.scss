@@ -1,0 +1,23 @@
+.contact {
+  h3 {
+    margin: 20px;
+    text-align: center;
+    font-size: 3em;
+  }
+  p {
+    margin: 5%;
+    text-align: right;
+    font-size: 2.3em;
+  }
+  @media (max-width: 640px) {
+    margin: 5px;
+    h3 {
+      margin: 5px 0;
+      font-size: 2.0em;
+    }
+    p {
+      margin: 5% 0;
+      font-size: 1em;
+    }
+  }
+}

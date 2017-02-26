@@ -16,7 +16,9 @@
     flex-direction: column;
     overflow: scroll;
     div {
-      margin: 5%;
+      margin: 5% auto;
+      width: 80%;
+      justify-content: center;
       display: flex;
       align-items: center;
       &:nth-child(even) {
@@ -36,9 +38,9 @@
         }
       }
       a {
-        width: 100%;
         img {
           width: 100%;
+          max-width: 640px;
           border: thin solid black;
         }
       }
@@ -48,8 +50,8 @@
         justify-content: space-between;
         align-self: stretch;
         p {
-          font-size: 1.6em;
-          padding: 5%;
+          font-size: 1.3em;
+          margin: 5%;
           &:last-of-type {
             font-size: 1em;
             color: $yellow;
