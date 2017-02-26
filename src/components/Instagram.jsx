@@ -35,7 +35,7 @@ export default class Instagram extends Component {
           <section>
             <article></article>
             <p>"{photo.caption}"</p>
-            <p>click image to follow on Instagram</p>
+            <p>click image to see on Instagram</p>
           </section>
         </div>
       )
@@ -43,6 +43,7 @@ export default class Instagram extends Component {
 
     return (
       <div className="instagram">
+        <a href="https://www.instagram.com/thespokentour/">Follow us!<img src="http://www.underconsideration.com/brandnew/archives/instagram_2016_icon.jpg" alt="instagram"/></a>
         <article className="photos">
           { photos }
         </article>

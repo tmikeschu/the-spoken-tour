@@ -1,6 +1,14 @@
 .instagram {
   display: flex;
   flex-direction: column;
+  a {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    img {
+      width: 50px;
+    }
+  }
   .photos {
     width: 95%;
     margin: 0 auto;
@@ -45,6 +53,7 @@
           &:last-of-type {
             font-size: 1em;
             color: $yellow;
+            text-shadow: none;
           }
         }
       }
@@ -56,12 +65,17 @@
       div {
         flex-direction: column;
         a {
+          order: 1;
           img {
             width: 100%;
           }
         }
-        p {
-          text-align: center;
+        section {
+          order: 2;
+          p {
+            text-align: center;
+            padding: 1px;
+          }
         }
       }
     }
