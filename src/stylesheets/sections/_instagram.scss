@@ -10,14 +10,14 @@
     }
   }
   .photos {
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     overflow: scroll;
     div {
       margin: 5% auto;
-      width: 80%;
+      width: 100%;
       justify-content: center;
       display: flex;
       align-items: center;
@@ -26,10 +26,12 @@
          order: 2
        }
        section {
-         order: 1
+        order: 1
        }
       }
       &:nth-child(odd) {
+        background-color: rgb(0,0,0);
+        color: white;
         a {
           order: 1;
         }
@@ -46,11 +48,12 @@
       }
       section {
         display: flex;
+        width: 50%;
         flex-direction: column;
         justify-content: space-between;
         align-self: stretch;
         p {
-          font-size: 1.3em;
+          font-size: 1.8em;
           margin: 5%;
           &:last-of-type {
             font-size: 1em;
@@ -74,7 +77,9 @@
         }
         section {
           order: 2;
+          width: 100%;
           p {
+            font-size: 1.3em;
             text-align: center;
             padding: 1px;
           }

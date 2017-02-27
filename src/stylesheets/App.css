@@ -54,53 +54,69 @@ a {
 
 .header {
   display: inline-flex;
-  width: 100%;
-  justify-content: space-between;
+  width: 30%;
+  justify-content: center;
+  border: 1px solid #003307;
+  border-top: none;
   align-items: center;
   background-color: #FFF; }
   .header h2 a {
     color: #003307;
-    font-size: 3em; }
+    font-size: 2em; }
   .header .header-logo {
-    height: 80px;
-    padding: 10px 20px; }
+    width: 8%;
+    padding: 0 10px; }
   @media (max-width: 640px) {
     .header {
       display: flex;
-      flex-flow: column nowrap; }
+      width: 100%;
+      justify-content: center; }
       .header h2 {
-        order: 1;
         font-size: .8em;
         text-align: center; }
       .header .header-logo {
-        order: 2;
-        height: 100px; }
-        .header .header-logo:last-child {
-          display: none; } }
+        width: 6%;
+        padding: 0 5px; } }
 
 article.nav {
-  background-color: #003307; }
+  background-color: #003307;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
   article.nav ul {
     margin: 20px auto;
     display: inline-flex;
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    font-size: 1.5em; }
+    font-size: 1em; }
     article.nav ul li a {
       color: #fff; }
       article.nav ul li a:hover, article.nav ul li a.active {
         color: #FFB72E; }
   @media (max-width: 640px) {
-    article.nav ul {
-      display: flex;
-      flex-flow: column nowrap;
-      margin: 0 auto; }
-      article.nav ul li {
-        padding: 5px 0;
-        width: 100%; }
-        article.nav ul li:nth-child(even) {
-          background: rgba(0, 0, 0, 0.2); } }
+    article.nav {
+      width: 100%;
+      flex-direction: row nowrap; }
+      article.nav ul {
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0 auto; }
+        article.nav ul li {
+          padding: 5px 0; } }
+
+.header-nav {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: space-between;
+  width: 100%; }
+  .header-nav .spacer {
+    width: 30%; }
+  @media (max-width: 640px) {
+    .header-nav {
+      flex-direction: column;
+      width: 100%; } }
 
 article.about {
   width: 100%;
@@ -226,6 +242,7 @@ article.home {
         margin-left: 0; }
         article.home .content a {
           text-align: center;
+          width: 100%;
           margin: 0; } }
 
 article.embedded-map {
@@ -315,14 +332,14 @@ article.embedded-map {
     .instagram a img {
       width: 50px; }
   .instagram .photos {
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     overflow: scroll; }
     .instagram .photos div {
       margin: 5% auto;
-      width: 80%;
+      width: 100%;
       justify-content: center;
       display: flex;
       align-items: center; }
@@ -330,21 +347,25 @@ article.embedded-map {
         order: 2; }
       .instagram .photos div:nth-child(even) section {
         order: 1; }
-      .instagram .photos div:nth-child(odd) a {
-        order: 1; }
-      .instagram .photos div:nth-child(odd) section {
-        order: 2; }
+      .instagram .photos div:nth-child(odd) {
+        background-color: black;
+        color: white; }
+        .instagram .photos div:nth-child(odd) a {
+          order: 1; }
+        .instagram .photos div:nth-child(odd) section {
+          order: 2; }
       .instagram .photos div a img {
         width: 100%;
         max-width: 640px;
         border: thin solid black; }
       .instagram .photos div section {
         display: flex;
+        width: 50%;
         flex-direction: column;
         justify-content: space-between;
         align-self: stretch; }
         .instagram .photos div section p {
-          font-size: 1.3em;
+          font-size: 1.8em;
           margin: 5%; }
           .instagram .photos div section p:last-of-type {
             font-size: 1em;
@@ -360,8 +381,10 @@ article.embedded-map {
           .instagram .photos div a img {
             width: 100%; }
         .instagram .photos div section {
-          order: 2; }
+          order: 2;
+          width: 100%; }
           .instagram .photos div section p {
+            font-size: 1.3em;
             text-align: center;
             padding: 1px; } }
 
@@ -396,3 +419,6 @@ article.embedded-map {
     font-size: 3em;
     margin-bottom: 10%;
     margin-top: 5%; }
+  @media (max-width: 640px) {
+    .podcast {
+      width: 99%; } }

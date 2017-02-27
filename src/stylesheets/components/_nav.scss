@@ -1,12 +1,16 @@
 article.nav {
   background-color: $green;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   ul {
     margin: 20px auto;
     display: inline-flex;
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 1em;
     li {
       a {
         color: #fff;
@@ -17,16 +21,14 @@ article.nav {
     }
   }
   @media (max-width: 640px) {
+    width: 100%;
+    flex-direction: row nowrap;
     ul {
       display: flex;
-      flex-flow: column nowrap;
+      flex-flow: row nowrap;
       margin: 0 auto;
       li {
         padding: 5px 0;
-        width: 100%;
-        &:nth-child(even) {
-          background: rgba(0,0,0,.2);
-        }
       }
     }
   }

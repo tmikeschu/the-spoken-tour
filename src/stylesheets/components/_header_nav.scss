@@ -1,0 +1,13 @@
+.header-nav {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  .spacer {
+    width: 30%;
+  }
+  @media (max-width: 640px) {
+    flex-direction: column;
+    width: 100%;
+  }
+}

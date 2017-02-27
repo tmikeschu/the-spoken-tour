@@ -9,7 +9,6 @@ export default class Header extends Component {
       <article className="header">
         <img src={logo} className="header-logo" alt="logo" />
         <h2><Link to="/">The Spoken Tour</Link></h2>
-        <img src={logo} className="header-logo" alt="logo" />
       </article>
     );
   }
