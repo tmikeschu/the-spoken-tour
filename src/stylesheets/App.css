@@ -211,6 +211,7 @@ article.home {
     justify-content: center; }
     article.home .content a {
       margin-left: 4%;
+      width: 30%;
       display: block; }
   @media (max-width: 640px) {
     article.home {
@@ -383,3 +384,8 @@ article.embedded-map {
     .contact p {
       margin: 5% 0;
       font-size: 1em; } }
+
+.podcast p {
+  text-align: center;
+  font-size: 3em;
+  margin: 10% auto; }
