@@ -8,8 +8,9 @@ export default class Home extends Component {
   render() {
     return (
       <article className="home">
+        <img src="http://www.clipartbest.com/cliparts/7ca/6EB/7ca6EBkMi.png" alt="bicycle"/>
         <div className="content">
-          <Link to="/about">Find out more...</Link>
+          <Link to="/about">Pedal to our site!</Link>
         </div>
       </article>
     );
