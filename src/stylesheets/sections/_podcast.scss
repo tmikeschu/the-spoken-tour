@@ -1,7 +1,13 @@
 .podcast {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
   p {
+    background-color: $blue;
+    color: #fff;
     text-align: center;
     font-size: 3em;
-    margin: 10% auto;
+    margin-bottom: 10%;
+    margin-top: 5%;
   }
 }

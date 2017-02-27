@@ -385,7 +385,14 @@ article.embedded-map {
       margin: 5% 0;
       font-size: 1em; } }
 
-.podcast p {
+.podcast {
+  margin: 0 auto;
   text-align: center;
-  font-size: 3em;
-  margin: 10% auto; }
+  width: 80%; }
+  .podcast p {
+    background-color: #5399FF;
+    color: #fff;
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 10%;
+    margin-top: 5%; }
