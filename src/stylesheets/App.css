@@ -36,6 +36,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+body {
+  background-color: rgba(0, 0, 0, 0.2); }
+
 body, ul {
   font-family: "Cabin", sans-serif; }
 
@@ -56,8 +59,6 @@ a {
   display: inline-flex;
   width: 30%;
   justify-content: center;
-  border: 1px solid #003307;
-  border-top: none;
   align-items: center;
   background-color: #FFF; }
   .header h2 a {
@@ -108,6 +109,7 @@ article.nav {
 
 .header-nav {
   display: flex;
+  background-color: #003307;
   flex-direction: row nowrap;
   justify-content: space-between;
   width: 100%; }
@@ -246,6 +248,10 @@ article.home {
           margin: 0; } }
 
 article.embedded-map {
+  background-color: #fff;
+  padding-bottom: 10em;
+  max-width: 1000px;
+  margin: 1% auto;
   display: flex;
   flex-flow: row wrap; }
   article.embedded-map h3 {
@@ -323,6 +329,10 @@ article.embedded-map {
           font-size: .5em; } }
 
 .instagram {
+  background-color: #fff;
+  max-width: 1000px;
+  margin: 1% auto;
+  padding-bottom: 20em;
   display: flex;
   flex-direction: column; }
   .instagram a {
@@ -337,22 +347,27 @@ article.embedded-map {
     display: flex;
     flex-direction: column;
     overflow: scroll; }
+    .instagram .photos h3 {
+      text-align: center;
+      font-size: 2em; }
     .instagram .photos div {
       margin: 5% auto;
-      width: 100%;
+      width: 90%;
       justify-content: center;
       display: flex;
       align-items: center; }
-      .instagram .photos div:nth-child(even) a {
-        order: 2; }
-      .instagram .photos div:nth-child(even) section {
-        order: 1; }
       .instagram .photos div:nth-child(odd) {
+        border: 1px solid #000; }
+        .instagram .photos div:nth-child(odd) a {
+          order: 2; }
+        .instagram .photos div:nth-child(odd) section {
+          order: 1; }
+      .instagram .photos div:nth-child(even) {
         background-color: black;
         color: white; }
-        .instagram .photos div:nth-child(odd) a {
+        .instagram .photos div:nth-child(even) a {
           order: 1; }
-        .instagram .photos div:nth-child(odd) section {
+        .instagram .photos div:nth-child(even) section {
           order: 2; }
       .instagram .photos div a img {
         width: 100%;
@@ -388,37 +403,97 @@ article.embedded-map {
             text-align: center;
             padding: 1px; } }
 
-.contact h3 {
-  margin: 20px;
-  text-align: center;
-  font-size: 3em; }
-
-.contact p {
-  margin: 5%;
-  text-align: right;
-  font-size: 2.3em; }
-
-@media (max-width: 640px) {
-  .contact {
-    margin: 5px; }
-    .contact h3 {
-      margin: 5px 0;
-      font-size: 2.0em; }
-    .contact p {
-      margin: 5% 0;
-      font-size: 1em; } }
+.contact {
+  max-width: 1000px;
+  margin: 1% auto;
+  background-color: white;
+  height: 60em; }
+  .contact h3 {
+    text-align: center;
+    background-color: #98B4F5;
+    color: #fff;
+    font-size: 3em;
+    padding: 1% 0; }
+  .contact p {
+    margin: 5%;
+    text-align: right;
+    font-size: 1.6em; }
+  @media (max-width: 640px) {
+    .contact {
+      margin: 5px; }
+      .contact h3 {
+        margin: 5px 0;
+        font-size: 2.0em; }
+      .contact p {
+        margin: 5% 0;
+        font-size: 1em; } }
 
 .podcast {
-  margin: 0 auto;
-  text-align: center;
-  width: 80%; }
+  background-color: #fff;
+  max-width: 1000px;
+  margin: 1% auto;
+  padding-bottom: 30em;
+  text-align: center; }
   .podcast p {
     background-color: #5399FF;
     color: #fff;
     text-align: center;
     font-size: 3em;
     margin-bottom: 10%;
-    margin-top: 5%; }
+    padding: 1% 0;
+    margin-top: 1%; }
+  .podcast iframe {
+    width: 99%; }
   @media (max-width: 640px) {
     .podcast {
       width: 99%; } }
+
+.contact-form {
+  width: 100%; }
+  .contact-form form {
+    display: flex;
+    border: 2px solid #003307;
+    padding: 10px;
+    flex-flow: column nowrap;
+    width: 50%;
+    margin: 0 auto; }
+    .contact-form form textarea {
+      font-size: 1.2em;
+      resize: none;
+      height: 4em; }
+    .contact-form form input {
+      font-size: 1.2em;
+      width: 100%;
+      margin-bottom: 5%; }
+      .contact-form form input[type="submit"] {
+        margin-top: 5%;
+        width: 25%;
+        align-self: center;
+        border: none;
+        background-color: #98B4F5;
+        border-radius: 5px;
+        color: white; }
+        .contact-form form input[type="submit"]:hover {
+          background-color: #5399FF; }
+    .contact-form form > p.success, .contact-form form > p.error {
+      border-radius: 5px;
+      padding: 5px;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 1.5em; }
+    .contact-form form > p.success {
+      background-color: lightgreen;
+      color: darkgreen; }
+    .contact-form form > p.error {
+      background-color: indianred;
+      color: darkred; }
+  .contact-form p {
+    text-align: center;
+    font-size: 1em; }
+  @media (max-width: 640px) {
+    .contact-form {
+      width: 100%; }
+      .contact-form form {
+        width: 90%; }
+        .contact-form form input, .contact-form form textarea {
+          border: 1px solid #aaa; } }

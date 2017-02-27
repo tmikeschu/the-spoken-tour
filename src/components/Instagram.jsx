@@ -45,6 +45,7 @@ export default class Instagram extends Component {
       <div className="instagram">
         <a href="https://www.instagram.com/thespokentour/">Follow us!<img src="http://www.underconsideration.com/brandnew/archives/instagram_2016_icon.jpg" alt="instagram"/></a>
         <article className="photos">
+          <h3>See Our Journey</h3>
           { photos }
         </article>
       </div>
