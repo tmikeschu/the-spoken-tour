@@ -79,9 +79,14 @@ article.embedded-map {
       font-size: 2em;
       margin-left: 25%;
     }
-    iframe {
-      width: 70%;
-      height: 34em;
+
+    .ReactTabs {
+      &.react-tabs {
+        width: 70%;
+        iframe {
+          height: 34em;
+        }
+      }
     }
     section {
       width: 30%;
@@ -91,6 +96,7 @@ article.embedded-map {
         }
         ul {
           margin: 0;
+          width: 100%;
           li {
             font-size: .5em;
           }

@@ -7,21 +7,17 @@ export default class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      denverRoute: [],
-      carslbadRoute: [],
-      costaRicaRoute: [],
-      darienGapRoute: [],
     }
   }
 
   componentDidMount() {
     var self = this;
     $.ajax({
-      url: "http://spoken-api.herokuapp.com/api/v1/route_pins/denver_to_carlsbad?api_key="+process.env.REACT_APP_RAILS_KEY,
+      url: ""+process.env.REACT_APP_RAILS_KEY,
       method: "GET",
     }).done(function(response) {
       self.setState({
-        denverRoute: response
+        // state set
       })
     }).fail(function(error) {
       console.error("No");

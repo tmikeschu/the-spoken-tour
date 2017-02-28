@@ -8,7 +8,6 @@ export default class EmbeddedMap extends Component {
   render() {
     return (
       <article className="embedded-map">
-        <h3>The Route</h3>
         <Tabs
           onSelect={this.handleSelect}
           selectedIndex={0}
