@@ -26,6 +26,7 @@ export default class ContactForm extends Component {
     event.preventDefault();
     // send message to thespokentour@gmail.com from the entered email address.
     $("input").prop('required',true);
+    $("input[name='_gotcha']").prop('required',false);
     $("textarea").prop('required',true);
     $.ajax({
       url: "https://formspree.io/thespokentour@gmail.com",
