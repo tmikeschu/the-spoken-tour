@@ -30,7 +30,7 @@ export default class MapContainer extends Component {
 
 
   render() {
-    const fullHeightAndWidth = { width: '100vw', height: '100vh' };
+    const fullHeightAndWidth = { width: '100%', height: '50em' };
     const mapCenter = {
       lat: -1.6246706849414423,
       lng: -85.56376812500002

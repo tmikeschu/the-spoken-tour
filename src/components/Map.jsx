@@ -3,7 +3,7 @@ import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps';
 
 export default class Map extends Component {
   render() {
-    const mapContainer = <div style={{ height: "90%", width: "75%" }} />
+    const mapContainer = <div style={{ height: "100%", width: "100%" }} />
     const markers = this.props.markers.map((pin, i) => {
       const marker = {
         position: {
@@ -13,18 +13,6 @@ export default class Map extends Component {
       }
       return <Marker key={i} {...marker} />
     })
-
-    const denverRoute = this.props.denverRoute.map((pin) => {
-      return {
-        lat: parseFloat(pin.location.lat),
-        lng: parseFloat(pin.location.lng)
-      }
-    })
-    const polyOptions = {
-      // geodsic: true,
-      strokeColor: "#A00",
-    }
-    const polyline = <Polyline path={denverRoute} options={polyOptions} />
 
     return(
       <GoogleMapLoader

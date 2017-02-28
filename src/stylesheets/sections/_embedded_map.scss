@@ -12,12 +12,17 @@ article.embedded-map {
     color: $yellow;
     text-shadow: 1px 1px $green;
   }
-  iframe {
-    width: 60%;
-    height: 49em;
-    background-image: url("../loading.gif");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+  .ReactTabs {
+      &.react-tabs {
+      width: 60%;
+      iframe {
+        width: 100%;
+        height: 50em;
+        background-image: url("../loading.gif");
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+    }
   }
   section {
     width: 40%;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import MapContainer from './MapContainer'
 import '../stylesheets/App.css';
 
 
@@ -7,7 +9,22 @@ export default class EmbeddedMap extends Component {
     return (
       <article className="embedded-map">
         <h3>The Route</h3>
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1MNLYaokz7yXKh23E79fRcGDv1_s"></iframe>
+        <Tabs
+          onSelect={this.handleSelect}
+          selectedIndex={0}
+        >
+          <TabList>
+            <Tab>The Route</Tab>
+            <Tab>Suggestions</Tab>
+          </TabList>
+
+          <TabPanel>
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1MNLYaokz7yXKh23E79fRcGDv1_s"></iframe>
+          </TabPanel>
+          <TabPanel>
+            <MapContainer />
+          </TabPanel>
+        </Tabs>
         <section>
           <article className="legend">
             <h4>Legend</h4>
