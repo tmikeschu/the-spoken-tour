@@ -262,7 +262,10 @@ article.embedded-map {
     text-shadow: 1px 1px #003307; }
   article.embedded-map iframe {
     width: 60%;
-    height: 49em; }
+    height: 49em;
+    background-image: url("../loading.gif");
+    background-repeat: no-repeat;
+    background-position: 50% 50%; }
   article.embedded-map section {
     width: 40%;
     display: column; }
@@ -334,7 +337,10 @@ article.embedded-map {
   margin: 1% auto;
   padding-bottom: 20em;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  background-image: url("../loading.gif");
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
   .instagram a {
     display: flex;
     align-items: center;
@@ -416,6 +422,7 @@ article.embedded-map {
     padding: 1% 0; }
   .contact p {
     margin: 5%;
+    padding-right: 2%;
     text-align: right;
     font-size: 1.6em; }
   @media (max-width: 640px) {
@@ -443,7 +450,10 @@ article.embedded-map {
     padding: 1% 0;
     margin-top: 1%; }
   .podcast iframe {
-    width: 99%; }
+    width: 99%;
+    background-image: url("../loading.gif");
+    background-repeat: no-repeat;
+    background-position: 50% 50%; }
   @media (max-width: 640px) {
     .podcast {
       width: 99%; } }

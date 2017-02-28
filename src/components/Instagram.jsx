@@ -12,6 +12,7 @@ export default class Instagram extends Component {
 
   componentDidMount() {
     var self = this;
+    $('#spinner').show();
     $.ajax({
       url: "http://spoken-api.herokuapp.com/api/v1/instagram_photos?api_key="+process.env.REACT_APP_RAILS_KEY,
       method: "GET",
@@ -19,6 +20,7 @@ export default class Instagram extends Component {
       self.setState({
         instagramPhotos: response
       })
+      $('#spinner').hide();
     }).fail(function(error) {
       console.error("No");
     });
