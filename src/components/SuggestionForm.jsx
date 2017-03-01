@@ -41,7 +41,7 @@ export default class SuggestionForm extends Component {
     }).done(function(data) {
       $("form p").remove();
       $("form").append("<p class='success'>Suggestion made!</p>");
-    }.bind(this)).fail(function(error) {
+    }).fail(function(error) {
       $("form p").remove();
       $("form").append("<p class='error'>"+error.responseJSON["error"]+"</p>")
     });
@@ -51,12 +51,10 @@ export default class SuggestionForm extends Component {
     return (
       <article className="component-container suggestion-form">
         <form onSubmit={this.handleSubmit}>
-          <input required type="text" name="label" value={this.state.label} onChange={this.handleChange} placeholder="Label" required/>
+          <input required type="text" name="label" value={this.state.label} onChange={this.handleChange} placeholder="Label" />
           <textarea required name="description" value={this.state.description} onChange={this.handleChange} placeholder="Description"/>
-          <input required type="hidden" name="lat" value={this.props.suggestionPin.lat} />
-          <input required type="hidden" name="lng" value={this.props.suggestionPin.lng} />
-          <select required name="category" onChange={this.handleChange} >
-            <option disabled selected>--Category--</option>
+          <select required name="category" value={this.state.category} onChange={this.handleChange} >
+            <option disabled>--Category--</option>
             <option value="0">Place to stay</option>
             <option value="1">Cool spot</option>
             <option value="2">Avoid this place</option>
@@ -64,8 +62,9 @@ export default class SuggestionForm extends Component {
             <option value="4">Other</option>
           </select>
           <textarea name="message" value={this.state.message} onChange={this.handleChange} placeholder="What's up?"/>
-          <input type="submit" value="Send" />
+          <input type={this.props.suggestionPin.lat === undefined ? "hidden" : "submit"} value="Send" />
         </form>
+        <p style={{display: this.props.suggestionPin.lat === undefined ? "initial" : "none"}}>Click the map to drop a pin!</p>
       </article>
     );
   }

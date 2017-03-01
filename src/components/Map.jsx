@@ -3,10 +3,16 @@ import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps';
 
 export default class Map extends Component {
   render() {
-    var suggestion = (<Marker
-                     options={{draggable: true, clickable: true}}
-                     animation={2}
-                     position={this.props.suggestionPin}/>)
+    // debugger;
+    var suggestion;
+    if (this.props.suggestionPin.lat !== undefined) {
+      suggestion = (
+        <Marker
+          options={{draggable: true, clickable: true}}
+          animation={2}
+          position={this.props.suggestionPin}/>
+      )
+    }
 
     const mapContainer = <div style={{ height: "100%", width: "100%" }} />
     const suggestionMarkers = this.props.suggestions.map((suggestion, i) => {
