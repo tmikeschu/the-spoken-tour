@@ -104,7 +104,7 @@ export default class EmbeddedMap extends Component {
             </ul>
           </article>
           <article className="info">
-            <p>Have a suggestion? A secret spot? Couch for us to crash on?</p>
+            <p>Have an amiga in Antigua?  A tía in Tijuana? Couch to crash on in Colombia? Bike shop in Bolivia?</p>
             <p><span>Let</span> <span>us</span> <span>know</span>!</p>
             <p>(Drop a pin on our map)</p>
             <p>↓</p>
