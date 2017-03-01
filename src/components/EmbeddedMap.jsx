@@ -15,6 +15,7 @@ export default class EmbeddedMap extends Component {
       suggestions: [],
     }
     this.setSuggestion = this.setSuggestion.bind(this)
+    this.showSuggestionInfo = this.showSuggestionInfo.bind(this)
   }
 
   componentDidMount() {
@@ -38,6 +39,16 @@ export default class EmbeddedMap extends Component {
     })
   }
 
+  showSuggestionInfo(latLng) {
+    const suggestion = this.state.suggestions.find((s)=>{
+      const suggestionLat = parseFloat(s.location.lat)
+      const suggestionLng = parseFloat(s.location.lng)
+      return suggestionLat === latLng.lat() && suggestionLng === latLng.lng()
+    })
+    const suggestionInfo = "<p>" + suggestion.label +"</p>"
+    $("form").after(suggestionInfo)
+  }
+
   render() {
     return (
       <article className="embedded-map">
@@ -56,6 +67,7 @@ export default class EmbeddedMap extends Component {
           <TabPanel>
             <MapContainer
               setSuggestion={this.setSuggestion}
+              showSuggestionInfo={this.showSuggestionInfo}
               suggestions={this.state.suggestions}
               suggestionPin={this.state.suggestionPin}/>
           </TabPanel>

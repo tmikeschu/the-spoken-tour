@@ -16,8 +16,12 @@ export default class Map extends Component {
           lng: parseFloat(suggestion.location.lng),
         },
       }
-      return <Marker key={i} {...marker} />
+      return <Marker key={suggestion.id} {...marker} onClick={(props) => handleMarkerClick(props, this)} />
     })
+
+    function handleMarkerClick(props, map) {
+      map.props.showSuggestionInfo(props.latLng)
+    }
 
     function handleClick(props, map) {
       const lat = props.latLng.lat();

@@ -7,11 +7,16 @@
     width: 95%;
     margin: 0 auto;
     textarea {
+      font-family: $body-font;
       font-size: 1.2em;
       resize: none;
       height: 4em;
     }
+    select {
+      font-family: $body-font;
+    }
     input {
+      font-family: $body-font;
       font-size: 1.2em;
       width: 95%;
       margin-bottom: 5%;

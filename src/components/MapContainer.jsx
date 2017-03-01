@@ -16,6 +16,7 @@ export default class MapContainer extends Component {
         <Map
           setSuggestion={this.props.setSuggestion}
           suggestionPin={this.props.suggestionPin}
+          showSuggestionInfo={this.props.showSuggestionInfo}
           zoom={mapZoom}
           center={mapCenter}
           suggestions={this.props.suggestions}/>

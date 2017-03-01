@@ -598,11 +598,16 @@ article.embedded-map section .pin-form p {
   margin: 0 auto; }
 
 .suggestion-form form textarea {
+  font-family: "Cabin", sans-serif;
   font-size: 1.2em;
   resize: none;
   height: 4em; }
 
+.suggestion-form form select {
+  font-family: "Cabin", sans-serif; }
+
 .suggestion-form form input {
+  font-family: "Cabin", sans-serif;
   font-size: 1.2em;
   width: 95%;
   margin-bottom: 5%; }
