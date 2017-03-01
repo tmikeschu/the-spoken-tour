@@ -3,82 +3,62 @@ article.about {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background: url("https://images.unsplash.com/photo-1477064200359-f0f9f7e3a9e8") no-repeat center center fixed;
   section {
     width: 60%;
     color: #fff;
-    display: inline-flex;
-    height: auto;
-    padding: 10px;
+    display: flex;
+    padding: 1%;
     margin: 0 auto;
-    h3 {
+    justify-content: space-between;
+    h2 {
       flex: 1;
-      font-size: 4em;
       display: flex;
       align-items: center;
-      color: #fff;;
       background: rgba(0,0,0,.7);
+      justify-content: center;
     }
     p {
-      flex: 2;
-      padding: 25px;
-      font-size: 1.2em;
+      flex: 4;
+      padding: 2%;
+    }
+    &:nth-child(odd) {
+      h2 {
+        margin-right: 10%;
+      }
+    }
+    &:nth-child(even) {
+      h2 {
+        margin-left: 10%;
+        order: 2;
+      }
+      p {
+        order: 1;
+      }
     }
     &.who {
-      h3 {
-        justify-content: flex-end;
-        padding-right: 1%;
-      }
       p {
         background-color: $blue;
       }
     }
     &.what {
-      display: inline-flex;
-      padding: 10px;
-      h3 {
-        order: 2;
-        justify-content: flex-start;
-        padding-left: 1%;
-      }
       p {
-        flex: 2;
-        order: 1;
         background-color: $yellow;
-        color: #fff;
-        padding: 25px;
       }
     }
     &.where {
-      h3 {
-        justify-content: flex-end;
-        padding-right: 1%;
-      }
       p {
         background-color: $lilac;
       }
     }
     &.why {
-      display: inline-flex;
-      padding: 10px;
-      h3 {
-        order: 2;
-        justify-content: flex-start;
-        padding-left: 1%;
-      }
       p {
-        flex: 2;
-        order: 1;
         background-color: $brown;
-        color: #fff;
-        padding: 25px;
       }
     }
   }
   @media (max-width: 640px) {
     margin: 0;
     padding: 0;
-    height: auto;
     section {
       &.who, &.what, &.where, &.why {
         display: flex;
@@ -87,11 +67,10 @@ article.about {
         justify-content: space-between;
         width: 100%;
         padding: 0;
-        h3 {
-          font-size: 1.5em;
+        h2 {
+          margin: 0;
           justify-content: flex-end;
-          font-weight: bold;
-          padding: 5px;
+          padding: 2% 1%;
           order: 1
         }
         p {

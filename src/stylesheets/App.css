@@ -37,16 +37,37 @@ table {
   border-spacing: 0; }
 
 body {
-  background-color: rgba(0, 0, 0, 0.2); }
+  background-color: rgba(0, 0, 0, 0.2);
+  background: url("https://images.unsplash.com/photo-1477064200359-f0f9f7e3a9e8") no-repeat center center fixed; }
 
-body, ul {
-  font-family: "Cabin", sans-serif; }
+body, ul, form, input {
+  font-family: "Cabin", sans-serif;
+  font-size: 1em; }
+
+h1 {
+  font-size: 3em; }
+
+h2 {
+  font-size: 2.5em; }
+
+h3 {
+  font-size: 2em; }
+
+h4 {
+  font-size: 1.5em; }
+
+h5 {
+  font-size: 1em; }
+
+h6 {
+  font-size: .5em; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", serif; }
 
 p {
-  line-height: 1.2em; }
+  line-height: 1.2em;
+  font-size: 1em; }
 
 a {
   text-decoration: none;
@@ -61,9 +82,8 @@ a {
   justify-content: center;
   align-items: center;
   background-color: #FFF; }
-  .header h2 a {
-    color: #003307;
-    font-size: 2em; }
+  .header h3 a {
+    color: #003307; }
   .header .header-logo {
     width: 8%;
     padding: 0 10px; }
@@ -72,7 +92,7 @@ a {
       display: flex;
       width: 100%;
       justify-content: center; }
-      .header h2 {
+      .header h3 {
         font-size: .8em;
         text-align: center; }
       .header .header-logo {
@@ -124,67 +144,42 @@ article.about {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  background: url("https://images.unsplash.com/photo-1477064200359-f0f9f7e3a9e8") no-repeat center center fixed; }
+  flex-direction: column; }
   article.about section {
     width: 60%;
     color: #fff;
-    display: inline-flex;
-    height: auto;
-    padding: 10px;
-    margin: 0 auto; }
-    article.about section h3 {
+    display: flex;
+    padding: 1%;
+    margin: 0 auto;
+    justify-content: space-between; }
+    article.about section h2 {
       flex: 1;
-      font-size: 4em;
       display: flex;
       align-items: center;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.7); }
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center; }
     article.about section p {
-      flex: 2;
-      padding: 25px;
-      font-size: 1.2em; }
-    article.about section.who h3 {
-      justify-content: flex-end;
-      padding-right: 1%; }
+      flex: 4;
+      padding: 2%; }
+    article.about section:nth-child(odd) h2 {
+      margin-right: 10%; }
+    article.about section:nth-child(even) h2 {
+      margin-left: 10%;
+      order: 2; }
+    article.about section:nth-child(even) p {
+      order: 1; }
     article.about section.who p {
       background-color: #5399FF; }
-    article.about section.what {
-      display: inline-flex;
-      padding: 10px; }
-      article.about section.what h3 {
-        order: 2;
-        justify-content: flex-start;
-        padding-left: 1%; }
-      article.about section.what p {
-        flex: 2;
-        order: 1;
-        background-color: #FFB72E;
-        color: #fff;
-        padding: 25px; }
-    article.about section.where h3 {
-      justify-content: flex-end;
-      padding-right: 1%; }
+    article.about section.what p {
+      background-color: #FFB72E; }
     article.about section.where p {
       background-color: #98B4F5; }
-    article.about section.why {
-      display: inline-flex;
-      padding: 10px; }
-      article.about section.why h3 {
-        order: 2;
-        justify-content: flex-start;
-        padding-left: 1%; }
-      article.about section.why p {
-        flex: 2;
-        order: 1;
-        background-color: #B2782F;
-        color: #fff;
-        padding: 25px; }
+    article.about section.why p {
+      background-color: #B2782F; }
   @media (max-width: 640px) {
     article.about {
       margin: 0;
-      padding: 0;
-      height: auto; }
+      padding: 0; }
       article.about section.who, article.about section.what, article.about section.where, article.about section.why {
         display: flex;
         flex-direction: column;
@@ -192,11 +187,10 @@ article.about {
         justify-content: space-between;
         width: 100%;
         padding: 0; }
-        article.about section.who h3, article.about section.what h3, article.about section.where h3, article.about section.why h3 {
-          font-size: 1.5em;
+        article.about section.who h2, article.about section.what h2, article.about section.where h2, article.about section.why h2 {
+          margin: 0;
           justify-content: flex-end;
-          font-weight: bold;
-          padding: 5px;
+          padding: 2% 1%;
           order: 1; }
         article.about section.who p, article.about section.what p, article.about section.where p, article.about section.why p {
           order: 2;

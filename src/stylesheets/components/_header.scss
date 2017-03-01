@@ -4,10 +4,9 @@
   justify-content: center;
   align-items: center;
   background-color: #FFF;
-  h2 {
+  h3 {
     a {
       color: $green;
-      font-size: 2em;
     }
   }
   .header-logo {
@@ -19,7 +18,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    h2 {
+    h3 {
       font-size: .8em;
       text-align: center;
     }
