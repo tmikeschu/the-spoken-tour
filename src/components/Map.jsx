@@ -3,13 +3,11 @@ import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps';
 
 export default class Map extends Component {
   render() {
-    // debugger;
-    var suggestion;
+    let suggestion;
     if (this.props.suggestionPin.lat !== undefined) {
       suggestion = (
         <Marker
-          options={{draggable: true, clickable: true}}
-          animation={2}
+          options={{ clickable: true}}
           position={this.props.suggestionPin}/>
       )
     }
@@ -22,7 +20,12 @@ export default class Map extends Component {
           lng: parseFloat(suggestion.location.lng),
         },
       }
-      return <Marker key={suggestion.id} {...marker} onClick={(props) => handleMarkerClick(props, this)} />
+      return (
+        <Marker
+          key={suggestion.id}
+          {...marker}
+          onClick={(props) => handleMarkerClick(props, this)} />
+      )
     })
 
     function handleMarkerClick(props, map) {

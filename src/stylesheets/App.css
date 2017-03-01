@@ -548,12 +548,6 @@ article.embedded-map {
       text-align: center;
       margin: 0 auto;
       font-size: 1.5em; }
-    .suggestion-form form > p.success {
-      background-color: lightgreen;
-      color: darkgreen; }
-    .suggestion-form form > p.error {
-      background-color: indianred;
-      color: darkred; }
   .suggestion-form p {
     text-align: center;
     font-size: 1em; }

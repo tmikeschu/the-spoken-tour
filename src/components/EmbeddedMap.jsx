@@ -13,13 +13,20 @@ export default class EmbeddedMap extends Component {
       suggestionPin: {},
       tabIndex: 0,
       suggestions: [],
+      currentSuggestion: null,
+      suggestionInfoIsActive: false,
     }
     this.setSuggestion = this.setSuggestion.bind(this)
+    this.getSuggestions = this.getSuggestions.bind(this)
     this.showSuggestionInfo = this.showSuggestionInfo.bind(this)
   }
 
   componentDidMount() {
-    var self = this;
+    this.getSuggestions();
+  }
+
+  getSuggestions() {
+    let self = this;
     $.ajax({
       url: "http://spoken-api.herokuapp.com/api/v1/suggestion_pins?api_key="+process.env.REACT_APP_RAILS_KEY,
       method: "GET",
@@ -45,8 +52,11 @@ export default class EmbeddedMap extends Component {
       const suggestionLng = parseFloat(s.location.lng)
       return suggestionLat === latLng.lat() && suggestionLng === latLng.lng()
     })
-    const suggestionInfo = "<p>" + suggestion.label +"</p>"
-    $("form").after(suggestionInfo)
+    this.setState({
+      currentSuggestion: suggestion,
+      suggestionInfoIsActive: true,
+      tabIndex: 1,
+    });
   }
 
   render() {
@@ -90,7 +100,17 @@ export default class EmbeddedMap extends Component {
             <h4>Drop a Pin</h4>
             <SuggestionForm
               setSuggestion={this.setSuggestion}
+              getSuggestions={this.getSuggestions}
               suggestionPin={this.state.suggestionPin} />
+          </article>
+          <article className="suggestion-info" >
+            <h4>Suggestion Info</h4>
+            <p>(click an existing pin to find out more)</p>
+            <section className="text" style={{ display: this.state.suggestionInfoIsActive ? "initial" : "none" }}>
+              <p>Label: { this.state.currentSuggestion && this.state.currentSuggestion.label}</p>
+              <p>Description: { this.state.currentSuggestion && this.state.currentSuggestion.description}</p>
+              <p>Category: { this.state.currentSuggestion && this.state.currentSuggestion.category}</p>
+            </section>
           </article>
         </section>
       </article>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import { Notification } from 'react-notification';
 import '../stylesheets/App.css';
 
 export default class SuggestionForm extends Component {
@@ -10,6 +11,9 @@ export default class SuggestionForm extends Component {
       description: '',
       category: '',
       message: '',
+      suggestionSent: false,
+      suggestionFailed: false,
+      formNotification: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,6 +28,7 @@ export default class SuggestionForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    let self = this;
     $.ajax({
       url: "http://spoken-api.herokuapp.com/api/v1/suggestion_pins?api_key="+process.env.REACT_APP_RAILS_KEY,
       method: "POST",
@@ -39,12 +44,25 @@ export default class SuggestionForm extends Component {
       },
       dataType: "json"
     }).done(function(data) {
-      $("form p").remove();
-      $("form").append("<p class='success'>Suggestion made!</p>");
+      self.props.getSuggestions();
+      self.props.setSuggestion({});
+      self.setState({
+        formNotification: "Suggestion sent!",
+        suggestionSent: true,
+      });
     }).fail(function(error) {
-      $("form p").remove();
-      $("form").append("<p class='error'>"+error.responseJSON["error"]+"</p>")
+      self.setState({
+        formNotification: error.responseJSON["error"],
+        suggestionFailed: true,
+      });
     });
+  }
+
+  deactivate() {
+    this.setState({
+      suggestionSent: false,
+      suggestionFailed: false,
+    })
   }
 
   render() {
@@ -54,7 +72,7 @@ export default class SuggestionForm extends Component {
           <input required type="text" name="label" value={this.state.label} onChange={this.handleChange} placeholder="Label" />
           <textarea required name="description" value={this.state.description} onChange={this.handleChange} placeholder="Description"/>
           <select required name="category" value={this.state.category} onChange={this.handleChange} >
-            <option disabled>--Category--</option>
+            <option value="">--Category--</option>
             <option value="0">Place to stay</option>
             <option value="1">Cool spot</option>
             <option value="2">Avoid this place</option>
@@ -64,7 +82,13 @@ export default class SuggestionForm extends Component {
           <textarea name="message" value={this.state.message} onChange={this.handleChange} placeholder="What's up?"/>
           <input type={this.props.suggestionPin.lat === undefined ? "hidden" : "submit"} value="Send" />
         </form>
-        <p style={{display: this.props.suggestionPin.lat === undefined ? "initial" : "none"}}>Click the map to drop a pin!</p>
+        <h6 style={{display: this.props.suggestionPin.lat === undefined ? "initial" : "none"}}>Click the map to drop a pin!</h6>
+        <Notification
+          isActive={this.state.suggestionSent}
+          message={this.state.formNotification}
+          onClick={() => this.deactivate() }
+          action="✖"
+        />
       </article>
     );
   }

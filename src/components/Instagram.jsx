@@ -11,7 +11,7 @@ export default class Instagram extends Component {
   }
 
   componentDidMount() {
-    var self = this;
+    let self = this;
     $('#spinner').show();
     $.ajax({
       url: "http://spoken-api.herokuapp.com/api/v1/instagram_photos?api_key="+process.env.REACT_APP_RAILS_KEY,
