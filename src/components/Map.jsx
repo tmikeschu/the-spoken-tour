@@ -9,12 +9,12 @@ export default class Map extends Component {
                      position={this.props.suggestionPin}/>)
 
     const mapContainer = <div style={{ height: "100%", width: "100%" }} />
-    const markers = this.props.markers.map((pin, i) => {
+    const suggestionMarkers = this.props.suggestions.map((suggestion, i) => {
       const marker = {
         position: {
-          lat: pin.location.lat,
-          lng: pin.location.lng
-        }
+          lat: parseFloat(suggestion.location.lat),
+          lng: parseFloat(suggestion.location.lng),
+        },
       }
       return <Marker key={i} {...marker} />
     })
@@ -23,7 +23,7 @@ export default class Map extends Component {
       const lat = props.latLng.lat();
       const lng = props.latLng.lng();
       const position = { lat: lat, lng: lng }
-      map.props.addSuggestion(position)
+      map.props.setSuggestion(position)
     }
 
     return(
@@ -38,7 +38,7 @@ export default class Map extends Component {
               streetViewControl: true,
               myTypeControl: false,
             }}>
-            { markers }
+            { suggestionMarkers }
             { suggestion }
           </GoogleMap>
       } />

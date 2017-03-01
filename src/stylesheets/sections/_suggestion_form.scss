@@ -1,0 +1,63 @@
+.suggestion-form {
+  width: 99%;
+  form {
+    display: flex;
+    border: 2px solid $green;
+    flex-flow: column nowrap;
+    width: 95%;
+    margin: 0 auto;
+    textarea {
+      font-size: 1.2em;
+      resize: none;
+      height: 4em;
+    }
+    input {
+      font-size: 1.2em;
+      width: 95%;
+      margin-bottom: 5%;
+      &[type="submit"] {
+        margin-top: 5%;
+        width: 25%;
+        align-self: center;
+        border: none;
+        background-color: $lilac;
+        border-radius: 5px;
+        color: white;
+        &:hover {
+          background-color: $blue;
+        }
+      }
+    }
+    >p {
+      &.success, &.error {
+        border-radius: 5px;
+        padding: 5px;
+        text-align: center;
+        margin: 0 auto;
+        font-size: 1.5em;
+      }
+      &.success {
+        background-color: lightgreen;
+        color: darkgreen;
+      }
+      &.error {
+        background-color: indianred;
+        color: darkred;
+      }
+    }
+  }
+  p {
+    text-align: center;
+    font-size: 1em;
+  }
+  @media (max-width: 640px) {
+    width: 100%;
+    form {
+      width: 90%;
+      input, textarea {
+        border: 1px solid #aaa;
+      }
+    }
+  }
+}
+
