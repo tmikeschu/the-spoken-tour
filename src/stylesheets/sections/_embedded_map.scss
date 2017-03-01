@@ -29,6 +29,9 @@ article.embedded-map {
     display: column;
     .legend {
       border: 1px dotted $yellow;
+      img {
+        width: 7%;
+      }
       h4 {
         font-size: 1.8em;
         text-align: center;

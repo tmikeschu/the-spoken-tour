@@ -15,24 +15,35 @@ export default class EmbeddedMap extends Component {
       suggestions: [],
       currentSuggestion: null,
       suggestionInfoIsActive: false,
+      currentLocation: null,
     }
     this.setSuggestion = this.setSuggestion.bind(this)
     this.getSuggestions = this.getSuggestions.bind(this)
+    this.getCurrentLocation = this.getCurrentLocation.bind(this)
     this.showSuggestionInfo = this.showSuggestionInfo.bind(this)
   }
 
   componentDidMount() {
     this.getSuggestions();
+    this.getCurrentLocation();
+  }
+
+  getCurrentLocation() {
+    this.getApiObjects("http://spoken-api.herokuapp.com/api/v1/current_location", "currentLocation")
   }
 
   getSuggestions() {
+    this.getApiObjects("http://spoken-api.herokuapp.com/api/v1/suggestion_pins", "suggestions")
+  }
+
+  getApiObjects(url, state) {
     let self = this;
     $.ajax({
-      url: "http://spoken-api.herokuapp.com/api/v1/suggestion_pins?api_key="+process.env.REACT_APP_RAILS_KEY,
+      url: url + "?api_key=" + process.env.REACT_APP_RAILS_KEY,
       method: "GET",
     }).done(function(response) {
       self.setState({
-        suggestions: response,
+        [state]: response,
       })
     }).fail(function(error) {
       console.error("No");
@@ -79,6 +90,7 @@ export default class EmbeddedMap extends Component {
               setSuggestion={this.setSuggestion}
               showSuggestionInfo={this.showSuggestionInfo}
               suggestions={this.state.suggestions}
+              currentLocation={this.state.currentLocation}
               suggestionPin={this.state.suggestionPin}/>
           </TabPanel>
         </Tabs>
@@ -86,8 +98,9 @@ export default class EmbeddedMap extends Component {
           <article className="legend">
             <h4>Legend</h4>
             <ul>
-              <li><span style={{color: "#A00"}}>◉</span> → That's Us!</li>
+              <li><span><img src="http://maps.google.com/mapfiles/ms/icons/cycling.png" alt=""/></span> → That's Us!</li>
               <li><span style={{color: "#1267FF"}}>◉</span> → Planned Route</li>
+              <li><span style={{color: "#FB7064"}}>◉</span> → Suggestions</li>
             </ul>
           </article>
           <article className="info">

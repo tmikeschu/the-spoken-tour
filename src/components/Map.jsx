@@ -3,6 +3,18 @@ import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps';
 
 export default class Map extends Component {
   render() {
+    const currentLatLng = {
+      lat: parseFloat(this.props.currentLocation.location.lat),
+      lng: parseFloat(this.props.currentLocation.location.lng),
+    }
+    const currentLocation = (
+      <Marker position={currentLatLng}
+        animation={2}
+        label={"Here We Are!"}
+        icon={"http://maps.google.com/mapfiles/ms/icons/cycling.png"}
+        options={{clickable: true}}/>
+    )
+
     let suggestion;
     if (this.props.suggestionPin.lat !== undefined) {
       suggestion = (
@@ -51,6 +63,7 @@ export default class Map extends Component {
               streetViewControl: true,
               myTypeControl: false,
             }}>
+            { currentLocation }
             { suggestionMarkers }
             { suggestion }
           </GoogleMap>

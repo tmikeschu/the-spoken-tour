@@ -273,6 +273,8 @@ article.embedded-map {
     display: column; }
     article.embedded-map section .legend {
       border: 1px dotted #FFB72E; }
+      article.embedded-map section .legend img {
+        width: 7%; }
       article.embedded-map section .legend h4 {
         font-size: 1.8em;
         text-align: center; }
