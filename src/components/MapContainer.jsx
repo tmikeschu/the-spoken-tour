@@ -44,7 +44,13 @@ export default class MapContainer extends Component {
 
     return (
       <div style={fullHeightAndWidth}>
-        <Map zoom={mapZoom} center={mapCenter} markers={markers} denverRoute={this.state.denverRoute}/>
+        <Map
+          addSuggestion={this.props.addSuggestion}
+          suggestionPin={this.props.suggestionPin}
+          zoom={mapZoom}
+          center={mapCenter}
+          markers={markers}
+          denverRoute={this.state.denverRoute}/>
       </div>
     )
   }

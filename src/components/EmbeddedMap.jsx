@@ -5,12 +5,28 @@ import '../stylesheets/App.css';
 
 
 export default class EmbeddedMap extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      suggestionPin: {},
+      tabIndex: 0,
+    }
+    this.addSuggestion = this.addSuggestion.bind(this)
+  }
+
+  addSuggestion(position) {
+    this.setState({
+      suggestionPin: position,
+      tabIndex: 1,
+    })
+  }
+
   render() {
     return (
       <article className="embedded-map">
         <Tabs
           onSelect={this.handleSelect}
-          selectedIndex={0}
+          selectedIndex={this.state.tabIndex}
         >
           <TabList>
             <Tab>The Route</Tab>
@@ -21,7 +37,9 @@ export default class EmbeddedMap extends Component {
             <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1MNLYaokz7yXKh23E79fRcGDv1_s"></iframe>
           </TabPanel>
           <TabPanel>
-            <MapContainer />
+            <MapContainer
+              addSuggestion={this.addSuggestion}
+              suggestionPin={this.state.suggestionPin}/>
           </TabPanel>
         </Tabs>
         <section>
