@@ -242,45 +242,48 @@ article.home {
 
 article.embedded-map {
   background-color: #fff;
-  padding-bottom: 10em;
+  padding-bottom: 1em;
   max-width: 1000px;
   margin: 1% auto;
   display: flex;
   flex-flow: row wrap; }
-  article.embedded-map h3 {
-    width: 100%;
-    font-size: 3em;
-    margin-left: 18%;
-    color: #FFB72E;
-    text-shadow: 1px 1px #003307; }
-  article.embedded-map .ReactTabs.react-tabs {
-    width: 60%; }
-    article.embedded-map .ReactTabs.react-tabs iframe {
-      width: 100%;
-      height: 50em;
-      background-image: url("../loading.gif");
-      background-repeat: no-repeat;
-      background-position: 50% 50%; }
+  article.embedded-map .ReactTabs {
+    border-top: 1px dotted #FFB72E; }
+    article.embedded-map .ReactTabs.react-tabs {
+      width: 60%; }
+      article.embedded-map .ReactTabs.react-tabs iframe {
+        width: 100%;
+        height: 100vh;
+        background-image: url("../loading.gif");
+        background-repeat: no-repeat;
+        background-position: 50% 50%; }
+  article.embedded-map h4 {
+    text-shadow: 1px 1px #5399FF; }
   article.embedded-map section {
     width: 40%;
-    display: column; }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
     article.embedded-map section .legend {
-      border: 1px dotted #FFB72E; }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px dotted #FFB72E;
+      color: #003307; }
       article.embedded-map section .legend img {
         width: 7%; }
       article.embedded-map section .legend h4 {
-        font-size: 1.8em;
-        text-align: center; }
+        width: 50%;
+        text-align: center;
+        margin: 2% auto; }
       article.embedded-map section .legend ul {
         margin: 5% auto;
-        width: 80%; }
+        width: 50%; }
         article.embedded-map section .legend ul li {
-          font-size: 1.3em;
           margin: 10px 0; }
     article.embedded-map section .info {
       background: #FFB72E;
       color: #fff;
-      margin: 2% 0;
       font-size: 1.1em;
       padding: 5px;
       text-align: center; }
@@ -291,32 +294,43 @@ article.embedded-map {
         article.embedded-map section .info p:nth-of-type(2) span {
           text-decoration: underline; }
     article.embedded-map section .pin-form {
-      background: #B2782F;
-      color: #fff;
-      padding: 5px;
-      margin: 5% 0; }
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px dotted #FFB72E;
+      color: #003307;
+      padding: 5px; }
       article.embedded-map section .pin-form h4 {
-        font-size: 2em;
         text-align: center; }
       article.embedded-map section .pin-form p {
         font-style: italic; }
+    article.embedded-map section .suggestion-info {
+      border: 1px dotted #FFB72E;
+      display: flex;
+      flex-direction: column; }
+      article.embedded-map section .suggestion-info h4, article.embedded-map section .suggestion-info p, article.embedded-map section .suggestion-info section {
+        margin: 2% 1%; }
+      article.embedded-map section .suggestion-info h4, article.embedded-map section .suggestion-info p {
+        text-align: center; }
+      article.embedded-map section .suggestion-info section {
+        width: 100%; }
+        article.embedded-map section .suggestion-info section p {
+          margin: 1% 0;
+          text-align: left; }
   @media (max-width: 640px) {
-    article.embedded-map h3 {
-      font-size: 2em;
-      margin-left: 25%; }
     article.embedded-map .ReactTabs.react-tabs {
       width: 70%; }
       article.embedded-map .ReactTabs.react-tabs iframe {
         height: 34em; }
     article.embedded-map section {
       width: 30%; }
-      article.embedded-map section .legend h4 {
-        font-size: 1.3em; }
-      article.embedded-map section .legend ul {
-        margin: 0;
-        width: 100%; }
-        article.embedded-map section .legend ul li {
-          font-size: .5em; }
+      article.embedded-map section .legend {
+        flex-direction: column; }
+        article.embedded-map section .legend h4 {
+          font-size: 1em; }
+        article.embedded-map section .legend ul {
+          width: 100%; }
+          article.embedded-map section .legend ul li {
+            font-size: .5em;
+            margin-left: 5%; }
       article.embedded-map section .info {
         font-size: .7em;
         padding: 1px;
@@ -327,8 +341,12 @@ article.embedded-map {
         padding: 1px; }
         article.embedded-map section .pin-form h4 {
           font-size: 1em; }
+        article.embedded-map section .pin-form input, article.embedded-map section .pin-form textarea, article.embedded-map section .pin-form select {
+          font-size: .5em; }
         article.embedded-map section .pin-form p {
-          font-size: .5em; } }
+          font-size: .5em; }
+      article.embedded-map section .suggestion-info {
+        font-size: .5em; } }
 
 .instagram {
   background-color: #fff;
@@ -511,45 +529,35 @@ article.embedded-map {
   width: 99%; }
   .suggestion-form form {
     display: flex;
-    border: 2px solid #003307;
     flex-flow: column nowrap;
     width: 95%;
     margin: 0 auto; }
-    .suggestion-form form textarea {
-      font-family: "Cabin", sans-serif;
+    .suggestion-form form textarea, .suggestion-form form input, .suggestion-form form select {
+      margin: 3% 0;
+      width: 95;
       font-size: 1.2em;
+      border: none;
+      font-family: "Cabin", sans-serif; }
+    .suggestion-form form textarea {
       resize: none;
       height: 4em; }
-    .suggestion-form form select {
-      font-family: "Cabin", sans-serif; }
-    .suggestion-form form input {
-      font-family: "Cabin", sans-serif;
-      font-size: 1.2em;
-      width: 95%;
-      margin-bottom: 5%; }
-      .suggestion-form form input[type="submit"] {
-        margin-top: 5%;
-        width: 25%;
-        align-self: center;
-        border: none;
-        background-color: #98B4F5;
-        border-radius: 5px;
-        color: white; }
-        .suggestion-form form input[type="submit"]:hover {
-          background-color: #5399FF; }
-    .suggestion-form form > p.success, .suggestion-form form > p.error {
+    .suggestion-form form input[type="submit"] {
+      width: 25%;
+      align-self: center;
+      background-color: #98B4F5;
       border-radius: 5px;
-      padding: 5px;
-      text-align: center;
-      margin: 0 auto;
-      font-size: 1.5em; }
+      color: white; }
+      .suggestion-form form input[type="submit"]:hover, .suggestion-form form input[type="submit"]:focus {
+        background-color: #5399FF; }
   .suggestion-form p {
     text-align: center;
-    font-size: 1em; }
+    width: 100%; }
   @media (max-width: 640px) {
     .suggestion-form {
       width: 100%; }
       .suggestion-form form {
         width: 90%; }
         .suggestion-form form input, .suggestion-form form textarea {
-          border: 1px solid #aaa; } }
+          border: 1px solid #aaa; }
+        .suggestion-form form input[type="submit"] {
+          width: 100%; } }

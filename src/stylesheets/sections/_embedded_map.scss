@@ -1,46 +1,49 @@
 article.embedded-map {
   background-color: #fff;
-  padding-bottom: 10em;
+  padding-bottom: 1em;
   max-width: 1000px;
   margin: 1% auto;
   display: flex;
   flex-flow: row wrap;
-  h3 {
-    width: 100%;
-    font-size: 3em;
-    margin-left: 18%;
-    color: $yellow;
-    text-shadow: 1px 1px $green;
-  }
   .ReactTabs {
+      border-top: 1px dotted $yellow;
       &.react-tabs {
       width: 60%;
       iframe {
         width: 100%;
-        height: 50em;
+        height: 100vh;
         background-image: url("../loading.gif");
         background-repeat: no-repeat;
         background-position: 50% 50%;
       }
     }
   }
+  h4 {
+    text-shadow: 1px 1px $blue;
+  }
   section {
     width: 40%;
-    display: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .legend {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       border: 1px dotted $yellow;
+      color: $green;
       img {
         width: 7%;
       }
       h4 {
-        font-size: 1.8em;
+        width: 50%;
         text-align: center;
+        margin: 2% auto;
       }
       ul {
         margin: 5% auto;
-        width: 80%;
+        width: 50%;
         li {
-          font-size: 1.3em;
           margin: 10px 0;
         }
       }
@@ -48,7 +51,6 @@ article.embedded-map {
     .info {
       background: $yellow;
       color: #fff;
-      margin: 2% 0;
       font-size: 1.1em;
       padding: 5px;
       text-align: center;
@@ -64,25 +66,37 @@ article.embedded-map {
       }
     }
     .pin-form {
-      background: $brown;
-      color: #fff;
+      background: rgba(0,0,0,.1);
+      border: 1px dotted $yellow;
+      color: $green;
       padding: 5px;
-      margin: 5% 0;
       h4 {
-        font-size: 2em;
         text-align: center;
       }
       p {
         font-style: italic;
       }
     }
+    .suggestion-info {
+      border: 1px dotted $yellow;
+      display: flex;
+      flex-direction: column;
+      h4, p, section {
+        margin: 2% 1%;
+      }
+      h4, p {
+        text-align: center;
+      }
+      section {
+        width: 100%;
+        p {
+          margin: 1% 0;
+          text-align: left;
+        }
+      }
+    }
   }
   @media (max-width: 640px) {
-    h3 {
-      font-size: 2em;
-      margin-left: 25%;
-    }
-
     .ReactTabs {
       &.react-tabs {
         width: 70%;
@@ -94,14 +108,15 @@ article.embedded-map {
     section {
       width: 30%;
       .legend {
+        flex-direction: column;
         h4 {
-          font-size: 1.3em;
+          font-size: 1em;
         }
         ul {
-          margin: 0;
           width: 100%;
           li {
             font-size: .5em;
+            margin-left: 5%;
           }
         }
       }
@@ -120,9 +135,15 @@ article.embedded-map {
         h4 {
           font-size: 1em;
         }
+        input, textarea, select {
+          font-size: .5em;
+        }
         p {
           font-size: .5em;
         }
+      }
+      .suggestion-info {
+        font-size: .5em;
       }
     }
 

@@ -98,8 +98,8 @@ export default class EmbeddedMap extends Component {
           <article className="legend">
             <h4>Legend</h4>
             <ul>
-              <li><span><img src="http://maps.google.com/mapfiles/ms/icons/cycling.png" alt=""/></span> → That's Us!</li>
               <li><span style={{color: "#1267FF"}}>◉</span> → Planned Route</li>
+              <li><span><img src="http://maps.google.com/mapfiles/ms/icons/cycling.png" alt=""/></span> → That's Us!</li>
               <li><span style={{color: "#FB7064"}}>◉</span> → Suggestions</li>
             </ul>
           </article>

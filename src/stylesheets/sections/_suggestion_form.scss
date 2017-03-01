@@ -2,50 +2,37 @@
   width: 99%;
   form {
     display: flex;
-    border: 2px solid $green;
     flex-flow: column nowrap;
     width: 95%;
     margin: 0 auto;
-    textarea {
-      font-family: $body-font;
+    textarea, input, select {
+      margin: 3% 0;
+      width: 95;
       font-size: 1.2em;
+      border: none;
+      font-family: $body-font;
+    }
+    textarea {
       resize: none;
       height: 4em;
     }
-    select {
-      font-family: $body-font;
-    }
     input {
-      font-family: $body-font;
-      font-size: 1.2em;
-      width: 95%;
-      margin-bottom: 5%;
       &[type="submit"] {
-        margin-top: 5%;
         width: 25%;
         align-self: center;
-        border: none;
+        // border: none;
         background-color: $lilac;
         border-radius: 5px;
         color: white;
-        &:hover {
+        &:hover, &:focus {
           background-color: $blue;
         }
-      }
-    }
-    >p {
-      &.success, &.error {
-        border-radius: 5px;
-        padding: 5px;
-        text-align: center;
-        margin: 0 auto;
-        font-size: 1.5em;
       }
     }
   }
   p {
     text-align: center;
-    font-size: 1em;
+    width: 100%;
   }
   @media (max-width: 640px) {
     width: 100%;
@@ -53,6 +40,11 @@
       width: 90%;
       input, textarea {
         border: 1px solid #aaa;
+      }
+      input {
+        &[type="submit"] {
+          width: 100%;
+        }
       }
     }
   }

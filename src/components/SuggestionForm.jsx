@@ -67,7 +67,7 @@ export default class SuggestionForm extends Component {
 
   render() {
     return (
-      <article className="component-container suggestion-form">
+      <article className="suggestion-form">
         <form onSubmit={this.handleSubmit}>
           <input required type="text" name="label" value={this.state.label} onChange={this.handleChange} placeholder="Label" />
           <textarea required name="description" value={this.state.description} onChange={this.handleChange} placeholder="Description"/>
@@ -80,9 +80,9 @@ export default class SuggestionForm extends Component {
             <option value="4">Other</option>
           </select>
           <textarea name="message" value={this.state.message} onChange={this.handleChange} placeholder="What's up?"/>
-          <input type={this.props.suggestionPin.lat === undefined ? "hidden" : "submit"} value="Send" />
+          <input type={this.props.suggestionPin.lat === undefined ? "hidden" : "submit"} value="Drop It!" />
         </form>
-        <h6 style={{display: this.props.suggestionPin.lat === undefined ? "initial" : "none"}}>Click the map to drop a pin!</h6>
+        <p style={{display: this.props.suggestionPin.lat === undefined ? "block" : "none"}}>Click the suggestion map to drop a pin!</p>
         <Notification
           isActive={this.state.suggestionSent}
           message={this.state.formNotification}
