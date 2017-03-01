@@ -4,7 +4,7 @@ import Map from './Map';
 
 export default class MapContainer extends Component {
   render() {
-    const fullHeightAndWidth = { width: '100%', height: '50em' };
+    const fullHeightAndWidth = { width: '100%', height: '100vh' };
     const mapCenter = {
       lat: -1.6246706849414423,
       lng: -85.56376812500002
