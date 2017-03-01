@@ -260,17 +260,21 @@ article.embedded-map {
     margin-left: 18%;
     color: #FFB72E;
     text-shadow: 1px 1px #003307; }
-  article.embedded-map iframe {
-    width: 60%;
-    height: 49em;
-    background-image: url("../loading.gif");
-    background-repeat: no-repeat;
-    background-position: 50% 50%; }
+  article.embedded-map .ReactTabs.react-tabs {
+    width: 60%; }
+    article.embedded-map .ReactTabs.react-tabs iframe {
+      width: 100%;
+      height: 50em;
+      background-image: url("../loading.gif");
+      background-repeat: no-repeat;
+      background-position: 50% 50%; }
   article.embedded-map section {
     width: 40%;
     display: column; }
     article.embedded-map section .legend {
       border: 1px dotted #FFB72E; }
+      article.embedded-map section .legend img {
+        width: 7%; }
       article.embedded-map section .legend h4 {
         font-size: 1.8em;
         text-align: center; }
@@ -307,15 +311,17 @@ article.embedded-map {
     article.embedded-map h3 {
       font-size: 2em;
       margin-left: 25%; }
-    article.embedded-map iframe {
-      width: 70%;
-      height: 34em; }
+    article.embedded-map .ReactTabs.react-tabs {
+      width: 70%; }
+      article.embedded-map .ReactTabs.react-tabs iframe {
+        height: 34em; }
     article.embedded-map section {
       width: 30%; }
       article.embedded-map section .legend h4 {
         font-size: 1.3em; }
       article.embedded-map section .legend ul {
-        margin: 0; }
+        margin: 0;
+        width: 100%; }
         article.embedded-map section .legend ul li {
           font-size: .5em; }
       article.embedded-map section .info {
@@ -506,4 +512,51 @@ article.embedded-map {
       .contact-form form {
         width: 90%; }
         .contact-form form input, .contact-form form textarea {
+          border: 1px solid #aaa; } }
+
+.suggestion-form {
+  width: 99%; }
+  .suggestion-form form {
+    display: flex;
+    border: 2px solid #003307;
+    flex-flow: column nowrap;
+    width: 95%;
+    margin: 0 auto; }
+    .suggestion-form form textarea {
+      font-family: "Cabin", sans-serif;
+      font-size: 1.2em;
+      resize: none;
+      height: 4em; }
+    .suggestion-form form select {
+      font-family: "Cabin", sans-serif; }
+    .suggestion-form form input {
+      font-family: "Cabin", sans-serif;
+      font-size: 1.2em;
+      width: 95%;
+      margin-bottom: 5%; }
+      .suggestion-form form input[type="submit"] {
+        margin-top: 5%;
+        width: 25%;
+        align-self: center;
+        border: none;
+        background-color: #98B4F5;
+        border-radius: 5px;
+        color: white; }
+        .suggestion-form form input[type="submit"]:hover {
+          background-color: #5399FF; }
+    .suggestion-form form > p.success, .suggestion-form form > p.error {
+      border-radius: 5px;
+      padding: 5px;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 1.5em; }
+  .suggestion-form p {
+    text-align: center;
+    font-size: 1em; }
+  @media (max-width: 640px) {
+    .suggestion-form {
+      width: 100%; }
+      .suggestion-form form {
+        width: 90%; }
+        .suggestion-form form input, .suggestion-form form textarea {
           border: 1px solid #aaa; } }

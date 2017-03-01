@@ -12,18 +12,26 @@ article.embedded-map {
     color: $yellow;
     text-shadow: 1px 1px $green;
   }
-  iframe {
-    width: 60%;
-    height: 49em;
-    background-image: url("../loading.gif");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+  .ReactTabs {
+      &.react-tabs {
+      width: 60%;
+      iframe {
+        width: 100%;
+        height: 50em;
+        background-image: url("../loading.gif");
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+    }
   }
   section {
     width: 40%;
     display: column;
     .legend {
       border: 1px dotted $yellow;
+      img {
+        width: 7%;
+      }
       h4 {
         font-size: 1.8em;
         text-align: center;
@@ -74,9 +82,14 @@ article.embedded-map {
       font-size: 2em;
       margin-left: 25%;
     }
-    iframe {
-      width: 70%;
-      height: 34em;
+
+    .ReactTabs {
+      &.react-tabs {
+        width: 70%;
+        iframe {
+          height: 34em;
+        }
+      }
     }
     section {
       width: 30%;
@@ -86,6 +99,7 @@ article.embedded-map {
         }
         ul {
           margin: 0;
+          width: 100%;
           li {
             font-size: .5em;
           }
