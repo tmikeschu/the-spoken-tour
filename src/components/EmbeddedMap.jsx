@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import $ from 'jquery';
 import MapContainer from './MapContainer'
+import SuggestionForm from './SuggestionForm'
 import '../stylesheets/App.css';
 
 
@@ -10,11 +12,26 @@ export default class EmbeddedMap extends Component {
     this.state = {
       suggestionPin: {},
       tabIndex: 0,
+      suggestions: [],
     }
-    this.addSuggestion = this.addSuggestion.bind(this)
+    this.setSuggestion = this.setSuggestion.bind(this)
   }
 
-  addSuggestion(position) {
+  componentDidMount() {
+    var self = this;
+    $.ajax({
+      url: "http://spoken-api.herokuapp.com/api/v1/suggestion_pins?api_key="+process.env.REACT_APP_RAILS_KEY,
+      method: "GET",
+    }).done(function(response) {
+      self.setState({
+        suggestions: response,
+      })
+    }).fail(function(error) {
+      console.error("No");
+    });
+  }
+
+  setSuggestion(position) {
     this.setState({
       suggestionPin: position,
       tabIndex: 1,
@@ -38,7 +55,8 @@ export default class EmbeddedMap extends Component {
           </TabPanel>
           <TabPanel>
             <MapContainer
-              addSuggestion={this.addSuggestion}
+              setSuggestion={this.setSuggestion}
+              suggestions={this.state.suggestions}
               suggestionPin={this.state.suggestionPin}/>
           </TabPanel>
         </Tabs>
@@ -58,7 +76,9 @@ export default class EmbeddedMap extends Component {
           </article>
           <article className="pin-form">
             <h4>Drop a Pin</h4>
-            <p>...coming soon!</p>
+            <SuggestionForm
+              setSuggestion={this.setSuggestion}
+              suggestionPin={this.state.suggestionPin} />
           </article>
         </section>
       </article>

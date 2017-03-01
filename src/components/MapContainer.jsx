@@ -1,30 +1,8 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 
 import Map from './Map';
 
 export default class MapContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    }
-  }
-
-  componentDidMount() {
-    var self = this;
-    $.ajax({
-      url: ""+process.env.REACT_APP_RAILS_KEY,
-      method: "GET",
-    }).done(function(response) {
-      self.setState({
-        // state set
-      })
-    }).fail(function(error) {
-      console.error("No");
-    });
-  }
-
-
   render() {
     const fullHeightAndWidth = { width: '100%', height: '50em' };
     const mapCenter = {
@@ -33,24 +11,14 @@ export default class MapContainer extends Component {
     };
     const mapZoom = 3;
 
-    const markers = [
-      {
-        location: {
-          lat: 39.7392,
-          lng: -104.9903
-        }
-      }
-    ]
-
     return (
       <div style={fullHeightAndWidth}>
         <Map
-          addSuggestion={this.props.addSuggestion}
+          setSuggestion={this.props.setSuggestion}
           suggestionPin={this.props.suggestionPin}
           zoom={mapZoom}
           center={mapCenter}
-          markers={markers}
-          denverRoute={this.state.denverRoute}/>
+          suggestions={this.props.suggestions}/>
       </div>
     )
   }
