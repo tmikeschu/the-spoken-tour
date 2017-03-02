@@ -133,7 +133,7 @@ export default class EmbeddedMap extends Component {
                 suggestionPin={this.state.suggestionPin} />
             </article>
           </div>
-          <article className="suggestion-info" >
+          <article className="suggestion-info" style={{display: this.state.tabIndex === 0 ? "none" : "block"}}>
             <h4>Suggestion Info</h4>
             <p style={{display: this.state.currentSuggestion ? "none" : "block"}}>(click an existing pin on the suggestions map)</p>
             <section className="text" style={{ display: this.state.suggestionInfoIsActive ? "initial" : "none" }}>
