@@ -45,7 +45,7 @@ export default class Instagram extends Component {
 
     return (
       <div className="instagram">
-        <article className="photos">
+        <article className="photos" style={{backgroundImage: this.state.instagramPhotos[0] === undefined ? "none" : 'url("../loading.gif")'}}>
           <section>
             <h3>See Our Journey</h3>
             <a href="https://www.instagram.com/thespokentour/">Follow us!<img src="http://www.underconsideration.com/brandnew/archives/instagram_2016_icon.jpg" alt="instagram"/></a>
