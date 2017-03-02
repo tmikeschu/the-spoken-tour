@@ -373,8 +373,9 @@ article.embedded-map {
   padding-bottom: 4%;
   display: flex;
   flex-direction: column;
+  background-image: url("../loading.gif");
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: 50% 100px;
   background-size: 20%; }
   .instagram .photos {
     width: 100%;
@@ -442,6 +443,13 @@ article.embedded-map {
         align-items: flex-start; }
       .instagram .photos div {
         flex-direction: column; }
+        .instagram .photos div:nth-of-type(even) {
+          background-color: black;
+          color: white; }
+          .instagram .photos div:nth-of-type(even) a {
+            order: 1; }
+          .instagram .photos div:nth-of-type(even) section {
+            order: 2; }
         .instagram .photos div a {
           order: 1; }
           .instagram .photos div a img {
