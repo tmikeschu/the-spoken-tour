@@ -5,6 +5,7 @@ import { Router, Route, browserHistory } from 'react-router'
 // Components
 import App from './components/App.jsx';
 import Home from './components/Home.jsx';
+import Landing from './components/Landing.jsx';
 import About from './components/About.jsx';
 import Instagram from './components/Instagram.jsx';
 import EmbeddedMap from './components/EmbeddedMap.jsx';
@@ -19,6 +20,7 @@ const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Home}/>
     <Route component={App}>
+      <Route path="landing" component={Landing} />
       <Route path="about" component={About} />
       <Route path="instagram" component={Instagram} />
       <Route path="map" component={EmbeddedMap} />

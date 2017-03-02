@@ -456,9 +456,9 @@ article.embedded-map {
 
 .contact {
   max-width: 1000px;
-  margin: 15% auto;
+  margin: 5% auto;
   padding-bottom: 5%;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column; }
   .contact h3 {
@@ -478,10 +478,10 @@ article.embedded-map {
         margin: 1% 2%; } }
 
 .podcast {
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
   max-width: 1000px;
   margin: 1% auto;
-  padding-bottom: 30em;
+  padding-bottom: 5em;
   text-align: center; }
   .podcast p {
     background-color: #5399FF;
@@ -505,7 +505,7 @@ article.embedded-map {
   width: 100%; }
   .contact-form form {
     display: flex;
-    border: 2px dashed #003307;
+    border: 2px dashed #FFB72E;
     flex-flow: column nowrap;
     padding: 10px;
     width: 50%;
@@ -527,7 +527,8 @@ article.embedded-map {
         background-color: #5399FF; }
   .contact-form p {
     text-align: center;
-    margin: 1% auto; }
+    margin: 1% auto;
+    color: #fff; }
   @media (max-width: 640px) {
     .contact-form {
       width: 100%; }
@@ -572,3 +573,26 @@ article.embedded-map {
           border: 1px solid #aaa; }
         .suggestion-form form input[type="submit"] {
           width: 100%; } }
+
+.landing {
+  width: 100%; }
+  .landing article {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3% auto;
+    padding: 4%;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 50%; }
+    .landing article a {
+      width: 45%;
+      margin: 6% -2%; }
+      .landing article a img {
+        width: 100%; }
+        .landing article a img:hover, .landing article a img:focus {
+          border: 10px solid #FFB72E;
+          width: 90%; }
+  @media (max-width: 640px) {
+    .landing article {
+      width: 90%; } }

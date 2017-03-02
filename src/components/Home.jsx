@@ -10,7 +10,7 @@ export default class Home extends Component {
       <article className="home">
         <img src="http://www.clipartbest.com/cliparts/7ca/6EB/7ca6EBkMi.png" alt="bicycle"/>
         <div className="content">
-          <Link to="/about">Pedal to our site!</Link>
+          <Link to="/landing">Pedal to our site!</Link>
         </div>
       </article>
     );

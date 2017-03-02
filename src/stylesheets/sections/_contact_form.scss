@@ -2,7 +2,7 @@
   width: 100%;
   form {
     display: flex;
-    border: 2px dashed $green;
+    border: 2px dashed $yellow;
     flex-flow: column nowrap;
     padding: 10px;
     width: 50%;
@@ -32,6 +32,7 @@
   p {
     text-align: center;
     margin: 1% auto;
+    color: #fff;
   }
   @media (max-width: 640px) {
     width: 100%;

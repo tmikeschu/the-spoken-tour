@@ -1,0 +1,30 @@
+.landing{
+  width: 100%;
+  article {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3% auto;
+    padding: 4%;
+    background-color: rgba(0,0,0,.5);
+    width: 50%;
+    a {
+      width: 45%;
+      margin: 6% -2%;
+      img {
+        width: 100%;
+        &:hover, &:focus {
+          border: 10px solid $yellow;
+          width: 90%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    article {
+      width: 90%;
+    }
+  }
+}
