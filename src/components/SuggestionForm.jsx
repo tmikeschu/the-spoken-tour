@@ -49,6 +49,10 @@ export default class SuggestionForm extends Component {
       self.setState({
         formNotification: "Suggestion sent!",
         suggestionSent: true,
+        label: '',
+        description: '',
+        category: '',
+        message: '',
       });
     }).fail(function(error) {
       self.setState({
@@ -80,6 +84,7 @@ export default class SuggestionForm extends Component {
             <option value="4">Other</option>
           </select>
           <textarea name="message" value={this.state.message} onChange={this.handleChange} placeholder="Optional Message (only seen by us)"/>
+          <p style={{display: this.props.suggestionPin.lat === undefined ? "block" : "none"}} value="Drop It!">Click the map to drop a pin!</p>
           <input type={this.props.suggestionPin.lat === undefined ? "hidden" : "submit"} value="Drop It!" />
         </form>
         <Notification

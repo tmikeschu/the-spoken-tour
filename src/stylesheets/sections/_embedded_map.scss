@@ -95,7 +95,10 @@ article.embedded-map {
         width: 100%;
         p {
           margin: 1% 0;
-          text-align: left;
+          span {
+            font-weight: bold;
+            color: $brown;
+          }
         }
       }
     }

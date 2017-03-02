@@ -111,9 +111,9 @@ export default class EmbeddedMap extends Component {
           <article className="legend">
             <h4>Legend</h4>
             <ul>
-              <li><span style={{color: "#1267FF"}}>◉</span> → Planned Route</li>
-              <li><span><img src="http://maps.google.com/mapfiles/ms/icons/cycling.png" alt=""/></span> → That's Us!</li>
-              <li><span style={{color: "#FB7064"}}>◉</span> → Suggestions</li>
+              <li style={{display: this.state.tabIndex === 1 ? 'none' : 'block'}}><span style={{color: "#1267FF"}}>◉</span> → Planned Route</li>
+              <li style={{display: this.state.tabIndex === 0 ? 'none' : 'block'}}><span><img src="http://maps.google.com/mapfiles/ms/icons/cycling.png" alt=""/></span> → That's Us!</li>
+              <li style={{display: this.state.tabIndex === 0 ? 'none' : 'block'}}><span style={{color: "#FB7064"}}>◉</span> → Suggestions</li>
             </ul>
           </article>
           <div>
@@ -137,9 +137,9 @@ export default class EmbeddedMap extends Component {
             <h4>Suggestion Info</h4>
             <p style={{display: this.state.currentSuggestion ? "none" : "block"}}>(click an existing pin on the suggestions map)</p>
             <section className="text" style={{ display: this.state.suggestionInfoIsActive ? "initial" : "none" }}>
-              <p>Label: { this.state.currentSuggestion && this.state.currentSuggestion.label}</p>
-              <p>Description: { this.state.currentSuggestion && this.state.currentSuggestion.description}</p>
-              <p>Category: { this.state.currentSuggestion && categories[this.state.currentSuggestion.category]}</p>
+              <p><span>Label</span>: { this.state.currentSuggestion && this.state.currentSuggestion.label}</p>
+              <p><span>Description</span>: { this.state.currentSuggestion && this.state.currentSuggestion.description}</p>
+              <p><span>Category</span>: { this.state.currentSuggestion && categories[this.state.currentSuggestion.category]}</p>
             </section>
           </article>
         </section>
