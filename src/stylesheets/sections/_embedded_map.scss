@@ -26,7 +26,7 @@ article.embedded-map {
     width: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     .legend {
       display: flex;
       align-items: center;
@@ -49,33 +49,39 @@ article.embedded-map {
         }
       }
     }
-    .info {
-      background: $yellow;
-      color: #fff;
-      font-size: 1.1em;
-      padding: 5px;
-      text-align: center;
-      p {
-        &:nth-of-type(2) {
-          font-size: 1.5em;
-          text-align: center;
-          margin: 10px 0;
-          span {
-            text-decoration: underline;
+    div {
+      margin: 10% 0;
+      .info {
+        background: $yellow;
+        color: #fff;
+        font-size: 1.1em;
+        padding: 5px;
+        text-align: left;
+        p {
+          &:nth-of-type(2) {
+            font-size: 1.5em;
+            text-align: center;
+            margin: 10px 0;
+            span {
+              text-decoration: underline;
+            }
+          }
+          &:nth-of-type(3) {
+            text-align: center;
           }
         }
       }
-    }
-    .pin-form {
-      background: rgba(0,0,0,.1);
-      border: 1px dotted $yellow;
-      color: $green;
-      padding: 5px;
-      h4 {
-        text-align: center;
-      }
-      p {
-        font-style: italic;
+      .pin-form {
+        background: rgba(0,0,0,.1);
+        border: 1px dotted $yellow;
+        color: $green;
+        padding: 5px;
+        h4 {
+          text-align: center;
+        }
+        p {
+          font-style: italic;
+        }
       }
     }
     .suggestion-info {
@@ -121,26 +127,38 @@ article.embedded-map {
           }
         }
       }
-      .info {
-        font-size: .7em;
-        padding: 1px;
-        line-height: 1.5em;
-        p {
-          &:nth-of-type(3) {
-            font-size: .5em;
+      div {
+        .info {
+          font-size: .7em;
+          padding: 1px;
+          line-height: 1.5em;
+          font-size: .5em;
+          text-align: left;
+          p {
+            &:nth-of-type(2) {
+              text-align: center;
+              margin: 10px 0;
+              span {
+                font-size: 1em;
+                text-decoration: underline;
+              }
+            }
+            &:nth-of-type(3) {
+              text-align: center;
+            }
           }
         }
-      }
-      .pin-form {
-        padding: 1px;
-        h4 {
-          font-size: 1em;
-        }
-        input, textarea, select {
-          font-size: .5em;
-        }
-        p {
-          font-size: .5em;
+        .pin-form {
+          padding: 1px;
+          h4 {
+            font-size: 1em;
+          }
+          input, textarea, select {
+            font-size: .5em;
+          }
+          p {
+            font-size: .5em;
+          }
         }
       }
       .suggestion-info {

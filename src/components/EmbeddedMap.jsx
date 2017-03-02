@@ -83,7 +83,7 @@ export default class EmbeddedMap extends Component {
           </TabList>
 
           <TabPanel>
-            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1MNLYaokz7yXKh23E79fRcGDv1_s"></iframe>
+            <iframe frameBorder={0} scrolling="no" src="https://www.google.com/maps/d/u/0/embed?mid=1MNLYaokz7yXKh23E79fRcGDv1_s&ui=maps" allowFullScreen={false}></iframe>
           </TabPanel>
           <TabPanel>
             <MapContainer
@@ -103,19 +103,20 @@ export default class EmbeddedMap extends Component {
               <li><span style={{color: "#FB7064"}}>◉</span> → Suggestions</li>
             </ul>
           </article>
-          <article className="info">
-            <p>Have an amiga in Antigua?  A tía in Tijuana? Couch to crash on in Colombia? Bike shop in Bolivia?</p>
-            <p><span>Let</span> <span>us</span> <span>know</span>!</p>
-            <p>(Drop a pin on our map)</p>
-            <p>↓</p>
-          </article>
-          <article className="pin-form">
-            <h4>Drop a Pin</h4>
-            <SuggestionForm
-              setSuggestion={this.setSuggestion}
-              getSuggestions={this.getSuggestions}
-              suggestionPin={this.state.suggestionPin} />
-          </article>
+          <div>
+            <article className="info">
+              <p>Have an amiga in Antigua?  A tía in Tijuana? Couch to crash on in Colombia? Bike shop in Bolivia?</p>
+              <p><span>Let</span> <span>us</span> <span>know</span>!</p>
+              <p>↓</p>
+            </article>
+            <article className="pin-form">
+              <h4>Drop a Pin</h4>
+              <SuggestionForm
+                setSuggestion={this.setSuggestion}
+                getSuggestions={this.getSuggestions}
+                suggestionPin={this.state.suggestionPin} />
+            </article>
+          </div>
           <article className="suggestion-info" >
             <h4>Suggestion Info</h4>
             <p>(click an existing pin to find out more)</p>

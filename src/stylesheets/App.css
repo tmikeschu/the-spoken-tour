@@ -38,7 +38,8 @@ table {
 
 body {
   background-color: rgba(0, 0, 0, 0.2);
-  background: url("https://images.unsplash.com/photo-1477064200359-f0f9f7e3a9e8") no-repeat center center fixed; }
+  background: url("https://images.unsplash.com/photo-1477064200359-f0f9f7e3a9e8") no-repeat center center fixed;
+  background-size: 100% 100%; }
 
 body, ul, form, input {
   font-family: "Cabin", sans-serif;
@@ -197,7 +198,7 @@ article.about {
 
 article.home {
   background: url(../spoken-logo.jpg);
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: 50%;
   min-height: 60em;
@@ -228,6 +229,7 @@ article.home {
     article.home {
       min-height: 30em;
       background-position: 89%;
+      background-size: cover;
       justify-content: flex-end; }
       article.home img {
         display: none; }
@@ -237,6 +239,8 @@ article.home {
         margin-left: 0; }
         article.home .content a {
           text-align: center;
+          background-color: #fff;
+          padding: 10% 0;
           width: 100%;
           margin: 0; } }
 
@@ -264,7 +268,7 @@ article.embedded-map {
     width: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; }
+    justify-content: flex-start; }
     article.embedded-map section .legend {
       display: flex;
       align-items: center;
@@ -282,27 +286,31 @@ article.embedded-map {
         width: 50%; }
         article.embedded-map section .legend ul li {
           margin: 10px 0; }
-    article.embedded-map section .info {
-      background: #FFB72E;
-      color: #fff;
-      font-size: 1.1em;
-      padding: 5px;
-      text-align: center; }
-      article.embedded-map section .info p:nth-of-type(2) {
-        font-size: 1.5em;
-        text-align: center;
-        margin: 10px 0; }
-        article.embedded-map section .info p:nth-of-type(2) span {
-          text-decoration: underline; }
-    article.embedded-map section .pin-form {
-      background: rgba(0, 0, 0, 0.1);
-      border: 1px dotted #FFB72E;
-      color: #003307;
-      padding: 5px; }
-      article.embedded-map section .pin-form h4 {
-        text-align: center; }
-      article.embedded-map section .pin-form p {
-        font-style: italic; }
+    article.embedded-map section div {
+      margin: 10% 0; }
+      article.embedded-map section div .info {
+        background: #FFB72E;
+        color: #fff;
+        font-size: 1.1em;
+        padding: 5px;
+        text-align: left; }
+        article.embedded-map section div .info p:nth-of-type(2) {
+          font-size: 1.5em;
+          text-align: center;
+          margin: 10px 0; }
+          article.embedded-map section div .info p:nth-of-type(2) span {
+            text-decoration: underline; }
+        article.embedded-map section div .info p:nth-of-type(3) {
+          text-align: center; }
+      article.embedded-map section div .pin-form {
+        background: rgba(0, 0, 0, 0.1);
+        border: 1px dotted #FFB72E;
+        color: #003307;
+        padding: 5px; }
+        article.embedded-map section div .pin-form h4 {
+          text-align: center; }
+        article.embedded-map section div .pin-form p {
+          font-style: italic; }
     article.embedded-map section .suggestion-info {
       border: 1px dotted #FFB72E;
       display: flex;
@@ -332,19 +340,27 @@ article.embedded-map {
           article.embedded-map section .legend ul li {
             font-size: .5em;
             margin-left: 5%; }
-      article.embedded-map section .info {
+      article.embedded-map section div .info {
         font-size: .7em;
         padding: 1px;
-        line-height: 1.5em; }
-        article.embedded-map section .info p:nth-of-type(3) {
-          font-size: .5em; }
-      article.embedded-map section .pin-form {
+        line-height: 1.5em;
+        font-size: .5em;
+        text-align: left; }
+        article.embedded-map section div .info p:nth-of-type(2) {
+          text-align: center;
+          margin: 10px 0; }
+          article.embedded-map section div .info p:nth-of-type(2) span {
+            font-size: 1em;
+            text-decoration: underline; }
+        article.embedded-map section div .info p:nth-of-type(3) {
+          text-align: center; }
+      article.embedded-map section div .pin-form {
         padding: 1px; }
-        article.embedded-map section .pin-form h4 {
+        article.embedded-map section div .pin-form h4 {
           font-size: 1em; }
-        article.embedded-map section .pin-form input, article.embedded-map section .pin-form textarea, article.embedded-map section .pin-form select {
+        article.embedded-map section div .pin-form input, article.embedded-map section div .pin-form textarea, article.embedded-map section div .pin-form select {
           font-size: .5em; }
-        article.embedded-map section .pin-form p {
+        article.embedded-map section div .pin-form p {
           font-size: .5em; }
       article.embedded-map section .suggestion-info {
         font-size: .5em; } }

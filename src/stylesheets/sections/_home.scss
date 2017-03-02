@@ -1,6 +1,6 @@
 article.home {
   background: url(../spoken-logo.jpg);
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: 50%;
   min-height: 60em;
@@ -34,6 +34,7 @@ article.home {
   @media (max-width: 640px) {
     min-height: 30em;
     background-position: 89%;
+    background-size: cover;
     justify-content: flex-end;
     img {
       display: none;
@@ -44,6 +45,8 @@ article.home {
       margin-left: 0;
       a {
         text-align: center;
+        background-color: #fff;
+        padding: 10% 0;
         width: 100%;
         margin: 0;
       }

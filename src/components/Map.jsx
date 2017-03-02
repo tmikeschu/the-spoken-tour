@@ -10,7 +10,6 @@ export default class Map extends Component {
     const currentLocation = (
       <Marker position={currentLatLng}
         animation={2}
-        label={"Here We Are!"}
         icon={"http://maps.google.com/mapfiles/ms/icons/cycling.png"}
         options={{clickable: true}}/>
     )
