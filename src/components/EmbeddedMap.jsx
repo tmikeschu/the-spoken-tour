@@ -71,6 +71,13 @@ export default class EmbeddedMap extends Component {
   }
 
   render() {
+    const categories = {
+      "stay": "Place to stay",
+      "checkout": "Cool spot",
+      "avoid": "Avoid this place",
+      "bike_shop": "Bike shop",
+      "other": "Other",
+    }
     return (
       <article className="embedded-map">
         <Tabs
@@ -108,8 +115,11 @@ export default class EmbeddedMap extends Component {
               <p>Have an amiga in Antigua?  A tía in Tijuana? Couch to crash on in Colombia? Bike shop in Bolivia?</p>
               <p><span>Let</span> <span>us</span> <span>know</span>!</p>
               <p>↓</p>
+              <p style={{
+                textAlign: "center",
+                display: this.state.suggestionPin.lat === undefined ? "block" : "none"}}>(go to the suggestion map and click to drop a pin!)</p>
             </article>
-            <article className="pin-form">
+            <article className="pin-form" style={{display: this.state.tabIndex === 0 ? 'none' : 'block'}} >
               <h4>Drop a Pin</h4>
               <SuggestionForm
                 setSuggestion={this.setSuggestion}
@@ -123,7 +133,7 @@ export default class EmbeddedMap extends Component {
             <section className="text" style={{ display: this.state.suggestionInfoIsActive ? "initial" : "none" }}>
               <p>Label: { this.state.currentSuggestion && this.state.currentSuggestion.label}</p>
               <p>Description: { this.state.currentSuggestion && this.state.currentSuggestion.description}</p>
-              <p>Category: { this.state.currentSuggestion && this.state.currentSuggestion.category}</p>
+              <p>Category: { this.state.currentSuggestion && categories[this.state.currentSuggestion.category]}</p>
             </section>
           </article>
         </section>

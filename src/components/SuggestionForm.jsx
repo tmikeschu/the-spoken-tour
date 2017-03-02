@@ -82,7 +82,6 @@ export default class SuggestionForm extends Component {
           <textarea name="message" value={this.state.message} onChange={this.handleChange} placeholder="Optional Message (only seen by us)"/>
           <input type={this.props.suggestionPin.lat === undefined ? "hidden" : "submit"} value="Drop It!" />
         </form>
-        <p style={{display: this.props.suggestionPin.lat === undefined ? "block" : "none"}}>Click the suggestion map to drop a pin!</p>
         <Notification
           isActive={this.state.suggestionSent}
           message={this.state.formNotification}
