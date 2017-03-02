@@ -1,48 +1,64 @@
 .instagram {
   background-color: #fff;
+  border: 1px dotted $brown;
   max-width: 1000px;
   margin: 1% auto;
-  padding-bottom: 20em;
+  padding-bottom: 4%;
   display: flex;
   flex-direction: column;
-  a {
-    display: flex;
-    align-items: center;
-    align-self: flex-end;
-    img {
-      width: 50px;
-    }
-  }
   background-image: url("../loading.gif");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 20%;
   .photos {
-    h3 {
-      text-align: center;
-      font-size: 2em;
-    }
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     overflow: scroll;
+    section {
+      display: flex;
+      align-items: center;
+      width: 90%;
+      margin: 2% auto;
+      justify-content: space-between;
+      h3 {
+        color: $green;
+        text-shadow: 1px 1px $lilac;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        img {
+          width: 50px;
+        }
+      }
+    }
     div {
-      margin: 5% auto;
+      margin: 1% auto;
       width: 90%;
       justify-content: center;
       display: flex;
       align-items: center;
-      &:nth-child(odd) {
+      padding: 1%;
+      a {
+        img {
+          width: 100%;
+          max-width: 640px;
+          border: 1px solid black;
+        }
+      }
+      &:nth-of-type(even) {
+        background-color: #fff;
         border: 1px solid #000;
        a {
-         order: 2
+         order: 2;
        }
        section {
         order: 1
        }
       }
-      &:nth-child(even) {
+      &:nth-of-type(odd) {
         background-color: rgb(0,0,0);
         color: white;
         a {
@@ -52,21 +68,14 @@
           order: 2;
         }
       }
-      a {
-        img {
-          width: 100%;
-          max-width: 640px;
-          border: thin solid black;
-        }
-      }
       section {
         display: flex;
         width: 50%;
         flex-direction: column;
         justify-content: space-between;
         align-self: stretch;
+        align-items: flex-start;
         p {
-          font-size: 1.8em;
           margin: 5%;
           &:last-of-type {
             font-size: 1em;
@@ -80,6 +89,10 @@
   @media (max-width: 640px) {
     .photos {
       width: 100%;
+      section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
       div {
         flex-direction: column;
         a {
@@ -92,8 +105,7 @@
           order: 2;
           width: 100%;
           p {
-            font-size: 1.3em;
-            text-align: center;
+            text-align: left;
             padding: 1px;
           }
         }
