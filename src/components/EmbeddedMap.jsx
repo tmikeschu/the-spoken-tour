@@ -70,6 +70,12 @@ export default class EmbeddedMap extends Component {
     });
   }
 
+  handleTabClick(tabIndex) {
+    this.setState({
+      tabIndex: tabIndex,
+    });
+  }
+
   render() {
     const categories = {
       "stay": "Place to stay",
@@ -85,8 +91,8 @@ export default class EmbeddedMap extends Component {
           selectedIndex={this.state.tabIndex}
         >
           <TabList>
-            <Tab>The Route</Tab>
-            <Tab>Suggestions</Tab>
+            <Tab onClick={() => this.handleTabClick(0)}>The Route</Tab>
+            <Tab onClick={() => this.handleTabClick(1)}>Suggestions</Tab>
           </TabList>
 
           <TabPanel>
@@ -117,7 +123,7 @@ export default class EmbeddedMap extends Component {
               <p>↓</p>
               <p style={{
                 textAlign: "center",
-                display: this.state.suggestionPin.lat === undefined ? "block" : "none"}}>(go to the suggestion map and click to drop a pin!)</p>
+                display: this.state.tabIndex === 0 ? "block" : "none"}}>(go to the suggestion map and click to drop a pin!)</p>
             </article>
             <article className="pin-form" style={{display: this.state.tabIndex === 0 ? 'none' : 'block'}} >
               <h4>Drop a Pin</h4>
@@ -129,7 +135,7 @@ export default class EmbeddedMap extends Component {
           </div>
           <article className="suggestion-info" >
             <h4>Suggestion Info</h4>
-            <p>(click an existing pin to find out more)</p>
+            <p style={{display: this.state.currentSuggestion ? "none" : "block"}}>(click an existing pin on the suggestions map)</p>
             <section className="text" style={{ display: this.state.suggestionInfoIsActive ? "initial" : "none" }}>
               <p>Label: { this.state.currentSuggestion && this.state.currentSuggestion.label}</p>
               <p>Description: { this.state.currentSuggestion && this.state.currentSuggestion.description}</p>

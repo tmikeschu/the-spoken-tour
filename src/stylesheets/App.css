@@ -323,7 +323,7 @@ article.embedded-map section .legend ul li {
   margin: 10px 0; }
 
 article.embedded-map section div {
-  margin: 10% 0; }
+  margin: 5% 0; }
 
 article.embedded-map section div .info {
   background: #FFB72E;
@@ -638,7 +638,6 @@ article.embedded-map section .suggestion-info section p {
   width: 25%;
   align-self: center;
   background-color: #98B4F5;
-  border-radius: 5px;
   color: white; }
 
 .suggestion-form form input[type="submit"]:hover, .suggestion-form form input[type="submit"]:focus {
