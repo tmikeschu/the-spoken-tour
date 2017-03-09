@@ -5,8 +5,11 @@
   "devDependencies": {
     "axios-mock-adapter": "^1.8.1",
     "jest-enzyme": "^2.1.2",
+    "enzyme": "^2.7.1",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.1",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.2",
     "react-google-maps": "^4.11.0",
     "react-scripts": "0.7.0",
     "sass-loader": "^6.0.1"

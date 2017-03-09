@@ -1,63 +1,99 @@
-import React, { Component } from 'react';
-import $ from 'jquery';
-import '../../App.css';
+import React, { Component } from "react"
+import APIService from "../../APIService/APIService"
+import "../../App.css"
 
 export default class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      message: '',
-    };
+      name: "",
+      email: "",
+      message: "",
+      service: new APIService("https://spoken-api.herokuapp.com"),
+      success: false,
+      failure: false,
+      error: "",
+    }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
-    });
+    })
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    $("input").prop('required',true);
-    $("input[name='_gotcha']").prop('required',false);
-    $("textarea").prop('required',true);
-
-    $.ajax({
-      url: "https://formspree.io/thespokentour@gmail.com",
-      method: "POST",
-      data: {
+  async handleSubmit(event) {
+    event.preventDefault()
+    
+    const messageData = {
+      contact: {
         name: this.state.name,
-        _replyto: this.state.email,
+        email: this.state.email,
         message: this.state.message,
-      },
-      dataType: "json"
-    }).done(function(data) {
-      $("form p").remove();
-      $("form").append("<p class='success'>Message sent!</p>");
-    }).fail(function(error) {
-      $("form p").remove();
-      $("form").append("<p class='error'>"+error.responseJSON["error"]+"</p>")
-    });
+      }
+    }
+
+    const response = await this.state.service.post("api/v1/contact", messageData)
+    response.status === 201 && this.setState({
+      success: true,
+      name: "",
+      email: "",
+      message: "",
+    })
+
+    response.status === 400 && this.setState({
+      failure: true,
+      error: String(response.data)
+    })
+
+    setTimeout(() => {
+      this.setState({
+        success: false,
+        failure: false
+      })
+    }, 3000)
   }
 
   render() {
     return (
       <article className="component-container contact-form">
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder="Your Name"/>
-          <input type="_replyto" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email Address"/>
+          <input 
+            required type="text" name="name" value={this.state.name} 
+            onChange={this.handleChange} placeholder="Your Name"
+          />
+
+          <input 
+            required type="_replyto" name="email" value={this.state.email} 
+            onChange={this.handleChange} placeholder="Email Address"
+          />
+
           <input type="hidden" name="_subject" value="Website contact" />
-          <textarea name="message" value={this.state.message} onChange={this.handleChange} placeholder="What's up?"/>
+
+          <textarea 
+            required name="message" value={this.state.message} 
+            onChange={this.handleChange} placeholder="What's up?"
+          />
+
           <input type="text" name="_gotcha" style={{display: "none"}} />
+
           <input type="submit" value="Send" />
+
+          <p style={{ display: this.state.success ? "" : "none" }}>
+            Message Sent!
+          </p>
+          <p style={{ display: this.state.failure ? "" : "none" }}>
+            Message failure: { this.state.error }
+          </p>
         </form>
-        <p>*Please allow ample time for a response as we are busy bicycling 15,000 miles.</p>
+        <p>
+          *Please allow ample time for a response as we are busy bicycling 15,000 miles.
+        </p>
       </article>
-    );
+    )
   }
 }
+
