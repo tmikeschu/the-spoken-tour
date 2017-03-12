@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps';
 
-export default class Map extends Component {
+export default class SuggestionMap extends Component {
   render() {
     const currentLatLng = {
       lat: parseFloat(this.props.currentLocation.location.lat),

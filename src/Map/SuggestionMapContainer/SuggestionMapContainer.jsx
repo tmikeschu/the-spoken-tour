@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Map from './Map';
+import SuggestionMap from '../SuggestionMap/SuggestionMap';
 
-export default class MapContainer extends Component {
+export default class SuggestionMapContainer extends Component {
   render() {
     const fullHeightAndWidth = { width: '100%', height: '100vh' };
     const mapCenter = {

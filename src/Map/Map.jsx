@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import $ from 'jquery';
-import MapContainer from './MapContainer'
-import SuggestionForm from './SuggestionForm'
+import SuggestionMapContainer from './MapContainer/MapContainer'
+import SuggestionForm from './SuggestionForm/SuggestionForm'
 import '../stylesheets/App.css';
 
 
-export default class EmbeddedMap extends Component {
+export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -85,7 +85,7 @@ export default class EmbeddedMap extends Component {
       "other": "Other",
     }
     return (
-      <article className="embedded-map">
+      <article className="map">
         <Tabs
           onSelect={this.handleSelect}
           selectedIndex={this.state.tabIndex}
