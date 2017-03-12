@@ -1,4 +1,9 @@
 @import '../stylesheets/base.scss';
+@import './Info/info.scss';
+@import './Legend/legend.scss';
+@import './MapTabs/map_tabs.scss';
+@import './SuggestionForm/suggestion_form.scss';
+@import './SuggestionInfo/suggestion_info.scss';
 
 article.map {
   background-color: #fff;
@@ -7,20 +12,7 @@ article.map {
   margin: 1% auto;
   display: flex;
   flex-flow: row wrap;
-  .ReactTabs {
-      border-top: 1px dotted $yellow;
-      &.react-tabs {
-      width: 60%;
-      iframe {
-        width: 100%;
-        height: 100vh;
-        background-image: url("../../public/loading.gif");
-        background-size: 20%;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-      }
-    }
-  }
+  font-size: 1em;
   h4 {
     text-shadow: 1px 1px $blue;
   }
@@ -29,144 +21,15 @@ article.map {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    .legend {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border: 1px dotted $yellow;
-      color: $green;
-      img {
-        width: 7%;
-      }
-      h4 {
-        width: 50%;
-        text-align: center;
-        margin: 2% auto;
-      }
-      ul {
-        margin: 5% auto;
-        width: 50%;
-        li {
-          margin: 10px 0;
-        }
-      }
-    }
     div {
       margin: 5% 0;
-      .info {
-        background: $yellow;
-        color: #fff;
-        font-size: 1.1em;
-        padding: 5px;
-        text-align: left;
-        p {
-          &:nth-of-type(2) {
-            font-size: 1.5em;
-            text-align: center;
-            margin: 10px 0;
-            span {
-              text-decoration: underline;
-            }
-          }
-          &:nth-of-type(3) {
-            text-align: center;
-          }
-        }
-      }
-      .pin-form {
-        background: rgba(0,0,0,.1);
-        border: 1px dotted $yellow;
-        color: $green;
-        padding: 5px;
-        h4 {
-          text-align: center;
-        }
-        p {
-          font-style: italic;
-        }
-      }
-    }
-    .suggestion-info {
-      border: 1px dotted $yellow;
-      display: flex;
-      flex-direction: column;
-      h4, p, section {
-        margin: 2% 1%;
-      }
-      section {
-        width: 100%;
-        p {
-          margin: 1% 0;
-          span {
-            font-weight: bold;
-            color: $brown;
-          }
-        }
-      }
+      width: 100%;
     }
   }
   @media (max-width: 640px) {
-    .ReactTabs {
-      &.react-tabs {
-        width: 70%;
-        iframe {
-          height: 34em;
-        }
-      }
-    }
+    font-size: .8em;
     section {
       width: 30%;
-      .legend {
-        flex-direction: column;
-        h4 {
-          font-size: 1em;
-        }
-        ul {
-          width: 100%;
-          li {
-            font-size: .5em;
-            margin-left: 5%;
-          }
-        }
-      }
-      div {
-        .info {
-          font-size: .7em;
-          padding: 1px;
-          line-height: 1.5em;
-          font-size: .5em;
-          text-align: left;
-          p {
-            &:nth-of-type(2) {
-              text-align: center;
-              margin: 10px 0;
-              span {
-                font-size: 1em;
-                text-decoration: underline;
-              }
-            }
-            &:nth-of-type(3) {
-              text-align: center;
-            }
-          }
-        }
-        .pin-form {
-          padding: 1px;
-          h4 {
-            font-size: 1em;
-          }
-          input, textarea, select {
-            font-size: .5em;
-          }
-          p {
-            font-size: .5em;
-          }
-        }
-      }
-      .suggestion-info {
-        font-size: .5em;
-      }
     }
-
   }
 }

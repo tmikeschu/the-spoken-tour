@@ -1,5 +1,15 @@
 .suggestion-form {
   width: 99%;
+  background: rgba(0,0,0,.1);
+  border: 2px dotted $yellow;
+  color: $green;
+  padding: 5px 0;
+  h4 {
+    text-align: center;
+  }
+  p {
+    font-style: italic;
+  }
   form {
     display: flex;
     flex-flow: column nowrap;
@@ -34,7 +44,18 @@
   }
   @media (max-width: 640px) {
     width: 100%;
+    font-size: 16px;
+    h4 {
+      font-size: 1em;
+    }
+    input, textarea, select {
+      font-size: .5em;
+    }
+    p {
+      font-size: .9em;
+    }
     form {
+      font-size: .5em;
       width: 90%;
       input, textarea {
         border: 1px solid #aaa;

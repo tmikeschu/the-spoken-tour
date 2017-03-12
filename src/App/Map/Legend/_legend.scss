@@ -1,0 +1,37 @@
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px dotted $yellow;
+  color: $green;
+  img {
+    width: 7%;
+  }
+  h4 {
+    width: 50%;
+    text-align: center;
+    margin: 2% auto;
+  }
+  ul {
+    margin: 5% auto;
+    width: 50%;
+    li {
+      margin: 10px 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    h4 {
+      font-size: 1em;
+      width: 100%;
+    }
+    ul {
+      width: 100%;
+      li {
+        font-size: .5em;
+        margin-left: 5%;
+      }
+    }
+  }
+}

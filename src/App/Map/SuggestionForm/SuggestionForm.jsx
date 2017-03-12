@@ -71,7 +71,10 @@ export default class SuggestionForm extends Component {
 
   render() {
     return (
-      <article className="suggestion-form">
+      <article className="suggestion-form"
+        style={{display: this.props.tabIndex === 0 ? 'none' : 'block'}}
+      >
+        <h4>Drop a Pin</h4>
         <form onSubmit={this.handleSubmit}>
           <input required type="text" name="label" value={this.state.label} onChange={this.handleChange} placeholder="Label" />
           <textarea required name="description" value={this.state.description} onChange={this.handleChange} placeholder="Description"/>
