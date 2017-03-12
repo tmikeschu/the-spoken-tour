@@ -2,11 +2,11 @@
 import React, { Component } from 'react';
 
 // Components
-import Header from './Header.jsx';
-import Nav from './Nav.jsx';
+import Header from './Header/Header.jsx';
+import Nav from './Nav/Nav.jsx';
 
 //  Styles
-import '../stylesheets/App.css';
+import './App.css';
 
 export default class App extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {  Link } from 'react-router'
-import logo from '../wheel.svg';
-import '../stylesheets/App.css';
+import logo from './wheel.svg';
+import '../App.css';
 
 export default class Header extends Component {
   render() {

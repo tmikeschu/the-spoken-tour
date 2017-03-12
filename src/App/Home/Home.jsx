@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 // Styles
-import '../stylesheets/App.css';
+import '../App.css';
 
 export default class Home extends Component {
   render() {

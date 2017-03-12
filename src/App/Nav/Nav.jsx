@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NavLink from './NavLink'
-import '../stylesheets/App.css';
+import NavLink from './NavLink/NavLink'
+import '../App.css';
 
 export default class Nav extends Component {
   render() {

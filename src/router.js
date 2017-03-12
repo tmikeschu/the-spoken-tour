@@ -3,17 +3,17 @@ import React from 'react';
 import { Router, Route, browserHistory } from 'react-router'
 
 // Components
-import App from './components/App.jsx';
-import Home from './components/Home.jsx';
-import Landing from './components/Landing.jsx';
-import About from './components/About.jsx';
-import Instagram from './components/Instagram.jsx';
-import EmbeddedMap from './components/EmbeddedMap.jsx';
-import Contact from './components/Contact.jsx';
-import Podcast from './components/Podcast.jsx';
+import App from './App/App.jsx';
+import Home from './App/Home/Home.jsx';
+import Landing from './App/Landing/Landing.jsx';
+import About from './App/About/About.jsx';
+import Instagram from './App/Instagram/Instagram.jsx';
+import Map from './App/Map/Map.jsx';
+import Contact from './App/Contact/Contact.jsx';
+import Podcast from './App/Podcast/Podcast.jsx';
 
 // Styles
-import './stylesheets/App.css';
+import './App/App.css';
 
 // Routes
 const routes = (
@@ -23,7 +23,7 @@ const routes = (
       <Route path="landing" component={Landing} />
       <Route path="about" component={About} />
       <Route path="instagram" component={Instagram} />
-      <Route path="map" component={EmbeddedMap} />
+      <Route path="map" component={Map} />
       <Route path="contact" component={Contact} />
       <Route path="podcast" component={Podcast} />
     </Route>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import contact from '../contact_logo.jpg';
-import podcast from '../podcast_logo.jpg';
-import map from '../map_logo.jpg';
-import instagram from '../instagram_logo.jpg';
-import '../stylesheets/App.css';
+import contact from './contact_logo.jpg';
+import podcast from './podcast_logo.jpg';
+import map from './map_logo.jpg';
+import instagram from './instagram_logo.jpg';
+import '../App.css';
 
 export default class Landing extends Component {
   render() {

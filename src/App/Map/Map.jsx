@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import $ from 'jquery';
-import SuggestionMapContainer from './MapContainer/MapContainer'
+import SuggestionMapContainer from './SuggestionMapContainer/SuggestionMapContainer'
 import SuggestionForm from './SuggestionForm/SuggestionForm'
-import '../stylesheets/App.css';
+import '../App.css';
 
 
 export default class Map extends Component {
@@ -99,7 +99,7 @@ export default class Map extends Component {
             <iframe frameBorder={0} scrolling="no" src="https://www.google.com/maps/d/u/0/embed?mid=1MNLYaokz7yXKh23E79fRcGDv1_s&ui=maps" allowFullScreen={false}></iframe>
           </TabPanel>
           <TabPanel>
-            <MapContainer
+            <SuggestionMapContainer
               setSuggestion={this.setSuggestion}
               showSuggestionInfo={this.showSuggestionInfo}
               suggestions={this.state.suggestions}

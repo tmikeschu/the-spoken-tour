@@ -13,7 +13,7 @@ export default class SuggestionMapContainer extends Component {
 
     return (
       <div style={fullHeightAndWidth}>
-        <Map
+        <SuggestionMap
           setSuggestion={this.props.setSuggestion}
           suggestionPin={this.props.suggestionPin}
           showSuggestionInfo={this.props.showSuggestionInfo}

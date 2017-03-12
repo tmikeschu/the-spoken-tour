@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import '../stylesheets/App.css';
+import '../../App.css';
 
 export default class ContactForm extends Component {
   constructor(props) {

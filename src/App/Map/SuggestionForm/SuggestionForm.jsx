@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import { Notification } from 'react-notification';
-import '../stylesheets/App.css';
+import '../../App.css';
 
 export default class SuggestionForm extends Component {
   constructor(props) {
