@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {  Link } from 'react-router'
-import logo from './wheel.svg';
+import logo from '../../../public/wheel.svg';
 import '../App.css';
 
 export default class Header extends Component {
