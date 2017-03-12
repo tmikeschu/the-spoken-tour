@@ -1,0 +1,30 @@
+// Universal Theme
+@import "./stylesheets/reset.scss";
+@import "./stylesheets/base.scss";
+@import "./stylesheets/skeleton.scss";
+
+// Components
+@import "./About/about.scss";
+@import "./Contact/contact.scss";
+@import "./Header/header.scss";
+@import "./Home/home.scss";
+@import "./Instagram/instagram.scss";
+@import "./Landing/landing.scss";
+@import "./Map/map.scss";
+@import "./Nav/nav.scss";
+@import "./Podcast/podcast.scss";
+
+.header-nav {
+  display: flex;
+  background-color: $green;
+  flex-direction: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  .spacer {
+    width: 30%;
+  }
+  @media (max-width: 640px) {
+    flex-direction: column;
+    width: 100%;
+  }
+}

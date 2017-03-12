@@ -1,0 +1,125 @@
+.instagram {
+  background-color: #fff;
+  border: 1px dotted $brown;
+  max-width: 1000px;
+  margin: 1% auto;
+  padding-bottom: 4%;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../public/loading.gif");
+  background-repeat: no-repeat;
+  background-position: 50% 100px;
+  background-size: 20%;
+  .photos {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    section {
+      display: flex;
+      align-items: center;
+      width: 90%;
+      margin: 2% auto;
+      justify-content: space-between;
+      h3 {
+        color: $green;
+        text-shadow: 1px 1px $lilac;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        img {
+          width: 50px;
+        }
+      }
+    }
+    div {
+      margin: 1% auto;
+      width: 90%;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      padding: 1%;
+      a {
+        img {
+          width: 100%;
+          max-width: 640px;
+          border: 1px solid black;
+        }
+      }
+      &:nth-of-type(even) {
+        background-color: #fff;
+        border: 1px solid #000;
+        a {
+          order: 2;
+        }
+        section {
+          order: 1
+        }
+      }
+      &:nth-of-type(odd) {
+        background-color: rgb(0,0,0);
+        color: white;
+        a {
+          order: 1;
+        }
+        section {
+          order: 2;
+        }
+      }
+      section {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: stretch;
+        align-items: flex-start;
+        p {
+          margin: 5%;
+          &:last-of-type {
+            font-size: 1em;
+            color: $yellow;
+            text-shadow: none;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 640px) {
+    .photos {
+      width: 100%;
+      section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      div {
+        flex-direction: column;
+        &:nth-of-type(even) {
+          background-color: rgb(0,0,0);
+          color: white;
+          a {
+            order: 1;
+          }
+          section {
+            order: 2;
+          }
+        }
+        a {
+          order: 1;
+          img {
+            width: 100%;
+          }
+        }
+        section {
+          order: 2;
+          width: 100%;
+          p {
+            text-align: left;
+            padding: 1px;
+          }
+        }
+      }
+    }
+  }
+}

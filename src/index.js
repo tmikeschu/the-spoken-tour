@@ -6,7 +6,7 @@ import { render } from 'react-dom';
 import routes from './router.js';
 
 // Styles
-import './stylesheets/App.css';
+import './App/App.css';
 
 // Config
 
