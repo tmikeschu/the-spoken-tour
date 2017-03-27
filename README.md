@@ -3,8 +3,9 @@ Some friends of mine are going to bike from Denver, Colorado to Buenos Aires, Ar
 
 You can find the repo for the Rails API I built for this app [here](https://github.com/tmikeschu/spoke-n-api).
 
-
+v Click to see a video demo of the app v
 [![Demo Video](https://img.youtube.com/vi/f4KtCjMEZM8/0.jpg)](http://www.youtube.com/watch?v=f4KtCjMEZM8 "The Spoken Tour Demo")
+
 
 
 
