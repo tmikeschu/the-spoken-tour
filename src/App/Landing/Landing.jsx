@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import contact from './contact_logo.jpg';
-import podcast from './podcast_logo.jpg';
-import map from './map_logo.jpg';
-import instagram from './instagram_logo.jpg';
+import contact from './contact_logo.png';
+import podcast from './podcast_logo.png';
+import map from './map_logo.png';
+import instagram from './instagram_logo.png';
 import '../App.css';
 
 export default class Landing extends Component {
