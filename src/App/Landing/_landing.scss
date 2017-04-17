@@ -1,6 +1,6 @@
 .landing{
   width: 100%;
-  article {
+  .logos {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -21,12 +21,24 @@
       }
     }
   }
+  .video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   @media (max-width: 640px) {
-    article {
+    .logos {
       background-color: rgba(250, 250, 250, .5);
       width: 100%;
       flex-direction: column;
+    }
+
+    .video {
+      iframe {
+        margin: 10px 0;
+        width: 100%;
+      }
     }
   }
 }
