@@ -115,11 +115,11 @@ export default class Map extends Component {
         { mapTabs }
         <section>
           <Legend tabIndex={this.state.tabIndex} />
+          { suggestionInfo }
           <div>
             <Info tabIndex={this.state.tabIndex} />
             { suggestionForm }
           </div>
-          { suggestionInfo }
         </section>
       </article>
     );
