@@ -14,7 +14,9 @@ article.nav {
     li {
       a {
         color: #fff;
-        &:hover, &.active {
+        transition: 300ms;
+        &:hover, &:focus, &.active {
+          transition: 300ms;
           color: $yellow;
         }
       }
