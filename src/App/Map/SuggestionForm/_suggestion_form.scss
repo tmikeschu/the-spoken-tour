@@ -32,7 +32,9 @@
         align-self: center;
         background-color: $lilac;
         color: white;
+        transition: 300ms;
         &:hover, &:focus {
+          transition: 300ms;
           background-color: $blue;
         }
       }

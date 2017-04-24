@@ -14,7 +14,9 @@
         width: 100%;
         background-color: rgba(256,256,256,.7);
         border-radius: 5px;
+        transition: 600ms;
         &:hover, &:focus {
+          transition: 600ms;
           background-color: rgba(256,256,256,.8);
           background-color: rgba(152,180,245, .6);
         }

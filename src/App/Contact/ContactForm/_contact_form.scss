@@ -23,7 +23,9 @@
         border: none;
         background-color: $lilac;
         color: white;
-        &:hover {
+        transition: 300ms;
+        &:hover, &:focus {
+          transition: 300ms;
           background-color: $blue;
         }
       }

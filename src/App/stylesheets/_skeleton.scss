@@ -45,7 +45,9 @@ p {
 a {
   text-decoration: none;
   color: $blue;
-  &:hover {
+  transition: 300ms;
+  &:hover, &:focus {
+    transition: 300ms;
     font-weight: bold;
     color: $yellow;
   }
