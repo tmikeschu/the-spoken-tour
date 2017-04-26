@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps';
+import { categoryIcons } from '../category_data';
 
 export default class SuggestionMap extends Component {
+  categoryIcons() {
+    return categoryIcons;
+  }
+
   render() {
     const currentLatLng = {
       lat: parseFloat(this.props.currentLocation.location.lat),
       lng: parseFloat(this.props.currentLocation.location.lng),
     }
+
     const currentLocation = (
       <Marker position={currentLatLng}
         animation={2}
@@ -34,10 +40,11 @@ export default class SuggestionMap extends Component {
       return (
         <Marker
           key={suggestion.id}
+          icon={this.categoryIcons()[suggestion.category]}
           {...marker}
           onClick={(props) => handleMarkerClick(props, this)} />
       )
-    })
+    }, this)
 
     function handleMarkerClick(props, map) {
       map.props.showSuggestionInfo(props.latLng)

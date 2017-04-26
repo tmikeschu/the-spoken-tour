@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import _ from 'lodash';
 import SuggestionForm from './SuggestionForm/SuggestionForm'
 import Legend from './Legend/Legend'
 import Info from './Info/Info'
 import MapTabs from './MapTabs/MapTabs';
 import SuggestionInfo from './SuggestionInfo/SuggestionInfo';
+import Checkbox from './Checkbox/Checkbox';
 import '../App.css';
 
 
@@ -18,12 +20,14 @@ export default class Map extends Component {
       currentSuggestion: null,
       suggestionInfoIsActive: false,
       currentLocation: {date: "", location: {lat: "", lng: ""}},
+      pinFilters: [],
     }
     this.setSuggestion = this.setSuggestion.bind(this)
     this.getSuggestions = this.getSuggestions.bind(this)
     this.getCurrentLocation = this.getCurrentLocation.bind(this)
     this.showSuggestionInfo = this.showSuggestionInfo.bind(this)
     this.handleTabClick = this.handleTabClick.bind(this)
+    this.filterPins = this.filterPins.bind(this)
   }
 
   componentDidMount() {
@@ -79,6 +83,20 @@ export default class Map extends Component {
     });
   }
 
+  filterPins(event) {
+    const filter = event.target.value;
+    const checked = event.target.checked;
+    let pinFilters;
+
+    pinFilters = filter === "" && [];
+    pinFilters = (checked && this.state.pinFilters.concat(filter)) ||
+      this.state.pinFilters.filter(f => f !== filter)
+
+    this.setState({
+      pinFilters: pinFilters
+    });
+  }
+
   render() {
     const mapTabs = (
       <MapTabs
@@ -90,6 +108,7 @@ export default class Map extends Component {
         suggestions={this.state.suggestions}
         currentLocation={this.state.currentLocation}
         suggestionPin={this.state.suggestionPin}
+        pinFilters={this.state.pinFilters}
       />
     );
 
@@ -110,13 +129,35 @@ export default class Map extends Component {
       />
     );
 
+    const categories = _.uniq(this.state.suggestions.map(s => s.category));
+
+    const checkboxes = ["", "DISPLAYNONE"]
+      .concat(categories)
+      .map((category, i) => {
+        return(
+          <Checkbox key={i} category={category} filterPins={this.filterPins} />
+        );
+      })
+
     return (
       <article className="map">
         { mapTabs }
         <section>
-          <Legend tabIndex={this.state.tabIndex} 
-            date={this.state.currentLocation.date} />
+          <Legend 
+            tabIndex={this.state.tabIndex} 
+            date={this.state.currentLocation.date} 
+            categories={categories}
+          />
           { suggestionInfo }
+          <article 
+            className="checkboxes"
+            style={{display: this.state.tabIndex === 0 ? 'none' : ''}}
+          >
+            <h4>Filter Suggestions</h4>
+            <div>
+              { checkboxes }
+            </div>
+          </article>
           <div>
             <Info tabIndex={this.state.tabIndex} />
             { suggestionForm }

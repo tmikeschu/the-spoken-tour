@@ -3,7 +3,17 @@ import React, { Component } from 'react';
 import SuggestionMap from '../SuggestionMap/SuggestionMap';
 
 export default class SuggestionMapContainer extends Component {
+  filterPins(categories, suggestions) {
+    if (categories.length === 0) { return suggestions }
+    return suggestions.filter(suggestion => {
+      return categories.some(category => {
+        return suggestion.category.includes(category); 
+      })
+    });
+  }
+
   render() {
+    const suggestions = this.filterPins(this.props.pinFilters, this.props.suggestions);
     const fullHeightAndWidth = { width: '100%', height: '100vh' };
     const mapCenter = {
       lat: -1.6246706849414423,
@@ -20,7 +30,7 @@ export default class SuggestionMapContainer extends Component {
           currentLocation={this.props.currentLocation}
           zoom={mapZoom}
           center={mapCenter}
-          suggestions={this.props.suggestions}/>
+          suggestions={suggestions}/>
       </div>
     )
   }

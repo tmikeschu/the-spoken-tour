@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import Category from './Category/Category';
 import '../../App.css'
 
 export default class Legend extends Component {
   render() {
+    const legendCategories = this.props.categories.map((category, i) => {
+      return(
+        <Category key={i} category={category} tabIndex={this.props.tabIndex} />
+      );
+    });
+
     return (
       <article className="legend">
         <h4>Legend</h4>
@@ -13,9 +20,7 @@ export default class Legend extends Component {
               <img src="http://maps.google.com/mapfiles/ms/icons/cycling.png" alt="cyclist"/>
             </span> → That's Us! ( as of {this.props.date} )
           </li>
-          <li style={{display: this.props.tabIndex === 0 ? 'none' : 'block'}}>
-            <span>◉</span> → Suggestions
-          </li>
+          { legendCategories }
         </ul>
       </article>
     );
