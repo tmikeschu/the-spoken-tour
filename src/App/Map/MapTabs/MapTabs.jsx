@@ -24,7 +24,9 @@ export default class MapTabs extends Component {
             showSuggestionInfo={this.props.showSuggestionInfo}
             suggestions={this.props.suggestions}
             currentLocation={this.props.currentLocation}
-            suggestionPin={this.props.suggestionPin}/>
+            suggestionPin={this.props.suggestionPin}
+            pinFilters={this.props.pinFilters}
+          />
         </TabPanel>
       </Tabs>
     );
