@@ -17,7 +17,7 @@ export default class Map extends Component {
       suggestions: [],
       currentSuggestion: null,
       suggestionInfoIsActive: false,
-      currentLocation: null,
+      currentLocation: {date: "", location: {lat: "", lng: ""}},
     }
     this.setSuggestion = this.setSuggestion.bind(this)
     this.getSuggestions = this.getSuggestions.bind(this)
@@ -31,8 +31,8 @@ export default class Map extends Component {
     this.getCurrentLocation();
   }
 
-  getCurrentLocation() {
-    this.getApiObjects("http://spoken-api.herokuapp.com/api/v1/current_location", "currentLocation")
+  async getCurrentLocation() {
+    await this.getApiObjects("http://spoken-api.herokuapp.com/api/v1/current_location", "currentLocation")
   }
 
   getSuggestions() {
@@ -114,7 +114,8 @@ export default class Map extends Component {
       <article className="map">
         { mapTabs }
         <section>
-          <Legend tabIndex={this.state.tabIndex} />
+          <Legend tabIndex={this.state.tabIndex} 
+            date={this.state.currentLocation.date} />
           { suggestionInfo }
           <div>
             <Info tabIndex={this.state.tabIndex} />

@@ -1,6 +1,6 @@
 .legend {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
   border: 1px dotted $yellow;
   color: $green;
@@ -8,20 +8,22 @@
     width: 7%;
   }
   h4 {
-    width: 50%;
-    text-align: center;
-    margin: 2% auto;
+    margin: 2%;
   }
   ul {
-    margin: 5% auto;
-    width: 50%;
+    margin: 2%;
     li {
       margin: 10px 0;
+      &:nth-of-type(3) {
+        span {
+          color: #FB7064;
+          margin-right: 11px;
+        }
+      }
     }
   }
 
   @media (max-width: 640px) {
-    flex-direction: column;
     h4 {
       font-size: 1em;
       width: 100%;
@@ -30,7 +32,14 @@
       width: 100%;
       li {
         font-size: .5em;
-        margin-left: 5%;
+        margin-left: 2%;
+        &:nth-of-type(3) {
+          span {
+            color: #FB7064;
+            margin-left: 0;
+            margin-right: 0;
+          }
+        }
       }
     }
   }
