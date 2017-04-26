@@ -154,9 +154,9 @@ export default class Map extends Component {
             style={{display: this.state.tabIndex === 0 ? 'none' : ''}}
           >
             <h4>Filter Suggestions</h4>
-            <div>
+            <article>
               { checkboxes }
-            </div>
+            </article>
           </article>
           <div>
             <Info tabIndex={this.state.tabIndex} />
