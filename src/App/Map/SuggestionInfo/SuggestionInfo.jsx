@@ -12,7 +12,7 @@ export default class SuggestionInfo extends Component {
     }
 
     return (
-      <article className="suggestion-info" style={{display: this.props.tabIndex === 0 ? "none" : "block"}}>
+      <article className="suggestion-info">
         <h4>Suggestion Info</h4>
         <p style={{display: this.props.currentSuggestion ? "none" : "block"}}>(click an existing pin on the suggestions map)</p>
         <section className="text" style={{ display: this.props.suggestionInfoIsActive ? "initial" : "none" }}>

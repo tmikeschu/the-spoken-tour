@@ -4,7 +4,7 @@ import _ from 'lodash';
 import SuggestionForm from './SuggestionForm/SuggestionForm'
 import Legend from './Legend/Legend'
 import Info from './Info/Info'
-import MapTabs from './MapTabs/MapTabs';
+import SuggestionMapContainer from './SuggestionMapContainer/SuggestionMapContainer'
 import SuggestionInfo from './SuggestionInfo/SuggestionInfo';
 import Checkbox from './Checkbox/Checkbox';
 import '../App.css';
@@ -21,6 +21,7 @@ export default class Map extends Component {
       suggestionInfoIsActive: false,
       currentLocation: {date: "", location: {lat: "", lng: ""}},
       pinFilters: [],
+      routePoints: [],
     }
     this.setSuggestion = this.setSuggestion.bind(this)
     this.getSuggestions = this.getSuggestions.bind(this)
@@ -33,6 +34,7 @@ export default class Map extends Component {
   componentDidMount() {
     this.getSuggestions();
     this.getCurrentLocation();
+    this.getRoutePoints();
   }
 
   async getCurrentLocation() {
@@ -41,6 +43,10 @@ export default class Map extends Component {
 
   getSuggestions() {
     this.getApiObjects("http://spoken-api.herokuapp.com/api/v1/suggestion_pins", "suggestions")
+  }
+
+  getRoutePoints() {
+    this.getApiObjects("http://spoken-api.herokuapp.com/api/v1/route_pins", "routePoints")
   }
 
   getApiObjects(url, state) {
@@ -98,23 +104,20 @@ export default class Map extends Component {
   }
 
   render() {
-    const mapTabs = (
-      <MapTabs
-        handleSelect={this.handleSelect}
-        tabIndex={this.state.tabIndex}
-        handleTabClick={this.handleTabClick}
+    const suggestionMapContainer = (
+      <SuggestionMapContainer
         setSuggestion={this.setSuggestion}
         showSuggestionInfo={this.showSuggestionInfo}
         suggestions={this.state.suggestions}
         currentLocation={this.state.currentLocation}
         suggestionPin={this.state.suggestionPin}
         pinFilters={this.state.pinFilters}
+        routePoints={this.state.routePoints}
       />
     );
 
     const suggestionForm = (
       <SuggestionForm
-        tabIndex={this.state.tabIndex}
         setSuggestion={this.setSuggestion}
         getSuggestions={this.getSuggestions}
         suggestionPin={this.state.suggestionPin}
@@ -123,7 +126,6 @@ export default class Map extends Component {
 
     const suggestionInfo = (
       <SuggestionInfo
-        tabIndex={this.state.tabIndex}
         currentSuggestion={this.state.currentSuggestion}
         suggestionInfoIsActive={this.state.suggestionInfoIsActive}
       />
@@ -141,17 +143,17 @@ export default class Map extends Component {
 
     return (
       <article className="map">
-        { mapTabs }
+        <article>
+          { suggestionMapContainer }
+        </article>
         <section>
           <Legend 
-            tabIndex={this.state.tabIndex} 
             date={this.state.currentLocation.date} 
             categories={categories}
           />
           { suggestionInfo }
           <article 
             className="checkboxes"
-            style={{display: this.state.tabIndex === 0 ? 'none' : ''}}
           >
             <h4>Filter Suggestions</h4>
             <article>

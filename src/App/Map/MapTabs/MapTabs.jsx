@@ -26,6 +26,7 @@ export default class MapTabs extends Component {
             currentLocation={this.props.currentLocation}
             suggestionPin={this.props.suggestionPin}
             pinFilters={this.props.pinFilters}
+            routePoints={this.props.routePoints}
           />
         </TabPanel>
       </Tabs>
