@@ -12,6 +12,7 @@ export default class Nav extends Component {
           <li><NavLink to="instagram">Photos</NavLink></li>
           <li><NavLink to="podcast">Podcast</NavLink></li>
           <li><NavLink to="contact">Contact</NavLink></li>
+          <li><NavLink to="support">Support</NavLink></li>
         </ul>
       </article>
     );

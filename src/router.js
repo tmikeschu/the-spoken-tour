@@ -11,6 +11,7 @@ import Instagram from './App/Instagram/Instagram.jsx';
 import Map from './App/Map/Map.jsx';
 import Contact from './App/Contact/Contact.jsx';
 import Podcast from './App/Podcast/Podcast.jsx';
+import Support from './App/Support/Support.jsx';
 
 // Styles
 import './App/App.css';
@@ -26,6 +27,7 @@ const routes = (
       <Route path="map" component={Map} />
       <Route path="contact" component={Contact} />
       <Route path="podcast" component={Podcast} />
+      <Route path="support" component={Support} />
     </Route>
   </Router>
 );

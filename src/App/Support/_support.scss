@@ -1,0 +1,114 @@
+.support{
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0,0,0,.8);
+  max-width: 1000px;
+  margin: 1% auto;
+  padding-bottom: 5em;
+  color: #fff;
+  h2 {
+    align-self: center;
+  }
+  >p {
+    &:nth-of-type(odd) {
+      align-self: center;
+      color: $yellow;
+    }
+    &:nth-of-type(2) {
+      width: 67%;
+      margin: 0 auto;
+    }
+    &:nth-of-type(3) {
+      width: 67%;
+      margin: 0 auto;
+    }
+    margin: 2% 0;
+    font-size: 1.2em;
+  }
+  .sponsor {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    margin: 5% 0;
+    article {
+      width: 65%;
+      h3 {
+        margin: 2% 0;
+      }
+    }
+    img {
+      display: block;
+      max-width:300px;
+      max-height:200px;
+      width: auto;
+      height: auto;
+    }
+    &:nth-of-type(odd) {
+      article {
+        order: 2;
+      }
+      img {
+        order: 1;
+      }
+    }
+  }
+  button {
+    width: 200px;
+    margin-top: 20px;
+    align-self: center;
+    border: none;
+    font-family: $body-font;
+    font-size: 1.5em;
+    background-color: $lilac;
+    color: #fff;
+    transition: 300ms;
+    &:hover, &:focus {
+      background-color: $blue;
+      cursor: pointer;
+      transition: 300ms;
+    }
+  }
+
+  @media (max-width: 640px) {
+    >p {
+      &:nth-of-type(1) {
+        width: 100%;
+        align-self: flex-start;
+      }
+      &:nth-of-type(2) {
+        width: 100%;
+        margin: 0 auto;
+      }
+      &:nth-of-type(3) {
+        width: 100%;
+        margin: 0 auto;
+      }
+      margin: 2% 0;
+      font-size: 1.2em;
+    }
+    .sponsor {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+      margin: 5% 0;
+      article {
+        order: 2;
+        width: 100%;
+        h3 {
+          margin: 2% 0;
+        }
+      }
+      img {
+        order: 1;
+        display: block;
+        max-width:300px;
+        max-height:200px;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}
