@@ -14,7 +14,7 @@ export default class SuggestionInfo extends Component {
     return (
       <article className="suggestion-info">
         <h4>Suggestion Info</h4>
-        <p style={{display: this.props.currentSuggestion ? "none" : "block"}}>(click an existing pin on the suggestions map)</p>
+        <p style={{display: this.props.currentSuggestion ? "none" : "block"}}>(click an existing pin on the map)</p>
         <section className="text" style={{ display: this.props.suggestionInfoIsActive ? "initial" : "none" }}>
           <p><span>Label</span>: { this.props.currentSuggestion && this.props.currentSuggestion.label}</p>
           <p><span>Description</span>: { this.props.currentSuggestion && this.props.currentSuggestion.description}</p>
