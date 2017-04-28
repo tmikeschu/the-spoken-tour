@@ -2,4 +2,9 @@
   >article {
     width: 60%;
   }
+  @media (max-width: 640px) {
+    >article {
+      width: 70%;
+    }
+  }
 }
