@@ -117,9 +117,7 @@ export default class SuggestionForm extends Component {
       </form>
     );
     return (
-      <article className="suggestion-form"
-        style={{display: this.props.tabIndex === 0 ? 'none' : 'block'}}
-      >
+      <article className="suggestion-form" >
         <h4>Drop a Pin</h4>
         { form }
         <Notification

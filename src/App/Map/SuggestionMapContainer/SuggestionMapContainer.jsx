@@ -30,7 +30,9 @@ export default class SuggestionMapContainer extends Component {
           currentLocation={this.props.currentLocation}
           zoom={mapZoom}
           center={mapCenter}
-          suggestions={suggestions}/>
+          suggestions={suggestions}
+          routePoints={this.props.routePoints}
+        />
       </div>
     )
   }

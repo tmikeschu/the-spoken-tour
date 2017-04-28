@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps';
+import { GoogleMapLoader, GoogleMap, Marker, Polyline } from 'react-google-maps';
 import { categoryIcons } from '../category_data';
 
 export default class SuggestionMap extends Component {
@@ -57,6 +57,13 @@ export default class SuggestionMap extends Component {
       map.props.setSuggestion(position)
     }
 
+    const coordinates = this.props.routePoints.map((point, i) => {
+      return {
+        lat: parseFloat(point.location.lat),
+        lng: parseFloat(point.location.lng)
+      }
+    }, this)
+
     return(
       <GoogleMapLoader
         containerElement={ mapContainer }
@@ -72,6 +79,9 @@ export default class SuggestionMap extends Component {
             { currentLocation }
             { suggestionMarkers }
             { suggestion }
+            <Polyline 
+              path={coordinates}
+            />
           </GoogleMap>
       } />
     );
