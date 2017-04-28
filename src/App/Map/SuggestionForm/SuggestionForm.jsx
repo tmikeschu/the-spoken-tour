@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import $ from 'jquery';
-import { Notification } from 'react-notification';
-import '../../App.css';
+import React, { Component } from "react"
+import APIService from "../../APIService/APIService"
+import { Notification } from "react-notification"
+import "../../App.css"
 
 export default class SuggestionForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      name: '',
-      email: '',
-      label: '',
-      description: '',
-      category: '',
-      message: '',
+      name: "",
+      email: "",
+      label: "",
+      description: "",
+      category: "",
+      message: "",
       suggestionSent: false,
       suggestionFailed: false,
-      formNotification: '',
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+      formNotification: "",
+      service: new APIService("https://spoken-api.herokuapp.com")
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event) {
@@ -28,42 +28,46 @@ export default class SuggestionForm extends Component {
     });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
-    let self = this;
-    $.ajax({
-      url: "http://spoken-api.herokuapp.com/api/v1/suggestion_pins?api_key="+process.env.REACT_APP_RAILS_KEY,
-      method: "POST",
-      data: {
-        pin: {
-          label: this.state.label,
-          description: this.state.description,
-          category: this.state.category,
-          lat: this.props.suggestionPin.lat,
-          lng: this.props.suggestionPin.lng,
-          message: this.state.message,
-          name: this.state.name,
-          email: this.state.email,
-        }
-      },
-      dataType: "json"
-    }).done(function(data) {
-      self.props.getSuggestions();
-      self.props.setSuggestion({});
-      self.setState({
-        formNotification: "Suggestion sent!",
-        suggestionSent: true,
-        label: '',
-        description: '',
-        category: '',
-        message: '',
-      });
-    }).fail(function(error) {
-      self.setState({
-        formNotification: error.responseJSON["error"],
-        suggestionFailed: true,
-      });
-    });
+    const pin = { 
+      pin: {
+        label: this.state.label,
+        description: this.state.description,
+        category: this.state.category,
+        lat: this.props.suggestionPin.lat,
+        lng: this.props.suggestionPin.lng,
+        message: this.state.message,
+        name: this.state.name,
+        email: this.state.email,
+      }
+    }
+    try {
+      await this.state.service.post("/api/v1/suggestion_pins", pin) 
+      this.submitSuccess()
+    } catch(error) {
+      this.submitFail(error)
+    }
+  }
+
+  submitSuccess() {
+    this.props.getSuggestions()
+    this.props.setSuggestion({})
+    this.setState({
+      formNotification: "Suggestion sent!",
+      suggestionSent: true,
+      label: "",
+      description: "",
+      category: "",
+      message: "",
+    })
+  }
+
+  submitFail(error) {
+    this.setState({
+      formNotification: error.responseJSON["error"],
+      suggestionFailed: true,
+    })
   }
 
   deactivate() {

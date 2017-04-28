@@ -1,31 +1,26 @@
-import React, { Component } from 'react';
-import $ from 'jquery';
-import '../App.css';
+import React, { Component } from "react"
+import APIService from "../APIService/APIService"
+import "../App.css"
 
 export default class Instagram extends Component {
   constructor(props) {
     super(props);
     this.state = {
       instagramPhotos: [],
+      service: new APIService("http://spoken-api.herokuapp.com")
     }
   }
 
   componentDidMount() {
-    let self = this;
-    $('#spinner').show();
-    $.ajax({
-      url: "http://spoken-api.herokuapp.com/api/v1/instagram_photos?api_key="+process.env.REACT_APP_RAILS_KEY,
-      method: "GET",
-    }).done(function(response) {
-      self.setState({
-        instagramPhotos: response
-      })
-      $('#spinner').hide();
-    }).fail(function(error) {
-      console.error("No");
-    });
+    this.getPhotos()
   }
 
+  async getPhotos() {
+    const response = await this.state.service.get("/api/v1/instagram_photos")
+    this.setState({
+      instagramPhotos: response.data
+    })
+  }
 
   render() {
     const photos = this.state.instagramPhotos.map((photo, i) => {

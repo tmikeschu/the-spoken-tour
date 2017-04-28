@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import $ from 'jquery';
-import _ from 'lodash';
-import SuggestionForm from './SuggestionForm/SuggestionForm'
-import Legend from './Legend/Legend'
-import Info from './Info/Info'
-import SuggestionMapContainer from './SuggestionMapContainer/SuggestionMapContainer'
-import SuggestionInfo from './SuggestionInfo/SuggestionInfo';
-import Checkbox from './Checkbox/Checkbox';
-import '../App.css';
+import React, { Component } from "react"
+import _ from "lodash"
+import SuggestionForm from "./SuggestionForm/SuggestionForm"
+import Legend from "./Legend/Legend"
+import Info from "./Info/Info"
+import SuggestionMapContainer from "./SuggestionMapContainer/SuggestionMapContainer"
+import SuggestionInfo from "./SuggestionInfo/SuggestionInfo"
+import Checkbox from "./Checkbox/Checkbox"
+import APIService from "../APIService/APIService"
+import "../App.css"
 
 
 export default class Map extends Component {
@@ -15,63 +15,54 @@ export default class Map extends Component {
     super(props);
     this.state = {
       suggestionPin: {},
-      tabIndex: 0,
       suggestions: [],
       currentSuggestion: null,
       suggestionInfoIsActive: false,
       currentLocation: {date: "", location: {lat: "", lng: ""}},
       pinFilters: [],
       routePoints: [],
+      service: new APIService("https://spoken-api.herokuapp.com")
     }
     this.setSuggestion = this.setSuggestion.bind(this)
     this.getSuggestions = this.getSuggestions.bind(this)
     this.getCurrentLocation = this.getCurrentLocation.bind(this)
     this.showSuggestionInfo = this.showSuggestionInfo.bind(this)
-    this.handleTabClick = this.handleTabClick.bind(this)
     this.filterPins = this.filterPins.bind(this)
   }
 
   componentDidMount() {
-    this.getSuggestions();
-    this.getCurrentLocation();
-    this.getRoutePoints();
+    this.getSuggestions()
+    this.getCurrentLocation()
+    this.getRoutePoints()
   }
 
   async getCurrentLocation() {
-    await this.getApiObjects("http://spoken-api.herokuapp.com/api/v1/current_location", "currentLocation")
+    await this.getApiObjects("api/v1/current_location", "currentLocation")
   }
 
-  getSuggestions() {
-    this.getApiObjects("http://spoken-api.herokuapp.com/api/v1/suggestion_pins", "suggestions")
+  async getSuggestions() {
+    await this.getApiObjects("api/v1/suggestion_pins", "suggestions")
   }
 
-  getRoutePoints() {
-    this.getApiObjects("http://spoken-api.herokuapp.com/api/v1/route_pins", "routePoints")
+  async getRoutePoints() {
+    await this.getApiObjects("api/v1/route_pins", "routePoints")
   }
 
-  getApiObjects(url, state) {
-    let self = this;
-    $.ajax({
-      url: url + "?api_key=" + process.env.REACT_APP_RAILS_KEY,
-      method: "GET",
-    }).done(function(response) {
-      self.setState({
-        [state]: response,
-      })
-    }).fail(function(error) {
-      console.error("No");
-    });
+  async getApiObjects(path, state) {
+    const response = await this.state.service.get(path)
+    this.setState({
+      [state]: response.data
+    })
   }
 
   setSuggestion(position) {
     this.setState({
       suggestionPin: position,
-      tabIndex: 1,
     })
   }
 
   showSuggestionInfo(latLng) {
-    const suggestion = this.state.suggestions.find((s)=>{
+    const suggestion = this.state.suggestions.find(s => {
       const suggestionLat = parseFloat(s.location.lat)
       const suggestionLng = parseFloat(s.location.lng)
       return suggestionLat === latLng.lat() && suggestionLng === latLng.lng()
@@ -79,28 +70,21 @@ export default class Map extends Component {
     this.setState({
       currentSuggestion: suggestion,
       suggestionInfoIsActive: true,
-      tabIndex: 1,
-    });
-  }
-
-  handleTabClick(tabIndex) {
-    this.setState({
-      tabIndex: tabIndex,
-    });
+    })
   }
 
   filterPins(event) {
-    const filter = event.target.value;
-    const checked = event.target.checked;
-    let pinFilters;
+    const filter = event.target.value
+    const checked = event.target.checked
+    let pinFilters
 
-    pinFilters = filter === "" && [];
+    pinFilters = filter === "" && []
     pinFilters = (checked && this.state.pinFilters.concat(filter)) ||
       this.state.pinFilters.filter(f => f !== filter)
 
     this.setState({
       pinFilters: pinFilters
-    });
+    })
   }
 
   render() {
@@ -114,7 +98,7 @@ export default class Map extends Component {
         pinFilters={this.state.pinFilters}
         routePoints={this.state.routePoints}
       />
-    );
+    )
 
     const suggestionForm = (
       <SuggestionForm
@@ -122,23 +106,23 @@ export default class Map extends Component {
         getSuggestions={this.getSuggestions}
         suggestionPin={this.state.suggestionPin}
       />
-    );
+    )
 
     const suggestionInfo = (
       <SuggestionInfo
         currentSuggestion={this.state.currentSuggestion}
         suggestionInfoIsActive={this.state.suggestionInfoIsActive}
       />
-    );
+    )
 
-    const categories = _.uniq(this.state.suggestions.map(s => s.category));
+    const categories = _.uniq(this.state.suggestions.map(s => s.category))
 
     const checkboxes = ["", "DISPLAYNONE"]
       .concat(categories)
       .map((category, i) => {
         return(
           <Checkbox key={i} category={category} filterPins={this.filterPins} />
-        );
+        )
       })
 
     return (
@@ -161,11 +145,11 @@ export default class Map extends Component {
             </article>
           </article>
           <div>
-            <Info tabIndex={this.state.tabIndex} />
+            <Info />
             { suggestionForm }
           </div>
         </section>
       </article>
-    );
+    )
   }
 }
