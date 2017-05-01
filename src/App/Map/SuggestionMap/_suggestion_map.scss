@@ -1,0 +1,10 @@
+.loader {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 100px;
+  }
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { GoogleMapLoader, GoogleMap, Marker, Polyline } from 'react-google-maps';
+import { GoogleMap, Marker, Polyline } from 'react-google-maps';
+import { default as ScriptjsLoader } from "react-google-maps/lib/async/ScriptjsLoader";
 import { categoryIcons } from '../category_data';
+import loader from '../../../../public/loading.gif'
 
 export default class SuggestionMap extends Component {
   categoryIcons() {
@@ -65,7 +67,18 @@ export default class SuggestionMap extends Component {
     }, this)
 
     return(
-      <GoogleMapLoader
+      <ScriptjsLoader
+        hostname={"maps.googleapis.com"}
+        pathname={"/maps/api/js"}
+        query={{ 
+          key: process.env.REACT_APP_GOOGLE_KEY, 
+          libraries: "geometry,drawing,visualization" 
+        }}
+        loadingElement={
+          <div className="loader">
+            <img src={loader} alt="loading" />
+          </div>
+        }
         containerElement={ mapContainer }
         googleMapElement={
           <GoogleMap
