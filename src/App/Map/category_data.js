@@ -4,6 +4,8 @@ const categoryIcons = {
   avoid: "http://maps.google.com/mapfiles/ms/icons/red.png",
   bike_shop: "http://maps.google.com/mapfiles/ms/icons/mechanic.png",
   other: "http://maps.google.com/mapfiles/ms/icons/purple.png",
+  endOfDay: "http://maps.google.com/mapfiles/ms/icons/flag.png",
+  cycling: "http://maps.google.com/mapfiles/ms/icons/cycling.png",
 }
 
 const categoryLabels = {
