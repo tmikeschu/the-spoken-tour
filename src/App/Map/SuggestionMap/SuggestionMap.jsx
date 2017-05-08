@@ -66,6 +66,13 @@ export default class SuggestionMap extends Component {
       }
     }, this)
 
+    const actualPath = this.props.actualPath.map((point, i) => {
+      return {
+        lat: parseFloat(point.location.lat),
+        lng: parseFloat(point.location.lng)
+      }
+    }, this)
+
     return(
       <ScriptjsLoader
         hostname={"maps.googleapis.com"}
@@ -94,6 +101,10 @@ export default class SuggestionMap extends Component {
             { suggestion }
             <Polyline 
               path={coordinates}
+            />
+            <Polyline 
+              path={actualPath}
+              options={{strokeColor: "#f00"}}
             />
           </GoogleMap>
       } />
