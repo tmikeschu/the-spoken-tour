@@ -32,6 +32,7 @@ export default class SuggestionMapContainer extends Component {
           center={mapCenter}
           suggestions={suggestions}
           routePoints={this.props.routePoints}
+          actualPath={this.props.actualPath}
         />
       </div>
     )

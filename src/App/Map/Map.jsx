@@ -21,7 +21,8 @@ export default class Map extends Component {
       currentLocation: {date: "", location: {lat: "", lng: ""}},
       pinFilters: [],
       routePoints: [],
-      service: new APIService("https://spoken-api.herokuapp.com")
+      service: new APIService("https://spoken-api.herokuapp.com"),
+      actualPath: []
     }
     this.setSuggestion = this.setSuggestion.bind(this)
     this.getSuggestions = this.getSuggestions.bind(this)
@@ -34,6 +35,7 @@ export default class Map extends Component {
     this.getSuggestions()
     this.getCurrentLocation()
     this.getRoutePoints()
+    this.getActualPath()
   }
 
   async getCurrentLocation() {
@@ -46,6 +48,10 @@ export default class Map extends Component {
 
   async getRoutePoints() {
     await this.getApiObjects("api/v1/route_pins", "routePoints")
+  }
+
+  async getActualPath() {
+    await this.getApiObjects("api/v1/actual_path", "actualPath")
   }
 
   async getApiObjects(path, state) {
@@ -97,6 +103,7 @@ export default class Map extends Component {
         suggestionPin={this.state.suggestionPin}
         pinFilters={this.state.pinFilters}
         routePoints={this.state.routePoints}
+        actualPath={this.state.actualPath}
       />
     )
 
