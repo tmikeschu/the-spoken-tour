@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { GoogleMap, Marker, Polyline } from 'react-google-maps';
-import { default as ScriptjsLoader } from "react-google-maps/lib/async/ScriptjsLoader";
-import { categoryIcons } from '../category_data';
+import React, { Component } from 'react'
+import _ from 'lodash'
+import { GoogleMap, Marker, Polyline } from 'react-google-maps'
+import { default as ScriptjsLoader } from "react-google-maps/lib/async/ScriptjsLoader"
+import { categoryIcons } from '../category_data'
 import loader from '../../../../public/loading.gif'
 
 export default class SuggestionMap extends Component {
   categoryIcons() {
-    return categoryIcons;
+    return categoryIcons
   }
 
   render() {
@@ -18,7 +19,7 @@ export default class SuggestionMap extends Component {
     const currentLocation = (
       <Marker position={currentLatLng}
         animation={2}
-        icon={"http://maps.google.com/mapfiles/ms/icons/cycling.png"}
+        icon={this.categoryIcons()["cycling"]}
         options={{clickable: true}}/>
     )
 
@@ -32,6 +33,7 @@ export default class SuggestionMap extends Component {
     }
 
     const mapContainer = <div style={{ height: "100%", width: "100%" }} />
+
     const suggestionMarkers = this.props.suggestions.map((suggestion, i) => {
       const marker = {
         position: {
@@ -46,7 +48,7 @@ export default class SuggestionMap extends Component {
           {...marker}
           onClick={(props) => handleMarkerClick(props, this)} />
       )
-    }, this)
+    })
 
     function handleMarkerClick(props, map) {
       map.props.showSuggestionInfo(props.latLng)
@@ -64,14 +66,31 @@ export default class SuggestionMap extends Component {
         lat: parseFloat(point.location.lat),
         lng: parseFloat(point.location.lng)
       }
-    }, this)
+    })
 
     const actualPath = this.props.actualPath.map((point, i) => {
       return {
         lat: parseFloat(point.location.lat),
         lng: parseFloat(point.location.lng)
       }
-    }, this)
+    })
+
+    const endsOfDayMarkers = this.props.actualPath.map((point, i) => {
+      const marker = {
+        position: {
+          lat: parseFloat(point.location.lat),
+          lng: parseFloat(point.location.lng),
+        },
+      }
+      return (
+        <Marker
+          key={point.id}
+          icon={this.categoryIcons()["endOfDay"]}
+          {...marker}
+        >
+        </Marker>
+      )
+    })
 
     return(
       <ScriptjsLoader
@@ -99,11 +118,12 @@ export default class SuggestionMap extends Component {
             { currentLocation }
             { suggestionMarkers }
             { suggestion }
+            { endsOfDayMarkers }
             <Polyline 
               path={coordinates}
             />
             <Polyline 
-              path={actualPath}
+              path={_.uniq(actualPath)}
               options={{strokeColor: "#f00"}}
             />
           </GoogleMap>
