@@ -10,14 +10,19 @@ export default class SuggestionMap extends Component {
     return categoryIcons
   }
 
-  render() {
-    const currentLatLng = {
-      lat: parseFloat(this.props.currentLocation.location.lat),
-      lng: parseFloat(this.props.currentLocation.location.lng),
+  coordinatesFor(point) {
+    return {
+      position: {
+        lat: parseFloat(point.location.lat),
+        lng: parseFloat(point.location.lng),
+      }
     }
+  }
 
+  render() {
     const currentLocation = (
-      <Marker position={currentLatLng}
+      <Marker
+        {...this.coordinatesFor(this.props.currentLocation)}
         animation={2}
         icon={this.categoryIcons()["cycling"]}
         options={{clickable: true}}/>
@@ -34,13 +39,10 @@ export default class SuggestionMap extends Component {
 
     const mapContainer = <div style={{ height: "100%", width: "100%" }} />
 
+
     const suggestionMarkers = this.props.suggestions.map((suggestion, i) => {
-      const marker = {
-        position: {
-          lat: parseFloat(suggestion.location.lat),
-          lng: parseFloat(suggestion.location.lng),
-        },
-      }
+      const marker = this.coordinatesFor(suggestion)
+       
       return (
         <Marker
           key={suggestion.id}
@@ -75,22 +77,20 @@ export default class SuggestionMap extends Component {
       }
     })
 
-    const endsOfDayMarkers = this.props.actualPath.map((point, i) => {
-      const marker = {
-        position: {
-          lat: parseFloat(point.location.lat),
-          lng: parseFloat(point.location.lng),
-        },
-      }
-      return (
-        <Marker
-          key={point.id}
-          icon={this.categoryIcons()["endOfDay"]}
-          {...marker}
-        >
-        </Marker>
-      )
-    })
+    const endsOfDayMarkers = this.props.actualPath
+      .slice(0, this.props.actualPath.length - 1)
+      .map((point, i) => {
+        const marker = this.coordinatesFor(point)
+
+        return (
+          <Marker
+            key={point.id}
+            icon={this.categoryIcons()["endOfDay"]}
+            {...marker}
+          >
+          </Marker>
+        )
+      })
 
     return(
       <ScriptjsLoader
