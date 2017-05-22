@@ -7,7 +7,7 @@ export default class Instagram extends Component {
     super(props);
     this.state = {
       instagramPhotos: [],
-      service: new APIService("http://spoken-api.herokuapp.com")
+      service: new APIService("https://spoken-api.herokuapp.com")
     }
   }
 

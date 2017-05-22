@@ -19,16 +19,15 @@ export default class Landing extends Component {
 
         <article className="video">
           <iframe src="https://player.vimeo.com/video/211431209?byline=0&portrait=0" 
-            width="640" height="360" frameborder="0" 
-            webkitallowfullscreen mozallowfullscreen allowfullscreen
-          >
+            width="640" height="360" frameBorder="0" 
+            webkitallowfullscreen mozallowfullscreen allowFullScreen>
           </iframe>
           <iframe src="https://player.vimeo.com/video/207747360?byline=0&portrait=0"
-            width="640" height="360" frameborder="0" 
-            webkitallowfullscreen mozallowfullscreen allowfullscreen>
+            width="640" height="360" frameBorder="0" 
+            webkitallowfullscreen mozallowfullscreen allowFullScreen>
           </iframe>
           <iframe src="https://player.vimeo.com/video/211432545?byline=0&portrait=0" 
-            width="640" height="360" frameborder="0" 
+            width="640" height="360" frameBorder="0" 
             webkitallowfullscreen mozallowfullscreen allowfullscreen>
           </iframe>
         </article>
