@@ -5,10 +5,11 @@ import Legend from "./Legend/Legend"
 import Info from "./Info/Info"
 import SuggestionMapContainer from "./SuggestionMapContainer/SuggestionMapContainer"
 import SuggestionInfo from "./SuggestionInfo/SuggestionInfo"
-import Checkbox from "./Checkbox/Checkbox"
+import Filters from "./Filters/Filters"
 import APIService from "../APIService/APIService"
 import "../App.css"
 
+const service = new APIService("https://spoken-api.herokuapp.com")
 
 export default class Map extends Component {
   constructor(props) {
@@ -21,14 +22,12 @@ export default class Map extends Component {
       currentLocation: {date: "", location: {lat: "", lng: ""}},
       pinFilters: [],
       routePoints: [],
-      service: new APIService("https://spoken-api.herokuapp.com"),
       actualPath: []
     }
     this.setSuggestion = this.setSuggestion.bind(this)
     this.getSuggestions = this.getSuggestions.bind(this)
     this.getCurrentLocation = this.getCurrentLocation.bind(this)
     this.showSuggestionInfo = this.showSuggestionInfo.bind(this)
-    this.filterPins = this.filterPins.bind(this)
   }
 
   componentDidMount() {
@@ -55,7 +54,7 @@ export default class Map extends Component {
   }
 
   async getApiObjects(path, state) {
-    const response = await this.state.service.get(path)
+    const response = await service.get(path)
     this.setState({
       [state]: response.data
     })
@@ -79,31 +78,34 @@ export default class Map extends Component {
     })
   }
 
-  filterPins(event) {
-    const filter = event.target.value
-    const checked = event.target.checked
-    let pinFilters
-
-    pinFilters = filter === "" && []
-    pinFilters = (checked && this.state.pinFilters.concat(filter)) ||
-      this.state.pinFilters.filter(f => f !== filter)
-
+  setFilters = filters => {
     this.setState({
-      pinFilters: pinFilters
+      pinFilters: filters
     })
   }
 
   render() {
     const suggestionMapContainer = (
-      <SuggestionMapContainer
-        setSuggestion={this.setSuggestion}
-        showSuggestionInfo={this.showSuggestionInfo}
-        suggestions={this.state.suggestions}
-        currentLocation={this.state.currentLocation}
-        suggestionPin={this.state.suggestionPin}
-        pinFilters={this.state.pinFilters}
-        routePoints={this.state.routePoints}
-        actualPath={this.state.actualPath}
+      <article>
+        <SuggestionMapContainer
+          setSuggestion={this.setSuggestion}
+          showSuggestionInfo={this.showSuggestionInfo}
+          suggestions={this.state.suggestions}
+          currentLocation={this.state.currentLocation}
+          suggestionPin={this.state.suggestionPin}
+          pinFilters={this.state.pinFilters}
+          routePoints={this.state.routePoints}
+          actualPath={this.state.actualPath}
+        />
+      </article>
+    )
+
+    const categories = _.uniq(this.state.suggestions.map(s => s.category))
+
+    const legend = (
+      <Legend 
+        date={this.state.currentLocation.date} 
+        categories={categories}
       />
     )
 
@@ -122,35 +124,22 @@ export default class Map extends Component {
       />
     )
 
-    const categories = _.uniq(this.state.suggestions.map(s => s.category))
 
-    const checkboxes = ["", "DISPLAYNONE"]
-      .concat(categories)
-      .map((category, i) => {
-        return(
-          <Checkbox key={i} category={category} filterPins={this.filterPins} />
-        )
-      })
+    const FiltersBox = (
+      <Filters
+        categories={categories}
+        setFilters={this.setFilters}
+        pinFilters={this.state.pinFilters}
+      />
+    )
 
     return (
       <article className="map">
-        <article>
-          { suggestionMapContainer }
-        </article>
+        { suggestionMapContainer }
         <section>
-          <Legend 
-            date={this.state.currentLocation.date} 
-            categories={categories}
-          />
+          { legend }
           { suggestionInfo }
-          <article 
-            className="checkboxes"
-          >
-            <h4>Filter Suggestions</h4>
-            <article>
-              { checkboxes }
-            </article>
-          </article>
+          { FiltersBox }
           <div>
             <Info />
             { suggestionForm }

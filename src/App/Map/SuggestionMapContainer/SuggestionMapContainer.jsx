@@ -1,40 +1,51 @@
-import React, { Component } from 'react';
+import React from 'react'
+import SuggestionMap from '../SuggestionMap/SuggestionMap'
 
-import SuggestionMap from '../SuggestionMap/SuggestionMap';
+const SuggestionMapContainer = props => {
+  const {
+    suggestions,
+    pinFilters,
+    setSuggestion,
+    suggestionPin,
+    showSuggestionInfo,
+    currentLocation,
+    routePoints,
+    actualPath
+  } = props
 
-export default class SuggestionMapContainer extends Component {
-  filterPins(categories, suggestions) {
+  const filterPins = (categories, suggestions) => {
     if (categories.length === 0) { return suggestions }
     return suggestions.filter(suggestion => {
       return categories.some(category => {
-        return suggestion.category.includes(category); 
+        return suggestion.category.includes(category);
       })
-    });
+    })
   }
 
-  render() {
-    const suggestions = this.filterPins(this.props.pinFilters, this.props.suggestions);
-    const fullHeightAndWidth = { width: '100%', height: '100vh' };
-    const mapCenter = {
-      lat: -1.6246706849414423,
-      lng: -85.56376812500002
-    };
-    const mapZoom = 3;
-
-    return (
-      <div style={fullHeightAndWidth}>
-        <SuggestionMap
-          setSuggestion={this.props.setSuggestion}
-          suggestionPin={this.props.suggestionPin}
-          showSuggestionInfo={this.props.showSuggestionInfo}
-          currentLocation={this.props.currentLocation}
-          zoom={mapZoom}
-          center={mapCenter}
-          suggestions={suggestions}
-          routePoints={this.props.routePoints}
-          actualPath={this.props.actualPath}
-        />
-      </div>
-    )
+  const suggestionsPins = filterPins(pinFilters, suggestions)
+  const fullHeightAndWidth = { width: '100%', height: '100vh' }
+  const mapCenter = {
+    lat: -1.6246706849414423,
+    lng: -85.56376812500002
   }
+  const mapZoom = 3
+
+  return (
+    <div style={fullHeightAndWidth}>
+      <SuggestionMap
+        setSuggestion={setSuggestion}
+        suggestionPin={suggestionPin}
+        showSuggestionInfo={showSuggestionInfo}
+        currentLocation={currentLocation}
+        zoom={mapZoom}
+        center={mapCenter}
+        suggestions={suggestionsPins}
+        routePoints={routePoints}
+        actualPath={actualPath}
+      />
+    </div>
+  )
 }
+
+export default SuggestionMapContainer
+

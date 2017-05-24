@@ -26,7 +26,7 @@ export default class Instagram extends Component {
     const photos = this.state.instagramPhotos.map((photo, i) => {
       return (
         <div key={i} >
-          <a href={photo.link} target="_blank">
+          <a href={photo.link} target="_blank" rel="noopener noreferrer">
             <img src={photo.image} alt={photo.caption}/>
           </a>
           <section>
@@ -43,7 +43,7 @@ export default class Instagram extends Component {
         <article className="photos" >
           <section>
             <h3>See Our Journey</h3>
-            <a href="https://www.instagram.com/thespokentour/" target="_blank">Follow us!<img src="http://www.underconsideration.com/brandnew/archives/instagram_2016_icon.jpg" alt="instagram"/></a>
+            <a href="https://www.instagram.com/thespokentour/" target="_blank" rel="noopener noreferrer">Follow us!<img src="http://www.underconsideration.com/brandnew/archives/instagram_2016_icon.jpg" alt="instagram"/></a>
           </section>
           { photos }
         </article>
