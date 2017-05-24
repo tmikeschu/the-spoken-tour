@@ -1,12 +1,12 @@
 // Libraries
-import 'react';
-import { render } from 'react-dom';
+import 'react'
+import { render } from 'react-dom'
 
 // Routes
-import routes from './router.js';
+import routes from './router.js'
 
 // Styles
-import './App/App.css';
+import './App/App.css'
 
 // Config
 
@@ -14,4 +14,4 @@ import './App/App.css';
 render(
   routes,
   document.getElementById('root')
-);
+)

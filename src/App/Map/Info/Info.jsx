@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react'
 import '../../App.css'
 
-export default class Info extends Component {
-  render() {
-    return (
-      <article className="info">
-        <p>Have an amiga in Antigua?  A tía in Tijuana? Couch to crash on in Colombia? Bike shop in Bolivia?</p>
-        <p><span>Let</span> <span>us</span> <span>know</span>!</p>
-        <p>↓</p>
-      </article>
-    );
-  }
-}
+const Info = () => (
+  <article className="info">
+    <p>Have an amiga in Antigua?  A tía in Tijuana? Couch to crash on in Colombia? Bike shop in Bolivia?</p>
+    <p><span>Let</span> <span>us</span> <span>know</span>!</p>
+    <p>↓</p>
+  </article>
+)
+
+export default Info
 
