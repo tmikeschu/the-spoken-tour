@@ -1,11 +1,8 @@
 export function filterPins (event, currentFilters) {
-  const filter = event.target.value
-  const checked = event.target.checked
-  let pinFilters
+  const { value, checked } = event.target
 
-  pinFilters = filter === "" && []
-  pinFilters = (checked && currentFilters.concat(filter)) ||
-    currentFilters.filter(f => f !== filter)
+  const pinFilters = (checked && currentFilters.concat(value)) ||
+    currentFilters.filter(f => f !== value)
 
   return pinFilters
 }
