@@ -24,10 +24,6 @@ export default class Map extends Component {
       routePoints: [],
       actualPath: []
     }
-    this.setSuggestion = this.setSuggestion.bind(this)
-    this.getSuggestions = this.getSuggestions.bind(this)
-    this.getCurrentLocation = this.getCurrentLocation.bind(this)
-    this.showSuggestionInfo = this.showSuggestionInfo.bind(this)
   }
 
   componentDidMount() {
@@ -37,46 +33,51 @@ export default class Map extends Component {
     this.getActualPath()
   }
 
-  async getCurrentLocation() {
+  getCurrentLocation = async () => {
     await this.getApiObjects("api/v1/current_location", "currentLocation")
   }
 
-  async getSuggestions() {
+  getSuggestions = async () => {
     await this.getApiObjects("api/v1/suggestion_pins", "suggestions")
   }
 
-  async getRoutePoints() {
+  getRoutePoints = async () => {
     await this.getApiObjects("api/v1/route_pins", "routePoints")
   }
 
-  async getActualPath() {
+  getActualPath = async () => {
     await this.getApiObjects("api/v1/actual_path", "actualPath")
   }
 
-  async getApiObjects(path, state) {
+  getApiObjects = async (path, state) => {
     const response = await service.get(path)
     this.setState({
       [state]: response.data
     })
   }
 
-  setSuggestion(position) {
+  setSuggestion = position => {
     this.setState({
       suggestionPin: position,
     })
   }
 
-  showSuggestionInfo(latLng) {
-    const suggestion = this.state.suggestions.find(s => {
-      const suggestionLat = parseFloat(s.location.lat)
-      const suggestionLng = parseFloat(s.location.lng)
-      return suggestionLat === latLng.lat() && suggestionLng === latLng.lng()
-    })
+  showSuggestionInfo = latLng => {
+    const suggestion = this.state.suggestions.find(s => 
+      this.coordinatesCloseEnough(s.location, latLng)
+    )
+
     this.setState({
       currentSuggestion: suggestion,
       suggestionInfoIsActive: true,
     })
   }
+
+  coordinatesCloseEnough = (s, e) => (
+    this.elevenDecimalPlaces(s.lat) === this.elevenDecimalPlaces(e.lat()) &&
+      this.elevenDecimalPlaces(s.lng) === this.elevenDecimalPlaces(e.lng())
+  )
+  elevenDecimalPlaces = number => ( parseFloat(parseFloat(number).toFixed(11)))
 
   setFilters = filters => {
     this.setState({
