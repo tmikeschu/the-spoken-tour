@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import SuggestionMap from '../SuggestionMap/SuggestionMap'
 
 const SuggestionMapContainer = props => {
@@ -15,11 +16,11 @@ const SuggestionMapContainer = props => {
 
   const filterPins = (categories, suggestions) => {
     if (categories.length === 0) { return suggestions }
-    return suggestions.filter(suggestion => {
-      return categories.some(category => {
-        return suggestion.category.includes(category);
-      })
-    })
+    return suggestions.filter(suggestion => (
+      categories.some(category => (
+        suggestion.category.includes(category)
+      ))
+    ))
   }
 
   const suggestionsPins = filterPins(pinFilters, suggestions)
@@ -45,6 +46,17 @@ const SuggestionMapContainer = props => {
       />
     </div>
   )
+}
+
+SuggestionMapContainer.propTypes = {
+  suggestionPin: PropTypes.object,
+  pinFilters: PropTypes.array.isRequired,
+  suggestions: PropTypes.array.isRequired,
+  currentLocation: PropTypes.object.isRequired,
+  routePoints: PropTypes.array.isRequired,
+  actualPath: PropTypes.array.isRequired,
+  showSuggestionInfo: PropTypes.func.isRequired,
+  setSuggestion: PropTypes.func.isRequired
 }
 
 export default SuggestionMapContainer

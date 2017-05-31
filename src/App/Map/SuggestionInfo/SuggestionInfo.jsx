@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import '../../App.css'
 
 const SuggestionInfo = props => {
@@ -23,6 +24,11 @@ const SuggestionInfo = props => {
       </section>
     </article>
   )
+}
+
+SuggestionInfo.propTypes = {
+  currentSuggestion: PropTypes.object,
+  suggestionInfoIsActive: PropTypes.bool.isRequired,
 }
 
 export default SuggestionInfo

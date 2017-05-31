@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Checkbox from "./Checkbox/Checkbox"
 import * as FilterHelper from "./FilterHelper/FilterHelper"
 
@@ -24,6 +25,12 @@ const Filters = props => {
       </article>
     </article>
   )
+}
+
+Filters.propTypes = {
+  categories: PropTypes.array.isRequired,
+  pinFilters: PropTypes.array.isRequired,
+  setFilters: PropTypes.func.isRequired
 }
 
 export default Filters

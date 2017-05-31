@@ -4,7 +4,7 @@ import "../../App.css"
 
 export default class ContactForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       name: "",
       email: "",

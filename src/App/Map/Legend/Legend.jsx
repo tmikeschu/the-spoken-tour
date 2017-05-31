@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Category from './Category/Category'
 import { categoryIcons } from '../category_data'
 import '../../App.css'
@@ -30,6 +31,11 @@ const Legend = props => {
       </ul>
     </article>
   )
+}
+
+Legend.propTypes = {
+  categories: PropTypes.array.isRequired,
+  date: PropTypes.string.isRequired
 }
 
 export default Legend
