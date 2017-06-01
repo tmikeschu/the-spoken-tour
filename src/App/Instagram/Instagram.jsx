@@ -2,12 +2,13 @@ import React, { Component } from "react"
 import APIService from "../APIService/APIService"
 import "../App.css"
 
+const service = new APIService("https://spoken-api.herokuapp.com")
+
 export default class Instagram extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      instagramPhotos: [],
-      service: new APIService("https://spoken-api.herokuapp.com")
+      instagramPhotos: []
     }
   }
 
@@ -16,7 +17,7 @@ export default class Instagram extends Component {
   }
 
   async getPhotos() {
-    const response = await this.state.service.get("/api/v1/instagram_photos")
+    const response = await service.get("/api/v1/instagram_photos")
     this.setState({
       instagramPhotos: response.data
     })

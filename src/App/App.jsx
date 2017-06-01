@@ -1,5 +1,6 @@
 // Libraries
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Components
 import Header from './Header/Header.jsx'
@@ -18,6 +19,10 @@ const App = ({ children }) => (
     { children }
   </div>
 )
+
+App.propTypes = {
+  children: PropTypes.object.isRequired
+}
 
 export default App
 

@@ -66,7 +66,8 @@ const SuggestionMap = props => {
             options={{strokeColor: "#f00"}}
           />
         </GoogleMap>
-      } />
+      } 
+    />
   )
 }
 
