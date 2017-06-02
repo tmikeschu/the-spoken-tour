@@ -1,7 +1,11 @@
+// @flow
 import axios from "axios"
 
 export default class APIService {
-  constructor(baseURL) {
+
+  connection: Function
+  key: {}
+  constructor(baseURL: string) {
     this.connection = axios.create({
       baseURL: baseURL
     })
@@ -11,18 +15,18 @@ export default class APIService {
     }
   }
 
-  get(path, params) {
-    return this.connection.get(path, {
+  get = (path: string, params: {}) => (
+    this.connection.get(path, {
         params: Object.assign(this.key, params || {})
-      })
-      .then(response => response)
-      .catch(error => error)
-  }
-  
-  post(path, body) {
-    return this.connection.post(path, Object.assign(this.key, body || {}))
+    })
     .then(response => response)
     .catch(error => error)
-  }
+  )
+  
+  post = (path: string, body: {}) => (
+    this.connection.post(path, Object.assign(this.key, body || {}))
+    .then(response => response)
+    .catch(error => error)
+  )
 }
 
