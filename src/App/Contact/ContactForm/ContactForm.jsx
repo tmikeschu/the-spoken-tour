@@ -2,18 +2,22 @@ import React, { Component } from "react"
 import APIService from "../../APIService/APIService"
 import "../../App.css"
 
+const apiService = new APIService("https://spoken-api.herokuapp.com")
+
 export default class ContactForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: "",
-      email: "",
-      message: "",
-      service: new APIService("https://spoken-api.herokuapp.com"),
+      contact: {
+        name: "",
+        email: "",
+        message: ""
+      },
       success: false,
       failure: false,
-      error: "",
+      error: ""
     }
+    this.emptyForm = this.state.contact
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -21,34 +25,27 @@ export default class ContactForm extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value
+      ...this.state,
+      contact: {
+        ...this.state.contact,
+        [event.target.name]: event.target.value
+      }
     })
   }
 
-  async handleSubmit(event) {
+  messageData = () => ({
+    contact: this.state.contact
+  })
+
+  async handleSubmit(event, service, messageData) {
     event.preventDefault()
-    
-    const messageData = {
-      contact: {
-        name: this.state.name,
-        email: this.state.email,
-        message: this.state.message,
-      }
-    }
+    const response = await service.post("api/v1/contact", messageData)
+    this.handleResponse(response)
+    return response
+  }
 
-    const response = await this.state.service.post("api/v1/contact", messageData)
-    response.status === 201 && this.setState({
-      success: true,
-      name: "",
-      email: "",
-      message: "",
-    })
-
-    response.status === 400 && this.setState({
-      failure: true,
-      error: String(response.data)
-    })
-
+  handleResponse(response) {
+    this.setState(this.stateFor(response))
     setTimeout(() => {
       this.setState({
         success: false,
@@ -57,28 +54,35 @@ export default class ContactForm extends Component {
     }, 3000)
   }
 
+  stateFor = (response) => {
+    const { status, data } = response
+    return (
+      status === 201 && { success: true, contact: this.emptyForm }
+    ) || (
+      status === 400 && { failure: true, error: String(data) }
+    )
+  }
+
   render() {
     return (
       <article className="component-container contact-form">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={event => this.handleSubmit(event, apiService, this.messageData())}>
           <input 
-            required type="text" name="name" value={this.state.name} 
+            required type="text" name="name" value={this.state.contact.name} 
             onChange={this.handleChange} placeholder="Your Name"
           />
 
           <input 
-            required type="_replyto" name="email" value={this.state.email} 
+            required type="text" name="email" value={this.state.contact.email} 
             onChange={this.handleChange} placeholder="Email Address"
           />
 
           <input type="hidden" name="_subject" value="Website contact" />
 
           <textarea 
-            required name="message" value={this.state.message} 
+            required name="message" value={this.state.contact.message} 
             onChange={this.handleChange} placeholder="What's up?"
           />
-
-          <input type="text" name="_gotcha" style={{display: "none"}} />
 
           <input type="submit" value="Send" />
 
