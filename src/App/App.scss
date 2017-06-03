@@ -1,19 +1,19 @@
 // Universal Theme
-@import "./stylesheets/reset.scss";
-@import "./stylesheets/base.scss";
-@import "./stylesheets/skeleton.scss";
+@import "./stylesheets/reset";
+@import "./stylesheets/base";
+@import "./stylesheets/skeleton";
 
 // Components
-@import "./About/about.scss";
-@import "./Contact/contact.scss";
+@import "./About/about";
+@import "./Contact/contact";
 @import "./Header/header";
-@import "./Home/home.scss";
-@import "./Instagram/instagram.scss";
-@import "./Landing/landing.scss";
-@import "./Map/map.scss";
-@import "./Nav/nav.scss";
-@import "./Podcast/podcast.scss";
-@import "./Support/support.scss";
+@import "./Home/home";
+@import "./Instagram/instagram";
+@import "./Landing/landing";
+@import "./Map/map";
+@import "./Nav/nav";
+@import "./Podcast/podcast";
+@import "./Support/support";
 
 .header-nav {
   display: flex;
