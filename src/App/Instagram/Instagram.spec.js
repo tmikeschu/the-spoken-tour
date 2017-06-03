@@ -49,12 +49,11 @@ describe('<Instagram />', () => {
 
     it("calls #setPhotos", async () => {
       const insta = shallow(<Instagram />).instance()
-      const restore = insta.setPhotos
-      const mock = insta.setPhotos = jest.fn()
+      const spy = jest.spyOn(insta, "setPhotos")
       await insta.getPhotos(fakeService)
 
-      expect(mock).toHaveBeenCalled()
-      insta.setPhotos = restore
+      expect(spy).toHaveBeenCalled()
+      spy.mockRestore()
     })
   })
 
