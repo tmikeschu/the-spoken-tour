@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import APIService from "../APIService/APIService"
 import "../App.css"
 
-const service = new APIService("https://spoken-api.herokuapp.com")
+const apiService = new APIService("https://spoken-api.herokuapp.com")
 
 export default class Instagram extends Component {
   constructor(props) {
@@ -13,15 +13,16 @@ export default class Instagram extends Component {
   }
 
   componentDidMount() {
-    this.getPhotos()
+    this.getPhotos(apiService)
   }
 
-  async getPhotos() {
+  async getPhotos(service) {
     const response = await service.get("/api/v1/instagram_photos")
-    this.setState({
-      instagramPhotos: response.data
-    })
+    this.setPhotos(response.data)
+    return response
   }
+
+  setPhotos = photos => this.setState({ instagramPhotos: photos || [] })
 
   render() {
     const photos = this.state.instagramPhotos.map((photo, i) => {
