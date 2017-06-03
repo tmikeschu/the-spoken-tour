@@ -47,8 +47,8 @@ a {
   color: $blue;
   transition: 300ms;
   &:hover, &:focus {
-    transition: 300ms;
-    font-weight: bold;
+    transition: letter-spacing 300ms ease;
+    letter-spacing: 1.5px;
     color: $yellow;
   }
 }

@@ -44,6 +44,11 @@
       padding: 1%;
       a {
         img {
+          transition: 300ms;
+          &:hover, &:focus {
+            transition: 300ms;
+            transform: scale(1.05);
+          }
           width: 100%;
           max-width: 640px;
           border: 1px solid black;

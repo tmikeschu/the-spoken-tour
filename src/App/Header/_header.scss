@@ -7,10 +7,6 @@
   h3 {
     a {
       color: $green;
-      transition: 300ms;
-      &:hover, &:focus {
-        transition: 300ms;
-      }
     }
   }
   .header-logo {

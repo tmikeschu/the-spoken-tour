@@ -11,20 +11,13 @@
     align-self: center;
   }
   >p {
-    &:nth-of-type(odd) {
-      align-self: center;
+    width: 67%;
+    margin: 10px auto;
+    font-size: 1.2em;
+    &:nth-of-type(1) {
+      text-align: center;
       color: $yellow;
     }
-    &:nth-of-type(2) {
-      width: 67%;
-      margin: 0 auto;
-    }
-    &:nth-of-type(3) {
-      width: 67%;
-      margin: 0 auto;
-    }
-    margin: 2% 0;
-    font-size: 1.2em;
   }
   .sponsor {
     display: flex;
@@ -54,20 +47,20 @@
       }
     }
   }
-  button {
-    width: 200px;
+  form {
     margin-top: 20px;
     align-self: center;
-    border: none;
-    font-family: $body-font;
-    font-size: 1.5em;
-    background-color: $lilac;
-    color: #fff;
     transition: 300ms;
-    &:hover, &:focus {
-      background-color: $blue;
-      cursor: pointer;
-      transition: 300ms;
+    text-align: center;
+    input {
+      &[type='image'] {
+        transition: 300ms;
+        &:hover, &:focus {
+          cursor: pointer;
+          transition: 300ms;
+          transform: scale(1.2);
+        }
+      }
     }
   }
 

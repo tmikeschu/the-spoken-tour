@@ -10,6 +10,21 @@ const Support = () => (
       possible, we truly could not be doing this without your help and 
       support!
     </p>
+    <p>
+      Want to buy us a meal? Maybe pay
+      for a border crossing? Or nose plugs
+      to save us from tent farts? Feel free
+      to send us a donation! All money will
+      go towards trip expenses.
+    </p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick" />
+      <input type="hidden" name="encrypted" 
+        value="-----BEGIN PKCS7-----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-----END PKCS7-----" 
+      />
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+    </form>
     <section className="sponsor">
       <article>
         <h3><a href="http://www.tmikeschu.co/">Mike Schutte</a></h3>
@@ -84,14 +99,6 @@ const Support = () => (
       </article>
       <img src="http://static1.squarespace.com/static/5643a334e4b0d7ba4d702664/t/58532982d1758ec6d7c3ff5b/1492436927771/?format=1500w" alt="Pine Brand"/>
     </section>
-    <p>
-      Want to buy us a meal? Maybe pay
-      for a border crossing? Or nose plugs
-      to save us from tent farts? Feel free
-      to send us a donation! All money will
-      go towards trip expenses.
-    </p>
-    <button>Coming Soon!</button>
   </article>
 )
 
