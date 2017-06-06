@@ -2,34 +2,6 @@ import React from "react"
 import { shallow, mount } from "enzyme"
 import ContactForm from "./ContactForm"
 
-const fakeService = {
-  post(url, data) {
-    return {
-      status: 201,
-      data: "AHH!"
-    }
-  }
-}
-const fakeResponse1 = {
-  status: 201,
-  data: "COOL"
-}
-const fakeResponse2 = {
-  status: 400,
-  data: "AHH!"
-}
-const expectedMessageData = {
-  contact: {
-    name: "Tommy", email: "tom@my.crosby", message: "yo yo yo"
-  }
-}
-const event = {
-  contact: {
-    name: "Tommy", email: "tom@my.crosby", message: "yo yo yo"
-  },
-  preventDefault() {}
-}
-
 describe("<ContactForm />", () => {
   it("renders a contact form", () => {
     const contactForm = shallow(<ContactForm />)
@@ -69,16 +41,6 @@ describe("<ContactForm />", () => {
     })
   })
 
-  describe("#messageData", () => {
-    it("returns an object of existing state", () => {
-      const contactForm = shallow(<ContactForm />)
-      contactForm.setState(expectedMessageData)
-      const messageData = contactForm.instance().messageData()
-
-      expect(messageData).toMatchObject(expectedMessageData)
-    })
-  })
-
   describe("#handleSubmit", () => {
     it("is called on submit", () => {
       const restore = ContactForm.prototype.handleSubmit
@@ -93,9 +55,14 @@ describe("<ContactForm />", () => {
     it("makes a post request", async () => {
       const contactForm = shallow(<ContactForm />)
       const response = await contactForm.instance()
-        .handleSubmit(event, fakeService, expectedMessageData)
+        .handleSubmit(fakeEvent, fakeService, expectedMessageData)
 
-      expect(response).toEqual(response)
+      const expectedResponse = {
+        status: 201,
+        data: "AHH!"
+      }
+
+      expect(response).toEqual(expectedResponse)
     })
   })
 
@@ -105,7 +72,7 @@ describe("<ContactForm />", () => {
       const mock = ContactForm.prototype.handleResponse = jest.fn()
       const contactForm = shallow(<ContactForm />)
       await contactForm.instance()
-        .handleSubmit(event, fakeService, expectedMessageData)
+        .handleSubmit(fakeEvent, fakeService, expectedMessageData)
 
       expect(mock).toHaveBeenCalled()
       ContactForm.prototype.handleResponse = restore
@@ -162,4 +129,32 @@ describe("<ContactForm />", () => {
     })
   })
 })
+
+const fakeService = {
+  post(url, data) {
+    return {
+      status: 201,
+      data: "AHH!"
+    }
+  }
+}
+const fakeResponse1 = {
+  status: 201,
+  data: "COOL"
+}
+const fakeResponse2 = {
+  status: 400,
+  data: "AHH!"
+}
+const expectedMessageData = {
+  contact: {
+    name: "Tommy", email: "tom@my.crosby", message: "yo yo yo"
+  }
+}
+const fakeEvent = {
+  contact: {
+    name: "Tommy", email: "tom@my.crosby", message: "yo yo yo"
+  },
+  preventDefault() {}
+}
 
