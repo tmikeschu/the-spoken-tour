@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SuggestionMap from '../SuggestionMap/SuggestionMap'
+import SuggestionMap from './SuggestionMap/SuggestionMap'
 
 const SuggestionMapContainer = props => {
   const {

@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-// Styles
-import '../App.css'
-
 const Home = () => (
   <article className="home">
     <img src="http://www.clipartbest.com/cliparts/7ca/6EB/7ca6EBkMi.png" alt="bicycle"/>

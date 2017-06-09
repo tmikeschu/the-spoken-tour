@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { categoryIcons, categoryLabels } from '../../category_data'
+import { categoryIcons, categoryLabels } from '../../../category_data'
 
 const Category = ({ category }) =>  (
   <li>

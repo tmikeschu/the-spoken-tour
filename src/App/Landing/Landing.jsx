@@ -4,7 +4,6 @@ import contact from './contact_logo.png'
 import podcast from './podcast_logo.png'
 import map from './map_logo.png'
 import instagram from './instagram_logo.png'
-import '../App.css'
 
 const Landing = () => (
   <section className="landing">

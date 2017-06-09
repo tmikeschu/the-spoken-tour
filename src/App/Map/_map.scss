@@ -1,11 +1,11 @@
 @import '../stylesheets/base.scss';
-@import './Info/info.scss';
-@import './Legend/legend.scss';
+@import './SideContainer/Info/info.scss';
+@import './SideContainer/Legend/legend.scss';
 @import './SuggestionMapContainer/suggestion_map_container.scss';
-@import './SuggestionForm/suggestion_form.scss';
-@import './SuggestionInfo/suggestion_info.scss';
-@import './Filters/Checkbox/checkbox.scss';
-@import './SuggestionMap/suggestion_map.scss';
+@import './SideContainer/SuggestionForm/suggestion_form.scss';
+@import './SideContainer/SuggestionInfo/suggestion_info.scss';
+@import './SideContainer/Filters/Checkbox/checkbox.scss';
+@import './SuggestionMapContainer/SuggestionMap/suggestion_map.scss';
 
 article.map {
   background-color: #fff;

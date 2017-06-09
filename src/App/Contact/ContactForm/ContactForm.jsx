@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import APIService from "../../APIService/APIService"
-import "../../App.css"
 
 const apiService = new APIService("https://spoken-api.herokuapp.com")
 

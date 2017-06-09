@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { GoogleMap, Polyline } from "react-google-maps"
 import { default as ScriptjsLoader } from "react-google-maps/lib/async/ScriptjsLoader"
 import * as MarkerHelper from "./MarkerHelper/MarkerHelper"
-import loader from "../../public/loading.gif"
+import loader from "../../../public/loading.gif"
 
 const SuggestionMap = props => {
   const { 

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
 import logo from './wheel.svg'
-import '../App.css'
 
 const Header = () => (
   <article className="header">

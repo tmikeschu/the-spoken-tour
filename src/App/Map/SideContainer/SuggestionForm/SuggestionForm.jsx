@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from 'prop-types'
-import APIService from "../../APIService/APIService"
+import APIService from "../../../APIService/APIService"
 import { Notification } from "react-notification"
-import "../../App.css"
 
 const service = new APIService("https://spoken-api.herokuapp.com")
 

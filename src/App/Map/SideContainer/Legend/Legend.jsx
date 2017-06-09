@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Category from './Category/Category'
-import { categoryIcons } from '../category_data'
-import '../../App.css'
+import { categoryIcons } from '../../category_data'
 
 const Legend = props => {
   const { categories, date } = props

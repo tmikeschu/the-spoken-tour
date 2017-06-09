@@ -1,13 +1,7 @@
 import React, { Component } from "react"
-import _ from "lodash"
-import SuggestionForm from "./SuggestionForm/SuggestionForm"
-import Legend from "./Legend/Legend"
-import Info from "./Info/Info"
 import SuggestionMapContainer from "./SuggestionMapContainer/SuggestionMapContainer"
-import SuggestionInfo from "./SuggestionInfo/SuggestionInfo"
-import Filters from "./Filters/Filters"
+import SideContainer from "./SideContainer/SideContainer"
 import APIService from "../APIService/APIService"
-import "../App.css"
 
 const service = new APIService("https://spoken-api.herokuapp.com")
 
@@ -101,51 +95,26 @@ export default class Map extends Component {
       </article>
     )
 
-    const categories = _.uniq(this.state.suggestions.map(s => s.category))
-
-    const legend = (
-      <Legend 
-        date={this.state.currentLocation.date} 
-        categories={categories}
-      />
-    )
-
-    const suggestionForm = (
-      <SuggestionForm
+    const sideContainer = (
+      <SideContainer 
+        setFilters={this.setFilters}
+        pinFilters={this.state.pinFilters}
+        currentSuggestion={this.state.currentSuggestion}
+        currentLocation={this.state.currentLocation}
+        suggestionInfoIsActive={this.state.suggestionInfoIsActive}
         setSuggestion={this.setSuggestion}
         getSuggestions={this.getSuggestions}
         suggestionPin={this.state.suggestionPin}
+        date={this.state.currentLocation.date} 
+        suggestions={this.state.suggestions}
       />
     )
 
-    const suggestionInfo = (
-      <SuggestionInfo
-        currentSuggestion={this.state.currentSuggestion}
-        suggestionInfoIsActive={this.state.suggestionInfoIsActive}
-      />
-    )
-
-
-    const FiltersBox = (
-      <Filters
-        categories={categories}
-        setFilters={this.setFilters}
-        pinFilters={this.state.pinFilters}
-      />
-    )
 
     return (
       <article className="map">
         { suggestionMapContainer }
-        <section>
-          { legend }
-          { suggestionInfo }
-          { FiltersBox }
-          <div>
-            <Info />
-            { suggestionForm }
-          </div>
-        </section>
+        { sideContainer }
       </article>
     )
   }

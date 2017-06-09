@@ -1,6 +1,5 @@
 import React from 'react'
 import NavLink from './NavLink/NavLink'
-import '../App.css'
 
 const Nav = () => (
   <article className="nav">

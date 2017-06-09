@@ -1,6 +1,5 @@
 import React from "react"
 import ContactForm from "./ContactForm/ContactForm"
-import "../App.css"
 
 const Contact = () => (
   <article className="contact">

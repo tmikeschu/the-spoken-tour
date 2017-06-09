@@ -1,7 +1,7 @@
 // @flow
 import React from "react"
 import { Marker } from "react-google-maps"
-import { categoryIcons } from "../../category_data"
+import { categoryIcons } from "../.././../category_data"
 
 interface LatLngable {
   lat: number,
