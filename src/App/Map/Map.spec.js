@@ -4,9 +4,174 @@ import Map from './Map'
 
 describe('<Map />', () => {
   it('renders the embedded map and side information', () => {
-    const map = shallow(<Map />)
-    expect(map.find('SuggestionMapContainer').length).toEqual(1)
-    expect(map.find('SideContainer').length).toEqual(1)
+    const wrapper = shallow(<Map />)
+    expect(wrapper.find('SuggestionMapContainer').length).toEqual(1)
+    expect(wrapper.find('SideContainer').length).toEqual(1)
+  })
+
+  const map = shallow(<Map />).instance()
+  const fetches = [
+    "getSuggestions", "getCurrentLocation", "getRoutePoints", "getActualPath"
+  ]
+
+  describe("#componentDidMount", () => {
+    it("calls four API GET requests", () => {
+      fetches.forEach(f => {
+        const restore = map[f]
+        const mock = map[f] = jest.fn()
+        map.componentDidMount()
+        expect(mock).toHaveBeenCalled()
+
+        map[f] = restore
+      })
+    })
+  })
+
+  describe("#get... methods", () => {
+    it("all call #getApiObjects", async () => {
+      const restore = map.getApiObjects
+      const mock = map.getApiObjects = jest.fn()
+
+      fetches.forEach((f, i) => {
+        map[f]()
+        expect(mock).toHaveBeenCalledTimes(i + 1)
+      })
+
+      map.getApiObjects = restore
+    })
+  })
+
+  describe("#getApiObjects", () => {
+    describe("suggestions", () => {
+      it("sets state for suggestions", async () => {
+        await map.getApiObjects("api/v1/suggestion_pins", "suggestions", fakeService)
+        expect(map.state.suggestions).toMatchObject(["suggestions set!"])
+      })
+
+      it("sets an empty array if no response", async () => {
+        await map.getApiObjects("api/v1/suggestion_pins", "suggestions", badService)
+        expect(map.state.suggestions).toMatchObject([])
+      })
+    })
+
+    describe("currentLocation", () => {
+      it("sets state for currentLocation", async () => {
+        await map.getApiObjects("api/v1/current_location", "currentLocation", fakeService)
+        expect(map.state.currentLocation).toMatchObject({ set: true })
+      })
+
+      it("sets an empty array if no response", async () => {
+        await map.getApiObjects("api/v1/current_location", "currentLocation", badService)
+        expect(map.state.currentLocation).toMatchObject({})
+      })
+    })
+
+    describe("routePoints", () => {
+      it("sets state for routePoints", async () => {
+        await map.getApiObjects("api/v1/route_pins", "routePoints", fakeService)
+        expect(map.state.routePoints).toMatchObject(["route points set!"])
+      })
+
+      it("sets an empty array if no response", async () => {
+        await map.getApiObjects("api/v1/route_pins", "routePoints", badService)
+        expect(map.state.routePoints).toMatchObject([])
+      })
+    })
+
+    describe("actualPath", () => {
+      it("sets state for actualPath", async () => {
+        await map.getApiObjects("api/v1/actual_path", "actualPath", fakeService)
+        expect(map.state.actualPath).toMatchObject(["actual path set!"])
+      })
+
+      it("sets an empty array if no response", async () => {
+        await map.getApiObjects("api/v1/actual_path", "actualPath", badService)
+        expect(map.state.actualPath).toMatchObject([])
+      })
+    })
+  })
+
+  describe("#setSuggestion", () => {
+    it("updates suggestionPin state", () => {
+      const position = { lat: 10, lng: 10 }
+      expect(map.state.suggestionPin).toMatchObject({})
+      map.setSuggestion(position)
+      expect(map.state.suggestionPin).toMatchObject(position)
+    })
+  })
+
+  describe("#showSuggestionInfo", () => {
+    it("updates suggestionPin state", () => {
+      map.setState({ suggestions: suggestions })
+      expect(map.state.currentSuggestion).toBeNull()
+      expect(map.state.suggestionInfoIsActive).toBeFalsy()
+
+      map.showSuggestionInfo(latLng)
+
+      expect(map.state.currentSuggestion).toMatchObject(suggestions[0])
+      expect(map.state.suggestionInfoIsActive).toBeTruthy()
+    })
+  })
+
+  describe("#coordinatesCloseEnough", () => {
+    it("returns true if coordinates round to the same 11th decimal place", () => {
+      expect(map.coordinatesCloseEnough(suggestions[0].location, latLng)).toBeTruthy()
+    })
+
+    it("returns false if coordinates don't round to the same 11th decimal place", () => {
+      expect(map.coordinatesCloseEnough({ lat: 10.0002, lng: 10.0002 }, latLng)).toBeFalsy()
+    })
+  })
+
+  describe("#elevenDecimalPlaces", () => {
+    it("rounds a number with 4 decimal places to 11 decimal places", () => {
+      expect(map.elevenDecimalPlaces(10.0234)).toEqual(10.02340000000)
+    })
+
+    it("rounds a number with 15 decimal places to 11 decimal places", () => {
+      expect(map.elevenDecimalPlaces(10.023491829833019)).toEqual(10.02349182983)
+    })
+
+    it("brings a whole number to 11 decimal places", () => {
+      expect(map.elevenDecimalPlaces(10)).toEqual(10.00000000000)
+    })
+  })
+
+  describe("#setFilters", () => {
+    it("updates state for pinFilters", () => {
+      expect(map.state.pinFilters).toMatchObject([])
+      map.setFilters(["stay"])
+      expect(map.state.pinFilters).toMatchObject(["stay"])
+    })
   })
 })
 
+const fakeService = {
+  get(path) {
+    return {
+      status: 200,
+      data: pathResponses[path]
+    }
+  }
+}
+
+const badService = { get() {} }
+
+const pathResponses = {
+  "api/v1/current_location": { set: true },
+  "api/v1/suggestion_pins": ["suggestions set!"],
+  "api/v1/route_pins": ["route points set!"],
+  "api/v1/actual_path": ["actual path set!"]
+}
+
+const latLng = {
+  lat() { return 10.000100000000000001 },
+  lng() { return 10.000100000000000001 }
+}
+
+const suggestions = [
+  {
+    location: { lat: 10.0001, lng: 10.0001 },
+    description: "sweet", label: "stay", category: "Place to stay"
+  }
+]

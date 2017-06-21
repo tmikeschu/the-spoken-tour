@@ -28,25 +28,26 @@ export default class Map extends Component {
   }
 
   getCurrentLocation = async () => {
-    await this.getApiObjects("api/v1/current_location", "currentLocation")
+    await this.getApiObjects("api/v1/current_location", "currentLocation", service)
   }
 
   getSuggestions = async () => {
-    await this.getApiObjects("api/v1/suggestion_pins", "suggestions")
+    await this.getApiObjects("api/v1/suggestion_pins", "suggestions", service)
   }
 
   getRoutePoints = async () => {
-    await this.getApiObjects("api/v1/route_pins", "routePoints")
+    await this.getApiObjects("api/v1/route_pins", "routePoints", service)
   }
 
   getActualPath = async () => {
-    await this.getApiObjects("api/v1/actual_path", "actualPath")
+    await this.getApiObjects("api/v1/actual_path", "actualPath", service)
   }
 
-  getApiObjects = async (path, state) => {
+  getApiObjects = async (path, state, service) => {
     const response = await service.get(path)
+    const safety = state === "currentLocation" ? {} : []
     this.setState({
-      [state]: response.data
+      [state]: response && response.data || safety
     })
   }
 
@@ -57,7 +58,7 @@ export default class Map extends Component {
   }
 
   showSuggestionInfo = latLng => {
-    const suggestion = this.state.suggestions.find(s => 
+    const suggestion = this.state.suggestions.find(s =>
       this.coordinatesCloseEnough(s.location, latLng)
     )
 
@@ -67,10 +68,11 @@ export default class Map extends Component {
     })
   }
 
-  coordinatesCloseEnough = (s, e) => (
-    this.elevenDecimalPlaces(s.lat) === this.elevenDecimalPlaces(e.lat()) &&
-      this.elevenDecimalPlaces(s.lng) === this.elevenDecimalPlaces(e.lng())
+  coordinatesCloseEnough = (suggestion, event) => (
+    this.elevenDecimalPlaces(suggestion.lat) === this.elevenDecimalPlaces(event.lat()) &&
+      this.elevenDecimalPlaces(suggestion.lng) === this.elevenDecimalPlaces(event.lng())
   )
+
   elevenDecimalPlaces = number => ( parseFloat(parseFloat(number).toFixed(11)))
 
   setFilters = filters => {
@@ -96,7 +98,7 @@ export default class Map extends Component {
     )
 
     const sideContainer = (
-      <SideContainer 
+      <SideContainer
         setFilters={this.setFilters}
         pinFilters={this.state.pinFilters}
         currentSuggestion={this.state.currentSuggestion}
@@ -105,11 +107,10 @@ export default class Map extends Component {
         setSuggestion={this.setSuggestion}
         getSuggestions={this.getSuggestions}
         suggestionPin={this.state.suggestionPin}
-        date={this.state.currentLocation.date} 
+        date={this.state.currentLocation.date}
         suggestions={this.state.suggestions}
       />
     )
-
 
     return (
       <article className="map">
