@@ -5,7 +5,6 @@ import SuggestionMap from './SuggestionMap/SuggestionMap'
 const SuggestionMapContainer = props => {
   const {
     suggestions,
-    pinFilters,
     setSuggestion,
     suggestionPin,
     showSuggestionInfo,
@@ -14,16 +13,6 @@ const SuggestionMapContainer = props => {
     actualPath
   } = props
 
-  const filterPins = (categories, suggestions) => {
-    if (categories.length === 0) { return suggestions }
-    return suggestions.filter(suggestion => (
-      categories.some(category => (
-        suggestion.category.includes(category)
-      ))
-    ))
-  }
-
-  const suggestionsPins = filterPins(pinFilters, suggestions)
   const fullHeightAndWidth = { width: '100%', height: '100vh' }
   const mapCenter = {
     lat: -1.6246706849414423,
@@ -40,7 +29,7 @@ const SuggestionMapContainer = props => {
         currentLocation={currentLocation}
         zoom={mapZoom}
         center={mapCenter}
-        suggestions={suggestionsPins}
+        suggestions={suggestions}
         routePoints={routePoints}
         actualPath={actualPath}
       />
@@ -50,7 +39,6 @@ const SuggestionMapContainer = props => {
 
 SuggestionMapContainer.propTypes = {
   suggestionPin: PropTypes.object,
-  pinFilters: PropTypes.array.isRequired,
   suggestions: PropTypes.array.isRequired,
   currentLocation: PropTypes.object.isRequired,
   routePoints: PropTypes.array.isRequired,

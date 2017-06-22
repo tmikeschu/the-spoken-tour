@@ -47,7 +47,7 @@ export default class Map extends Component {
     const response = await service.get(path)
     const safety = state === "currentLocation" ? {} : []
     this.setState({
-      [state]: response && response.data || safety
+      [state]: (response && response.data) || safety
     })
   }
 
@@ -81,16 +81,21 @@ export default class Map extends Component {
     })
   }
 
+  filterPins = (filters, suggestions) => (
+    suggestions.filter(s => 
+      filters.length === 0 || filters.includes("") || filters.includes(s.category)
+    )
+  )
+
   render() {
     const suggestionMapContainer = (
       <article>
         <SuggestionMapContainer
           setSuggestion={this.setSuggestion}
           showSuggestionInfo={this.showSuggestionInfo}
-          suggestions={this.state.suggestions}
+          suggestions={this.filterPins(this.state.pinFilters, this.state.suggestions)}
           currentLocation={this.state.currentLocation}
           suggestionPin={this.state.suggestionPin}
-          pinFilters={this.state.pinFilters}
           routePoints={this.state.routePoints}
           actualPath={this.state.actualPath}
         />

@@ -144,6 +144,38 @@ describe('<Map />', () => {
       expect(map.state.pinFilters).toMatchObject(["stay"])
     })
   })
+
+  describe("#filterPins", () => {
+    it("returns suggestions unfiltered if categories not supplied", () => {
+      expect(map.filterPins([], suggestions)).toMatchObject(suggestions)
+    })
+
+    it("returns only suggestions matching filter", () => {
+      const moreSuggestions = suggestions.concat({
+        location: { lat: 10.0001, lng: 10.0001 },
+        description: "sweet", label: "cool", category: "checkout"
+      })
+      expect(map.filterPins(["stay"], moreSuggestions)).toMatchObject(suggestions)
+    })
+
+    it("returns only suggestions matching multiple filters", () => {
+      const addedLocation = {
+        location: { lat: 10.0001, lng: 10.0001 },
+        description: "sweet", label: "cool", category: "checkout"
+      }
+      const skippedLocation = {
+        location: { lat: 10.0001, lng: 10.0001 },
+        description: "sweet", label: "cool", category: "avoid"
+      }
+      const moreSuggestions = suggestions.concat(addedLocation).concat(skippedLocation)
+      expect(map.filterPins(["stay", "checkout"], moreSuggestions))
+        .toMatchObject(suggestions.concat(addedLocation))
+    })
+
+    it("returns no results if no suggestions match filter", () => {
+      expect(map.filterPins(["checkout"], suggestions)).toMatchObject([])
+    })
+  })
 })
 
 const fakeService = {
@@ -172,6 +204,6 @@ const latLng = {
 const suggestions = [
   {
     location: { lat: 10.0001, lng: 10.0001 },
-    description: "sweet", label: "stay", category: "Place to stay"
+    description: "sweet", label: "Place to stay", category: "stay"
   }
 ]
