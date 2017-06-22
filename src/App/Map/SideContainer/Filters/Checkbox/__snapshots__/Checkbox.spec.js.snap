@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> snapshot is valid 1`] = `
+Array [
+  <article
+    className="checkbox"
+>
+    <input
+        onChange={[Function]}
+        type="checkbox"
+        value="stay"
+    />
+    <label>
+        Places to Stay
+    </label>
+</article>,
+]
+`;

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Instagram /> snapshot is valid 1`] = `
+Array [
+  <div
+    className="instagram"
+>
+    <article
+        className="photos"
+    >
+        <section>
+            <h3>
+                See Our Journey
+            </h3>
+            <a
+                href="https://www.instagram.com/thespokentour/"
+                rel="noopener noreferrer"
+                target="_blank"
+            >
+                Follow us!
+                <img
+                    alt="instagram"
+                    src="http://www.underconsideration.com/brandnew/archives/instagram_2016_icon.jpg"
+                />
+            </a>
+        </section>
+    </article>
+</div>,
+]
+`;

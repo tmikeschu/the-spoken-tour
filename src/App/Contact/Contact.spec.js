@@ -4,13 +4,39 @@ import Contact from "./Contact"
 import ContactForm from "./ContactForm/ContactForm"
 
 describe("<Contact />", () => {
+  const contact = shallow(<Contact />)
+
   it("renders a contact page", () => {
-    const contact = shallow(<Contact />)
-    expect(contact.find("article.contact").length).toEqual(1)
-    expect(contact.find("h3").length).toEqual(1)
-    expect(contact.find("section").length).toEqual(1)
-    expect(contact.find("section p").length).toEqual(2)
-    expect(contact.find("ContactForm").length).toEqual(1)
+    expect(contact).toBeTruthy()
   })
+
+  it("renders the correct content", () => {
+    expect(contact.equals(
+      <article className="contact">
+        <h3>We would love to hear from you!</h3>
+        <section>
+          <p>
+            Email us at 
+            <a href="mailto:thespokentour@gmail.com" target="_blank" rel="noopener noreferrer">
+              thespokentour@gmail.com
+            </a>
+          </p>
+          <p>
+            Follow us on Instagram 
+            <a href="https://www.instagram.com/thespokentour/" target="_blank" rel="noopener noreferrer">
+              @thespokentour
+            </a>
+          </p>
+        </section>
+        <ContactForm />
+      </article>
+    )).toBeTruthy()
+  })
+
+  describe("snapshot", () => {
+    it("is valid", () => {
+      expect(contact.getNodes()).toMatchSnapshot()
+    })
+  }) 
 })
 

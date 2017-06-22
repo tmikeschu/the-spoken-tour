@@ -14,15 +14,20 @@ const fakeService = {
 }
 
 describe('<Instagram />', () => {
+  const insta = shallow(<Instagram />)
+
   it('renders without crashing', () => {
-    const insta = shallow(<Instagram />)
     expect(insta).toBeTruthy()
   })
 
+  describe("snapshot", () => {
+    it("is valid", () => {
+      expect(insta.getNodes()).toMatchSnapshot()
+    })
+  })
 
   it('renders a heading, a link, and photos', () => {
     const photos = [{ image: '', caption: ''}]
-    const insta = shallow(<Instagram />)
     insta.setState({instagramPhotos: photos})
 
     expect(insta.find('h3').length).toEqual(1)

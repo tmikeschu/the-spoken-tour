@@ -3,8 +3,13 @@ import { shallow, mount } from "enzyme"
 import ContactForm from "./ContactForm"
 
 describe("<ContactForm />", () => {
+  const contactForm = shallow(<ContactForm />)
+
+  it("renders without crashing", () => {
+    expect(contactForm).toBeTruthy()
+  })
+
   it("renders a contact form", () => {
-    const contactForm = shallow(<ContactForm />)
     expect(contactForm.find("article.contact-form").length).toEqual(1)
     expect(contactForm.find("form").length).toEqual(1)
     expect(contactForm.find("form input[name='name']").length).toEqual(1)
@@ -13,6 +18,12 @@ describe("<ContactForm />", () => {
     expect(contactForm.find("form input[name='_subject']").length).toEqual(1)
     expect(contactForm.find("form input[type='submit']").length).toEqual(1)
     expect(contactForm.find("article p").length).toEqual(3)
+  })
+
+  describe("snapshot", () => {
+    it("is valid", () => {
+      expect(contactForm.getNodes()).toMatchSnapshot()
+    })
   })
 
   describe("#handleChange", () => {
@@ -24,7 +35,7 @@ describe("<ContactForm />", () => {
       expect(mock).toHaveBeenCalledTimes(1)
       contactForm.find(".contact-form input[name='email']").simulate("change")
       expect(mock).toHaveBeenCalledTimes(2)
-      
+
       ContactForm.prototype.handleChange = restore
     })
 

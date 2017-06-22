@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Legend /> snapshot is valid 1`] = `
+Array [
+  <article
+    className="legend"
+>
+    <h4>
+        Legend
+    </h4>
+    <ul>
+        <li>
+            <span
+                style={
+                    Object {
+                        "fontWeight": "bold",
+                      }
+                }
+            >
+                ―― 
+            </span>
+             → Planned Route
+        </li>
+        <li>
+            <span
+                style={
+                    Object {
+                        "color": "#f00",
+                        "fontWeight": "bold",
+                      }
+                }
+            >
+                ―― 
+            </span>
+             → Actual Route
+        </li>
+        <li>
+            <span>
+                <img
+                    alt="cyclist"
+                    src="https://maps.google.com/mapfiles/ms/icons/cycling.png"
+                />
+            </span>
+             → That's Us! ( as of 
+            TODAY
+             )
+        </li>
+        <li>
+            <span>
+                <img
+                    alt="flag"
+                    src="https://maps.google.com/mapfiles/ms/icons/flag.png"
+                />
+            </span>
+             → Day-to-Day
+        </li>
+        <Category
+            category="stay"
+        />
+    </ul>
+</article>,
+]
+`;

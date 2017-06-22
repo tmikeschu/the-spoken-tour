@@ -1,18 +1,29 @@
-import React, { Component } from 'react'
-import { shallow } from 'enzyme'
-import Header from './Header'
+import React, { Component } from "react"
+import { shallow } from "enzyme"
+import Header from "./Header"
+import { Link } from 'react-router'
+import logo from './wheel.svg'
 
-describe('<Header />', () => {
-  it('renders without crashing', () => {
-    const header = shallow(<Header />)
+describe("<Header />", () => {
+  const header = shallow(<Header />)
+
+  it("renders without crashing", () => {
     expect(header).toBeTruthy()
   })
 
-  it('renders an image and a heading', () => {
-    const header = shallow(<Header />)
-    expect(header.find('.header').length).toEqual(1)
-    expect(header.find('img').length).toEqual(1)
-    expect(header.find('h3').length).toEqual(1)
+  it("renders the correct content", () => {
+    expect(header.equals(
+      <article className="header">
+        <img src={logo} className="header-logo" alt="logo" />
+        <h3><Link to="/landing">The Spoken Tour</Link></h3>
+      </article>
+    )).toBeTruthy()
+  })
+
+  describe("snapshot", () => {
+    it("is valid", () => {
+      expect(header.getNodes()).toMatchSnapshot()
+    })
   })
 })
 

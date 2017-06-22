@@ -4,25 +4,27 @@ import { shallow, mount } from 'enzyme'
 import Home from './Home'
 
 describe('<Home />', () => {
+  const home = shallow(<Home />)
+
   it ('renders without crashing', () => {
-    const home = shallow(<Home />)
     expect(home).toBeTruthy()
   })
 
   it ('renders an image and a content div', () => {
-    const home = shallow(<Home />)
-    expect(home.find('img').length).toEqual(1)
-    expect(home.find('.content').length).toEqual(1)
+    expect(home.equals(
+      <article className="home">
+        <img src="http://www.clipartbest.com/cliparts/7ca/6EB/7ca6EBkMi.png" alt="bicycle"/>
+        <div className="content">
+          <Link to="/landing">Pedal to our site!</Link>
+        </div>
+      </article>
+    )).toBeTruthy()
   })
 
-
-  it ('renders a link to the landing page', () => {
-    const home = shallow(<Home />)
-    expect(home.find(Link).length).toEqual(1)
-
-    const link = home.find(Link)
-    expect(link.props().to).toEqual('/landing')
-    expect(link.props().children).toEqual('Pedal to our site!')
-  })
+  describe("snapshot", () => {
+    it("is valid", () => {
+      expect(home.getNodes()).toMatchSnapshot()
+    })
+  }) 
 })
 

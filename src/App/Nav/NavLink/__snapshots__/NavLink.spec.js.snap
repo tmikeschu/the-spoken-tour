@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavLink /> snapshot is valid 1`] = `
+Array [
+  <Link
+    activeClassName="active"
+    onlyActiveOnIndex={false}
+    style={Object {}}
+    to="/"
+/>,
+]
+`;

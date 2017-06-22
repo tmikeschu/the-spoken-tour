@@ -11,7 +11,6 @@ const Filters = props => {
     setFilters(filters)
   }
 
-
   const checkboxes = ["", "DISPLAYNONE"].concat(categories)
     .map((category, i) => (
       <Checkbox key={i} category={category} filterPins={filterPins} />)
