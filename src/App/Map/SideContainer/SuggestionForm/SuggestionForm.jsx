@@ -51,7 +51,7 @@ export default class SuggestionForm extends Component {
   }
 
   submitSuccess() {
-    this.props.getSuggestions()
+    this.props.getSuggestions(service)
     this.props.setSuggestion({})
     this.setState({
       formNotification: "Suggestion sent!",

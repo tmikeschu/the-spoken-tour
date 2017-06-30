@@ -57,10 +57,7 @@ export default class Map extends Component {
       this.coordinatesCloseEnough(s.location, latLng)
     )
 
-    this.setState({
-      currentSuggestion: suggestion,
-      suggestionInfoIsActive: true,
-    })
+    this.setState({ currentSuggestion: suggestion, suggestionInfoIsActive: true, })
   }
 
   coordinatesCloseEnough = (suggestion, event) => (
@@ -108,6 +105,7 @@ export default class Map extends Component {
         suggestionPin={this.state.suggestionPin}
         date={this.state.currentLocation.date}
         suggestions={this.props.suggestions}
+        getSuggestions={this.props.actions.fetchSuggestions}
       />
     )
 
