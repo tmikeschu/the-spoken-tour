@@ -1,17 +1,9 @@
-// Libraries
-import 'react'
-import { render } from 'react-dom'
+import "react"
+import { render } from "react-dom"
+import routes from "./router.js"
+import "./App/App.css"
 
-// Routes
-import routes from './router.js'
-
-// Styles
-import './App/App.css'
-
-// Config
-
-// Render
 render(
   routes,
-  document.getElementById('root')
+  document.getElementById("root")
 )

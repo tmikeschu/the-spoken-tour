@@ -4,27 +4,12 @@ import APIService from "../APIService/APIService"
 const apiService = new APIService("https://spoken-api.herokuapp.com")
 
 export default class Instagram extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      instagramPhotos: []
-    }
-  }
-
   componentDidMount() {
-    this.getPhotos(apiService)
+    this.props.actions.fetchPhotos(apiService)
   }
-
-  async getPhotos(service) {
-    const response = await service.get("/api/v1/instagram_photos")
-    this.setPhotos(response.data)
-    return response
-  }
-
-  setPhotos = photos => this.setState({ instagramPhotos: photos || [] })
 
   render() {
-    const photos = this.state.instagramPhotos.map((photo, i) => {
+    const photos = this.props.photos.map((photo, i) => {
       return (
         <div key={i} >
           <a href={photo.link} target="_blank" rel="noopener noreferrer">
@@ -37,7 +22,7 @@ export default class Instagram extends Component {
           </section>
         </div>
       )
-    });
+    })
 
     return (
       <div className="instagram">
@@ -49,6 +34,6 @@ export default class Instagram extends Component {
           { photos }
         </article>
       </div>
-    );
+    )
   }
 }
