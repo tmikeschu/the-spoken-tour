@@ -1,12 +1,7 @@
-// Libraries
 import React from 'react'
 import PropTypes from 'prop-types'
-
-// Components
 import Header from './Header/Header.jsx'
 import Nav from './Nav/Nav.jsx'
-
-//  Styles
 import './App.css'
 
 const App = ({ children }) => (
