@@ -10,7 +10,6 @@ export default class Map extends Component {
     super(props);
     this.state = {
       suggestionPin: {},
-      suggestions: [],
       currentSuggestion: null,
       suggestionInfoIsActive: false,
       currentLocation: {date: "", location: {lat: "", lng: ""}},
@@ -21,7 +20,7 @@ export default class Map extends Component {
   }
 
   componentDidMount() {
-    this.getSuggestions()
+    this.props.actions.fetchSuggestions(service)
     this.getCurrentLocation()
     this.getRoutePoints()
     this.getActualPath()
@@ -29,10 +28,6 @@ export default class Map extends Component {
 
   getCurrentLocation = async () => {
     await this.getApiObjects("api/v1/current_location", "currentLocation", service)
-  }
-
-  getSuggestions = async () => {
-    await this.getApiObjects("api/v1/suggestion_pins", "suggestions", service)
   }
 
   getRoutePoints = async () => {
@@ -58,7 +53,7 @@ export default class Map extends Component {
   }
 
   showSuggestionInfo = latLng => {
-    const suggestion = this.state.suggestions.find(s =>
+    const suggestion = this.props.suggestions.find(s =>
       this.coordinatesCloseEnough(s.location, latLng)
     )
 
@@ -93,7 +88,7 @@ export default class Map extends Component {
         <SuggestionMapContainer
           setSuggestion={this.setSuggestion}
           showSuggestionInfo={this.showSuggestionInfo}
-          suggestions={this.filterPins(this.state.pinFilters, this.state.suggestions)}
+          suggestions={this.filterPins(this.state.pinFilters, this.props.suggestions)}
           currentLocation={this.state.currentLocation}
           suggestionPin={this.state.suggestionPin}
           routePoints={this.state.routePoints}
@@ -110,10 +105,9 @@ export default class Map extends Component {
         currentLocation={this.state.currentLocation}
         suggestionInfoIsActive={this.state.suggestionInfoIsActive}
         setSuggestion={this.setSuggestion}
-        getSuggestions={this.getSuggestions}
         suggestionPin={this.state.suggestionPin}
         date={this.state.currentLocation.date}
-        suggestions={this.state.suggestions}
+        suggestions={this.props.suggestions}
       />
     )
 

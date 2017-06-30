@@ -2,16 +2,28 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Map from './Map'
 
+const suggestions = [
+  {
+    location: { lat: 10.0001, lng: 10.0001 },
+    description: "sweet", label: "Place to stay", category: "stay"
+  }
+]
+
+const props = {
+  actions: { fetchSuggestions() {}},
+  suggestions: suggestions
+}
+
 describe('<Map />', () => {
   it('renders the embedded map and side information', () => {
-    const wrapper = shallow(<Map />)
+    const wrapper = shallow(<Map {...props} />)
     expect(wrapper.find('SuggestionMapContainer').length).toEqual(1)
     expect(wrapper.find('SideContainer').length).toEqual(1)
   })
 
-  const map = shallow(<Map />).instance()
+  const map = shallow(<Map {...props} />).instance()
   const fetches = [
-    "getSuggestions", "getCurrentLocation", "getRoutePoints", "getActualPath"
+    "getCurrentLocation", "getRoutePoints", "getActualPath"
   ]
 
   describe("#componentDidMount", () => {
@@ -42,18 +54,6 @@ describe('<Map />', () => {
   })
 
   describe("#getApiObjects", () => {
-    describe("suggestions", () => {
-      it("sets state for suggestions", async () => {
-        await map.getApiObjects("api/v1/suggestion_pins", "suggestions", fakeService)
-        expect(map.state.suggestions).toMatchObject(["suggestions set!"])
-      })
-
-      it("sets an empty array if no response", async () => {
-        await map.getApiObjects("api/v1/suggestion_pins", "suggestions", badService)
-        expect(map.state.suggestions).toMatchObject([])
-      })
-    })
-
     describe("currentLocation", () => {
       it("sets state for currentLocation", async () => {
         await map.getApiObjects("api/v1/current_location", "currentLocation", fakeService)
@@ -102,7 +102,6 @@ describe('<Map />', () => {
 
   describe("#showSuggestionInfo", () => {
     it("updates suggestionPin state", () => {
-      map.setState({ suggestions: suggestions })
       expect(map.state.currentSuggestion).toBeNull()
       expect(map.state.suggestionInfoIsActive).toBeFalsy()
 
@@ -201,9 +200,3 @@ const latLng = {
   lng() { return 10.000100000000000001 }
 }
 
-const suggestions = [
-  {
-    location: { lat: 10.0001, lng: 10.0001 },
-    description: "sweet", label: "Place to stay", category: "stay"
-  }
-]
