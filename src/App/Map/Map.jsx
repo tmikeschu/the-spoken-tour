@@ -9,7 +9,6 @@ export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      suggestionPin: {},
       currentSuggestion: null,
       suggestionInfoIsActive: false,
       currentLocation: {date: "", location: {lat: "", lng: ""}},
@@ -46,12 +45,6 @@ export default class Map extends Component {
     })
   }
 
-  setSuggestion = position => {
-    this.setState({
-      suggestionPin: position,
-    })
-  }
-
   showSuggestionInfo = latLng => {
     const suggestion = this.props.suggestions.find(s =>
       this.coordinatesCloseEnough(s.location, latLng)
@@ -83,11 +76,11 @@ export default class Map extends Component {
     const suggestionMapContainer = (
       <article>
         <SuggestionMapContainer
-          setSuggestion={this.setSuggestion}
           showSuggestionInfo={this.showSuggestionInfo}
+          setSuggestion={this.props.actions.addSuggestionPin}
           suggestions={this.filterPins(this.state.pinFilters, this.props.suggestions)}
           currentLocation={this.state.currentLocation}
-          suggestionPin={this.state.suggestionPin}
+          suggestionPin={this.props.suggestionPin}
           routePoints={this.state.routePoints}
           actualPath={this.state.actualPath}
         />
@@ -101,8 +94,8 @@ export default class Map extends Component {
         currentSuggestion={this.state.currentSuggestion}
         currentLocation={this.state.currentLocation}
         suggestionInfoIsActive={this.state.suggestionInfoIsActive}
-        setSuggestion={this.setSuggestion}
-        suggestionPin={this.state.suggestionPin}
+        setSuggestion={this.props.actions.addSuggestionPin}
+        suggestionPin={this.props.suggestionPin}
         date={this.state.currentLocation.date}
         suggestions={this.props.suggestions}
         getSuggestions={this.props.actions.fetchSuggestions}

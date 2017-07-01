@@ -28,3 +28,10 @@ export const addSuggestions = suggestions => {
   }
 }
 
+export const addSuggestionPin = suggestionPin => {
+  return {
+    type: types.ADD_SUGGESTION_PIN,
+    data: suggestionPin
+  }
+}
+

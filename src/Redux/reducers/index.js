@@ -14,8 +14,13 @@ const suggestions = (state = [], action) => {
   }
 }
 
+const suggestionPin = (state = {}, action) => (
+  action.type === types.ADD_SUGGESTION_PIN ? action.data : state
+)
+
 export default combineReducers({
   photos,
-  suggestions
+  suggestions,
+  suggestionPin
 })
 

@@ -10,8 +10,12 @@ const suggestions = [
 ]
 
 const props = {
-  actions: { fetchSuggestions() {}},
-  suggestions: suggestions
+  actions: {
+    fetchSuggestions() {},
+    addSuggestionPin() {}
+  },
+  suggestions: suggestions,
+  suggestionPin: {},
 }
 
 describe('<Map />', () => {
@@ -88,15 +92,6 @@ describe('<Map />', () => {
         await map.getApiObjects("api/v1/actual_path", "actualPath", badService)
         expect(map.state.actualPath).toMatchObject([])
       })
-    })
-  })
-
-  describe("#setSuggestion", () => {
-    it("updates suggestionPin state", () => {
-      const position = { lat: 10, lng: 10 }
-      expect(map.state.suggestionPin).toMatchObject({})
-      map.setSuggestion(position)
-      expect(map.state.suggestionPin).toMatchObject(position)
     })
   })
 
