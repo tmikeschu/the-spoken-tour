@@ -17,17 +17,18 @@ const SuggestionInfo = props => {
       <h4>Suggestion Info</h4>
       <p style={{display: currentSuggestion ? "none" : "block"}}>(click an existing pin on the map)</p>
       <section className="text" style={{ display: suggestionInfoIsActive ? "initial" : "none" }}>
-        <p><span>Label</span>: { currentSuggestion && currentSuggestion.label}</p>
-        <p><span>Description</span>: { currentSuggestion && currentSuggestion.description}</p>
-        <p><span>Category</span>: { currentSuggestion && categories[currentSuggestion.category]}</p>
+        <p><span>Label</span>: { currentSuggestion.label }</p>
+        <p><span>Description</span>: { currentSuggestion.description }</p>
+        <p><span>Category</span>: {  categories[currentSuggestion.category] }</p>
       </section>
     </article>
   )
 }
 
 SuggestionInfo.propTypes = {
-  currentSuggestion: PropTypes.object,
+  currentSuggestion: PropTypes.object.isRequired,
   suggestionInfoIsActive: PropTypes.bool.isRequired,
 }
 
 export default SuggestionInfo
+

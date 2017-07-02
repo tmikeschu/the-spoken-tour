@@ -1,38 +1,25 @@
 import React from "react"
-import _ from "lodash"
-import SuggestionForm from "./SuggestionForm/SuggestionForm"
+import PropTypes from "prop-types"
+import SuggestionForm from "./SuggestionForm/SuggestionFormContainer"
 import Legend from "./Legend/Legend"
 import Info from "./Info/Info"
 import SuggestionInfo from "./SuggestionInfo/SuggestionInfo"
 import Filters from "./Filters/Filters"
 
-const SideContainer = props => {
-  const { 
+const SideWrapper = props => {
+  const {
     currentLocation,
-    setSuggestion,
-    getSuggestions,
-    suggestionPin,
-    suggestions,
     currentSuggestion,
     suggestionInfoIsActive,
     setFilters,
-    pinFilters
+    pinFilters,
+    categories
   } = props
 
-  const categories = _.uniq(suggestions.map(s => s.category))
-
   const legend = (
-    <Legend 
-      date={currentLocation && currentLocation.date} 
+    <Legend
+      date={currentLocation && currentLocation.date}
       categories={categories}
-    />
-  )
-
-  const suggestionForm = (
-    <SuggestionForm
-      setSuggestion={setSuggestion}
-      getSuggestions={getSuggestions}
-      suggestionPin={suggestionPin}
     />
   )
 
@@ -58,10 +45,20 @@ const SideContainer = props => {
       { FiltersBox }
       <div>
         <Info />
-        { suggestionForm }
+        <SuggestionForm />
       </div>
     </section>
   )
 }
 
-export default SideContainer
+SideWrapper.propTypes = {
+  currentLocation: PropTypes.object.isRequired,
+  currentSuggestion: PropTypes.object.isRequired,
+  suggestionInfoIsActive: PropTypes.bool.isRequired,
+  setFilters: PropTypes.func.isRequired,
+  pinFilters: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired
+}
+
+export default SideWrapper
+

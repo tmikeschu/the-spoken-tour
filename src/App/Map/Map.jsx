@@ -1,7 +1,8 @@
 import React, { Component } from "react"
-import SuggestionMapContainer from "./SuggestionMapContainer/SuggestionMapContainer"
-import SideContainer from "./SideContainer/SideContainer"
+import SuggestionMapWrapper from "./SuggestionMapWrapper/SuggestionMapWrapper"
+import SideWrapper from "./SideWrapper/SideWrapper"
 import APIService from "../APIService/APIService"
+import _ from "lodash"
 
 const service = new APIService("https://spoken-api.herokuapp.com")
 
@@ -9,7 +10,7 @@ export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentSuggestion: null,
+      currentSuggestion: {},
       suggestionInfoIsActive: false,
       currentLocation: {date: "", location: {lat: "", lng: ""}},
       pinFilters: [],
@@ -67,45 +68,43 @@ export default class Map extends Component {
   }
 
   filterPins = (filters, suggestions) => (
-    suggestions.filter(s => 
+    suggestions.filter(s =>
       filters.length === 0 || filters.includes("") || filters.includes(s.category)
     )
   )
 
   render() {
-    const suggestionMapContainer = (
+    const categories = _.uniq(this.props.suggestions.map(s => s.category))
+    const filteredSuggestions = this.filterPins(this.state.pinFilters, this.props.suggestions)
+
+    const suggestionMapWrapper = (
       <article>
-        <SuggestionMapContainer
+        <SuggestionMapWrapper
           showSuggestionInfo={this.showSuggestionInfo}
-          setSuggestion={this.props.actions.addSuggestionPin}
-          suggestions={this.filterPins(this.state.pinFilters, this.props.suggestions)}
+          suggestions={filteredSuggestions}
           currentLocation={this.state.currentLocation}
-          suggestionPin={this.props.suggestionPin}
           routePoints={this.state.routePoints}
           actualPath={this.state.actualPath}
         />
       </article>
     )
 
-    const sideContainer = (
-      <SideContainer
+    const sideWrapper = (
+      <SideWrapper
         setFilters={this.setFilters}
         pinFilters={this.state.pinFilters}
         currentSuggestion={this.state.currentSuggestion}
         currentLocation={this.state.currentLocation}
         suggestionInfoIsActive={this.state.suggestionInfoIsActive}
-        setSuggestion={this.props.actions.addSuggestionPin}
-        suggestionPin={this.props.suggestionPin}
         date={this.state.currentLocation.date}
-        suggestions={this.props.suggestions}
-        getSuggestions={this.props.actions.fetchSuggestions}
+        categories={categories}
       />
     )
 
     return (
       <article className="map">
-        { suggestionMapContainer }
-        { sideContainer }
+        { suggestionMapWrapper }
+        { sideWrapper }
       </article>
     )
   }

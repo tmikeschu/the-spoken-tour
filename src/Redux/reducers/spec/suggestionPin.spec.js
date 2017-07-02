@@ -5,14 +5,22 @@ describe("Reducers#suggestionPin", () => {
   it("returns initial state", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
-      suggestionPin: {}
+      photos: [],
+      map: {
+        suggestions: [],
+        suggestionPin: {}
+      }
     })
   })
 
   it("returns initial state for unkown action types", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
-      suggestionPin: {}
+      photos: [],
+      map: {
+        suggestions: [],
+        suggestionPin: {}
+      }
     })
   })
 
@@ -22,7 +30,11 @@ describe("Reducers#suggestionPin", () => {
       data: { lat: 0, lng: 0 }
     })
     expect(expectedState).toMatchObject({
-      suggestionPin: { lat: 0, lng: 0 }
+      photos: [],
+      map: {
+        suggestions: [],
+        suggestionPin: { lat: 0, lng: 0 }
+      }
     })
   })
 })

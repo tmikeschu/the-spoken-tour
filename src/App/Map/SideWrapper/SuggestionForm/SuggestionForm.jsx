@@ -51,8 +51,8 @@ export default class SuggestionForm extends Component {
   }
 
   submitSuccess() {
-    this.props.getSuggestions(service)
-    this.props.setSuggestion({})
+    this.props.actions.fetchSuggestions(service)
+    this.props.actions.addSuggestionPin({})
     this.setState({
       formNotification: "Suggestion sent!",
       suggestionSent: true,
@@ -136,7 +136,9 @@ export default class SuggestionForm extends Component {
 
 SuggestionForm.propTypes = {
   suggestionPin: PropTypes.object.isRequired,
-  getSuggestions: PropTypes.func.isRequired,
-  setSuggestion: PropTypes.func.isRequired
+  actions: PropTypes.shape({
+    addSuggestionPin: PropTypes.func.isRequired,
+    fetchSuggestions: PropTypes.func.isRequired
+  })
 }
 

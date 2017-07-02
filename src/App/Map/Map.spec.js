@@ -21,8 +21,8 @@ const props = {
 describe('<Map />', () => {
   it('renders the embedded map and side information', () => {
     const wrapper = shallow(<Map {...props} />)
-    expect(wrapper.find('SuggestionMapContainer').length).toEqual(1)
-    expect(wrapper.find('SideContainer').length).toEqual(1)
+    expect(wrapper.find('SuggestionMapWrapper').length).toEqual(1)
+    expect(wrapper.find('SideWrapper').length).toEqual(1)
   })
 
   const map = shallow(<Map {...props} />).instance()
@@ -97,7 +97,7 @@ describe('<Map />', () => {
 
   describe("#showSuggestionInfo", () => {
     it("updates suggestionPin state", () => {
-      expect(map.state.currentSuggestion).toBeNull()
+      expect(map.state.currentSuggestion).toMatchObject({})
       expect(map.state.suggestionInfoIsActive).toBeFalsy()
 
       map.showSuggestionInfo(latLng)

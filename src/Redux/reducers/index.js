@@ -20,7 +20,9 @@ const suggestionPin = (state = {}, action) => (
 
 export default combineReducers({
   photos,
-  suggestions,
-  suggestionPin
+  map: combineReducers({
+    suggestions,
+    suggestionPin
+  })
 })
 

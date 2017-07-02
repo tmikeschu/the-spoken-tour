@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux"
 import * as actions from "../../Redux/actions"
 import Instagram from "./Instagram"
 
-const mapStateToProps = state => ({ photos: state.photos })
+const mapStateToProps = ({ photos }) => ({ photos })
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)

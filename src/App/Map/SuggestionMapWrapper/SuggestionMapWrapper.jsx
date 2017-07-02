@@ -1,12 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SuggestionMap from './SuggestionMap/SuggestionMap'
+import SuggestionMap from './SuggestionMap/SuggestionMapContainer'
 
-const SuggestionMapContainer = props => {
+const SuggestionMapWrapper = props => {
   const {
     suggestions,
-    setSuggestion,
-    suggestionPin,
     showSuggestionInfo,
     currentLocation,
     routePoints,
@@ -23,8 +21,6 @@ const SuggestionMapContainer = props => {
   return (
     <div style={fullHeightAndWidth}>
       <SuggestionMap
-        setSuggestion={setSuggestion}
-        suggestionPin={suggestionPin}
         showSuggestionInfo={showSuggestionInfo}
         currentLocation={currentLocation}
         zoom={mapZoom}
@@ -37,15 +33,13 @@ const SuggestionMapContainer = props => {
   )
 }
 
-SuggestionMapContainer.propTypes = {
-  suggestionPin: PropTypes.object,
+SuggestionMapWrapper.propTypes = {
   suggestions: PropTypes.array.isRequired,
   currentLocation: PropTypes.object.isRequired,
   routePoints: PropTypes.array.isRequired,
   actualPath: PropTypes.array.isRequired,
   showSuggestionInfo: PropTypes.func.isRequired,
-  setSuggestion: PropTypes.func.isRequired
 }
 
-export default SuggestionMapContainer
+export default SuggestionMapWrapper
 

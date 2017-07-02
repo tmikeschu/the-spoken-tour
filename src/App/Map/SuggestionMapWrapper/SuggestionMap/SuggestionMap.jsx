@@ -14,9 +14,10 @@ const SuggestionMap = props => {
     center,
     routePoints,
     actualPath,
-    showSuggestionInfo,
-    setSuggestion
+    showSuggestionInfo
   } = props
+
+  const { addSuggestionPin } = props.actions 
 
   const mapContainer = <div style={{ height: "100%", width: "100%" }} />
 
@@ -28,7 +29,7 @@ const SuggestionMap = props => {
     const lat = latLng.lat()
     const lng = latLng.lng()
     const position = { lat: lat, lng: lng }
-    setSuggestion(position)
+    addSuggestionPin(position)
   }
 
   return(
@@ -80,7 +81,9 @@ SuggestionMap.propTypes = {
   routePoints: PropTypes.array.isRequired,
   actualPath: PropTypes.array.isRequired,
   showSuggestionInfo: PropTypes.func.isRequired,
-  setSuggestion: PropTypes.func.isRequired
+  actions: PropTypes.shape({
+    addSuggestionPin: PropTypes.func.isRequired
+  })
 }
 
 export default SuggestionMap

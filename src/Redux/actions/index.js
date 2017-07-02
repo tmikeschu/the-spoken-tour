@@ -3,7 +3,7 @@ import * as types from "../types"
 export const fetchPhotos = service => {
   return async dispatch => {
     const response = await service.get("/api/v1/instagram_photos")
-    dispatch(addPhotos(response.data))
+    dispatch(addPhotos(response.data || []))
   }
 }
 
@@ -17,7 +17,7 @@ export const addPhotos = photos => {
 export const fetchSuggestions = service => {
   return async dispatch => {
     const response = await service.get("/api/v1/suggestion_pins")
-    dispatch(addSuggestions(response.data))
+    dispatch(addSuggestions(response.data || []))
   }
 }
 
