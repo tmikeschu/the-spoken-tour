@@ -21,8 +21,8 @@ interface Positionable {
 export const coordinatesFor = (point: Locationable): Positionable => {
   return {
     position: {
-      lat: parseFloat(point.location.lat),
-      lng: parseFloat(point.location.lng),
+      lat: parseFloat((point.location && point.location.lat) || 0),
+      lng: parseFloat((point.location && point.location.lng) || 0)
     }
   }
 }
