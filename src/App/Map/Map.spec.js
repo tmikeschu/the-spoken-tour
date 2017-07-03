@@ -12,10 +12,12 @@ const suggestions = [
 const props = {
   actions: {
     fetchSuggestions() {},
-    addSuggestionPin() {}
+    addSuggestionPin() {},
+    addCurrentSuggestion() {}
   },
   suggestions: suggestions,
   suggestionPin: {},
+  currentSuggestion: {}
 }
 
 describe('<Map />', () => {
@@ -97,12 +99,10 @@ describe('<Map />', () => {
 
   describe("#showSuggestionInfo", () => {
     it("updates suggestionPin state", () => {
-      expect(map.state.currentSuggestion).toMatchObject({})
       expect(map.state.suggestionInfoIsActive).toBeFalsy()
 
       map.showSuggestionInfo(latLng)
 
-      expect(map.state.currentSuggestion).toMatchObject(suggestions[0])
       expect(map.state.suggestionInfoIsActive).toBeTruthy()
     })
   })

@@ -1,12 +1,12 @@
-import reducers from "../index.js"
+import reducers from "../index"
 import * as types from "../../types"
 
-describe("Reducers#suggestions", () => {
+describe("Reducers#currentSuggestion", () => {
   it("returns initial state", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        suggestions: []
+        currentSuggestion: {}
       }
     })
   })
@@ -15,16 +15,19 @@ describe("Reducers#suggestions", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        suggestions: []
+        currentSuggestion: {}
       }
     })
   })
 
-  it("handles ADD_SUGGESTIONS", () => {
-    const expectedState = reducers({}, { type: types.ADD_SUGGESTIONS, data: [ "suggestion1" ] })
+  it("handles ADD_CURRENT_SUGGESTION", () => {
+    const expectedState = reducers({}, {
+      type: types.ADD_CURRENT_SUGGESTION,
+      data: { description: "YES" }
+    })
     expect(expectedState).toMatchObject({
       map: {
-        suggestions: [ "suggestion1" ]
+        currentSuggestion: { description: "YES" }
       }
     })
   })

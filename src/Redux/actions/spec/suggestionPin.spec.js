@@ -1,6 +1,6 @@
 import { actions } from "./actionsSpecHelper"
 
-describe("Actions#photos", () => {
+describe("Actions#suggestionPin", () => {
   const expectedAction = { type: "ADD_SUGGESTION_PIN", data: { lat: 0, lng: 0 } }
 
   describe("#addSuggestionPin", () => {

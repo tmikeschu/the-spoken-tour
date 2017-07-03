@@ -15,7 +15,7 @@ const SuggestionInfo = props => {
   return (
     <article className="suggestion-info">
       <h4>Suggestion Info</h4>
-      <p style={{display: currentSuggestion ? "none" : "block"}}>(click an existing pin on the map)</p>
+      <p style={{display: suggestionInfoIsActive ? "none" : "block"}}>(click an existing pin on the map)</p>
       <section className="text" style={{ display: suggestionInfoIsActive ? "initial" : "none" }}>
         <p><span>Label</span>: { currentSuggestion.label }</p>
         <p><span>Description</span>: { currentSuggestion.description }</p>

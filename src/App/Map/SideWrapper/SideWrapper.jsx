@@ -3,13 +3,12 @@ import PropTypes from "prop-types"
 import SuggestionForm from "./SuggestionForm/SuggestionFormContainer"
 import Legend from "./Legend/Legend"
 import Info from "./Info/Info"
-import SuggestionInfo from "./SuggestionInfo/SuggestionInfo"
+import SuggestionInfo from "./SuggestionInfo/SuggestionInfoContainer"
 import Filters from "./Filters/Filters"
 
 const SideWrapper = props => {
   const {
     currentLocation,
-    currentSuggestion,
     suggestionInfoIsActive,
     setFilters,
     pinFilters,
@@ -25,7 +24,6 @@ const SideWrapper = props => {
 
   const suggestionInfo = (
     <SuggestionInfo
-      currentSuggestion={currentSuggestion}
       suggestionInfoIsActive={suggestionInfoIsActive}
     />
   )
@@ -53,7 +51,6 @@ const SideWrapper = props => {
 
 SideWrapper.propTypes = {
   currentLocation: PropTypes.object.isRequired,
-  currentSuggestion: PropTypes.object.isRequired,
   suggestionInfoIsActive: PropTypes.bool.isRequired,
   setFilters: PropTypes.func.isRequired,
   pinFilters: PropTypes.array.isRequired,
