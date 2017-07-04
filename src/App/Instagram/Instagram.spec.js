@@ -9,21 +9,33 @@ const fakeActions = {
 const fakePhotos = ["AHH!", "YEAHH!"]
 
 describe('<Instagram />', () => {
-  const insta = shallow(<Instagram  actions={fakeActions} photos={fakePhotos} />)
+  const wrapper = shallow(<Instagram  actions={fakeActions} photos={fakePhotos} />)
 
   it('renders without crashing', () => {
-    expect(insta).toBeTruthy()
+    expect(wrapper).toBeTruthy()
   })
 
   describe("snapshot", () => {
     it("is valid", () => {
-      expect(insta.getNodes()).toMatchSnapshot()
+      expect(wrapper.getNodes()).toMatchSnapshot()
+    })
+  })
+
+  describe("componentDidMount", () => {
+    it("calls the fetchPhotos action", () => {
+      const instagram = wrapper.instance()
+      const restore = instagram.props.actions.fetchPhotos
+      const mock = instagram.props.actions.fetchPhotos = jest.fn()
+      instagram.componentDidMount()
+      expect(mock).toHaveBeenCalled()
+
+      instagram.props.actions.fetchPhotos = restore
     })
   })
 
   it('renders a heading, a link, and photos', () => {
-    expect(insta.find('h3').length).toEqual(1)
-    expect(insta.find('section a').length).toEqual(1)
-    expect(insta.find('.photos div').length).toEqual(2)
+    expect(wrapper.find('h3').length).toEqual(1)
+    expect(wrapper.find('section a').length).toEqual(1)
+    expect(wrapper.find('.photos div').length).toEqual(2)
   })
 })

@@ -34,3 +34,8 @@ export const addCurrentSuggestion = currentSuggestion => ({
   data: currentSuggestion
 })
 
+export const toggleSuggestionInfo = infoIsActive => ({
+  type: types.TOGGLE_SUGGESTION_INFO_IS_ACTIVE,
+  data: infoIsActive
+})
+

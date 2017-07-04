@@ -11,13 +11,15 @@ const suggestions = [
 
 const props = {
   actions: {
-    fetchSuggestions() {},
-    addSuggestionPin() {},
-    addCurrentSuggestion() {}
+    fetchSuggestions () {},
+    addSuggestionPin () {},
+    addCurrentSuggestion () {},
+    toggleSuggestionInfo () {}
   },
   suggestions: suggestions,
   suggestionPin: {},
-  currentSuggestion: {}
+  currentSuggestion: {},
+  suggestionInfoIsActive: false
 }
 
 describe('<Map />', () => {
@@ -33,7 +35,15 @@ describe('<Map />', () => {
   ]
 
   describe("#componentDidMount", () => {
-    it("calls four API GET requests", () => {
+    it("calls the fetchSuggestions action", () => {
+      const restore = map.props.actions.fetchSuggestions
+      const mock = map.props.actions.fetchSuggestions = jest.fn()
+      map.componentDidMount()
+      expect(mock).toHaveBeenCalled()
+      map.props.actions.fetchSuggestions = restore
+    })
+
+    it("calls three API GET requests", () => {
       fetches.forEach(f => {
         const restore = map[f]
         const mock = map[f] = jest.fn()
@@ -98,12 +108,24 @@ describe('<Map />', () => {
   })
 
   describe("#showSuggestionInfo", () => {
-    it("updates suggestionPin state", () => {
-      expect(map.state.suggestionInfoIsActive).toBeFalsy()
+    it("calls the addCurrentSuggestion action", () => {
+      const restore = map.props.actions.addCurrentSuggestion
+      const mock = map.props.actions.addCurrentSuggestion = jest.fn()
 
       map.showSuggestionInfo(latLng)
 
-      expect(map.state.suggestionInfoIsActive).toBeTruthy()
+      expect(mock).toHaveBeenCalled()
+      map.props.actions.addCurrentSuggestion = restore
+    })
+
+    it("calls the toggleSuggestionInfo action", () => {
+      const restore = map.props.actions.toggleSuggestionInfo
+      const mock = map.props.actions.toggleSuggestionInfo = jest.fn()
+
+      map.showSuggestionInfo(latLng)
+      expect(mock).toHaveBeenCalled()
+
+      map.props.actions.toggleSuggestionInfo = restore
     })
   })
 

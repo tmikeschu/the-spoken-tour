@@ -10,7 +10,6 @@ export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      suggestionInfoIsActive: false,
       currentLocation: {date: "", location: {lat: "", lng: ""}},
       pinFilters: [],
       routePoints: [],
@@ -51,7 +50,7 @@ export default class Map extends Component {
     )
 
     this.props.actions.addCurrentSuggestion(suggestion)
-    this.setState({ suggestionInfoIsActive: true, })
+    this.props.actions.toggleSuggestionInfo(true)
   }
 
   coordinatesCloseEnough = (suggestion, event) => (
@@ -94,7 +93,6 @@ export default class Map extends Component {
         setFilters={this.setFilters}
         pinFilters={this.state.pinFilters}
         currentLocation={this.state.currentLocation}
-        suggestionInfoIsActive={this.state.suggestionInfoIsActive}
         date={this.state.currentLocation.date}
         categories={categories}
       />

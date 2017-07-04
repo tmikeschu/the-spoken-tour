@@ -9,7 +9,6 @@ import Filters from "./Filters/Filters"
 const SideWrapper = props => {
   const {
     currentLocation,
-    suggestionInfoIsActive,
     setFilters,
     pinFilters,
     categories
@@ -19,12 +18,6 @@ const SideWrapper = props => {
     <Legend
       date={currentLocation && currentLocation.date}
       categories={categories}
-    />
-  )
-
-  const suggestionInfo = (
-    <SuggestionInfo
-      suggestionInfoIsActive={suggestionInfoIsActive}
     />
   )
 
@@ -39,7 +32,7 @@ const SideWrapper = props => {
   return (
     <section>
       { legend }
-      { suggestionInfo }
+      <SuggestionInfo />
       { FiltersBox }
       <div>
         <Info />
@@ -51,7 +44,6 @@ const SideWrapper = props => {
 
 SideWrapper.propTypes = {
   currentLocation: PropTypes.object.isRequired,
-  suggestionInfoIsActive: PropTypes.bool.isRequired,
   setFilters: PropTypes.func.isRequired,
   pinFilters: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired
