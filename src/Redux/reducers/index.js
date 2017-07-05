@@ -26,13 +26,18 @@ const suggestionInfoIsActive = (state = false, action) => (
   action.type === types.TOGGLE_SUGGESTION_INFO_IS_ACTIVE ? action.data : state
 )
 
+const currentLocation = (state = {}, action) => (
+  action.type === types.ADD_CURRENT_LOCATION ? action.data : state
+)
+
 export default combineReducers({
   photos,
   map: combineReducers({
     suggestions,
     suggestionPin,
     currentSuggestion,
-    suggestionInfoIsActive
+    suggestionInfoIsActive,
+    currentLocation
   })
 })
 
