@@ -1,11 +1,19 @@
-import { actions } from "./actionsSpecHelper"
+import { actions, mockStore, fakeService, responses } from "./actionsSpecHelper"
 
-describe("Actions#currentSuggestion", () => {
-  const expectedAction = { type: "ADD_CURRENT_SUGGESTION", data: { description: "YES" } }
+describe("Actions#currentLocation", () => {
+  const expectedAction = { type: "ADD_CURRENT_LOCATION", data: { lat: 0, lng: 0} }
 
-  describe("#addCurrentSuggestion", () => {
+  describe("#fetchCurrentLocation", () => {
+    it("updates the action data", async () => {
+      const store = mockStore({ currentLocation: {} })
+      await store.dispatch(actions.fetchCurrentLocation(fakeService))
+      expect(store.getActions()).toMatchObject([expectedAction])
+    })
+  })
+
+  describe("#addCurrentLocation", () => {
     it("returns an object with a type and data", () => {
-      const result = actions.addCurrentSuggestion(expectedAction.data)
+      const result = actions.addCurrentLocation(expectedAction.data)
       expect(result).toMatchObject(expectedAction)
     })
   })

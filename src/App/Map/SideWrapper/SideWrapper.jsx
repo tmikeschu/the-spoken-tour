@@ -1,14 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import SuggestionForm from "./SuggestionForm/SuggestionFormContainer"
-import Legend from "./Legend/Legend"
+import Legend from "./Legend/LegendContainer"
 import Info from "./Info/Info"
 import SuggestionInfo from "./SuggestionInfo/SuggestionInfoContainer"
 import Filters from "./Filters/Filters"
 
 const SideWrapper = props => {
   const {
-    currentLocation,
     setFilters,
     pinFilters,
     categories
@@ -16,7 +15,6 @@ const SideWrapper = props => {
 
   const legend = (
     <Legend
-      date={currentLocation && currentLocation.date}
       categories={categories}
     />
   )
@@ -43,7 +41,6 @@ const SideWrapper = props => {
 }
 
 SideWrapper.propTypes = {
-  currentLocation: PropTypes.object.isRequired,
   setFilters: PropTypes.func.isRequired,
   pinFilters: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired

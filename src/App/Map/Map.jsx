@@ -10,7 +10,6 @@ export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentLocation: {date: "", location: {lat: "", lng: ""}},
       pinFilters: [],
       routePoints: [],
       actualPath: []
@@ -19,13 +18,9 @@ export default class Map extends Component {
 
   componentDidMount() {
     this.props.actions.fetchSuggestions(service)
-    this.getCurrentLocation()
+    this.props.actions.fetchCurrentLocation(service)
     this.getRoutePoints()
     this.getActualPath()
-  }
-
-  getCurrentLocation = async () => {
-    await this.getApiObjects("api/v1/current_location", "currentLocation", service)
   }
 
   getRoutePoints = async () => {
@@ -38,9 +33,8 @@ export default class Map extends Component {
 
   getApiObjects = async (path, state, service) => {
     const response = await service.get(path)
-    const safety = state === "currentLocation" ? {} : []
     this.setState({
-      [state]: (response && response.data) || safety
+      [state]: (response && response.data) || []
     })
   }
 
@@ -81,7 +75,6 @@ export default class Map extends Component {
         <SuggestionMapWrapper
           showSuggestionInfo={this.showSuggestionInfo}
           suggestions={filteredSuggestions}
-          currentLocation={this.state.currentLocation}
           routePoints={this.state.routePoints}
           actualPath={this.state.actualPath}
         />
@@ -92,8 +85,6 @@ export default class Map extends Component {
       <SideWrapper
         setFilters={this.setFilters}
         pinFilters={this.state.pinFilters}
-        currentLocation={this.state.currentLocation}
-        date={this.state.currentLocation.date}
         categories={categories}
       />
     )

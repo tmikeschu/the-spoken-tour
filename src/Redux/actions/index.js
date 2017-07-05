@@ -39,3 +39,15 @@ export const toggleSuggestionInfo = infoIsActive => ({
   data: infoIsActive
 })
 
+export const fetchCurrentLocation = service => (
+  async dispatch => {
+    const response = await service.get("/api/v1/current_location")
+    dispatch(addCurrentLocation(response.data || {}))
+  }
+)
+
+export const addCurrentLocation = currentLocation => ({
+  type: types.ADD_CURRENT_LOCATION,
+  data: currentLocation
+})
+

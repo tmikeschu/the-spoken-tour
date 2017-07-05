@@ -14,12 +14,14 @@ const props = {
     fetchSuggestions () {},
     addSuggestionPin () {},
     addCurrentSuggestion () {},
-    toggleSuggestionInfo () {}
+    toggleSuggestionInfo () {},
+    fetchCurrentLocation () {}
   },
   suggestions: suggestions,
   suggestionPin: {},
   currentSuggestion: {},
-  suggestionInfoIsActive: false
+  suggestionInfoIsActive: false,
+  currentLocation: {}
 }
 
 describe('<Map />', () => {
@@ -31,7 +33,7 @@ describe('<Map />', () => {
 
   const map = shallow(<Map {...props} />).instance()
   const fetches = [
-    "getCurrentLocation", "getRoutePoints", "getActualPath"
+    "getRoutePoints", "getActualPath"
   ]
 
   describe("#componentDidMount", () => {
@@ -43,7 +45,15 @@ describe('<Map />', () => {
       map.props.actions.fetchSuggestions = restore
     })
 
-    it("calls three API GET requests", () => {
+    it("calls the fetchCurrentLocation action", () => {
+      const restore = map.props.actions.fetchCurrentLocation
+      const mock = map.props.actions.fetchCurrentLocation = jest.fn()
+      map.componentDidMount()
+      expect(mock).toHaveBeenCalled()
+      map.props.actions.fetchCurrentLocation = restore
+    })
+
+    it("calls two API GET requests", () => {
       fetches.forEach(f => {
         const restore = map[f]
         const mock = map[f] = jest.fn()
@@ -70,18 +80,6 @@ describe('<Map />', () => {
   })
 
   describe("#getApiObjects", () => {
-    describe("currentLocation", () => {
-      it("sets state for currentLocation", async () => {
-        await map.getApiObjects("api/v1/current_location", "currentLocation", fakeService)
-        expect(map.state.currentLocation).toMatchObject({ set: true })
-      })
-
-      it("sets an empty array if no response", async () => {
-        await map.getApiObjects("api/v1/current_location", "currentLocation", badService)
-        expect(map.state.currentLocation).toMatchObject({})
-      })
-    })
-
     describe("routePoints", () => {
       it("sets state for routePoints", async () => {
         await map.getApiObjects("api/v1/route_pins", "routePoints", fakeService)

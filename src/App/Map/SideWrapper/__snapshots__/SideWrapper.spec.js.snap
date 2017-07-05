@@ -3,9 +3,8 @@
 exports[`<SideWrapper /> snapshot is valid 1`] = `
 Array [
   <section>
-    <Legend
+    <Connect(Legend)
         categories={Array []}
-        date=""
     />
     <Connect(SuggestionInfo) />
     <Filters
