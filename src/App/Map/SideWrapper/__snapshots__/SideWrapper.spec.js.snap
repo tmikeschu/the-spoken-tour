@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SideWrapper /> snapshot is valid 1`] = `
+Array [
+  <section>
+    <Legend
+        categories={Array []}
+        date=""
+    />
+    <Connect(SuggestionInfo) />
+    <Filters
+        categories={Array []}
+        pinFilters={Array []}
+        setFilters={[Function]}
+    />
+    <div>
+        <Info />
+        <Connect(SuggestionForm) />
+    </div>
+</section>,
+]
+`;

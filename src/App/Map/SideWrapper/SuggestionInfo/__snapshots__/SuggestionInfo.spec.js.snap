@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SuggestionInfo /> snapshot is valid 1`] = `
+Array [
+  <article
+    className="suggestion-info"
+>
+    <h4>
+        Suggestion Info
+    </h4>
+    <p
+        style={
+            Object {
+                "display": "block",
+              }
+        }
+    >
+        (click an existing pin on the map)
+    </p>
+    <section
+        className="text"
+        style={
+            Object {
+                "display": "none",
+              }
+        }
+    >
+        <p>
+            <span>
+                Label
+            </span>
+            : 
+        </p>
+        <p>
+            <span>
+                Description
+            </span>
+            : 
+        </p>
+        <p>
+            <span>
+                Category
+            </span>
+            : 
+        </p>
+    </section>
+</article>,
+]
+`;

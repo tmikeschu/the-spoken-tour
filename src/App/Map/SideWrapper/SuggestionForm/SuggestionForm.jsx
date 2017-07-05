@@ -33,7 +33,7 @@ export default class SuggestionForm extends Component {
     })
   }
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
     const pin = {
       pin: {
@@ -43,14 +43,18 @@ export default class SuggestionForm extends Component {
       }
     }
     try {
-      await service.post("/api/v1/suggestion_pins", pin)
-      this.submitSuccess()
+      this.postSuggestion(service, pin)
     } catch(error) {
       this.submitFail(error)
     }
   }
 
-  submitSuccess() {
+  postSuggestion = async (service, pin) => {
+    await service.post("/api/v1/suggestion_pins", pin)
+    this.submitSuccess()
+  }
+
+  submitSuccess = () => {
     this.props.actions.fetchSuggestions(service)
     this.props.actions.addSuggestionPin({})
     this.setState({
@@ -60,14 +64,14 @@ export default class SuggestionForm extends Component {
     })
   }
 
-  submitFail(error) {
+  submitFail = error => {
     this.setState({
       formNotification: error.responseJSON["error"],
       suggestionFailed: true
     })
   }
 
-  deactivate() {
+  deactivate = () => {
     this.setState({
       suggestionSent: false,
       suggestionFailed: false,
@@ -116,9 +120,9 @@ export default class SuggestionForm extends Component {
             suggestionPin.lat === undefined ? "hidden" : "submit"
           }
           value="Drop It!" />
-
       </form>
     )
+
     return (
       <article className="suggestion-form" >
         <h4>Drop a Pin</h4>
