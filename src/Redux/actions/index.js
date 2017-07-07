@@ -51,3 +51,8 @@ export const addCurrentLocation = currentLocation => ({
   data: currentLocation
 })
 
+export const addPinFilters = pinFilters => ({
+  type: types.ADD_PIN_FILTERS,
+  data: pinFilters
+})
+

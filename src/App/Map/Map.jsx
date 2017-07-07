@@ -10,7 +10,6 @@ export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pinFilters: [],
       routePoints: [],
       actualPath: []
     }
@@ -54,12 +53,6 @@ export default class Map extends Component {
 
   elevenDecimalPlaces = number => ( parseFloat(parseFloat(number).toFixed(11)))
 
-  setFilters = filters => {
-    this.setState({
-      pinFilters: filters
-    })
-  }
-
   filterPins = (filters, suggestions) => (
     suggestions.filter(s =>
       filters.length === 0 || filters.includes("") || filters.includes(s.category)
@@ -68,7 +61,7 @@ export default class Map extends Component {
 
   render() {
     const categories = _.uniq(this.props.suggestions.map(s => s.category))
-    const filteredSuggestions = this.filterPins(this.state.pinFilters, this.props.suggestions)
+    const filteredSuggestions = this.filterPins(this.props.pinFilters, this.props.suggestions)
 
     const suggestionMapWrapper = (
       <article>
@@ -81,18 +74,10 @@ export default class Map extends Component {
       </article>
     )
 
-    const sideWrapper = (
-      <SideWrapper
-        setFilters={this.setFilters}
-        pinFilters={this.state.pinFilters}
-        categories={categories}
-      />
-    )
-
     return (
       <article className="map">
         { suggestionMapWrapper }
-        { sideWrapper }
+        <SideWrapper categories={categories} />
       </article>
     )
   }

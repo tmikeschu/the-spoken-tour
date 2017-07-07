@@ -7,10 +7,8 @@ Array [
         categories={Array []}
     />
     <Connect(SuggestionInfo) />
-    <Filters
+    <Connect(Filters)
         categories={Array []}
-        pinFilters={Array []}
-        setFilters={[Function]}
     />
     <div>
         <Info />

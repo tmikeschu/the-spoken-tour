@@ -4,11 +4,11 @@ import Checkbox from "./Checkbox/Checkbox"
 import * as FilterHelper from "./FilterHelper/FilterHelper"
 
 const Filters = props => {
-  const { categories, pinFilters, setFilters } = props
+  const { categories, pinFilters } = props
 
   const filterPins = event => {
     const filters = FilterHelper.filterPins(event, pinFilters)
-    setFilters(filters)
+    props.actions.addPinFilters(filters)
   }
 
   const checkboxes = ["", "DISPLAYNONE"].concat(categories)
@@ -29,7 +29,6 @@ const Filters = props => {
 Filters.propTypes = {
   categories: PropTypes.array.isRequired,
   pinFilters: PropTypes.array.isRequired,
-  setFilters: PropTypes.func.isRequired
 }
 
 export default Filters

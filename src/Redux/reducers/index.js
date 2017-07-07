@@ -30,6 +30,10 @@ const currentLocation = (state = {}, action) => (
   action.type === types.ADD_CURRENT_LOCATION ? action.data : state
 )
 
+const pinFilters = (state = [], action) => (
+  action.type === types.ADD_PIN_FILTERS ? action.data : state
+)
+
 export default combineReducers({
   photos,
   map: combineReducers({
@@ -37,7 +41,8 @@ export default combineReducers({
     suggestionPin,
     currentSuggestion,
     suggestionInfoIsActive,
-    currentLocation
+    currentLocation,
+    pinFilters
   })
 })
 

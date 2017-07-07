@@ -15,13 +15,15 @@ const props = {
     addSuggestionPin () {},
     addCurrentSuggestion () {},
     toggleSuggestionInfo () {},
-    fetchCurrentLocation () {}
+    fetchCurrentLocation () {},
+    addPinFilters () {}
   },
   suggestions: suggestions,
   suggestionPin: {},
   currentSuggestion: {},
   suggestionInfoIsActive: false,
-  currentLocation: {}
+  currentLocation: {},
+  pinFilters: []
 }
 
 describe('<Map />', () => {
@@ -148,14 +150,6 @@ describe('<Map />', () => {
 
     it("brings a whole number to 11 decimal places", () => {
       expect(map.elevenDecimalPlaces(10)).toEqual(10.00000000000)
-    })
-  })
-
-  describe("#setFilters", () => {
-    it("updates state for pinFilters", () => {
-      expect(map.state.pinFilters).toMatchObject([])
-      map.setFilters(["stay"])
-      expect(map.state.pinFilters).toMatchObject(["stay"])
     })
   })
 

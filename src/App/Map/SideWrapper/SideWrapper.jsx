@@ -4,34 +4,16 @@ import SuggestionForm from "./SuggestionForm/SuggestionFormContainer"
 import Legend from "./Legend/LegendContainer"
 import Info from "./Info/Info"
 import SuggestionInfo from "./SuggestionInfo/SuggestionInfoContainer"
-import Filters from "./Filters/Filters"
+import Filters from "./Filters/FiltersContainer"
 
 const SideWrapper = props => {
-  const {
-    setFilters,
-    pinFilters,
-    categories
-  } = props
-
-  const legend = (
-    <Legend
-      categories={categories}
-    />
-  )
-
-  const FiltersBox = (
-    <Filters
-      categories={categories}
-      setFilters={setFilters}
-      pinFilters={pinFilters}
-    />
-  )
+  const { categories } = props
 
   return (
     <section>
-      { legend }
+      <Legend categories={categories} />
       <SuggestionInfo />
-      { FiltersBox }
+      <Filters categories={categories} />
       <div>
         <Info />
         <SuggestionForm />
@@ -41,8 +23,6 @@ const SideWrapper = props => {
 }
 
 SideWrapper.propTypes = {
-  setFilters: PropTypes.func.isRequired,
-  pinFilters: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired
 }
 
