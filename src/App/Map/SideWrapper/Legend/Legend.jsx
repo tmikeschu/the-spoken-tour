@@ -32,6 +32,11 @@ const Legend = props => {
   )
 }
 
+Legend.defaultProps = {
+  date: "",
+  categories: []
+}
+
 Legend.propTypes = {
   categories: PropTypes.array.isRequired,
   date: PropTypes.string.isRequired

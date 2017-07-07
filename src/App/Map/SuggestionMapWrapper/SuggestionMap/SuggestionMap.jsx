@@ -1,23 +1,40 @@
 import React from "react"
 import PropTypes from 'prop-types'
-import { GoogleMap, Polyline } from "react-google-maps"
-import { default as ScriptjsLoader } from "react-google-maps/lib/async/ScriptjsLoader"
+import { withGoogleMap, GoogleMap, Polyline } from "react-google-maps"
+import withScriptjs from "react-google-maps/lib/async/withScriptjs"
 import * as MarkerHelper from "./MarkerHelper/MarkerHelper"
 import loader from "../../../public/loading.gif"
 
-const SuggestionMap = props => {
-  const { 
-    suggestionPin,
-    suggestions,
-    currentLocation,
-    zoom,
-    center,
-    routePoints,
-    actualPath,
-    showSuggestionInfo
-  } = props
+const AsyncGoogleMap = withScriptjs(
+  withGoogleMap(
+    props => (
+      <GoogleMap
+        defaultZoom={props.zoom}
+        defaultCenter={props.center}
+        onClick={props.handleClick}
+        options={{
+          streetViewControl: true,
+          myTypeControl: false,
+        }}>
+        { MarkerHelper.currentLocationPin(props.currentLocation) }
+        { MarkerHelper.suggestionMarkers(props.suggestions, props.handleMarkerClick) }
+        { MarkerHelper.suggestion(props.suggestionPin) || null }
+        { MarkerHelper.endsOfDayMarkers(props.actualPath) }
+        <Polyline 
+          path={MarkerHelper.lineCoordinates(props.routePoints)}
+        />
+        <Polyline 
+          path={MarkerHelper.lineCoordinates(props.actualPath)}
+          options={{strokeColor: "#f00"}}
+        />
+      </GoogleMap>
+    ) 
+  )
+)
 
-  const { addSuggestionPin } = props.actions 
+const SuggestionMap = props => {
+  const { showSuggestionInfo } = props
+  const { addSuggestionPin } = props.actions
 
   const mapContainer = <div style={{ height: "100%", width: "100%" }} />
 
@@ -32,42 +49,25 @@ const SuggestionMap = props => {
     addSuggestionPin(position)
   }
 
+  const googleMapUrl = "https://maps.googleapis.com/maps/api/js?v=3.exp" +
+    `&key=${process.env.REACT_APP_GOOGLE_KEY}` +
+    "&libraries=geometry,drawing,visualization"
+
   return(
-    <ScriptjsLoader
-      hostname={"maps.googleapis.com"}
-      pathname={"/maps/api/js"}
-      query={{ 
-        key: process.env.REACT_APP_GOOGLE_KEY, 
-        libraries: "geometry,drawing,visualization" 
-      }}
+    <AsyncGoogleMap
+      googleMapURL={googleMapUrl}
       loadingElement={
         <div className="loader">
           <img src={loader} alt="loading" />
         </div>
       }
       containerElement={ mapContainer }
-      googleMapElement={
-        <GoogleMap
-          defaultZoom={zoom}
-          defaultCenter={center}
-          onClick={props => handleClick(props)}
-          options={{
-            streetViewControl: true,
-            myTypeControl: false,
-          }}>
-          { MarkerHelper.currentLocationPin(currentLocation) }
-          { MarkerHelper.suggestionMarkers(suggestions, handleMarkerClick) }
-          { MarkerHelper.suggestion(suggestionPin) || null }
-          { MarkerHelper.endsOfDayMarkers(actualPath) }
-          <Polyline 
-            path={MarkerHelper.lineCoordinates(routePoints)}
-          />
-          <Polyline 
-            path={MarkerHelper.lineCoordinates(actualPath)}
-            options={{strokeColor: "#f00"}}
-          />
-        </GoogleMap>
-      } 
+      mapElement={
+        <div style={{ height: `100%` }} />
+      }
+      handleClick={handleClick}
+      handleMarkerClick={handleMarkerClick}
+      {...props}
     />
   )
 }
@@ -81,9 +81,6 @@ SuggestionMap.propTypes = {
   routePoints: PropTypes.array.isRequired,
   actualPath: PropTypes.array.isRequired,
   showSuggestionInfo: PropTypes.func.isRequired,
-  actions: PropTypes.shape({
-    addSuggestionPin: PropTypes.func.isRequired
-  })
 }
 
 export default SuggestionMap
