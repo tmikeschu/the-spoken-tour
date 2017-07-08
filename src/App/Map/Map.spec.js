@@ -18,7 +18,9 @@ const props = {
     fetchCurrentLocation () {},
     addPinFilters () {},
     addRoutePoints () {},
-    fetchRoutePoints () {}
+    fetchRoutePoints () {},
+    addActualPath () {},
+    fetchActualPath () {}
   },
   suggestions: suggestions,
   suggestionPin: {},
@@ -26,7 +28,8 @@ const props = {
   suggestionInfoIsActive: false,
   currentLocation: {},
   pinFilters: [],
-  routePoints: []
+  routePoints: [],
+  actualPath: []
 }
 
 describe('<Map />', () => {
@@ -37,71 +40,25 @@ describe('<Map />', () => {
   })
 
   const map = shallow(<Map {...props} />).instance()
-  const fetches = [ "getActualPath" ]
 
   describe("#componentDidMount", () => {
-    it("calls the fetchSuggestions action", () => {
-      const restore = map.props.actions.fetchSuggestions
-      const mock = map.props.actions.fetchSuggestions = jest.fn()
-      map.componentDidMount()
-      expect(mock).toHaveBeenCalled()
-      map.props.actions.fetchSuggestions = restore
-    })
+    it("calls four fetch actions", () => {
+      const fetches = [
+        "fetchSuggestions",
+        "fetchCurrentLocation",
+        "fetchRoutePoints",
+        "fetchActualPath"
+      ]
 
-    it("calls the fetchCurrentLocation action", () => {
-      const restore = map.props.actions.fetchCurrentLocation
-      const mock = map.props.actions.fetchCurrentLocation = jest.fn()
-      map.componentDidMount()
-      expect(mock).toHaveBeenCalled()
-      map.props.actions.fetchCurrentLocation = restore
-    })
-
-    it("calls the fetchRoutePoints action", () => {
-      const restore = map.props.actions.fetchRoutePoints
-      const mock = map.props.actions.fetchRoutePoints = jest.fn()
-      map.componentDidMount()
-      expect(mock).toHaveBeenCalled()
-      map.props.actions.fetchRoutePoints = restore
-    })
-
-    it("calls one API GET requests", () => {
       fetches.forEach(f => {
-        const restore = map[f]
-        const mock = map[f] = jest.fn()
+        const restore = map.props.actions[f]
+        const mock = map.props.actions[f] = jest.fn()
         map.componentDidMount()
         expect(mock).toHaveBeenCalled()
-
-        map[f] = restore
+        map.props.actions[f] = restore
       })
     })
-  })
 
-  describe("#get... methods", () => {
-    it("all call #getApiObjects", async () => {
-      const restore = map.getApiObjects
-      const mock = map.getApiObjects = jest.fn()
-
-      fetches.forEach((f, i) => {
-        map[f]()
-        expect(mock).toHaveBeenCalledTimes(i + 1)
-      })
-
-      map.getApiObjects = restore
-    })
-  })
-
-  describe("#getApiObjects", () => {
-    describe("actualPath", () => {
-      it("sets state for actualPath", async () => {
-        await map.getApiObjects("api/v1/actual_path", "actualPath", fakeService)
-        expect(map.state.actualPath).toMatchObject(["actual path set!"])
-      })
-
-      it("sets an empty array if no response", async () => {
-        await map.getApiObjects("api/v1/actual_path", "actualPath", badService)
-        expect(map.state.actualPath).toMatchObject([])
-      })
-    })
   })
 
   describe("#showSuggestionInfo", () => {

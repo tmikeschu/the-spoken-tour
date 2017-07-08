@@ -5,31 +5,16 @@ import APIService from "../APIService/APIService"
 import _ from "lodash"
 
 const service = new APIService("https://spoken-api.herokuapp.com")
+const fetchActions = [
+  "fetchSuggestions",
+  "fetchCurrentLocation",
+  "fetchRoutePoints",
+  "fetchActualPath"
+]
 
 export default class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      actualPath: []
-    }
-  }
-
   componentDidMount() {
-    this.props.actions.fetchSuggestions(service)
-    this.props.actions.fetchCurrentLocation(service)
-    this.props.actions.fetchRoutePoints(service)
-    this.getActualPath()
-  }
-
-  getActualPath = async () => {
-    await this.getApiObjects("api/v1/actual_path", "actualPath", service)
-  }
-
-  getApiObjects = async (path, state, service) => {
-    const response = await service.get(path)
-    this.setState({
-      [state]: (response && response.data) || []
-    })
+    fetchActions.forEach(a => this.props.actions[a](service))
   }
 
   showSuggestionInfo = latLng => {
@@ -63,7 +48,6 @@ export default class Map extends Component {
         <SuggestionMapWrapper
           showSuggestionInfo={this.showSuggestionInfo}
           suggestions={filteredSuggestions}
-          actualPath={this.state.actualPath}
         />
       </article>
     )

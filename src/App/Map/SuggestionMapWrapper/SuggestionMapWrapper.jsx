@@ -3,17 +3,15 @@ import PropTypes from 'prop-types'
 import SuggestionMap from './SuggestionMap/SuggestionMapContainer'
 
 const SuggestionMapWrapper = props => {
-  const {
-    suggestions,
-    showSuggestionInfo,
-    actualPath
-  } = props
+  const { suggestions, showSuggestionInfo } = props
 
   const fullHeightAndWidth = { width: '100%', height: '100vh' }
+
   const mapCenter = {
     lat: -1.6246706849414423,
     lng: -85.56376812500002
   }
+
   const mapZoom = 3
 
   return (
@@ -23,7 +21,6 @@ const SuggestionMapWrapper = props => {
         zoom={mapZoom}
         center={mapCenter}
         suggestions={suggestions}
-        actualPath={actualPath}
       />
     </div>
   )
@@ -31,7 +28,6 @@ const SuggestionMapWrapper = props => {
 
 SuggestionMapWrapper.propTypes = {
   suggestions: PropTypes.array.isRequired,
-  actualPath: PropTypes.array.isRequired,
   showSuggestionInfo: PropTypes.func.isRequired,
 }
 

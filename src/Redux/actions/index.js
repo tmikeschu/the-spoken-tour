@@ -68,3 +68,15 @@ export const addRoutePoints = routePoints => ({
   data: routePoints
 })
 
+export const fetchActualPath = service => (
+  async dispatch => {
+    const response = await service.get("/api/v1/actual_path")
+    dispatch(addActualPath(response.data || []))
+  }
+)
+
+export const addActualPath = actualPath => ({
+  type: types.ADD_ACTUAL_PATH,
+  data: actualPath
+})
+

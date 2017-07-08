@@ -33,6 +33,10 @@ const routePoints = (state = [], action) => (
   action.type === types.ADD_ROUTE_POINTS ? action.data : state
 )
 
+const actualPath = (state = [], action) => (
+  action.type === types.ADD_ACTUAL_PATH ? action.data : state
+)
+
 export default combineReducers({
   photos,
   map: combineReducers({
@@ -42,7 +46,8 @@ export default combineReducers({
     suggestionInfoIsActive,
     currentLocation,
     pinFilters,
-    routePoints
+    routePoints,
+    actualPath
   })
 })
 
