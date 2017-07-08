@@ -2,16 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SuggestionMap from './SuggestionMap/SuggestionMapContainer'
 
-const SuggestionMapWrapper = props => {
-  const { suggestions, showSuggestionInfo } = props
-
+const SuggestionMapWrapper = ({ suggestions, showSuggestionInfo }) => {
   const fullHeightAndWidth = { width: '100%', height: '100vh' }
-
-  const mapCenter = {
-    lat: -1.6246706849414423,
-    lng: -85.56376812500002
-  }
-
+  const mapCenter = { lat: -1.6246706849414423, lng: -85.56376812500002 }
   const mapZoom = 3
 
   return (

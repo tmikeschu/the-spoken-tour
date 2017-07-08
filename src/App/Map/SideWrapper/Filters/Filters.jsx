@@ -29,6 +29,9 @@ const Filters = props => {
 Filters.propTypes = {
   categories: PropTypes.array.isRequired,
   pinFilters: PropTypes.array.isRequired,
+  actions: PropTypes.shape({
+    addPinFilters: PropTypes.func.isRequired
+  })
 }
 
 export default Filters

@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import Category from './Category/Category'
 import { categoryIcons } from '../../category_data'
 
-const Legend = props => {
-  const { categories, date } = props
-
+const Legend = ({ categories, date }) => {
   const legendCategories = categories.map((category, i) => ( 
     <Category key={i} category={category} />
   ))

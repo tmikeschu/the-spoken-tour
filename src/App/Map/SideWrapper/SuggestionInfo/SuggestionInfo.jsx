@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SuggestionInfo = props => {
-  const { currentSuggestion, suggestionInfoIsActive } = props
-
+const SuggestionInfo = ({ currentSuggestion, suggestionInfoIsActive }) => {
   const categories = {
     "stay": "Place to stay",
     "checkout": "Cool spot",

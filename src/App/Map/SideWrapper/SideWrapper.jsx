@@ -6,9 +6,7 @@ import Info from "./Info/Info"
 import SuggestionInfo from "./SuggestionInfo/SuggestionInfoContainer"
 import Filters from "./Filters/FiltersContainer"
 
-const SideWrapper = props => {
-  const { categories } = props
-
+const SideWrapper = ({ categories })=> {
   return (
     <section>
       <Legend categories={categories} />

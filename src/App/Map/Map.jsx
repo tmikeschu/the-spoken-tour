@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 import SuggestionMapWrapper from "./SuggestionMapWrapper/SuggestionMapWrapper"
 import SideWrapper from "./SideWrapper/SideWrapper"
 import APIService from "../APIService/APIService"
@@ -12,7 +13,7 @@ const fetchActions = [
   "fetchActualPath"
 ]
 
-export default class Map extends Component {
+class Map extends Component {
   componentDidMount() {
     fetchActions.forEach(a => this.props.actions[a](service))
   }
@@ -60,3 +61,15 @@ export default class Map extends Component {
     )
   }
 }
+
+Map.propTypes = {
+  actions: PropTypes.shape({
+    fetchSuggestions: PropTypes.func.isRequired,
+    fetchCurrentLocation: PropTypes.func.isRequired,
+    fetchRoutePoints: PropTypes.func.isRequired,
+    fetchActualPath: PropTypes.func.isRequired
+  }),
+  suggestions: PropTypes.array.isRequired
+}
+
+export default Map

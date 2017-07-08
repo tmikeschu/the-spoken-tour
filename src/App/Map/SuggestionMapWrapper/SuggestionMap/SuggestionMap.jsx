@@ -77,10 +77,11 @@ SuggestionMap.propTypes = {
   suggestions: PropTypes.array.isRequired,
   currentLocation: PropTypes.object.isRequired,
   zoom: PropTypes.number.isRequired,
-  center: PropTypes.object.isRequired,
-  routePoints: PropTypes.array.isRequired,
-  actualPath: PropTypes.array.isRequired,
+  center: PropTypes.object.isRequired, routePoints: PropTypes.array.isRequired, actualPath: PropTypes.array.isRequired,
   showSuggestionInfo: PropTypes.func.isRequired,
+  actions: PropTypes.shape({
+    addSuggestionPin: PropTypes.func.isRequired
+  })
 }
 
 export default SuggestionMap
