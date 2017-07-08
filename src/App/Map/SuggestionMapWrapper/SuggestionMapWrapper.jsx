@@ -6,7 +6,6 @@ const SuggestionMapWrapper = props => {
   const {
     suggestions,
     showSuggestionInfo,
-    routePoints,
     actualPath
   } = props
 
@@ -24,7 +23,6 @@ const SuggestionMapWrapper = props => {
         zoom={mapZoom}
         center={mapCenter}
         suggestions={suggestions}
-        routePoints={routePoints}
         actualPath={actualPath}
       />
     </div>
@@ -33,7 +31,6 @@ const SuggestionMapWrapper = props => {
 
 SuggestionMapWrapper.propTypes = {
   suggestions: PropTypes.array.isRequired,
-  routePoints: PropTypes.array.isRequired,
   actualPath: PropTypes.array.isRequired,
   showSuggestionInfo: PropTypes.func.isRequired,
 }

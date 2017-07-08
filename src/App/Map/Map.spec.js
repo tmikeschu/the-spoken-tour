@@ -16,14 +16,17 @@ const props = {
     addCurrentSuggestion () {},
     toggleSuggestionInfo () {},
     fetchCurrentLocation () {},
-    addPinFilters () {}
+    addPinFilters () {},
+    addRoutePoints () {},
+    fetchRoutePoints () {}
   },
   suggestions: suggestions,
   suggestionPin: {},
   currentSuggestion: {},
   suggestionInfoIsActive: false,
   currentLocation: {},
-  pinFilters: []
+  pinFilters: [],
+  routePoints: []
 }
 
 describe('<Map />', () => {
@@ -34,9 +37,7 @@ describe('<Map />', () => {
   })
 
   const map = shallow(<Map {...props} />).instance()
-  const fetches = [
-    "getRoutePoints", "getActualPath"
-  ]
+  const fetches = [ "getActualPath" ]
 
   describe("#componentDidMount", () => {
     it("calls the fetchSuggestions action", () => {
@@ -55,7 +56,15 @@ describe('<Map />', () => {
       map.props.actions.fetchCurrentLocation = restore
     })
 
-    it("calls two API GET requests", () => {
+    it("calls the fetchRoutePoints action", () => {
+      const restore = map.props.actions.fetchRoutePoints
+      const mock = map.props.actions.fetchRoutePoints = jest.fn()
+      map.componentDidMount()
+      expect(mock).toHaveBeenCalled()
+      map.props.actions.fetchRoutePoints = restore
+    })
+
+    it("calls one API GET requests", () => {
       fetches.forEach(f => {
         const restore = map[f]
         const mock = map[f] = jest.fn()
@@ -82,18 +91,6 @@ describe('<Map />', () => {
   })
 
   describe("#getApiObjects", () => {
-    describe("routePoints", () => {
-      it("sets state for routePoints", async () => {
-        await map.getApiObjects("api/v1/route_pins", "routePoints", fakeService)
-        expect(map.state.routePoints).toMatchObject(["route points set!"])
-      })
-
-      it("sets an empty array if no response", async () => {
-        await map.getApiObjects("api/v1/route_pins", "routePoints", badService)
-        expect(map.state.routePoints).toMatchObject([])
-      })
-    })
-
     describe("actualPath", () => {
       it("sets state for actualPath", async () => {
         await map.getApiObjects("api/v1/actual_path", "actualPath", fakeService)

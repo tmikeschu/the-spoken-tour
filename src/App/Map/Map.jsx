@@ -10,7 +10,6 @@ export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      routePoints: [],
       actualPath: []
     }
   }
@@ -18,12 +17,8 @@ export default class Map extends Component {
   componentDidMount() {
     this.props.actions.fetchSuggestions(service)
     this.props.actions.fetchCurrentLocation(service)
-    this.getRoutePoints()
+    this.props.actions.fetchRoutePoints(service)
     this.getActualPath()
-  }
-
-  getRoutePoints = async () => {
-    await this.getApiObjects("api/v1/route_pins", "routePoints", service)
   }
 
   getActualPath = async () => {
@@ -68,7 +63,6 @@ export default class Map extends Component {
         <SuggestionMapWrapper
           showSuggestionInfo={this.showSuggestionInfo}
           suggestions={filteredSuggestions}
-          routePoints={this.state.routePoints}
           actualPath={this.state.actualPath}
         />
       </article>

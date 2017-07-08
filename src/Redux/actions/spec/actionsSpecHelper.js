@@ -19,5 +19,6 @@ export const responses = {
   "/api/v1/suggestion_pins": ["suggestion1", "suggestion2"],
   "/api/v1/instagram_photos": ["photo1", "photo2"],
   "/api/v1/current_location": { lat: 0, lng: 0},
+  "/api/v1/route_pins": [ { lat: 0, lng: 0}, { lat: 1, lng: 1 } ]
 }
 

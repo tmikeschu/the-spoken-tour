@@ -56,3 +56,15 @@ export const addPinFilters = pinFilters => ({
   data: pinFilters
 })
 
+export const fetchRoutePoints = service => (
+  async dispatch => {
+    const response = await service.get("/api/v1/route_pins")
+    dispatch(addRoutePoints(response.data || []))
+  }
+)
+
+export const addRoutePoints = routePoints => ({
+  type: types.ADD_ROUTE_POINTS,
+  data: routePoints
+})
+
