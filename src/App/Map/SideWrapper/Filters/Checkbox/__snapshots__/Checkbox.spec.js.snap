@@ -6,6 +6,7 @@ Array [
     className="checkbox"
 >
     <input
+        checked={false}
         onChange={[Function]}
         type="checkbox"
         value="stay"

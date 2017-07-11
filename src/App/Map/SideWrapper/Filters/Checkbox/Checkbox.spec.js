@@ -4,7 +4,12 @@ import Checkbox from "./Checkbox"
 import { categoryLabels } from '../../../category_data'
 
 describe("<Checkbox />", () => {
-  const checkbox = shallow(<Checkbox category="stay" filterPins={function () {}} />)
+  const props = {
+    category: "stay",
+    filterPins: function () {},
+    pinFilters: []
+  }
+  const checkbox = shallow(<Checkbox {...props} />)
 
   it("renders without crashing", () => {
     expect(checkbox).toBeTruthy()

@@ -12,14 +12,29 @@ Array [
         <Checkbox
             category=""
             filterPins={[Function]}
+            pinFilters={
+                Array [
+                    "stay",
+                  ]
+            }
         />
         <Checkbox
             category="DISPLAYNONE"
             filterPins={[Function]}
+            pinFilters={
+                Array [
+                    "stay",
+                  ]
+            }
         />
         <Checkbox
             category="stay"
             filterPins={[Function]}
+            pinFilters={
+                Array [
+                    "stay",
+                  ]
+            }
         />
     </article>
 </article>,

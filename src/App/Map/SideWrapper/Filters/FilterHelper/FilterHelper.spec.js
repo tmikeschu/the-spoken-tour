@@ -3,35 +3,59 @@ import * as FilterHelper from './FilterHelper'
 
 describe("FilterHelper methods", () => {
   describe("#filterPins", () => {
-    describe("when checked is true", () => {
-      it("returns a new array with the filter added", () => {
-        const event = {
-          target: {
-            value: "stay",
-            checked: true
-          }
-        }
-        const currentFilters = ["places"]
-        const expected = ["stay", "places"]
-
-        expect(FilterHelper.filterPins(event, currentFilters))
-          .toEqual(expect.arrayContaining(expected))
+    describe("If the event target value is in the currentFilters array", () => {
+      it("returns an array without that target value", () => {
+        const currentFilters = ["places", "stay"]
+        const event = { target: { value: "stay" } }
+        const expected = ["places"]
+        expect(FilterHelper.filterPins(event, currentFilters)).toMatchObject(expected)
       })
     })
 
-    describe("when checked is false", () => {
-      it("returns  a new array with the filter removed", () => {
-        const event = {
-          target: {
-            value: "places",
-            checked: false
-          }
-        }
-        const currentFilters = ["places", "stay"]
-        const expected = ["stay"]
+    describe("If the event target value is not in the currentFilters array", () => {
+      it("returns an array with that target value", () => {
+        const currentFilters = ["places"]
+        const event = { target: { value: "stay" } }
+        const expected = ["places", "stay"]
+        expect(FilterHelper.filterPins(event, currentFilters)).toMatchObject(expected)
+      })
+    })
+  })
 
-        expect(FilterHelper.filterPins(event, currentFilters))
-          .toEqual(expect.arrayContaining(expected))
+  describe("#uncheck", () => {
+    it("returns an array with a value removed", () => {
+      const currentFilters = ["places", "stay"]
+      const value = "stay"
+      const expected = ["places"]
+      expect(FilterHelper.uncheck(value, currentFilters)).toMatchObject(expected)
+    })
+  })
+
+  describe("#check", () => {
+    describe("given DISPLAYNONE", () => {
+      it("returns an array of only DISPLAYNONE", () => {
+        const currentFilters = ["places", "stay"]
+        const value = "DISPLAYNONE"
+        const expected = ["DISPLAYNONE"]
+        expect(FilterHelper.check(value, currentFilters)).toMatchObject(expected)
+      })
+    })
+
+    describe("given \"\"", () => {
+      it("returns an array of only \"\"", () => {
+        const currentFilters = ["places", "stay"]
+        const value = ""
+        const expected = [""]
+        expect(FilterHelper.check(value, currentFilters)).toMatchObject(expected)
+      })
+    })
+
+    describe("given other values", () => {
+      it("returns an array updated with that value", () => {
+        const currentFilters = ["places"]
+        const value = "stay"
+        const expected = ["places", "stay"]
+        expect(FilterHelper.check(value, currentFilters)).toMatchObject(expected)
       })
     })
   })

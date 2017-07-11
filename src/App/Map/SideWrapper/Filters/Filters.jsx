@@ -13,7 +13,7 @@ const Filters = props => {
 
   const checkboxes = ["", "DISPLAYNONE"].concat(categories)
     .map((category, i) => (
-      <Checkbox key={i} category={category} filterPins={filterPins} />)
+      <Checkbox key={i} category={category} filterPins={filterPins} pinFilters={pinFilters} />)
     )
 
   return(
