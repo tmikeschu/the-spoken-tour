@@ -20,6 +20,7 @@ article.about {
     p {
       flex: 4;
       padding: 2%;
+      line-height: 25px;
     }
     &:nth-child(odd) {
       h2 {

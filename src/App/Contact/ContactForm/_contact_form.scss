@@ -25,6 +25,7 @@
         color: white;
         transition: 300ms;
         &:hover, &:focus {
+          cursor: pointer;
           transition: 300ms;
           background-color: $blue;
         }
@@ -35,6 +36,7 @@
     text-align: center;
     margin: 1% auto;
     color: #fff;
+    letter-spacing: 1px;
   }
   @media (max-width: 640px) {
     width: 100%;

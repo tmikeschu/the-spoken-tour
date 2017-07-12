@@ -34,6 +34,7 @@
         color: white;
         transition: 300ms;
         &:hover, &:focus {
+          cursor: pointer;
           transition: 300ms;
           background-color: $blue;
         }
