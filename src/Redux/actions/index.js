@@ -80,3 +80,7 @@ export const addActualPath = actualPath => ({
   data: actualPath
 })
 
+export const toggleFlags = () => ({
+  type: types.TOGGLE_FLAGS
+})
+
