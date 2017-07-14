@@ -19,7 +19,7 @@ const AsyncGoogleMap = withScriptjs(
         { MarkerHelper.currentLocationPin(props.currentLocation) }
         { MarkerHelper.suggestionMarkers(props.suggestions, props.handleMarkerClick) }
         { MarkerHelper.suggestion(props.suggestionPin) || null }
-        { MarkerHelper.endsOfDayMarkers(props.actualPath) }
+        { props.showFlags && MarkerHelper.endsOfDayMarkers(props.actualPath) }
         <Polyline 
           path={MarkerHelper.lineCoordinates(props.routePoints)}
         />
