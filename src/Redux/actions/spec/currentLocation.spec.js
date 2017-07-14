@@ -1,4 +1,4 @@
-import { actions, mockStore, fakeService, responses } from "./actionsSpecHelper"
+import { actions, mockStore, fakeService } from "./actionsSpecHelper"
 
 describe("Actions#currentLocation", () => {
   const expectedAction = { type: "ADD_CURRENT_LOCATION", data: { lat: 0, lng: 0} }

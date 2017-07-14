@@ -1,4 +1,4 @@
-import { actions, mockStore, fakeService, responses } from "./actionsSpecHelper"
+import { actions, mockStore, fakeService } from "./actionsSpecHelper"
 
 describe("Actions#suggestions", () => {
   const expectedAction = { type: "ADD_SUGGESTIONS", data: [ "suggestion1", "suggestion2" ] }
