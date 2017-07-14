@@ -49,10 +49,11 @@ Array [
             <span>
                 <img
                     alt="flag"
+                    onClick={undefined}
                     src="https://maps.google.com/mapfiles/ms/icons/flag.png"
                 />
             </span>
-             → Day-to-Day
+             → Day-to-Day (click flag to hide/show flag markers)
         </li>
         <Category
             category="stay"

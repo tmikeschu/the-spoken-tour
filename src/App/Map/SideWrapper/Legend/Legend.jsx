@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Category from './Category/Category'
 import { categoryIcons } from '../../category_data'
 
-const Legend = ({ categories, date }) => {
+const Legend = ({ categories, date, toggleFlags }) => {
   const legendCategories = categories.map((category, i) => ( 
     <Category key={i} category={category} />
   ))
@@ -21,8 +21,8 @@ const Legend = ({ categories, date }) => {
         </li>
         <li>
           <span>
-            <img src={categoryIcons["endOfDay"]} alt="flag"/>
-          </span> → Day-to-Day
+            <img src={categoryIcons["endOfDay"]} alt="flag" onClick={toggleFlags} />
+          </span> → Day-to-Day (click flag to hide/show flag markers)
         </li>
         { legendCategories }
       </ul>
