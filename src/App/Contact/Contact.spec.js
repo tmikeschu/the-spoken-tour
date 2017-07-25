@@ -1,7 +1,6 @@
 import React from "react"
 import { shallow } from "enzyme"
 import Contact from "./Contact"
-import ContactForm from "./ContactForm/ContactForm"
 
 describe("<Contact />", () => {
   const contact = shallow(<Contact />)
@@ -14,6 +13,6 @@ describe("<Contact />", () => {
     it("is valid", () => {
       expect(contact.getNodes()).toMatchSnapshot()
     })
-  }) 
+  })
 })
 
