@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import Map from './Map'
 
 const suggestions = [
@@ -12,24 +12,14 @@ const suggestions = [
 const props = {
   actions: {
     fetchSuggestions () {},
-    addSuggestionPin () {},
     addCurrentSuggestion () {},
     toggleSuggestionInfo () {},
     fetchCurrentLocation () {},
-    addPinFilters () {},
-    addRoutePoints () {},
     fetchRoutePoints () {},
-    addActualPath () {},
     fetchActualPath () {}
   },
   suggestions: suggestions,
-  suggestionPin: {},
-  currentSuggestion: {},
-  suggestionInfoIsActive: false,
-  currentLocation: {},
   pinFilters: [],
-  routePoints: [],
-  actualPath: []
 }
 
 describe('<Map />', () => {
@@ -94,16 +84,18 @@ describe('<Map />', () => {
   })
 
   describe("#elevenDecimalPlaces", () => {
+    const { elevenDecimalPlaces } = map
+
     it("rounds a number with 4 decimal places to 11 decimal places", () => {
-      expect(map.elevenDecimalPlaces(10.0234)).toEqual(10.02340000000)
+      expect(elevenDecimalPlaces(10.0234)).toEqual(10.02340000000)
     })
 
     it("rounds a number with 15 decimal places to 11 decimal places", () => {
-      expect(map.elevenDecimalPlaces(10.023491829833019)).toEqual(10.02349182983)
+      expect(elevenDecimalPlaces(10.023491829833019)).toEqual(10.02349182983)
     })
 
     it("brings a whole number to 11 decimal places", () => {
-      expect(map.elevenDecimalPlaces(10)).toEqual(10.00000000000)
+      expect(elevenDecimalPlaces(10)).toEqual(10.00000000000)
     })
   })
 
@@ -139,24 +131,6 @@ describe('<Map />', () => {
     })
   })
 })
-
-const fakeService = {
-  get(path) {
-    return {
-      status: 200,
-      data: pathResponses[path]
-    }
-  }
-}
-
-const badService = { get() {} }
-
-const pathResponses = {
-  "api/v1/current_location": { set: true },
-  "api/v1/suggestion_pins": ["suggestions set!"],
-  "api/v1/route_pins": ["route points set!"],
-  "api/v1/actual_path": ["actual path set!"]
-}
 
 const latLng = {
   lat() { return 10.000100000000000001 },

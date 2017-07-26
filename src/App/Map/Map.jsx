@@ -67,9 +67,12 @@ Map.propTypes = {
     fetchSuggestions: PropTypes.func.isRequired,
     fetchCurrentLocation: PropTypes.func.isRequired,
     fetchRoutePoints: PropTypes.func.isRequired,
-    fetchActualPath: PropTypes.func.isRequired
+    fetchActualPath: PropTypes.func.isRequired,
+    addCurrentSuggestion: PropTypes.func.isRequired,
+    toggleSuggestionInfo: PropTypes.func.isRequired
   }),
-  suggestions: PropTypes.array.isRequired
+  suggestions: PropTypes.array.isRequired,
+  pinFilters: PropTypes.array.isRequired
 }
 
 export default Map
