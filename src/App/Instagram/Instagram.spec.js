@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import Instagram from './Instagram'
 
 const fakeActions = {
