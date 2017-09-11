@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tmikeschu/the-spoken-tour.svg?branch=master)](https://travis-ci.org/tmikeschu/the-spoken-tour)
+
 # The Spoken Tour
 Some friends of mine are going to bike from Denver, Colorado to Buenos Aires, Argentina, so I helped build their travel blog using React (thanks to [CRA](https://github.com/facebookincubator/create-react-app) and [RGM](https://github.com/tomchentw/react-google-maps)).
 
