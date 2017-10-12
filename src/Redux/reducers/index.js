@@ -37,7 +37,7 @@ const actualPath = (state = [], action) => (
   action.type === types.ADD_ACTUAL_PATH ? action.data : state
 )
 
-const showFlags = (state = true, action) => (
+const showFlags = (state = false, action) => (
   action.type === types.TOGGLE_FLAGS ? !state : state
 )
 
