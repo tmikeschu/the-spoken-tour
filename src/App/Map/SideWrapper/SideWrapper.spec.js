@@ -7,7 +7,8 @@ const props = {
   suggestionInfoIsActive: false,
   setFilters: function () {},
   pinFilters: [],
-  categories: []
+  categories: [],
+  sideClass: "visible",
 }
 
 describe("<SideWrapper />", () => {

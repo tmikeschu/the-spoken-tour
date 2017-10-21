@@ -1,18 +1,25 @@
 .checkboxes {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   @include map-info-border;
   padding: 0 1%;
   justify-content: space-between;
   >article {
-    width: 40%;
-  }
-
-  @media (max-width: 640px) {
-    font-size: .5em;
-    flex-direction: column;
-    >article {
-      width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    article {
+      font-size: 1.5em;
+      margin: 10px 0;
+      width: 50%;
+      display: flex;
+      align-items: center;
+      label {
+        &:hover, &:focus {
+          cursor: pointer;
+        }
+      }
     }
   }
 }

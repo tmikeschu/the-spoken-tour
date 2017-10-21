@@ -3,10 +3,10 @@ import * as FilterHelper from './FilterHelper'
 
 describe("FilterHelper methods", () => {
   describe("#filterPins", () => {
+    const event = { target: { value: "stay" } }
     describe("If the event target value is in the currentFilters array", () => {
       it("returns an array without that target value", () => {
         const currentFilters = ["places", "stay"]
-        const event = { target: { value: "stay" } }
         const expected = ["places"]
         expect(FilterHelper.filterPins(event, currentFilters)).toMatchObject(expected)
       })
@@ -15,7 +15,6 @@ describe("FilterHelper methods", () => {
     describe("If the event target value is not in the currentFilters array", () => {
       it("returns an array with that target value", () => {
         const currentFilters = ["places"]
-        const event = { target: { value: "stay" } }
         const expected = ["places", "stay"]
         expect(FilterHelper.filterPins(event, currentFilters)).toMatchObject(expected)
       })
