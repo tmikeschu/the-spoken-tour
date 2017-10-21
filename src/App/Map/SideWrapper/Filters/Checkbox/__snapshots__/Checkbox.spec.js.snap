@@ -7,11 +7,14 @@ Array [
 >
     <input
         checked={false}
+        id="stay"
         onChange={[Function]}
         type="checkbox"
         value="stay"
     />
-    <label>
+    <label
+        htmlFor="stay"
+    >
         Places to Stay
     </label>
 </article>,

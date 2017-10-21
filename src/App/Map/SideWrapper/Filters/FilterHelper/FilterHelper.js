@@ -19,7 +19,7 @@ export const uncheck = (value: string, currentFilters: string[]): string[] => (
 
 export const check = (value: string, currentFilters: string[]): string[] => (
   value === "" || value === "DISPLAYNONE" ? (
-    [value] 
+    [value]
   ) : (
     currentFilters
       .filter(x => x !== "DISPLAYNONE" && x !== "")
@@ -29,6 +29,6 @@ export const check = (value: string, currentFilters: string[]): string[] => (
 
 const boxIsChecked = {
   true: uncheck,
-  false: check 
+  false: check
 }
 

@@ -6,11 +6,14 @@ const Checkbox = ({ category, filterPins, pinFilters }) => (
   <article className="checkbox">
     <input 
       type="checkbox"
+      id={category || "all"}
       value={category}
-      onChange={event => filterPins(event)}
       checked={pinFilters.includes(category)}
+      onChange={event => filterPins(event)}
     />
-    <label>{ categoryLabels[category] }</label>
+    <label htmlFor={category || "all"}>
+      {categoryLabels[category]}
+    </label>
   </article>
 )
 

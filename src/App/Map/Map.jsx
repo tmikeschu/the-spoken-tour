@@ -14,6 +14,12 @@ const fetchActions = [
 ]
 
 class Map extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      sideVisible: false,
+    }
+  }
   componentDidMount() {
     fetchActions.forEach(a => this.props.actions[a](service))
   }
@@ -25,6 +31,7 @@ class Map extends Component {
 
     this.props.actions.addCurrentSuggestion(suggestion)
     this.props.actions.toggleSuggestionInfo(true)
+    this.toggleSideWrapper()
   }
 
   coordinatesCloseEnough = (suggestion, event) => (
@@ -40,12 +47,35 @@ class Map extends Component {
     )
   )
 
+  toggleSideWrapper = () => {
+    this.setState({
+      sideVisible: !this.state.sideVisible
+    })
+  }
+
+  get sideClass() {
+    return this.state.sideVisible
+      ? "visible" : "hidden"
+  }
+
+  get helperClass() {
+    return this.state.sideVisible
+      ? "open" : "closed"
+  }
+
+  scrollTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+
   render() {
     const categories = _.uniq(this.props.suggestions.map(s => s.category))
     const filteredSuggestions = this.filterPins(this.props.pinFilters, this.props.suggestions)
 
     const suggestionMapWrapper = (
-      <article>
+      <article className="suggestion-map">
         <SuggestionMapWrapper
           showSuggestionInfo={this.showSuggestionInfo}
           suggestions={filteredSuggestions}
@@ -56,7 +86,21 @@ class Map extends Component {
     return (
       <article className="map">
         { suggestionMapWrapper }
-        <SideWrapper categories={categories} />
+
+        <div
+          className="helper scroll"
+          onClick={this.scrollTop}
+        >
+          <i className="material-icons">arrow_upward</i>
+        </div>
+        <div
+          className={`helper side ${this.helperClass}`}
+          onClick={this.toggleSideWrapper}
+        >
+          <i className="material-icons">info</i>
+        </div>
+
+        <SideWrapper categories={categories} sideClass={this.sideClass} />
       </article>
     )
   }

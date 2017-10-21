@@ -16,8 +16,6 @@ article.map {
   flex-flow: row wrap;
   font-size: 1em;
   color: #1a1a1a;
-  h4 {
-  }
   section {
     width: 40%;
     display: flex;
@@ -28,10 +26,54 @@ article.map {
       width: 100%;
     }
   }
+  .helper { display: none; }
   @media (max-width: 640px) {
+    .suggestion-map {
+      width: 100%;
+    }
     font-size: .8em;
-    section {
-      width: 30%;
+    .side-wrapper {
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      transition: 300ms;
+      width: 100%;
+      overflow: scroll;
+    }
+    .hidden {
+      opacity: 0;
+      z-index: -1;
+    }
+    .visible {
+      opacity: 0.9;
+      background-color: #fff;
+    }
+    .helper {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      right: 5px;
+      color: #fff;
+      z-index: 2;
+    }
+    .side {
+      transition: 300ms;
+      &.closed {
+        background-color: $green;
+      }
+      &.open {
+        background-color: $blue;
+      }
+      top: 100px;
+    }
+    .scroll {
+      background-color: $yellow;
+      top: 65px;
     }
   }
 }
