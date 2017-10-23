@@ -9,3 +9,6 @@ before_install:
 script:
   - npm run build
   - npm test
+notifications:
+  email:
+    - tmikeschutte@gmail.com
