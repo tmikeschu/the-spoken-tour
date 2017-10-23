@@ -25,7 +25,7 @@ const currentLocation = (state = {}, action) => (
   action.type === types.ADD_CURRENT_LOCATION ? action.data : state
 )
 
-const pinFilters = (state = [], action) => (
+const pinFilters = (state = ["DISPLAYNONE"], action) => (
   action.type === types.ADD_PIN_FILTERS ? action.data : state
 )
 

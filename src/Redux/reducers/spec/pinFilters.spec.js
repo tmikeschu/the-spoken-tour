@@ -6,7 +6,7 @@ describe("Reducers#pinFilters", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        pinFilters: []
+        pinFilters: ["DISPLAYNONE"]
       }
     })
   })
@@ -15,7 +15,7 @@ describe("Reducers#pinFilters", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        pinFilters: []
+        pinFilters: ["DISPLAYNONE"]
       }
     })
   })
