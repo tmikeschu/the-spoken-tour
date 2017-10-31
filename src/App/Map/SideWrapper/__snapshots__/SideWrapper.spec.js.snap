@@ -1,21 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SideWrapper /> snapshot is valid 1`] = `
-Array [
-  <section
-    className="side-wrapper visible"
-  >
-    <Connect(Legend)
-      categories={Array []}
-    />
-    <Connect(SuggestionInfo) />
-    <Connect(Filters)
-      categories={Array []}
-    />
-    <div>
-      <Info />
-      <Connect(SuggestionForm) />
-    </div>
-  </section>,
-]
+<section
+  className="side-wrapper visible"
+>
+  <Connect(Legend)
+    categories={Array []}
+  />
+  <Connect(SuggestionInfo) />
+  <Connect(Filters)
+    categories={Array []}
+  />
+  <div>
+    <Info />
+    <Connect(SuggestionForm) />
+  </div>
+</section>
 `;

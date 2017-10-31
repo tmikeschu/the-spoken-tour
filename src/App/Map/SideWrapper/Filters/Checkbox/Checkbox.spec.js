@@ -9,15 +9,15 @@ describe("<Checkbox />", () => {
     filterPins: function () {},
     pinFilters: []
   }
-  const checkbox = shallow(<Checkbox {...props} />)
+  const wrapper = shallow(<Checkbox {...props} />)
 
   it("renders without crashing", () => {
-    expect(checkbox).toBeTruthy()
+    expect(wrapper).toBeTruthy()
   })
 
   describe("snapshot", () => {
     it("is valid", () => {
-      expect(checkbox.getNodes()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })

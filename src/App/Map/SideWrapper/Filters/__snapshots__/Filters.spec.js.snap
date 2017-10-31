@@ -1,42 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Filters /> snapshot is valid 1`] = `
-Array [
-  <article
-    className="checkboxes"
-  >
-    <h4>
-      Filter Suggestions
-    </h4>
-    <article>
-      <Checkbox
-        category=""
-        filterPins={[Function]}
-        pinFilters={
-          Array [
-            "stay",
-          ]
-        }
-      />
-      <Checkbox
-        category="DISPLAYNONE"
-        filterPins={[Function]}
-        pinFilters={
-          Array [
-            "stay",
-          ]
-        }
-      />
-      <Checkbox
-        category="stay"
-        filterPins={[Function]}
-        pinFilters={
-          Array [
-            "stay",
-          ]
-        }
-      />
-    </article>
-  </article>,
-]
+<article
+  className="checkboxes"
+>
+  <h4>
+    Filter Suggestions
+  </h4>
+  <article>
+    <Checkbox
+      category=""
+      filterPins={[Function]}
+      key="0"
+      pinFilters={
+        Array [
+          "stay",
+        ]
+      }
+    />
+    <Checkbox
+      category="DISPLAYNONE"
+      filterPins={[Function]}
+      key="1"
+      pinFilters={
+        Array [
+          "stay",
+        ]
+      }
+    />
+    <Checkbox
+      category="stay"
+      filterPins={[Function]}
+      key="2"
+      pinFilters={
+        Array [
+          "stay",
+        ]
+      }
+    />
+  </article>
+</article>
 `;

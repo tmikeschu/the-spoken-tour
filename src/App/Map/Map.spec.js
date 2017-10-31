@@ -23,13 +23,14 @@ const props = {
 }
 
 describe('<Map />', () => {
+  const wrapper = shallow(<Map {...props} />)
+  const map = wrapper.instance()
+
   it('renders the embedded map and side information', () => {
-    const wrapper = shallow(<Map {...props} />)
     expect(wrapper.find('SuggestionMapWrapper').length).toEqual(1)
     expect(wrapper.find('SideWrapper').length).toEqual(1)
   })
 
-  const map = shallow(<Map {...props} />).instance()
 
   describe("#componentDidMount", () => {
     it("calls four fetch actions", () => {

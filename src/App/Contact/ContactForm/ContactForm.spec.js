@@ -1,66 +1,41 @@
 import React from "react"
-import { shallow, mount } from "enzyme"
 import ContactForm from "./ContactForm"
 
 describe("<ContactForm />", () => {
-  const contactForm = shallow(<ContactForm />)
+  const wrapper = shallow(<ContactForm />)
+  const form = wrapper.instance()
 
   it("renders without crashing", () => {
-    expect(contactForm).toBeTruthy()
-  })
-
-  it("renders a contact form", () => {
-    expect(contactForm.find("article.contact-form").length).toEqual(1)
-    expect(contactForm.find("form").length).toEqual(1)
-    expect(contactForm.find("form input[name='name']").length).toEqual(1)
-    expect(contactForm.find("form input[name='email']").length).toEqual(1)
-    expect(contactForm.find("form textarea").length).toEqual(1)
-    expect(contactForm.find("form input[name='_subject']").length).toEqual(1)
-    expect(contactForm.find("form input[type='submit']").length).toEqual(1)
-    expect(contactForm.find("article p").length).toEqual(3)
+    expect(wrapper).toBeTruthy()
   })
 
   describe("snapshot", () => {
     it("is valid", () => {
-      expect(contactForm.getNodes()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 
   describe("#handleChange", () => {
-    it("is called on a key change", () => {
-      const restore = ContactForm.prototype.handleChange
-      const mock = ContactForm.prototype.handleChange = jest.fn()
-      const contactForm = mount(<ContactForm />)
-      contactForm.find(".contact-form input[name='name']").simulate("change")
-      expect(mock).toHaveBeenCalledTimes(1)
-      contactForm.find(".contact-form input[name='email']").simulate("change")
-      expect(mock).toHaveBeenCalledTimes(2)
+    it("updates state", () => {
+      expect(wrapper.state("contact").name).toEqual("")
 
-      ContactForm.prototype.handleChange = restore
-    })
+      wrapper.find(".contact-form input[name='name']").first()
+        .simulate("change", { target: { name: "name", value: "b" } })
 
-    it("updaates state values", () => {
-      const contactForm = mount(<ContactForm />)
-      const nameField = contactForm.find(".contact-form input[name='name']")
-
-      expect(nameField.node.value).toEqual('')
-
-      nameField.node.value = "a"
-      nameField.simulate("change", nameField)
-
-      expect(nameField.node.value).toEqual('a')
+      expect(wrapper.state("contact").name).toEqual("b")
     })
   })
 
   describe("#handleSubmit", () => {
     it("is called on submit", () => {
-      const restore = ContactForm.prototype.handleSubmit
-      const mock = ContactForm.prototype.handleSubmit = jest.fn()
-      const contactForm = mount(<ContactForm />)
-      contactForm.find(".contact-form form").simulate("submit")
+      const fakeEvent = { preventDefault: jest.fn() }
+      const restore = form.handleSubmit
+      const mock = form.handleSubmit = jest.fn()
+
+      wrapper.find(".contact-form form").simulate("submit", fakeEvent)
 
       expect(mock).toHaveBeenCalled()
-      ContactForm.prototype.handleSubmit = restore
+      form.handleSubmit = restore
     })
 
     it("makes a post request", async () => {

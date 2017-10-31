@@ -20,7 +20,7 @@ describe("<SuggestionForm />", () => {
 
   describe("snapshot", () => {
     it("is valid", () => {
-      expect(wrapper.getNodes()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 

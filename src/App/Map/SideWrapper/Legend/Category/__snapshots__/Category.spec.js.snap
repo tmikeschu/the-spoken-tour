@@ -1,16 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Category /> snapshot is valid 1`] = `
-Array [
-  <li>
-    <span>
-      <img
-        alt="stay"
-        src="https://maps.google.com/mapfiles/ms/icons/blue.png"
-      />
-    </span>
-    → 
-    Places to Stay
-  </li>,
-]
+<li>
+  <span>
+    <img
+      alt="stay"
+      src="https://maps.google.com/mapfiles/ms/icons/blue.png"
+    />
+  </span>
+  → 
+  Places to Stay
+</li>
 `;

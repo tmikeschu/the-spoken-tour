@@ -4,7 +4,7 @@ import Filters from "./Filters"
 import Checkbox from "./Checkbox/Checkbox"
 
 describe("<Filters />", () => {
-  const filters = shallow(
+  const wrapper = shallow(
     <Filters 
       categories={["stay"]}
       pinFilters={["stay"]}
@@ -13,13 +13,12 @@ describe("<Filters />", () => {
   )
 
   it("renders without crashing", () => {
-    expect(filters).toBeTruthy()
+    expect(wrapper).toBeTruthy()
   })
 
   describe("snapshot", () => {
     it("is valid", () => {
-      expect(filters.getNodes()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })
-
