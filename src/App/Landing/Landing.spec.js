@@ -3,16 +3,15 @@ import { shallow } from "enzyme"
 import Landing from "./Landing"
 
 describe("<Landing />", () => {
-  const landing = shallow(<Landing />)
+  const wrapper = shallow(<Landing />)
 
   it("renders without crashing", () => {
-    expect(landing).toBeTruthy()
+    expect(wrapper).toBeTruthy()
   })
 
   describe("snapshot", () => {
     it("is valid", () => {
-      expect(landing.getNodes()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })
-

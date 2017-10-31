@@ -5,15 +5,15 @@ import Category from './Category/Category'
 import { categoryIcons } from '../../category_data'
 
 describe("<Legend />", () => {
-  const legend = shallow(<Legend categories={["stay"]} date="TODAY" />)
+  const wrapper = shallow(<Legend categories={["stay"]} date="TODAY" />)
 
   it("renders without crashing", () => {
-    expect(legend).toBeTruthy()
+    expect(wrapper).toBeTruthy()
   })
 
   describe("snapshot", () => {
     it("is valid", () => {
-      expect(legend.getNodes()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })

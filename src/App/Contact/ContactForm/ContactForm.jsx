@@ -17,17 +17,13 @@ export default class ContactForm extends Component {
       error: ""
     }
     this.emptyForm = this.state.contact
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
-      ...this.state,
       contact: {
         ...this.state.contact,
-        [event.target.name]: event.target.value
+        [event.target.name]: event.target.value,
       }
     })
   }
@@ -36,15 +32,16 @@ export default class ContactForm extends Component {
     contact: this.state.contact
   })
 
-  async handleSubmit(event, service, messageData) {
+  handleSubmit = async (event, service, messageData) => {
     event.preventDefault()
     const response = await service.post("api/v1/contact", messageData)
     this.handleResponse(response)
     return response
   }
 
-  handleResponse(response) {
-    this.setState(this.stateFor(response))
+  handleResponse(response = { status: 400 }) {
+    const newState = this.stateFor(response)
+    this.setState(newState)
     setTimeout(() => {
       this.setState({
         success: false,

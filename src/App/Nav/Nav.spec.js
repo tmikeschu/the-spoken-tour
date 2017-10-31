@@ -4,15 +4,15 @@ import Nav from "./Nav"
 import NavLink from './NavLink/NavLink'
 
 describe("<Nav />", () => {
-  const nav = shallow(<Nav />)
+  const wrapper = shallow(<Nav />)
 
   it("renders without crashing", () => {
-    expect(nav).toBeTruthy()
+    expect(wrapper).toBeTruthy()
   })
 
   describe("snapshot", () => {
     it("is valid", () => {
-      expect(nav.getNodes()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })

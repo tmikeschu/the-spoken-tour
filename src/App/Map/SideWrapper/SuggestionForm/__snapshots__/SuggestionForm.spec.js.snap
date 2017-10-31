@@ -1,113 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SuggestionForm /> snapshot is valid 1`] = `
-Array [
-  <article
-    className="suggestion-form"
+<article
+  className="suggestion-form"
+>
+  <h4>
+    Drop a Pin
+  </h4>
+  <form
+    onSubmit={[Function]}
   >
-    <h4>
-      Drop a Pin
-    </h4>
-    <form
-      onSubmit={[Function]}
-    >
-      <input
-        name="name"
-        onChange={[Function]}
-        placeholder="Name"
-        required={true}
-        type="text"
-        value=""
-      />
-      <input
-        name="email"
-        onChange={[Function]}
-        placeholder="Email (our eyes only!)"
-        required={true}
-        type="email"
-        value=""
-      />
-      <input
-        name="label"
-        onChange={[Function]}
-        placeholder="Label"
-        required={true}
-        type="text"
-        value=""
-      />
-      <textarea
-        name="description"
-        onChange={[Function]}
-        placeholder="Description"
-        required={true}
-        value=""
-      />
-      <select
-        name="category"
-        onChange={[Function]}
-        required={true}
-        value=""
-      >
-        <option
-          value=""
-        >
-          --Category--
-        </option>
-        <option
-          value="0"
-        >
-          Place to stay
-        </option>
-        <option
-          value="1"
-        >
-          Cool spot
-        </option>
-        <option
-          value="2"
-        >
-          Avoid this place
-        </option>
-        <option
-          value="3"
-        >
-          Bike shop
-        </option>
-        <option
-          value="4"
-        >
-          Other
-        </option>
-      </select>
-      <textarea
-        name="message"
-        onChange={[Function]}
-        placeholder="Message (optional)"
-        value=""
-      />
-      <p
-        style={
-          Object {
-            "display": "block",
-          }
-        }
-        value="Drop It!"
-      >
-        Click the map to drop a pin!
-      </p>
-      <input
-        type="hidden"
-        value="Drop It!"
-      />
-    </form>
-    <Notification
-      action="✖"
-      activeClassName="notification-bar-active"
-      dismissAfter={2000}
-      isActive={false}
-      message=""
-      onClick={[Function]}
+    <input
+      name="name"
+      onChange={[Function]}
+      placeholder="Name"
+      required={true}
+      type="text"
+      value=""
     />
-  </article>,
-]
+    <input
+      name="email"
+      onChange={[Function]}
+      placeholder="Email (our eyes only!)"
+      required={true}
+      type="email"
+      value=""
+    />
+    <input
+      name="label"
+      onChange={[Function]}
+      placeholder="Label"
+      required={true}
+      type="text"
+      value=""
+    />
+    <textarea
+      name="description"
+      onChange={[Function]}
+      placeholder="Description"
+      required={true}
+      value=""
+    />
+    <select
+      name="category"
+      onChange={[Function]}
+      required={true}
+      value=""
+    >
+      <option
+        value=""
+      >
+        --Category--
+      </option>
+      <option
+        value="0"
+      >
+        Place to stay
+      </option>
+      <option
+        value="1"
+      >
+        Cool spot
+      </option>
+      <option
+        value="2"
+      >
+        Avoid this place
+      </option>
+      <option
+        value="3"
+      >
+        Bike shop
+      </option>
+      <option
+        value="4"
+      >
+        Other
+      </option>
+    </select>
+    <textarea
+      name="message"
+      onChange={[Function]}
+      placeholder="Message (optional)"
+      value=""
+    />
+    <p
+      style={
+        Object {
+          "display": "block",
+        }
+      }
+      value="Drop It!"
+    >
+      Click the map to drop a pin!
+    </p>
+    <input
+      type="hidden"
+      value="Drop It!"
+    />
+  </form>
+  <Notification
+    action="✖"
+    activeClassName="notification-bar-active"
+    dismissAfter={2000}
+    isActive={false}
+    message=""
+    onClick={[Function]}
+  />
+</article>
 `;

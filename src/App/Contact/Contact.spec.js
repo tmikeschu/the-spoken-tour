@@ -1,17 +1,16 @@
 import React from "react"
-import { shallow } from "enzyme"
 import Contact from "./Contact"
 
 describe("<Contact />", () => {
-  const contact = shallow(<Contact />)
+  const wrapper = shallow(<Contact />)
 
   it("renders a contact page", () => {
-    expect(contact).toBeTruthy()
+    expect(wrapper).toBeTruthy()
   })
 
   describe("snapshot", () => {
     it("is valid", () => {
-      expect(contact.getNodes()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })
