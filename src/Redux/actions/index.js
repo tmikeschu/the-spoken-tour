@@ -1,12 +1,5 @@
 import * as types from "../types"
 
-export const fetchSuggestions = service => (
-  async dispatch => {
-    const response = await service.get("/api/v1/suggestion_pins")
-    dispatch(addSuggestions(response.data || []))
-  }
-)
-
 export const addSuggestions = suggestions => ({
   type: types.ADD_SUGGESTIONS,
   data: suggestions
@@ -27,14 +20,7 @@ export const toggleSuggestionInfo = infoIsActive => ({
   data: infoIsActive
 })
 
-export const fetchCurrentLocation = service => (
-  async dispatch => {
-    const response = await service.get("/api/v1/current_location")
-    dispatch(addCurrentLocation(response.data || {}))
-  }
-)
-
-export const addCurrentLocation = currentLocation => ({
+export const addCurrentLocation = (currentLocation = {}) => ({
   type: types.ADD_CURRENT_LOCATION,
   data: currentLocation
 })
@@ -44,26 +30,12 @@ export const addPinFilters = pinFilters => ({
   data: pinFilters
 })
 
-export const fetchRoutePoints = service => (
-  async dispatch => {
-    const response = await service.get("/api/v1/route_pins")
-    dispatch(addRoutePoints(response.data || []))
-  }
-)
-
-export const addRoutePoints = routePoints => ({
+export const addRoutePoints = (routePoints = []) => ({
   type: types.ADD_ROUTE_POINTS,
   data: routePoints
 })
 
-export const fetchActualPath = service => (
-  async dispatch => {
-    const response = await service.get("/api/v1/actual_path")
-    dispatch(addActualPath(response.data || []))
-  }
-)
-
-export const addActualPath = actualPath => ({
+export const addActualPath = (actualPath = []) => ({
   type: types.ADD_ACTUAL_PATH,
   data: actualPath
 })

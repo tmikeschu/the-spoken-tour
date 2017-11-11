@@ -7,14 +7,6 @@ describe("Actions#routePoints", () => {
   ]
   const expectedAction = { type: "ADD_ROUTE_POINTS", data }
 
-  describe("#fetchRoutePoints", () => {
-    it("updates the action data", async () => {
-      const store = mockStore({ routePins: [] })
-      await store.dispatch(actions.fetchRoutePoints(fakeService))
-      expect(store.getActions()).toMatchObject([expectedAction])
-    })
-  })
-
   describe("#addRoutePoints", () => {
     it("returns an object with a type and data", () => {
       const result = actions.addRoutePoints(fakeService.get("/api/v1/route_pins").data)

@@ -54,8 +54,9 @@ export default class SuggestionForm extends Component {
     this.submitSuccess()
   }
 
-  submitSuccess = () => {
-    this.props.actions.fetchSuggestions(service)
+  submitSuccess = async () => {
+    const response = await service.get("/api/v1/suggestion_pins")
+    this.props.actions.addSuggestions(response.data || [])
     this.props.actions.addSuggestionPin({})
     this.setState({
       formNotification: "Suggestion sent!",
@@ -142,7 +143,6 @@ SuggestionForm.propTypes = {
   suggestionPin: PropTypes.object.isRequired,
   actions: PropTypes.shape({
     addSuggestionPin: PropTypes.func.isRequired,
-    fetchSuggestions: PropTypes.func.isRequired
+    addSuggestions: PropTypes.func.isRequired,
   })
 }
-

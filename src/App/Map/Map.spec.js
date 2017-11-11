@@ -11,12 +11,12 @@ const suggestions = [
 
 const props = {
   actions: {
-    fetchSuggestions () {},
-    addCurrentSuggestion () {},
-    toggleSuggestionInfo () {},
-    fetchCurrentLocation () {},
-    fetchRoutePoints () {},
-    fetchActualPath () {}
+    addSuggestions: jest.fn(),
+    addCurrentSuggestion: jest.fn(),
+    toggleSuggestionInfo: jest.fn(),
+    addCurrentLocation: jest.fn(),
+    addRoutePoints: jest.fn(),
+    addActualPath: jest.fn(),
   },
   suggestions: suggestions,
   pinFilters: [],
@@ -33,23 +33,46 @@ describe('<Map />', () => {
 
 
   describe("#componentDidMount", () => {
-    it("calls four fetch actions", () => {
-      const fetches = [
-        "fetchSuggestions",
-        "fetchCurrentLocation",
-        "fetchRoutePoints",
-        "fetchActualPath"
-      ]
+    it('calls getInitialData', () => {
+      const restore = map.getInitialData
+      const mock = map.getInitialData = jest.fn()
+      
+      map.componentDidMount()
+      expect(mock).toHaveBeenCalled()
+      map.getInitialData = restore
+    })
+  })
 
-      fetches.forEach(f => {
-        const restore = map.props.actions[f]
-        const mock = map.props.actions[f] = jest.fn()
-        map.componentDidMount()
-        expect(mock).toHaveBeenCalled()
-        map.props.actions[f] = restore
+  describe('#getInitialData', () => {
+    const requests = [
+      {
+        path: "/api/v1/suggestion_pins",
+        action: "addSuggestions",
+      },
+      {
+        path: "/api/v1/current_location",
+        action: "addCurrentLocation",
+      },
+    ]
+
+    const fakeService = {
+      get: jest.fn().mockReturnValue({ data: "FAKE DATA" })
+    }
+
+    it("calls requests for each a path", () => {
+      map.getInitialData(requests, fakeService)
+      requests.forEach((request) => {
+        expect(fakeService.get).toHaveBeenCalledWith(request.path)
       })
     })
 
+    it('calls actions for each request', () => {
+      requests.forEach((request) => {
+        const mock = map.props.actions[request.action]
+        map.componentDidMount()
+        expect(mock).toHaveBeenCalledWith("FAKE DATA")
+      })
+    })
   })
 
   describe("#showSuggestionInfo", () => {

@@ -5,12 +5,25 @@ import SideWrapper from "./SideWrapper/SideWrapper"
 import APIService from "../APIService/APIService"
 import _ from "lodash"
 
-const service = new APIService("https://spoken-api.herokuapp.com")
-const fetchActions = [
-  "fetchSuggestions",
-  "fetchCurrentLocation",
-  "fetchRoutePoints",
-  "fetchActualPath"
+const apiService = new APIService("https://spoken-api.herokuapp.com")
+
+const requestsData = [
+  {
+    path: "/api/v1/suggestion_pins",
+    action: "addSuggestions",
+  },
+  {
+    path: "/api/v1/current_location",
+    action: "addCurrentLocation",
+  },
+  {
+    path: "/api/v1/route_pins",
+    action: "addRoutePoints",
+  },
+  {
+    path: "/api/v1/actual_path",
+    action: "addActualPath"
+  },
 ]
 
 class Map extends Component {
@@ -20,8 +33,16 @@ class Map extends Component {
       sideVisible: false,
     }
   }
+
+  getInitialData = (requests = requestsData, service = apiService) => {
+    requests.forEach(async (request) => {
+      const response = await service.get(request.path)
+      this.props.actions[request.action](response.data)
+    })
+  }
+
   componentDidMount() {
-    fetchActions.forEach(a => this.props.actions[a](service))
+    this.getInitialData()
   }
 
   showSuggestionInfo = latLng => {
@@ -108,10 +129,10 @@ class Map extends Component {
 
 Map.propTypes = {
   actions: PropTypes.shape({
-    fetchSuggestions: PropTypes.func.isRequired,
-    fetchCurrentLocation: PropTypes.func.isRequired,
-    fetchRoutePoints: PropTypes.func.isRequired,
-    fetchActualPath: PropTypes.func.isRequired,
+    addSuggestions: PropTypes.func.isRequired,
+    addCurrentLocation: PropTypes.func.isRequired,
+    addRoutePoints: PropTypes.func.isRequired,
+    addActualPath: PropTypes.func.isRequired,
     addCurrentSuggestion: PropTypes.func.isRequired,
     toggleSuggestionInfo: PropTypes.func.isRequired
   }),

@@ -5,8 +5,8 @@ import SuggestionForm from "./SuggestionForm"
 const props = {
   suggestionPin: {},
   actions: {
-    addSuggestionPin: function () {},
-    fetchSuggestions: function () {}
+    addSuggestionPin: jest.fn(),
+    addSuggestions: jest.fn(),
   }
 }
 
@@ -94,25 +94,17 @@ describe("<SuggestionForm />", () => {
   })
 
   describe("submitSuccess", () => {
-    it("calls the fetchSuggestions action", () => {
-      const restore = suggestionForm.props.actions.fetchSuggestions
-      const mock = suggestionForm.props.actions.fetchSuggestions = jest.fn()
-
-      suggestionForm.submitSuccess()
-      expect(mock).toHaveBeenCalled()
-      suggestionForm.props.actions.fetchSuggestions = restore
+    const actions = ['addSuggestions', 'addSuggestionPin']
+    actions.forEach(action => {
+      it(`calls the ${action} action`, async () => {
+        const mock = suggestionForm.props.actions[action]
+        await suggestionForm.submitSuccess()
+        expect(mock).toHaveBeenCalled()
+        mock.mockReset()
+      })
     })
 
-    it("calls the addSuggestionPin action", () => {
-      const restore = suggestionForm.props.actions.addSuggestionPin
-      const mock = suggestionForm.props.actions.addSuggestionPin = jest.fn()
-
-      suggestionForm.submitSuccess()
-      expect(mock).toHaveBeenCalled()
-      suggestionForm.props.actions.addSuggestionPin = restore
-    })
-
-    it("updates form state", () => {
+    it("updates form state", async () => {
       const suggestionForm = shallow(<SuggestionForm {...props} />).instance()
       const newState = {
         pin: {
@@ -131,7 +123,7 @@ describe("<SuggestionForm />", () => {
 
       expect(suggestionForm.state).toMatchObject(newState)
 
-      suggestionForm.submitSuccess()
+      await suggestionForm.submitSuccess()
 
       expect(suggestionForm.state).not.toMatchObject(newState)
       expect(suggestionForm.state).toMatchObject({
