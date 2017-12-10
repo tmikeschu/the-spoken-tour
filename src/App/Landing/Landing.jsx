@@ -11,7 +11,9 @@ const Landing = () => (
       <Link to="map"><img src={map} alt="map"/></Link>
       <Link to="podcast"><img src={podcast} alt="podcast"/></Link>
       <Link to="contact"><img src={contact} alt="contact"/></Link>
-      <Link to="instagram"><img src={instagram} alt="instagram"/></Link>
+      <a href="https://www.instagram.com/thespokentour/" target="_blank" rel="noopener noreferrer">
+        <img src={instagram} alt="instagram"/>
+      </a>
     </article>
 
     <article className="video">

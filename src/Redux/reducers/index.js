@@ -1,10 +1,6 @@
 import { combineReducers } from "redux"
 import * as types from "../types"
 
-const photos = (state = [], action) => (
-  action.type === types.ADD_PHOTOS ? action.data : state
-)
-
 const suggestions = (state = [], action) => (
   action.type === types.ADD_SUGGESTIONS ? action.data : state
 )
@@ -42,7 +38,6 @@ const showFlags = (state = false, action) => (
 )
 
 export default combineReducers({
-  photos,
   map: combineReducers({
     suggestions,
     suggestionPin,

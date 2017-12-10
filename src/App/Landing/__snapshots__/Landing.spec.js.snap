@@ -4,102 +4,102 @@ exports[`<Landing /> snapshot is valid 1`] = `
 Array [
   <section
     className="landing"
->
+  >
     <article
-        className="logos"
+      className="logos"
     >
-        <Link
-            onlyActiveOnIndex={false}
-            style={Object {}}
-            to="map"
-        >
-            <img
-                alt="map"
-                src="map_logo.png"
-            />
-        </Link>
-        <Link
-            onlyActiveOnIndex={false}
-            style={Object {}}
-            to="podcast"
-        >
-            <img
-                alt="podcast"
-                src="podcast_logo.png"
-            />
-        </Link>
-        <Link
-            onlyActiveOnIndex={false}
-            style={Object {}}
-            to="contact"
-        >
-            <img
-                alt="contact"
-                src="contact_logo.png"
-            />
-        </Link>
-        <Link
-            onlyActiveOnIndex={false}
-            style={Object {}}
-            to="instagram"
-        >
-            <img
-                alt="instagram"
-                src="instagram_logo.png"
-            />
-        </Link>
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="map"
+      >
+        <img
+          alt="map"
+          src="map_logo.png"
+        />
+      </Link>
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="podcast"
+      >
+        <img
+          alt="podcast"
+          src="podcast_logo.png"
+        />
+      </Link>
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="contact"
+      >
+        <img
+          alt="contact"
+          src="contact_logo.png"
+        />
+      </Link>
+      <a
+        href="https://www.instagram.com/thespokentour/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="instagram"
+          src="instagram_logo.png"
+        />
+      </a>
     </article>
     <article
-        className="video"
+      className="video"
     >
-        <a
-            href="http://www.5280.com/2017/05/du-alumni-to-bike-from-denver-to-patagonia/"
-            rel="noopener noreferrer"
-            target="_blank"
-        >
-            Recently featured in Denver's 5280!
-        </a>
-        <iframe
-            allowFullScreen={true}
-            frameBorder="0"
-            height="360"
-            mozallowfullscreen={true}
-            src="https://player.vimeo.com/video/211431209?byline=0&portrait=0"
-            title="Episode 1"
-            webkitallowfullscreen={true}
-            width="640"
-        />
-        <iframe
-            allowFullScreen={true}
-            frameBorder="0"
-            height="360"
-            mozallowfullscreen={true}
-            src="https://player.vimeo.com/video/207747360?byline=0&portrait=0"
-            title="Episode 2"
-            webkitallowfullscreen={true}
-            width="640"
-        />
-        <iframe
-            allowfullscreen={true}
-            frameBorder="0"
-            height="360"
-            mozallowfullscreen={true}
-            src="https://player.vimeo.com/video/211432545?byline=0&portrait=0"
-            title="Episode 3"
-            webkitallowfullscreen={true}
-            width="640"
-        />
-        <iframe
-            allowFullScreen={true}
-            frameBorder="0"
-            height="360"
-            mozallowfullscreen={true}
-            src="https://player.vimeo.com/video/215738304?byline=0&portrait=0"
-            title="Episode 4"
-            webkitallowfullscreen={true}
-            width="640"
-        />
+      <a
+        href="http://www.5280.com/2017/05/du-alumni-to-bike-from-denver-to-patagonia/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Recently featured in Denver's 5280!
+      </a>
+      <iframe
+        allowFullScreen={true}
+        frameBorder="0"
+        height="360"
+        mozallowfullscreen={true}
+        src="https://player.vimeo.com/video/211431209?byline=0&portrait=0"
+        title="Episode 1"
+        webkitallowfullscreen={true}
+        width="640"
+      />
+      <iframe
+        allowFullScreen={true}
+        frameBorder="0"
+        height="360"
+        mozallowfullscreen={true}
+        src="https://player.vimeo.com/video/207747360?byline=0&portrait=0"
+        title="Episode 2"
+        webkitallowfullscreen={true}
+        width="640"
+      />
+      <iframe
+        allowfullscreen={true}
+        frameBorder="0"
+        height="360"
+        mozallowfullscreen={true}
+        src="https://player.vimeo.com/video/211432545?byline=0&portrait=0"
+        title="Episode 3"
+        webkitallowfullscreen={true}
+        width="640"
+      />
+      <iframe
+        allowFullScreen={true}
+        frameBorder="0"
+        height="360"
+        mozallowfullscreen={true}
+        src="https://player.vimeo.com/video/215738304?byline=0&portrait=0"
+        title="Episode 4"
+        webkitallowfullscreen={true}
+        width="640"
+      />
     </article>
-</section>,
+  </section>,
 ]
 `;
