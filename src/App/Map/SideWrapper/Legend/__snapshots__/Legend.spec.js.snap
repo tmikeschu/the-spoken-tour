@@ -4,61 +4,61 @@ exports[`<Legend /> snapshot is valid 1`] = `
 Array [
   <article
     className="legend"
->
+  >
     <h4>
-        Legend
+      Legend
     </h4>
     <ul>
-        <li>
-            <span
-                style={
-                    Object {
-                        "fontWeight": "bold",
-                      }
-                }
-            >
-                ―― 
-            </span>
-             → Planned Route
-        </li>
-        <li>
-            <span
-                style={
-                    Object {
-                        "color": "#f00",
-                        "fontWeight": "bold",
-                      }
-                }
-            >
-                ―― 
-            </span>
-             → Actual Route
-        </li>
-        <li>
-            <span>
-                <img
-                    alt="cyclist"
-                    src="https://maps.google.com/mapfiles/ms/icons/cycling.png"
-                />
-            </span>
-             → That's Us! ( as of 
-            TODAY
-             )
-        </li>
-        <li>
-            <span>
-                <img
-                    alt="flag"
-                    onClick={undefined}
-                    src="https://maps.google.com/mapfiles/ms/icons/flag.png"
-                />
-            </span>
-             → Day-to-Day (click flag to hide/show flag markers)
-        </li>
-        <Category
-            category="stay"
-        />
+      <li>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          ―― 
+        </span>
+         → Planned Route
+      </li>
+      <li>
+        <span
+          style={
+            Object {
+              "color": "#f00",
+              "fontWeight": "bold",
+            }
+          }
+        >
+          ―― 
+        </span>
+         → Actual Route
+      </li>
+      <li>
+        <span>
+          <img
+            alt="cyclist"
+            src="https://maps.google.com/mapfiles/ms/icons/cycling.png"
+          />
+        </span>
+         → That's Us! ( as of 
+        TODAY
+         )
+      </li>
+      <li>
+        <span>
+          <img
+            alt="flag"
+            onClick={undefined}
+            src="https://maps.google.com/mapfiles/ms/icons/flag.png"
+          />
+        </span>
+         → Day-to-Day (click flag to hide/show flag markers)
+      </li>
+      <Category
+        category="stay"
+      />
     </ul>
-</article>,
+  </article>,
 ]
 `;

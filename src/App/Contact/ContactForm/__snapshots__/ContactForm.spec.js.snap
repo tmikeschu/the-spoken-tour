@@ -4,65 +4,65 @@ exports[`<ContactForm /> snapshot is valid 1`] = `
 Array [
   <article
     className="component-container contact-form"
->
+  >
     <form
-        onSubmit={[Function]}
+      onSubmit={[Function]}
     >
-        <input
-            name="name"
-            onChange={[Function]}
-            placeholder="Your Name"
-            required={true}
-            type="text"
-            value=""
-        />
-        <input
-            name="email"
-            onChange={[Function]}
-            placeholder="Email Address"
-            required={true}
-            type="text"
-            value=""
-        />
-        <input
-            name="_subject"
-            type="hidden"
-            value="Website contact"
-        />
-        <textarea
-            name="message"
-            onChange={[Function]}
-            placeholder="What's up?"
-            required={true}
-            value=""
-        />
-        <input
-            type="submit"
-            value="Send"
-        />
-        <p
-            style={
-                Object {
-                    "display": "none",
-                  }
-            }
-        >
-            Message Sent!
-        </p>
-        <p
-            style={
-                Object {
-                    "display": "none",
-                  }
-            }
-        >
-            Message failure: 
-            
-        </p>
+      <input
+        name="name"
+        onChange={[Function]}
+        placeholder="Your Name"
+        required={true}
+        type="text"
+        value=""
+      />
+      <input
+        name="email"
+        onChange={[Function]}
+        placeholder="Email Address"
+        required={true}
+        type="text"
+        value=""
+      />
+      <input
+        name="_subject"
+        type="hidden"
+        value="Website contact"
+      />
+      <textarea
+        name="message"
+        onChange={[Function]}
+        placeholder="What's up?"
+        required={true}
+        value=""
+      />
+      <input
+        type="submit"
+        value="Send"
+      />
+      <p
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+      >
+        Message Sent!
+      </p>
+      <p
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+      >
+        Message failure: 
+        
+      </p>
     </form>
     <p>
-        *Please allow ample time for a response as we are busy bicycling 15,000 miles.
+      *Please allow ample time for a response as we are busy bicycling 15,000 miles.
     </p>
-</article>,
+  </article>,
 ]
 `;

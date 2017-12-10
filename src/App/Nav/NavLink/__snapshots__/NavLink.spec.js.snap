@@ -7,6 +7,6 @@ Array [
     onlyActiveOnIndex={false}
     style={Object {}}
     to="/"
-/>,
+  />,
 ]
 `;

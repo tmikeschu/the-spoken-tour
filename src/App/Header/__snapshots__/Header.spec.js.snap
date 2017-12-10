@@ -4,21 +4,21 @@ exports[`<Header /> snapshot is valid 1`] = `
 Array [
   <article
     className="header"
->
+  >
     <img
-        alt="logo"
-        className="header-logo"
-        src="wheel.svg"
+      alt="logo"
+      className="header-logo"
+      src="wheel.svg"
     />
     <h3>
-        <Link
-            onlyActiveOnIndex={false}
-            style={Object {}}
-            to="/landing"
-        >
-            The Spoken Tour
-        </Link>
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/landing"
+      >
+        The Spoken Tour
+      </Link>
     </h3>
-</article>,
+  </article>,
 ]
 `;

@@ -4,19 +4,19 @@ exports[`<Checkbox /> snapshot is valid 1`] = `
 Array [
   <article
     className="checkbox"
->
+  >
     <input
-        checked={false}
-        id="stay"
-        onChange={[Function]}
-        type="checkbox"
-        value="stay"
+      checked={false}
+      id="stay"
+      onChange={[Function]}
+      type="checkbox"
+      value="stay"
     />
     <label
-        htmlFor="stay"
+      htmlFor="stay"
     >
-        Places to Stay
+      Places to Stay
     </label>
-</article>,
+  </article>,
 ]
 `;

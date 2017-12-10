@@ -4,18 +4,18 @@ exports[`<SideWrapper /> snapshot is valid 1`] = `
 Array [
   <section
     className="side-wrapper visible"
->
+  >
     <Connect(Legend)
-        categories={Array []}
+      categories={Array []}
     />
     <Connect(SuggestionInfo) />
     <Connect(Filters)
-        categories={Array []}
+      categories={Array []}
     />
     <div>
-        <Info />
-        <Connect(SuggestionForm) />
+      <Info />
+      <Connect(SuggestionForm) />
     </div>
-</section>,
+  </section>,
 ]
 `;

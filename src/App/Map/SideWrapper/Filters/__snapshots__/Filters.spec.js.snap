@@ -4,39 +4,39 @@ exports[`<Filters /> snapshot is valid 1`] = `
 Array [
   <article
     className="checkboxes"
->
+  >
     <h4>
-        Filter Suggestions
+      Filter Suggestions
     </h4>
     <article>
-        <Checkbox
-            category=""
-            filterPins={[Function]}
-            pinFilters={
-                Array [
-                    "stay",
-                  ]
-            }
-        />
-        <Checkbox
-            category="DISPLAYNONE"
-            filterPins={[Function]}
-            pinFilters={
-                Array [
-                    "stay",
-                  ]
-            }
-        />
-        <Checkbox
-            category="stay"
-            filterPins={[Function]}
-            pinFilters={
-                Array [
-                    "stay",
-                  ]
-            }
-        />
+      <Checkbox
+        category=""
+        filterPins={[Function]}
+        pinFilters={
+          Array [
+            "stay",
+          ]
+        }
+      />
+      <Checkbox
+        category="DISPLAYNONE"
+        filterPins={[Function]}
+        pinFilters={
+          Array [
+            "stay",
+          ]
+        }
+      />
+      <Checkbox
+        category="stay"
+        filterPins={[Function]}
+        pinFilters={
+          Array [
+            "stay",
+          ]
+        }
+      />
     </article>
-</article>,
+  </article>,
 ]
 `;

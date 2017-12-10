@@ -4,22 +4,22 @@ exports[`<Home /> snapshot is valid 1`] = `
 Array [
   <article
     className="home"
->
+  >
     <img
-        alt="bicycle"
-        src="http://www.clipartbest.com/cliparts/7ca/6EB/7ca6EBkMi.png"
+      alt="bicycle"
+      src="http://www.clipartbest.com/cliparts/7ca/6EB/7ca6EBkMi.png"
     />
     <div
-        className="content"
+      className="content"
     >
-        <Link
-            onlyActiveOnIndex={false}
-            style={Object {}}
-            to="/landing"
-        >
-            Pedal to our site!
-        </Link>
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/landing"
+      >
+        Pedal to our site!
+      </Link>
     </div>
-</article>,
+  </article>,
 ]
 `;
