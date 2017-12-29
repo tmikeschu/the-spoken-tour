@@ -2,44 +2,70 @@
 
 exports[`<Nav /> snapshot is valid 1`] = `
 <article
-  className="nav"
+  className="Nav Nav--undefined"
 >
+  <Hamburger />
   <ul>
-    <li>
-      <NavLink
-        to="about"
-      >
+    <NavLink
+      activeClassName="Nav__link--active"
+      ariaCurrent="true"
+      className="Nav__link"
+      key="about"
+      to="/about"
+    >
+      <span>
         Trip
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="map"
-      >
+      </span>
+      <div />
+    </NavLink>
+    <NavLink
+      activeClassName="Nav__link--active"
+      ariaCurrent="true"
+      className="Nav__link"
+      key="map"
+      to="/map"
+    >
+      <span>
         Map
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="podcast"
-      >
+      </span>
+      <div />
+    </NavLink>
+    <NavLink
+      activeClassName="Nav__link--active"
+      ariaCurrent="true"
+      className="Nav__link"
+      key="podcast"
+      to="/podcast"
+    >
+      <span>
         Podcast
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="contact"
-      >
+      </span>
+      <div />
+    </NavLink>
+    <NavLink
+      activeClassName="Nav__link--active"
+      ariaCurrent="true"
+      className="Nav__link"
+      key="contact"
+      to="/contact"
+    >
+      <span>
         Contact
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="support"
-      >
+      </span>
+      <div />
+    </NavLink>
+    <NavLink
+      activeClassName="Nav__link--active"
+      ariaCurrent="true"
+      className="Nav__link"
+      key="support"
+      to="/support"
+    >
+      <span>
         Support
-      </NavLink>
-    </li>
+      </span>
+      <div />
+    </NavLink>
   </ul>
 </article>
 `;

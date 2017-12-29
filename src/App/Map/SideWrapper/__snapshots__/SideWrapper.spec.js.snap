@@ -2,7 +2,7 @@
 
 exports[`<SideWrapper /> snapshot is valid 1`] = `
 <section
-  className="side-wrapper visible"
+  className="SideContainer"
 >
   <Connect(Legend)
     categories={Array []}

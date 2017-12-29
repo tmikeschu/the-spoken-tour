@@ -1,11 +1,9 @@
-.suggestion-form {
-  width: 99%;
+.SuggestionForm {
   background: rgba(0,0,0,.1);
-  border: 2px dotted $yellow;
-  color: $green;
-  padding: 5px 0;
+  margin: 0 -8px -8px;
+  padding: 8px;
   h4 {
-    text-align: center;
+    margin-bottom: 8px;
   }
   p {
     font-style: italic;
@@ -13,32 +11,14 @@
   form {
     display: flex;
     flex-flow: column nowrap;
-    width: 95%;
-    margin: 0 auto;
     textarea, input, select {
-      margin: 3% 0;
-      width: 95;
-      font-size: 1.2em;
+      margin: 8px 0;
       border: none;
       font-family: $body-font;
     }
     textarea {
       resize: none;
-      height: 4em;
-    }
-    input {
-      &[type="submit"] {
-        width: 100%;
-        align-self: center;
-        background-color: $lilac;
-        color: white;
-        transition: 300ms;
-        &:hover, &:focus {
-          cursor: pointer;
-          transition: 300ms;
-          background-color: $blue;
-        }
-      }
+      height: 64px;
     }
   }
   p {
@@ -46,4 +26,3 @@
     width: 100%;
   }
 }
-

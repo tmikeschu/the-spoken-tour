@@ -2,7 +2,7 @@
 
 exports[`<Legend /> snapshot is valid 1`] = `
 <article
-  className="legend"
+  className="Legend"
 >
   <h4>
     Legend

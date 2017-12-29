@@ -2,7 +2,7 @@
 
 exports[`<SuggestionInfo /> snapshot is valid 1`] = `
 <article
-  className="suggestion-info"
+  className="SuggestionInfo"
 >
   <h4>
     Suggestion Info

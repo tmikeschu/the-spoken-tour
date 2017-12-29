@@ -17,7 +17,7 @@ const Filters = props => {
     )
 
   return(
-    <article className="checkboxes" >
+    <article className="Checkboxes" >
       <h4>Filter Suggestions</h4>
       <article>
         { checkboxes }

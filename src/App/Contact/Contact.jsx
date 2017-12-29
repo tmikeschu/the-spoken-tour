@@ -2,7 +2,7 @@ import React from "react"
 import ContactForm from "./ContactForm/ContactForm"
 
 const Contact = () => (
-  <article className="contact">
+  <article className="Contact">
     <h3>We would love to hear from you!</h3>
     <section>
       <p>

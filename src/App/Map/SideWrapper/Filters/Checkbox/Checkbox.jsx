@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { categoryLabels } from '../../../category_data'
 
 const Checkbox = ({ category, filterPins, pinFilters }) => (
-  <article className="checkbox">
+  <article className="Checkbox">
     <input 
       type="checkbox"
       id={category || "all"}

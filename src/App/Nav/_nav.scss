@@ -1,37 +1,65 @@
-article.nav {
-  background-color: $green;
-  width: 30%;
+@import './hamburger';
+
+.Nav {
+  $root: &;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
   ul {
-    margin: 20px auto;
-    display: inline-flex;
-    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    order: 0;
+    display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-self: stretch;
+    align-items: stretch;
     font-size: 1em;
-    li {
-      a {
-        color: #fff;
-        transition: 300ms;
-        &:hover, &:focus, &.active {
-          transition: 300ms;
-          color: $yellow;
+
+    transition: width 500ms;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+
+    #{$root}__link {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: border-bottom 500ms;
+      position: relative;
+      div {
+        height: 4px;
+        width: 100%;
+        background-color: $color2;
+        opacity: 0;
+        transition: opacity 500ms, background-color 500ms;
+        position: absolute;
+        bottom: 0;
+      }
+
+      &--active {
+        div {
+          background-color: $color1;
+        }
+      }
+
+      &:hover, &:focus, &--active {
+        div {
+          transition: opacity 500ms, background-color 500ms;
+          opacity: 1;
         }
       }
     }
   }
+
+  .Hamburger  {
+    order: 1;
+  }
+
   @media (max-width: 640px) {
-    width: 100%;
-    flex-direction: row nowrap;
-    ul {
-      display: flex;
-      flex-flow: row nowrap;
-      margin: 0 auto;
-      li {
-        padding: 5px 0;
-      }
-    }
+    position: fixed;
+    top: 8px;
+    right: 8px;
   }
 }

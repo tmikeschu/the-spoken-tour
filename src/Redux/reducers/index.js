@@ -2,7 +2,7 @@ import { combineReducers } from "redux"
 import * as types from "../types"
 
 const suggestions = (state = [], action) => (
-  action.type === types.ADD_SUGGESTIONS ? action.data : state
+  action.type === types.ADD_SUGGESTIONS ? action.data || [] : state
 )
 
 const suggestionPin = (state = {}, action) => (
