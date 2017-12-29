@@ -11,7 +11,7 @@ const SuggestionInfo = ({ currentSuggestion, suggestionInfoIsActive }) => {
   }
 
   return (
-    <article className="suggestion-info">
+    <article className="SuggestionInfo">
       <h4>Suggestion Info</h4>
       <p style={{display: suggestionInfoIsActive ? "none" : "block"}}>(click an existing pin on the map)</p>
       <section className="text" style={{ display: suggestionInfoIsActive ? "initial" : "none" }}>

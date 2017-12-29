@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Cabin|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Signika|Open+Sans');
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "./mixins.scss";
 
+$heading-font: "Signika", serif;
+$body-font: "Open Sans", sans-serif;
 
-$heading-font: "Raleway", serif;
-$body-font: "Cabin", sans-serif;
-
-$green: #003307;
-$yellow: #FFB72E;
-$brown: #B2782F;
-$blue: #5399FF;
-$lilac: #98B4F5;
+$color1: #26628A;
+$color2: #F15942;
+$light: #ffffff;
+$dark: #3F404A;

@@ -9,7 +9,7 @@ const Legend = ({ categories, date, toggleFlags }) => {
   ))
 
   return (
-    <article className="legend">
+    <article className="Legend">
       <h4>Legend</h4>
       <ul>
         <li><span style={{fontWeight: "bold"}}>―― </span> → Planned Route</li>

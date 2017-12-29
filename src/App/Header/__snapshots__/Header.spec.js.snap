@@ -2,17 +2,16 @@
 
 exports[`<Header /> snapshot is valid 1`] = `
 <article
-  className="header"
+  className="Header"
 >
   <img
     alt="logo"
-    className="header-logo"
+    className="Header__logo"
     src="wheel.svg"
   />
   <h3>
     <Link
-      onlyActiveOnIndex={false}
-      style={Object {}}
+      replace={false}
       to="/landing"
     >
       The Spoken Tour

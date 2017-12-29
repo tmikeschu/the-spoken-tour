@@ -1,19 +1,17 @@
-.info {
-  background: $yellow;
-  color: #fff;
-  font-size: 1.1em;
-  padding: 5px;
-  text-align: left;
+.Info {
+  border-top: 4px $color1 solid;
+  margin: 8px 0;
+
+  h4 {
+    text-align: center;
+    margin: 8px 0 !important;
+    span {
+      text-decoration: underline;
+    }
+  }
+
   p {
     &:nth-of-type(2) {
-      font-size: 1.5em;
-      text-align: center;
-      margin: 10px 0;
-      span {
-        text-decoration: underline;
-      }
-    }
-    &:nth-of-type(3) {
       text-align: center;
     }
   }

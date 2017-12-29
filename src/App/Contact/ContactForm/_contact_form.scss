@@ -2,49 +2,39 @@
   width: 100%;
   form {
     display: flex;
-    border: 2px dashed $yellow;
     flex-flow: column nowrap;
-    padding: 10px;
     width: 50%;
-    margin: 1% auto;
+    margin: 0 auto;
     textarea, input {
-      font-size: 1em;
-      width: 95%;
-      margin: 1% auto;
+      width: 100%;
+      margin: 8px auto;
+      font-size: 16px;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    input {
+      height: 32px;
     }
     textarea {
       resize: none;
-      height: 4em;
+      height: 96px;
     }
     input {
-      &[type="submit"] {
-        width: 25%;
-        align-self: center;
-        border: none;
-        background-color: $lilac;
-        color: white;
-        transition: 300ms;
-        &:hover, &:focus {
-          cursor: pointer;
-          transition: 300ms;
-          background-color: $blue;
-        }
-      }
+      height: auto;
     }
   }
   p {
     text-align: center;
-    margin: 1% auto;
-    color: #fff;
-    letter-spacing: 1px;
+    margin: 8px auto;
   }
+
   @media (max-width: 640px) {
     width: 100%;
     form {
-      width: 90%;
-      input, textarea {
-        border: 1px solid #bbb;
-      }
+      width: 100%;
+    }
+    p {
+      text-align: left;
     }
   }
 }

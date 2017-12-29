@@ -6,9 +6,9 @@ import Info from "./Info/Info"
 import SuggestionInfo from "./SuggestionInfo/SuggestionInfoContainer"
 import Filters from "./Filters/FiltersContainer"
 
-const SideWrapper = ({ categories, sideClass })=> {
+const SideWrapper = ({ categories })=> {
   return (
-    <section className={`side-wrapper ${sideClass}`}>
+    <section className="SideContainer">
       <Legend categories={categories} />
       <SuggestionInfo />
       <Filters categories={categories} />

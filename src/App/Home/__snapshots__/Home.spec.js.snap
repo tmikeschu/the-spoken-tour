@@ -2,18 +2,30 @@
 
 exports[`<Home /> snapshot is valid 1`] = `
 <article
-  className="home"
+  className="Home"
 >
   <img
+    alt="spoken logo"
+    className="Home__logo"
+    hidden={true}
+    src="spoken-logo.jpg"
+  />
+  <img
+    alt="spoken logo mobile"
+    className="Home__logo--mobile"
+    hidden={true}
+    src="spoken-logo-mobile.jpeg"
+  />
+  <img
     alt="bicycle"
+    className="Home__bike"
     src="http://www.clipartbest.com/cliparts/7ca/6EB/7ca6EBkMi.png"
   />
   <div
     className="content"
   >
     <Link
-      onlyActiveOnIndex={false}
-      style={Object {}}
+      replace={false}
       to="/landing"
     >
       Pedal to our site!

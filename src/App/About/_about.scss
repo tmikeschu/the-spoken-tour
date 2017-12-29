@@ -1,85 +1,77 @@
-article.about {
-  width: 100%;
-  margin: 0 auto;
+.About {
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    animation: fadeIn 500ms;
+  }
   display: flex;
   flex-direction: column;
   section {
-    width: 60%;
-    color: #fff;
+    width: 90%;
+    max-width: 1000px;
+    color: $light;
     display: flex;
-    padding: 1%;
-    margin: 0 auto;
+    margin: 16px auto;
     justify-content: space-between;
+    &:first-of-type {
+      margin-top: 0;
+    }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
     h2 {
+      padding: 16px;
       flex: 1;
       display: flex;
       align-items: center;
-      background: rgba(0,0,0,.7);
+      background-color: $color1;
       justify-content: center;
+      @include boxShadow;
     }
     p {
+      @include boxShadow;
+      background-color: $light;
+      color: $dark;
       flex: 4;
-      padding: 2%;
-      line-height: 25px;
+      padding: 16px;
     }
     &:nth-child(odd) {
       h2 {
-        margin-right: 10%;
+        margin-right: 32px;
       }
     }
     &:nth-child(even) {
       h2 {
-        margin-left: 10%;
+        margin-left: 32px;
         order: 2;
       }
       p {
         order: 1;
       }
     }
-    &.who {
-      p {
-        background-color: $blue;
-      }
-    }
-    &.what {
-      p {
-        background-color: $yellow;
-      }
-    }
-    &.where {
-      p {
-        background-color: $lilac;
-      }
-    }
-    &.why {
-      p {
-        background-color: $brown;
-      }
-    }
   }
   @media (max-width: 640px) {
-    margin: 0;
     padding: 0;
     section {
       &.who, &.what, &.where, &.why {
         display: flex;
         flex-direction: column;
-        margin: 10px 0;
+        margin: 0;
         justify-content: space-between;
         width: 100%;
         padding: 0;
         h2 {
           margin: 0;
           justify-content: flex-end;
-          padding: 2% 1%;
+          padding: 16px 8px;
           order: 1
         }
         p {
           order: 2;
-          padding: 5px;
+          padding: 8px;
         }
       }
     }
   }
 }
-

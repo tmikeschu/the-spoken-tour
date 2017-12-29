@@ -84,19 +84,12 @@ class Map extends Component {
       ? "open" : "closed"
   }
 
-  scrollTop = () => {
-    window.scroll({
-      top: 0,
-      behavior: "smooth",
-    })
-  }
-
   render() {
     const categories = _.uniq(this.props.suggestions.map(s => s.category))
     const filteredSuggestions = this.filterPins(this.props.pinFilters, this.props.suggestions)
 
     const suggestionMapWrapper = (
-      <article className="suggestion-map">
+      <article className="SuggestionMap">
         <SuggestionMapWrapper
           showSuggestionInfo={this.showSuggestionInfo}
           suggestions={filteredSuggestions}
@@ -105,23 +98,21 @@ class Map extends Component {
     )
 
     return (
-      <article className="map">
+      <article className="Map">
         { suggestionMapWrapper }
 
         <div
-          className="helper scroll"
-          onClick={this.scrollTop}
-        >
-          <i className="material-icons">arrow_upward</i>
-        </div>
-        <div
           className={`helper side ${this.helperClass}`}
           onClick={this.toggleSideWrapper}
+          tabIndex="0"
+          role="button"
         >
           <i className="material-icons">info</i>
         </div>
 
-        <SideWrapper categories={categories} sideClass={this.sideClass} />
+        <div className={`SideWrapper ${this.sideClass}`}>
+          <SideWrapper categories={categories} sideClass={this.sideClass} />
+        </div>
       </article>
     )
   }

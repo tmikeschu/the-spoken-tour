@@ -1,29 +1,20 @@
-.header {
-  display: inline-flex;
-  width: 30%;
-  justify-content: center;
+.Header {
+  display: flex;
   align-items: center;
-  background-color: #FFF;
+  background-color: $light;
   h3 {
     a {
-      color: $green;
+      color: $dark;
     }
   }
-  .header-logo {
-    width: 8%;
-    padding: 0 10px;
+  &__logo {
+    width: 40px;
+    margin-right: 16px;
   }
 
   @media (max-width: 640px) {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    h3 {
-      text-align: center;
-    }
-    .header-logo {
-      width: 6%;
-      padding: 0 5px;
+    &__logo {
+      display: none;
     }
   }
 }

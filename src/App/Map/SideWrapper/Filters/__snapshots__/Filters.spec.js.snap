@@ -2,7 +2,7 @@
 
 exports[`<Filters /> snapshot is valid 1`] = `
 <article
-  className="checkboxes"
+  className="Checkboxes"
 >
   <h4>
     Filter Suggestions

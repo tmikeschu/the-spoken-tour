@@ -125,8 +125,8 @@ export default class SuggestionForm extends Component {
     )
 
     return (
-      <article className="suggestion-form" >
-        <h4>Drop a Pin</h4>
+      <article className="SuggestionForm" >
+        <h4>Drop a Pin <span role="img" aria-label="pin">📌</span></h4>
         { form }
         <Notification
           isActive={this.state.suggestionSent}

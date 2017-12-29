@@ -2,7 +2,7 @@
 
 exports[`<Contact /> snapshot is valid 1`] = `
 <article
-  className="contact"
+  className="Contact"
 >
   <h3>
     We would love to hear from you!

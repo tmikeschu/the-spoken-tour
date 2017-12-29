@@ -2,12 +2,12 @@
 
 exports[`<Info /> renders content 1`] = `
 <article
-  className="info"
+  className="Info"
 >
   <p>
     Have an amiga in Antigua?  A tía in Tijuana? Couch to crash on in Colombia? Bike shop in Bolivia?
   </p>
-  <p>
+  <h4>
     <span>
       Let
     </span>
@@ -20,7 +20,7 @@ exports[`<Info /> renders content 1`] = `
       know
     </span>
     !
-  </p>
+  </h4>
   <p>
     ↓
   </p>

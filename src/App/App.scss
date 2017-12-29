@@ -2,6 +2,8 @@
 @import "./stylesheets/reset";
 @import "./stylesheets/base";
 @import "./stylesheets/skeleton";
+$navbarHeightDesktop: 64px;
+$navbarHeightMobile: 56px;
 
 // Components
 @import "./About/about";
@@ -14,17 +16,86 @@
 @import "./Podcast/podcast";
 @import "./Support/support";
 
-.header-nav {
+.App {
   display: flex;
-  background-color: $green;
-  flex-direction: row nowrap;
-  justify-content: space-between;
-  width: 100%;
-  .spacer {
-    width: 30%;
-  }
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 16px 0;
+  height: calc(100vh - #{$navbarHeightDesktop});
+  margin-top: $navbarHeightDesktop;
   @media (max-width: 640px) {
-    flex-direction: column;
-    width: 100%;
+    height: calc(100vh - #{$navbarHeightMobile});
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: $navbarHeightMobile;
+    padding: 0;
   }
+}
+
+.HeaderNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+
+  @include boxShadow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 32px;
+  box-sizing: border-box;
+
+  background-color: $light;
+  height: $navbarHeightDesktop;
+
+  .Nav {
+    flex: 1;
+    max-width: 640px;
+  }
+
+  &--x {
+    .Nav ul {
+      transition: width 500ms;
+      width: 100%;
+    }
+  }
+
+
+  @media (max-width: 640px) {
+    height: $navbarHeightMobile;
+    padding: 8px;
+
+    .Header h3 {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      transition: width 500ms;
+    }
+
+    .Nav {
+      width: 40px;
+      transition: width 500ms;
+      ul {
+        width: 0;
+        transition: width 500ms;
+      }
+    }
+
+    &--x {
+      .Header h3 {
+        width: 0;
+      }
+      .Nav {
+        width: calc(100% - 8px);
+        transition: width 500ms;
+        ul {
+          width: 100%;
+          transition: width 500ms;
+        }
+      }
+    }
+  }
+
 }

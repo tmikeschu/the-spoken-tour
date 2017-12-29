@@ -2,10 +2,16 @@
 
 exports[`<SuggestionForm /> snapshot is valid 1`] = `
 <article
-  className="suggestion-form"
+  className="SuggestionForm"
 >
   <h4>
-    Drop a Pin
+    Drop a Pin 
+    <span
+      aria-label="pin"
+      role="img"
+    >
+      📌
+    </span>
   </h4>
   <form
     onSubmit={[Function]}
