@@ -1,9 +1,15 @@
+@mixin scroll {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 @mixin boxShadow {
   box-shadow: 1px 1px 4px 0px rgba(63,64,74,0.5);
 }
 
 @mixin contentContainer {
   @include boxShadow;
+  @include scroll;
   background-color: $dark;
   color: $light;
   width: 90%;
@@ -12,7 +18,6 @@
   padding: 32px;
   box-sizing: border-box;
   height: 100%;
-  overflow: scroll;
   animation: fadeIn 500ms;
   @media (max-width: 640px) {
     width: 100%;
