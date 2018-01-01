@@ -2,12 +2,9 @@
 
 exports[`<Category /> snapshot is valid 1`] = `
 <li>
-  <span>
-    <img
-      alt="stay"
-      src="https://maps.google.com/mapfiles/ms/icons/blue.png"
-    />
-  </span>
+  <Emoji
+    emoji="🏡"
+  />
   → 
   Places to Stay
 </li>

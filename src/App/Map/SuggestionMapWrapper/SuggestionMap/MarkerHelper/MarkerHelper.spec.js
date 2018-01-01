@@ -37,12 +37,8 @@ describe('MarkerHelper', () => {
       const currentLocationPin = MarkerHelper.currentLocationPin(point)
       expect(currentLocationPin.type.displayName).toEqual("Marker")
 
-      expect(currentLocationPin.props).toBeTruthy
-      const { position, icon, options, animation } = currentLocationPin.props
-      expect(position).toEqual(expectedPosition["position"])
-      expect(icon).toEqual("https://maps.google.com/mapfiles/ms/icons/cycling.png")
-      expect(animation).toEqual(2)
-      expect(options).toMatchObject({clickable: true})
+      expect(currentLocationPin.props).toBeTruthy()
+      expect(currentLocationPin).toMatchSnapshot();
     })
   })
 
@@ -52,14 +48,11 @@ describe('MarkerHelper', () => {
       const handler = () => {}
       const markers = MarkerHelper.suggestionMarkers(suggestions, handler)
       const allMarkers = markers.every(m => m.type.displayName === "Marker")
-      expect(allMarkers).toBeTruthy()
+      expect(allMarkers).toEqual(true)
 
-      const marker = markers[0]
-
-      const { position, icon, onClick } = marker.props
-      expect(position).toEqual(expectedPosition["position"])
-      expect(icon).toEqual("https://maps.google.com/mapfiles/ms/icons/blue.png")
-      expect(onClick.name).toEqual("onClick")
+      markers.forEach(marker => {
+        expect(marker).toMatchSnapshot();
+      })
     })
   })
 
@@ -79,12 +72,11 @@ describe('MarkerHelper', () => {
       const points = [point, point2]
       const markers = MarkerHelper.endsOfDayMarkers(points)
       const allMarkers = markers.every(m => m.type.displayName === "Marker")
-      expect(allMarkers).toBeTruthy()
+      expect(allMarkers).toEqual(true)
 
-      const marker = markers[0]
-      const { position, icon } = marker.props
-      expect(position).toEqual(expectedPosition["position"])
-      expect(icon).toEqual("https://maps.google.com/mapfiles/ms/icons/flag.png")
+      markers.forEach(marker => {
+        expect(marker).toMatchSnapshot();
+      })
     })
   })
 
@@ -92,12 +84,7 @@ describe('MarkerHelper', () => {
     it('returns a marker', () => {
       const suggestion = point.location 
       const marker = MarkerHelper.suggestion(suggestion)
-      expect(marker.type.displayName).toEqual("Marker")
-
-      const { position, options } = marker.props
-      const expected = { lat: "40.1", lng: "30.9" }
-      expect(position).toMatchObject(expected)
-      expect(options).toMatchObject({ clickable:  true })
+      expect(marker).toMatchSnapshot();
     })
   })
 })

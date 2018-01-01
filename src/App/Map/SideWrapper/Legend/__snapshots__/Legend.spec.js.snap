@@ -34,21 +34,17 @@ exports[`<Legend /> snapshot is valid 1`] = `
        → Actual Route
     </li>
     <li>
-      <span>
-        <img
-          alt="cyclist"
-          src="https://maps.google.com/mapfiles/ms/icons/cycling.png"
-        />
-      </span>
-       → That's Us! ( as of 
+      <Emoji
+        emoji="🚲"
+      />
+      → That's Us! ( as of 
       TODAY
        )
     </li>
     <li>
       <span>
-        <img
-          alt="flag"
-          src="https://maps.google.com/mapfiles/ms/icons/flag.png"
+        <Emoji
+          emoji="🏳"
         />
       </span>
        → Day-to-Day (click flag to hide/show flag markers)

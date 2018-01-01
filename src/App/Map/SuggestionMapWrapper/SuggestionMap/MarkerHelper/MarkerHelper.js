@@ -18,6 +18,16 @@ interface Positionable {
   position: LatLngable
 }
 
+interface Labelable {
+  text: string,
+  fontSize: string,
+}
+
+const makeLabel = (text: string, fontSize: string = '32px'): Labelable => ({
+  text,
+  fontSize,
+})
+
 export const coordinatesFor = (point: Locationable): Positionable => {
   return {
     position: {
@@ -31,7 +41,8 @@ export const currentLocationPin = (currentLocation: Locationable): Marker => (
   <Marker
     {...coordinatesFor(currentLocation)}
     animation={2}
-    icon={categoryIcons["cycling"]}
+    icon="none"
+    label={makeLabel(categoryIcons.cycling, '48px')}
     options={{clickable: true}}
   />
 )
@@ -44,7 +55,8 @@ export const suggestionMarkers = (suggestions: Locationable[], handler: Function
     return (
       <Marker
         key={suggestion.id}
-        icon={categoryIcons[suggestion.category]}
+        icon="none"
+        label={makeLabel(categoryIcons[suggestion.category])}
         {...marker}
         onClick={(props) => handler(props)}
       />
@@ -69,7 +81,9 @@ export const endsOfDayMarkers = (actualPath: Locationable[]): Marker[] => (
       return (
         <Marker
           key={point.id}
-          icon={categoryIcons["endOfDay"]}
+          icon="none"
+          label={makeLabel(categoryIcons.endOfDay, '24px')}
+          fill="transparent"
           {...marker}
         >
         </Marker>
@@ -81,7 +95,10 @@ export const suggestion = (suggestionPin: LatLngable): Marker => (
   suggestionPin.lat !== undefined && (
     <Marker
       options={{ clickable: true}}
-      position={suggestionPin}/>
+      position={suggestionPin}
+      icon="none"
+      label={makeLabel('📍')}
+    />
   )
 )
 

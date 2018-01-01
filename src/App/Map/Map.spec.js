@@ -124,8 +124,8 @@ describe('<Map />', () => {
   })
 
   describe("#filterPins", () => {
-    it("returns suggestions unfiltered if categories not supplied", () => {
-      expect(map.filterPins([], suggestions)).toMatchObject(suggestions)
+    it("returns nothing for no categories", () => {
+      expect(map.filterPins([], suggestions)).toMatchObject([])
     })
 
     it("returns only suggestions matching filter", () => {

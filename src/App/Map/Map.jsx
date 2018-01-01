@@ -64,7 +64,7 @@ class Map extends Component {
 
   filterPins = (filters, suggestions) => (
     suggestions.filter(s =>
-      filters.length === 0 || filters.includes("") || filters.includes(s.category)
+      filters.includes("") || filters.includes(s.category)
     )
   )
 
@@ -85,8 +85,9 @@ class Map extends Component {
   }
 
   render() {
-    const categories = _.uniq(this.props.suggestions.map(s => s.category))
-    const filteredSuggestions = this.filterPins(this.props.pinFilters, this.props.suggestions)
+    const { suggestions, pinFilters } = this.props
+    const categories = _.uniq(suggestions.map(s => s.category))
+    const filteredSuggestions = this.filterPins(pinFilters, suggestions)
 
     const suggestionMapWrapper = (
       <article className="SuggestionMap">

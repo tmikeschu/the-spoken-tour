@@ -1,15 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Emoji from '../../../Emoji'
 import { categoryIcons, categoryLabels } from '../../../category_data'
 
 const Category = ({ category }) =>  (
   <li>
-    <span>
-      <img 
-        src={categoryIcons[category]} 
-        alt={category}
-      />
-    </span> 
+    <Emoji emoji={categoryIcons[category]} />
     → { categoryLabels[category] }
   </li>
 )

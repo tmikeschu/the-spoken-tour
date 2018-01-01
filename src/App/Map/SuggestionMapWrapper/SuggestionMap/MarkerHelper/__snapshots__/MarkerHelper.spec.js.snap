@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarkerHelper #currentLocationPin returns a JSX marker 1`] = `
+<Marker
+  animation={2}
+  icon="none"
+  label={
+    Object {
+      "fontSize": "48px",
+      "text": "🚲",
+    }
+  }
+  options={
+    Object {
+      "clickable": true,
+    }
+  }
+  position={
+    Object {
+      "lat": 40.1,
+      "lng": 30.9,
+    }
+  }
+/>
+`;
+
+exports[`MarkerHelper #endsOfDayMarkers returns a collection of markers 1`] = `
+<Marker
+  fill="transparent"
+  icon="none"
+  label={
+    Object {
+      "fontSize": "24px",
+      "text": "🏳",
+    }
+  }
+  position={
+    Object {
+      "lat": 40.1,
+      "lng": 30.9,
+    }
+  }
+/>
+`;
+
+exports[`MarkerHelper #suggestion returns a marker 1`] = `
+<Marker
+  icon="none"
+  label={
+    Object {
+      "fontSize": "32px",
+      "text": "📍",
+    }
+  }
+  options={
+    Object {
+      "clickable": true,
+    }
+  }
+  position={
+    Object {
+      "lat": "40.1",
+      "lng": "30.9",
+    }
+  }
+/>
+`;
+
+exports[`MarkerHelper #suggestionMarkers returns a collection of markers 1`] = `
+<Marker
+  icon="none"
+  label={
+    Object {
+      "fontSize": "32px",
+      "text": "🏡",
+    }
+  }
+  onClick={[Function]}
+  position={
+    Object {
+      "lat": 40.1,
+      "lng": 30.9,
+    }
+  }
+/>
+`;
+
+exports[`MarkerHelper #suggestionMarkers returns a collection of markers 2`] = `
+<Marker
+  icon="none"
+  label={
+    Object {
+      "fontSize": "32px",
+      "text": undefined,
+    }
+  }
+  onClick={[Function]}
+  position={
+    Object {
+      "lat": 41,
+      "lng": 20.9,
+    }
+  }
+/>
+`;

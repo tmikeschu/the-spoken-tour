@@ -10,7 +10,7 @@ exports[`<SuggestionForm /> snapshot is valid 1`] = `
       aria-label="pin"
       role="img"
     >
-      📌
+      📍
     </span>
   </h4>
   <form
