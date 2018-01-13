@@ -1,4 +1,4 @@
-@import './hamburger';
+@import "./hamburger";
 
 .Nav {
   $root: &;
@@ -44,7 +44,9 @@
         }
       }
 
-      &:hover, &:focus, &--active {
+      &:hover,
+      &:focus,
+      &--active {
         div {
           transition: opacity 500ms, background-color 500ms;
           opacity: 1;
@@ -53,7 +55,7 @@
     }
   }
 
-  .Hamburger  {
+  .Hamburger {
     order: 1;
   }
 

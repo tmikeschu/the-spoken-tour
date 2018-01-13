@@ -11,11 +11,12 @@
     margin: 0 auto;
     width: 100%;
     a {
-      background-color: rgba(256,256,256,.7);
+      background-color: rgba(256, 256, 256, 0.7);
       @include boxShadow;
       max-width: 200px;
       margin: 0 8px;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         border: none;
         img {
           transition: transform 500ms;
@@ -37,7 +38,7 @@
     a {
       margin: 16px 0;
       border-radius: 5px;
-      background-color: rgba(256,256,256,.7);
+      background-color: rgba(256, 256, 256, 0.7);
       @include boxShadow;
       font-size: 40px;
       line-height: 1.5em;

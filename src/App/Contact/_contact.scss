@@ -4,7 +4,8 @@
   @include contentContainer;
   display: flex;
   flex-direction: column;
-  h3, section {
+  h3,
+  section {
     margin-bottom: 32px;
   }
   @media (max-width: 640px) {

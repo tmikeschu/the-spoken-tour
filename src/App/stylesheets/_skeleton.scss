@@ -1,10 +1,14 @@
 body {
-  background-color: rgba(0,0,0,.2);
-  background: url("https://images.unsplash.com/photo-1477064200359-f0f9f7e3a9e8") no-repeat center center fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  background: url("https://images.unsplash.com/photo-1477064200359-f0f9f7e3a9e8")
+    no-repeat center center fixed;
   background-size: 100% 100%;
 }
 
-body, ul, form, input {
+body,
+ul,
+form,
+input {
   font-family: $body-font;
   font-size: 16px;
 }
@@ -33,7 +37,12 @@ h6 {
   font-size: 8px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $heading-font;
 }
 
@@ -45,7 +54,8 @@ p {
 a {
   text-decoration: none;
   color: $color2;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     border-bottom: 1px solid $color2;
   }
 }
@@ -59,7 +69,8 @@ input {
     padding: 8px;
     border: none;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       cursor: pointer;
       transition: background-color 300ms;
       background-color: $color1;

@@ -1,11 +1,11 @@
-@import '../stylesheets/base.scss';
-@import './SideWrapper/Info/info.scss';
-@import './SideWrapper/Legend/legend.scss';
-@import './SuggestionMapWrapper/suggestion_map_wrapper.scss';
-@import './SideWrapper/SuggestionForm/suggestion_form.scss';
-@import './SideWrapper/SuggestionInfo/suggestion_info.scss';
-@import './SideWrapper/Filters/Checkbox/checkbox.scss';
-@import './SuggestionMapWrapper/SuggestionMap/suggestion_map.scss';
+@import "../stylesheets/base.scss";
+@import "./SideWrapper/Info/info.scss";
+@import "./SideWrapper/Legend/legend.scss";
+@import "./SuggestionMapWrapper/suggestion_map_wrapper.scss";
+@import "./SideWrapper/SuggestionForm/suggestion_form.scss";
+@import "./SideWrapper/SuggestionInfo/suggestion_info.scss";
+@import "./SideWrapper/Filters/Checkbox/checkbox.scss";
+@import "./SuggestionMapWrapper/SuggestionMap/suggestion_map.scss";
 
 .Map {
   margin: {
@@ -14,7 +14,6 @@
   }
   @include boxShadow;
   animation: fadeIn 500ms;
-
 
   height: 100%;
   background-color: $light;
@@ -44,7 +43,9 @@
       }
     }
   }
-  .helper { display: none; }
+  .helper {
+    display: none;
+  }
 
   @media (max-width: 640px) {
     width: 100%;
@@ -76,7 +77,8 @@
       right: 5px;
       color: $light;
       z-index: 2;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         cursor: pointer;
       }
     }

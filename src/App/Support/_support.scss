@@ -1,4 +1,4 @@
-.Support{
+.Support {
   &__wrapper {
     @include contentContainer;
   }
@@ -9,7 +9,7 @@
   h2 {
     margin-bottom: 16px;
   }
-  >p {
+  > p {
     margin: 16px 0;
     &:first-of-type {
       color: $color2;
@@ -37,8 +37,8 @@
     }
     img {
       display: block;
-      max-width:300px;
-      max-height:200px;
+      max-width: 300px;
+      max-height: 200px;
       width: auto;
       height: auto;
     }
@@ -57,9 +57,10 @@
     transition: 300ms;
     text-align: center;
     input {
-      &[type='image'] {
+      &[type="image"] {
         transition: 300ms;
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           cursor: pointer;
           transition: 300ms;
           transform: scale(1.2);
@@ -69,7 +70,7 @@
   }
 
   @media (max-width: 640px) {
-    >p {
+    > p {
       &:nth-of-type(1) {
         width: 100%;
         align-self: flex-start;
@@ -97,8 +98,8 @@
       img {
         order: 1;
         display: block;
-        max-width:300px;
-        max-height:200px;
+        max-width: 300px;
+        max-height: 200px;
         width: auto;
         height: auto;
       }

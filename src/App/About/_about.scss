@@ -54,7 +54,10 @@
   @media (max-width: 640px) {
     padding: 0;
     section {
-      &.who, &.what, &.where, &.why {
+      &.who,
+      &.what,
+      &.where,
+      &.why {
         display: flex;
         flex-direction: column;
         margin: 0;
@@ -65,7 +68,7 @@
           margin: 0;
           justify-content: flex-end;
           padding: 16px 8px;
-          order: 1
+          order: 1;
         }
         p {
           order: 2;
