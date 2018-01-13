@@ -1,13 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { withGoogleMap, GoogleMap, Polyline } from "react-google-maps"
-import withScriptjs from "react-google-maps/lib/async/withScriptjs"
+import {
+  withGoogleMap,
+  GoogleMap,
+  Polyline,
+  withScriptjs,
+} from "react-google-maps"
+import { SearchBox } from "react-google-maps/lib/components/places/SearchBox"
 import * as MarkerHelper from "./MarkerHelper/MarkerHelper"
 import loader from "../../../public/loading.gif"
 
 const AsyncGoogleMap = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
+      ref={props.actions.addMapRef}
       defaultZoom={props.zoom}
       defaultCenter={props.center}
       onClick={props.handleClick}
@@ -16,6 +22,27 @@ const AsyncGoogleMap = withScriptjs(
         myTypeControl: false,
       }}
     >
+      <SearchBox
+        ref={props.actions.addSearchBoxRef}
+        controlPosition={window.google.maps.ControlPosition.TOP_LEFT}
+        onPlacesChanged={props.onPlacesChanged}
+      >
+        <input
+          type="text"
+          placeholder="Search and zoom"
+          style={{
+            boxSizing: `border-box`,
+            border: `1px solid transparent`,
+            width: `40%`,
+            height: `32px`,
+            marginTop: `10px`,
+            padding: `0 12px`,
+            boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+            fontSize: `14px`,
+            textOverflow: `ellipsis`,
+          }}
+        />
+      </SearchBox>
       {MarkerHelper.currentLocationPin(props.currentLocation)}
       {MarkerHelper.suggestionMarkers(
         props.suggestions,
@@ -38,9 +65,7 @@ const SuggestionMap = props => {
 
   const mapContainer = <div style={{ height: "100%", width: "100%" }} />
 
-  const handleMarkerClick = props => {
-    showSuggestionInfo(props.latLng)
-  }
+  const handleMarkerClick = props => showSuggestionInfo(props.latLng)
 
   const handleClick = ({ latLng }) => {
     const lat = latLng.lat()
@@ -49,10 +74,25 @@ const SuggestionMap = props => {
     addSuggestionPin(position)
   }
 
+  const onPlacesChanged = () => {
+    const { searchBox, map } = props.refs
+    const places = searchBox.getPlaces()
+    const bounds = new window.google.maps.LatLngBounds()
+
+    places.forEach(({ geometry: { viewport, location } }) => {
+      if (viewport) {
+        bounds.union(viewport)
+      } else {
+        bounds.extend(location)
+      }
+    })
+    map.fitBounds(bounds)
+  }
+
   const googleMapUrl =
     "https://maps.googleapis.com/maps/api/js?v=3.exp" +
     `&key=${process.env.REACT_APP_GOOGLE_KEY}` +
-    "&libraries=geometry,drawing,visualization"
+    "&libraries=geometry,drawing,places"
 
   return (
     <AsyncGoogleMap
@@ -66,6 +106,7 @@ const SuggestionMap = props => {
       mapElement={<div style={{ height: `100%` }} />}
       handleClick={handleClick}
       handleMarkerClick={handleMarkerClick}
+      onPlacesChanged={onPlacesChanged}
       {...props}
     />
   )
