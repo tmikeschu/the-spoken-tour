@@ -35,7 +35,7 @@ describe("MarkerHelper", () => {
   describe("#currentLocationPin", () => {
     it("returns a JSX marker", () => {
       const currentLocationPin = MarkerHelper.currentLocationPin(point)
-      expect(currentLocationPin.type.displayName).toEqual("Marker")
+      expect(currentLocationPin.type.name).toEqual("Marker")
 
       expect(currentLocationPin.props).toBeTruthy()
       expect(currentLocationPin).toMatchSnapshot()
@@ -47,7 +47,7 @@ describe("MarkerHelper", () => {
       const suggestions = [point, point2]
       const handler = () => {}
       const markers = MarkerHelper.suggestionMarkers(suggestions, handler)
-      const allMarkers = markers.every(m => m.type.displayName === "Marker")
+      const allMarkers = markers.every(m => m.type.name === "Marker")
       expect(allMarkers).toEqual(true)
 
       markers.forEach(marker => {
@@ -71,7 +71,7 @@ describe("MarkerHelper", () => {
     it("returns a collection of markers", () => {
       const points = [point, point2]
       const markers = MarkerHelper.endsOfDayMarkers(points)
-      const allMarkers = markers.every(m => m.type.displayName === "Marker")
+      const allMarkers = markers.every(m => m.type.name === "Marker")
       expect(allMarkers).toEqual(true)
 
       markers.forEach(marker => {
