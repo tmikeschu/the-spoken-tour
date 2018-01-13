@@ -53,7 +53,7 @@ First things first: get a dopamine hit from a verdant test suite! Run the tests 
 npm test
 ```
 
-Then *read* the tests to get oriented with the application.
+Then _read_ the tests to get oriented with the application.
 
 ## Local Development
 
@@ -108,4 +108,3 @@ Interested in helping out?
 
 3. Once your work is done, squash your work to a single commit, and open a PR
    from your feature branch to this repo's master branch.
-
