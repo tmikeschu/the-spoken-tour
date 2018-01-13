@@ -5,7 +5,7 @@ exports[`<Info /> renders content 1`] = `
   className="Info"
 >
   <p>
-    Have an amiga in Antigua?  A tía in Tijuana? Couch to crash on in Colombia? Bike shop in Bolivia?
+    Have an amiga in Antigua? A tía in Tijuana? Couch to crash on in Colombia? Bike shop in Bolivia?
   </p>
   <h4>
     <span>

@@ -47,7 +47,8 @@ exports[`<Legend /> snapshot is valid 1`] = `
           emoji="🏳"
         />
       </span>
-       → Day-to-Day (click flag to hide/show flag markers)
+       
+      → Day-to-Day (click flag to hide/show flag markers)
     </li>
     <Category
       category="stay"

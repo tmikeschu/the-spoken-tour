@@ -9,7 +9,8 @@ exports[`<Contact /> snapshot is valid 1`] = `
   </h3>
   <section>
     <p>
-      Email us at 
+      Email us at
+       
       <a
         href="mailto:thespokentour@gmail.com"
         rel="noopener noreferrer"
@@ -19,7 +20,8 @@ exports[`<Contact /> snapshot is valid 1`] = `
       </a>
     </p>
     <p>
-      Follow us on Instagram 
+      Follow us on Instagram
+       
       <a
         href="https://www.instagram.com/thespokentour/"
         rel="noopener noreferrer"

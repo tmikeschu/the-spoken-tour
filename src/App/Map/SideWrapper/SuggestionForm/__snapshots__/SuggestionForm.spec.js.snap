@@ -5,7 +5,8 @@ exports[`<SuggestionForm /> snapshot is valid 1`] = `
   className="SuggestionForm"
 >
   <h4>
-    Drop a Pin 
+    Drop a Pin
+     
     <span
       aria-label="pin"
       role="img"
