@@ -43,3 +43,15 @@ export const addActualPath = (actualPath = []) => ({
 export const toggleFlags = () => ({
   type: types.TOGGLE_FLAGS,
 })
+
+export const addSearchBoxRef = ref => ({
+  type: types.ADD_REF,
+  data: { searchBox: ref },
+})
+
+export const addMapRef = ref => ({
+  type: types.ADD_REF,
+  data: { map: ref },
+})
+
+export const setCenter = center => ({ type: types.SET_CENTER, data: center })
