@@ -6,8 +6,12 @@
 
 Some friends of mine are going to bike from Denver, Colorado to Buenos Aires, Argentina, so I helped build their travel blog using React (thanks to [CRA](https://github.com/facebookincubator/create-react-app) and [RGM](https://github.com/tomchentw/react-google-maps)).
 
-↓ Click to see a video demo of the app ↓
-[![Demo Video](https://img.youtube.com/vi/f4KtCjMEZM8/0.jpg)](http://www.youtube.com/watch?v=f4KtCjMEZM8 "The Spoken Tour Demo")
+## V2 Styles (December 2017)!
+
+![desktop](https://raw.githubusercontent.com/tmikeschu/the-spoken-tour/master/public/desktop.png)
+![mobile](https://raw.githubusercontent.com/tmikeschu/the-spoken-tour/master/public/mobile.png)
+
+[See a video demo of the app](http://www.youtube.com/watch?v=f4KtCjMEZM8)
 
 ## Links
 
@@ -25,14 +29,14 @@ Clone this repository using your preferred method and `cd` into it. If you're no
 recommend the SSH route:
 
 ```
-git clone git@github.com:tmikeschu/spoke-n.git
-cd spoke-n
+git clone git@github.com:tmikeschu/the-spoken-tour.git
+cd the-spoken-tour
 ```
 
 Then, install dependencies:
 
 ```
-npm install
+yarn install
 ```
 
 ### Credentials
@@ -50,7 +54,7 @@ contact me for the Rails API key.
 First things first: get a dopamine hit from a verdant test suite! Run the tests with:
 
 ```
-npm test
+yarn test
 ```
 
 Then _read_ the tests to get oriented with the application.
@@ -60,7 +64,7 @@ Then _read_ the tests to get oriented with the application.
 What fun is setting up and running tests if you can't do some of your own stuff? Start the local server with:
 
 ```
-npm start
+yarn start
 ```
 
 ## Stack
@@ -84,6 +88,8 @@ DevOps: [Heroku](https://www.heroku.com/home)
 
 CI: [Travis CI](https://travis-ci.org/)
 
+Other: [Prettier](https://github.com/prettier/prettier) and [ESLint](https://github.com/eslint/eslint)
+
 ## Style
 
 When contributing to code, be the tofu. In other words, take on the style of the
@@ -92,6 +98,7 @@ existing code. Here are some main approaches I follow:
 * If a component doesn't hold its own state, write it as a pure function
 * ES6
 * No semi-colons
+* Double quotes
 * Unit tests for functions that process data
 * For functions with side effects, unit test with mock `jest.fn()` functions to verify the call of other functions.
 * Dependency injection for any API service functions
