@@ -1,10 +1,10 @@
-import React from 'react'
-import About from './About'
+import React from "react"
+import About from "./About"
 
-describe('<About />', () => {
+describe("<About />", () => {
   const wrapper = shallow(<About />)
 
-  it('renders sections who, what, where, and why', () => {
+  it("renders sections who, what, where, and why", () => {
     expect(wrapper).toBeTruthy()
   })
 

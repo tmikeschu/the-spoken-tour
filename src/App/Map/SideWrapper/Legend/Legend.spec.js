@@ -1,8 +1,8 @@
 import React from "react"
 import { shallow } from "enzyme"
 import Legend from "./Legend"
-import Category from './Category/Category'
-import { categoryIcons } from '../../category_data'
+import Category from "./Category/Category"
+import { categoryIcons } from "../../category_data"
 
 describe("<Legend />", () => {
   const wrapper = shallow(<Legend categories={["stay"]} date="TODAY" />)

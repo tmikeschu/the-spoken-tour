@@ -5,7 +5,7 @@ import SuggestionInfo from "./SuggestionInfo"
 describe("<SuggestionInfo />", () => {
   const props = {
     currentSuggestion: {},
-    suggestionInfoIsActive: false
+    suggestionInfoIsActive: false,
   }
   const wrapper = shallow(<SuggestionInfo {...props} />)
 

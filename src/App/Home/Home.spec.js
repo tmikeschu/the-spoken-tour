@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import Home from './Home'
+import React, { Component } from "react"
+import Home from "./Home"
 
-describe('<Home />', () => {
+describe("<Home />", () => {
   const wrapper = shallow(<Home />)
 
-  it ('renders without crashing', () => {
+  it("renders without crashing", () => {
     expect(wrapper).toBeTruthy()
   })
 
@@ -12,5 +12,5 @@ describe('<Home />', () => {
     it("is valid", () => {
       expect(wrapper).toMatchSnapshot()
     })
-  }) 
+  })
 })

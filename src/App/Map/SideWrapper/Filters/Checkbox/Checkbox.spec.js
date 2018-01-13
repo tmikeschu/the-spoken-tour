@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react"
 import { shallow } from "enzyme"
 import Checkbox from "./Checkbox"
-import { categoryLabels } from '../../../category_data'
+import { categoryLabels } from "../../../category_data"
 
 describe("<Checkbox />", () => {
   const props = {
     category: "stay",
-    filterPins: function () {},
-    pinFilters: []
+    filterPins: function() {},
+    pinFilters: [],
   }
   const wrapper = shallow(<Checkbox {...props} />)
 

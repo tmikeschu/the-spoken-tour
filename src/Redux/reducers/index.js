@@ -1,41 +1,32 @@
 import { combineReducers } from "redux"
 import * as types from "../types"
 
-const suggestions = (state = [], action) => (
+const suggestions = (state = [], action) =>
   action.type === types.ADD_SUGGESTIONS ? action.data || [] : state
-)
 
-const suggestionPin = (state = {}, action) => (
+const suggestionPin = (state = {}, action) =>
   action.type === types.ADD_SUGGESTION_PIN ? action.data : state
-)
 
-const currentSuggestion = (state = {}, action) => (
+const currentSuggestion = (state = {}, action) =>
   action.type === types.ADD_CURRENT_SUGGESTION ? action.data : state
-)
 
-const suggestionInfoIsActive = (state = false, action) => (
+const suggestionInfoIsActive = (state = false, action) =>
   action.type === types.TOGGLE_SUGGESTION_INFO_IS_ACTIVE ? action.data : state
-)
 
-const currentLocation = (state = {}, action) => (
+const currentLocation = (state = {}, action) =>
   action.type === types.ADD_CURRENT_LOCATION ? action.data : state
-)
 
-const pinFilters = (state = ["DISPLAYNONE"], action) => (
+const pinFilters = (state = ["DISPLAYNONE"], action) =>
   action.type === types.ADD_PIN_FILTERS ? action.data : state
-)
 
-const routePoints = (state = [], action) => (
+const routePoints = (state = [], action) =>
   action.type === types.ADD_ROUTE_POINTS ? action.data : state
-)
 
-const actualPath = (state = [], action) => (
+const actualPath = (state = [], action) =>
   action.type === types.ADD_ACTUAL_PATH ? action.data : state
-)
 
-const showFlags = (state = false, action) => (
+const showFlags = (state = false, action) =>
   action.type === types.TOGGLE_FLAGS ? !state : state
-)
 
 export default combineReducers({
   map: combineReducers({
@@ -47,7 +38,6 @@ export default combineReducers({
     pinFilters,
     routePoints,
     actualPath,
-    showFlags
-  })
+    showFlags,
+  }),
 })
-

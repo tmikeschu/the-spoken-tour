@@ -6,7 +6,7 @@ import Info from "./Info/Info"
 import SuggestionInfo from "./SuggestionInfo/SuggestionInfoContainer"
 import Filters from "./Filters/FiltersContainer"
 
-const SideWrapper = ({ categories })=> {
+const SideWrapper = ({ categories }) => {
   return (
     <section className="SideContainer">
       <Legend categories={categories} />
@@ -26,4 +26,3 @@ SideWrapper.propTypes = {
 }
 
 export default SideWrapper
-

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import * as FilterHelper from './FilterHelper'
+import React, { Component } from "react"
+import * as FilterHelper from "./FilterHelper"
 
 describe("FilterHelper methods", () => {
   describe("#filterPins", () => {
@@ -8,7 +8,9 @@ describe("FilterHelper methods", () => {
       it("returns an array without that target value", () => {
         const currentFilters = ["places", "stay"]
         const expected = ["places"]
-        expect(FilterHelper.filterPins(event, currentFilters)).toMatchObject(expected)
+        expect(FilterHelper.filterPins(event, currentFilters)).toMatchObject(
+          expected,
+        )
       })
     })
 
@@ -16,7 +18,9 @@ describe("FilterHelper methods", () => {
       it("returns an array with that target value", () => {
         const currentFilters = ["places"]
         const expected = ["places", "stay"]
-        expect(FilterHelper.filterPins(event, currentFilters)).toMatchObject(expected)
+        expect(FilterHelper.filterPins(event, currentFilters)).toMatchObject(
+          expected,
+        )
       })
     })
   })
@@ -26,7 +30,9 @@ describe("FilterHelper methods", () => {
       const currentFilters = ["places", "stay"]
       const value = "stay"
       const expected = ["places"]
-      expect(FilterHelper.uncheck(value, currentFilters)).toMatchObject(expected)
+      expect(FilterHelper.uncheck(value, currentFilters)).toMatchObject(
+        expected,
+      )
     })
   })
 
@@ -36,16 +42,20 @@ describe("FilterHelper methods", () => {
         const currentFilters = ["places", "stay"]
         const value = "DISPLAYNONE"
         const expected = ["DISPLAYNONE"]
-        expect(FilterHelper.check(value, currentFilters)).toMatchObject(expected)
+        expect(FilterHelper.check(value, currentFilters)).toMatchObject(
+          expected,
+        )
       })
     })
 
-    describe("given \"\"", () => {
-      it("returns an array of only \"\"", () => {
+    describe('given ""', () => {
+      it('returns an array of only ""', () => {
         const currentFilters = ["places", "stay"]
         const value = ""
         const expected = [""]
-        expect(FilterHelper.check(value, currentFilters)).toMatchObject(expected)
+        expect(FilterHelper.check(value, currentFilters)).toMatchObject(
+          expected,
+        )
       })
     })
 
@@ -54,7 +64,9 @@ describe("FilterHelper methods", () => {
         const currentFilters = ["places"]
         const value = "stay"
         const expected = ["places", "stay"]
-        expect(FilterHelper.check(value, currentFilters)).toMatchObject(expected)
+        expect(FilterHelper.check(value, currentFilters)).toMatchObject(
+          expected,
+        )
       })
     })
   })

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 import APIService from "../../../APIService/APIService"
 import { Notification } from "react-notification"
 
@@ -28,23 +28,23 @@ export default class SuggestionForm extends Component {
     this.setState({
       pin: {
         ...this.state.pin,
-        [event.target.name]: event.target.value
-      }
+        [event.target.name]: event.target.value,
+      },
     })
   }
 
   handleSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
     const pin = {
       pin: {
         ...this.state.pin,
         lat: this.props.suggestionPin.lat,
-        lng: this.props.suggestionPin.lng
-      }
+        lng: this.props.suggestionPin.lng,
+      },
     }
     try {
       this.postSuggestion(service, pin)
-    } catch(error) {
+    } catch (error) {
       this.submitFail(error)
     }
   }
@@ -61,14 +61,14 @@ export default class SuggestionForm extends Component {
     this.setState({
       formNotification: "Suggestion sent!",
       suggestionSent: true,
-      pin: this.clearedForm
+      pin: this.clearedForm,
     })
   }
 
   submitFail = error => {
     this.setState({
       formNotification: error.responseJSON["error"],
-      suggestionFailed: true
+      suggestionFailed: true,
     })
   }
 
@@ -84,20 +84,47 @@ export default class SuggestionForm extends Component {
 
     const form = (
       <form onSubmit={this.handleSubmit}>
-        <input required type="text" name="name" value={this.state.pin.name}
-          onChange={this.handleChange} placeholder="Name" />
+        <input
+          required
+          type="text"
+          name="name"
+          value={this.state.pin.name}
+          onChange={this.handleChange}
+          placeholder="Name"
+        />
 
-        <input required type="email" name="email" value={this.state.pin.email}
-          onChange={this.handleChange} placeholder="Email (our eyes only!)" />
+        <input
+          required
+          type="email"
+          name="email"
+          value={this.state.pin.email}
+          onChange={this.handleChange}
+          placeholder="Email (our eyes only!)"
+        />
 
-        <input required type="text" name="label" value={this.state.pin.label}
-          onChange={this.handleChange} placeholder="Label" />
+        <input
+          required
+          type="text"
+          name="label"
+          value={this.state.pin.label}
+          onChange={this.handleChange}
+          placeholder="Label"
+        />
 
-        <textarea required name="description" value={this.state.pin.description}
-          onChange={this.handleChange} placeholder="Description" />
+        <textarea
+          required
+          name="description"
+          value={this.state.pin.description}
+          onChange={this.handleChange}
+          placeholder="Description"
+        />
 
-        <select required name="category" value={this.state.pin.category}
-          onChange={this.handleChange} >
+        <select
+          required
+          name="category"
+          value={this.state.pin.category}
+          onChange={this.handleChange}
+        >
           <option value="">--Category--</option>
           <option value="0">Place to stay</option>
           <option value="1">Cool spot</option>
@@ -106,32 +133,42 @@ export default class SuggestionForm extends Component {
           <option value="4">Other</option>
         </select>
 
-        <textarea name="message" value={this.state.pin.message}
-          onChange={this.handleChange} placeholder="Message (optional)" />
+        <textarea
+          name="message"
+          value={this.state.pin.message}
+          onChange={this.handleChange}
+          placeholder="Message (optional)"
+        />
 
-        <p style={{
-            display: suggestionPin.lat === undefined ? "block" : "none"
+        <p
+          style={{
+            display: suggestionPin.lat === undefined ? "block" : "none",
           }}
           value="Drop It!"
         >
           Click the map to drop a pin!
         </p>
 
-        <input type={
-            suggestionPin.lat === undefined ? "hidden" : "submit"
-          }
-          value="Drop It!" />
+        <input
+          type={suggestionPin.lat === undefined ? "hidden" : "submit"}
+          value="Drop It!"
+        />
       </form>
     )
 
     return (
-      <article className="SuggestionForm" >
-        <h4>Drop a Pin <span role="img" aria-label="pin">📍</span></h4>
-        { form }
+      <article className="SuggestionForm">
+        <h4>
+          Drop a Pin{" "}
+          <span role="img" aria-label="pin">
+            📍
+          </span>
+        </h4>
+        {form}
         <Notification
           isActive={this.state.suggestionSent}
           message={this.state.formNotification}
-          onClick={() => this.deactivate() }
+          onClick={() => this.deactivate()}
           action="✖"
         />
       </article>
@@ -144,5 +181,5 @@ SuggestionForm.propTypes = {
   actions: PropTypes.shape({
     addSuggestionPin: PropTypes.func.isRequired,
     addSuggestions: PropTypes.func.isRequired,
-  })
+  }),
 }

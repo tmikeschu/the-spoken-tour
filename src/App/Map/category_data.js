@@ -9,11 +9,11 @@ export const categoryIcons = {
 }
 
 export const categoryLabels = {
-  "stay": "Places to Stay",
-  "checkout": "Cool Spots",
-  "avoid": "Places to Avoid",
-  "bike_shop": "Bike Shops",
-  "other": "Other",
+  stay: "Places to Stay",
+  checkout: "Cool Spots",
+  avoid: "Places to Avoid",
+  bike_shop: "Bike Shops",
+  other: "Other",
   "": "All",
-  "DISPLAYNONE": "None"
+  DISPLAYNONE: "None",
 }

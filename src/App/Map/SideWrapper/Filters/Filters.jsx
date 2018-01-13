@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
+import PropTypes from "prop-types"
 import Checkbox from "./Checkbox/Checkbox"
 import * as FilterHelper from "./FilterHelper/FilterHelper"
 
@@ -11,17 +11,21 @@ const Filters = props => {
     props.actions.addPinFilters(filters)
   }
 
-  const checkboxes = ["", "DISPLAYNONE"].concat(categories)
+  const checkboxes = ["", "DISPLAYNONE"]
+    .concat(categories)
     .map((category, i) => (
-      <Checkbox key={i} category={category} filterPins={filterPins} pinFilters={pinFilters} />)
-    )
+      <Checkbox
+        key={i}
+        category={category}
+        filterPins={filterPins}
+        pinFilters={pinFilters}
+      />
+    ))
 
-  return(
-    <article className="Checkboxes" >
+  return (
+    <article className="Checkboxes">
       <h4>Filter Suggestions</h4>
-      <article>
-        { checkboxes }
-      </article>
+      <article>{checkboxes}</article>
     </article>
   )
 }
@@ -30,8 +34,8 @@ Filters.propTypes = {
   categories: PropTypes.array.isRequired,
   pinFilters: PropTypes.array.isRequired,
   actions: PropTypes.shape({
-    addPinFilters: PropTypes.func.isRequired
-  })
+    addPinFilters: PropTypes.func.isRequired,
+  }),
 }
 
 export default Filters

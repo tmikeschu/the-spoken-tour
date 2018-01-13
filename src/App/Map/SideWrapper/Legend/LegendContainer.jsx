@@ -4,12 +4,11 @@ import * as actions from "../../../../Redux/actions"
 import Legend from "./Legend"
 
 const mapStateToProps = state => ({
-  date: state.map.currentLocation.date
+  date: state.map.currentLocation.date,
 })
 
 const mapDispatchToProps = dispatch => ({
-  toggleFlags: bindActionCreators(actions, dispatch).toggleFlags
+  toggleFlags: bindActionCreators(actions, dispatch).toggleFlags,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Legend)
-

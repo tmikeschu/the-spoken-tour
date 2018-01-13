@@ -5,7 +5,7 @@ import SideWrapper from "./SideWrapper"
 const props = {
   currentLocation: { date: "" },
   suggestionInfoIsActive: false,
-  setFilters: function () {},
+  setFilters: function() {},
   pinFilters: [],
   categories: [],
   sideClass: "visible",

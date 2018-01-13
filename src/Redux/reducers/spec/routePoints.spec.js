@@ -6,8 +6,8 @@ describe("Reducers#routePoints", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        routePoints: []
-      }
+        routePoints: [],
+      },
     })
   })
 
@@ -15,20 +15,23 @@ describe("Reducers#routePoints", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        routePoints: []
-      }
+        routePoints: [],
+      },
     })
   })
 
   it("handles ADD_ROUTE_POINTS", () => {
-    const expectedState = reducers({}, {
-      type: types.ADD_ROUTE_POINTS,
-      data: [ { lat: 0, lng: 0 } ] 
-    })
+    const expectedState = reducers(
+      {},
+      {
+        type: types.ADD_ROUTE_POINTS,
+        data: [{ lat: 0, lng: 0 }],
+      },
+    )
     expect(expectedState).toMatchObject({
       map: {
-        routePoints: [ { lat: 0, lng: 0 } ]
-      }
+        routePoints: [{ lat: 0, lng: 0 }],
+      },
     })
   })
 })

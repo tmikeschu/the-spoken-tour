@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
-import Header from './Header/Header.jsx'
-import Nav from './Nav/Nav.jsx'
-import './App.css'
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
+import { withRouter } from "react-router-dom"
+import Header from "./Header/Header.jsx"
+import Nav from "./Nav/Nav.jsx"
+import "./App.css"
 
 class App extends PureComponent {
   constructor(props) {
@@ -13,17 +13,17 @@ class App extends PureComponent {
     }
   }
 
-  handleClick = (evt) => {
+  handleClick = evt => {
     this.setState(({ x }) => ({ x: !x }))
   }
 
   render() {
-    const { x } = this.state;
-    const display = x ? 'x' : '';
+    const { x } = this.state
+    const display = x ? "x" : ""
 
     return (
       <div className="App">
-        <section className={`HeaderNav HeaderNav--${display}` }>
+        <section className={`HeaderNav HeaderNav--${display}`}>
           <Header />
           <Nav onClick={this.handleClick} display={display} />
         </section>
@@ -34,7 +34,7 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default withRouter(App)

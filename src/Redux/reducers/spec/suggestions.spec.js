@@ -6,8 +6,8 @@ describe("Reducers#suggestions", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        suggestions: []
-      }
+        suggestions: [],
+      },
     })
   })
 
@@ -15,17 +15,20 @@ describe("Reducers#suggestions", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        suggestions: []
-      }
+        suggestions: [],
+      },
     })
   })
 
   it("handles ADD_SUGGESTIONS", () => {
-    const expectedState = reducers({}, { type: types.ADD_SUGGESTIONS, data: [ "suggestion1" ] })
+    const expectedState = reducers(
+      {},
+      { type: types.ADD_SUGGESTIONS, data: ["suggestion1"] },
+    )
     expect(expectedState).toMatchObject({
       map: {
-        suggestions: [ "suggestion1" ]
-      }
+        suggestions: ["suggestion1"],
+      },
     })
   })
 })

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react"
 import { shallow } from "enzyme"
 import Category from "./Category"
-import { categoryIcons, categoryLabels } from '../../../category_data'
+import { categoryIcons, categoryLabels } from "../../../category_data"
 
 describe("<Category />", () => {
   const wrapper = shallow(<Category category="stay" />)

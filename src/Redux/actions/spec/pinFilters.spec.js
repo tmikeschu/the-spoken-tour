@@ -1,7 +1,7 @@
 import { actions, mockStore } from "./actionsSpecHelper"
 
 describe("Actions#addPinFilters", () => {
-  const expectedAction = { type: "ADD_PIN_FILTERS", data: [ "stay", "cool" ] }
+  const expectedAction = { type: "ADD_PIN_FILTERS", data: ["stay", "cool"] }
 
   it("updates the action data", async () => {
     const store = mockStore({ pinFilters: [] })
@@ -14,4 +14,3 @@ describe("Actions#addPinFilters", () => {
     expect(result).toMatchObject(expectedAction)
   })
 })
-

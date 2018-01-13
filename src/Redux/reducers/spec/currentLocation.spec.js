@@ -6,8 +6,8 @@ describe("Reducers#currentLocation", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        currentLocation: {}
-      }
+        currentLocation: {},
+      },
     })
   })
 
@@ -15,20 +15,23 @@ describe("Reducers#currentLocation", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        currentLocation: {}
-      }
+        currentLocation: {},
+      },
     })
   })
 
   it("handles ADD_CURRENT_LOCATION", () => {
-    const expectedState = reducers({}, {
-      type: types.ADD_CURRENT_LOCATION,
-      data: { lat: 0, lng: 0}
-    })
+    const expectedState = reducers(
+      {},
+      {
+        type: types.ADD_CURRENT_LOCATION,
+        data: { lat: 0, lng: 0 },
+      },
+    )
     expect(expectedState).toMatchObject({
       map: {
-        currentLocation: { lat: 0, lng: 0 }
-      }
+        currentLocation: { lat: 0, lng: 0 },
+      },
     })
   })
 })

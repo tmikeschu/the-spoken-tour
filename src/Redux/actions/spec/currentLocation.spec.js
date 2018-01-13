@@ -1,7 +1,10 @@
 import { actions, mockStore, fakeService } from "./actionsSpecHelper"
 
 describe("Actions#currentLocation", () => {
-  const expectedAction = { type: "ADD_CURRENT_LOCATION", data: { lat: 0, lng: 0} }
+  const expectedAction = {
+    type: "ADD_CURRENT_LOCATION",
+    data: { lat: 0, lng: 0 },
+  }
 
   describe("#addCurrentLocation", () => {
     it("returns an object with a type and data", () => {
@@ -10,4 +13,3 @@ describe("Actions#currentLocation", () => {
     })
   })
 })
-

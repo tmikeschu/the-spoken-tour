@@ -6,8 +6,8 @@ describe("Reducers#showFlags", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        showFlags: false
-      }
+        showFlags: false,
+      },
     })
   })
 
@@ -15,8 +15,8 @@ describe("Reducers#showFlags", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        showFlags: false
-      }
+        showFlags: false,
+      },
     })
   })
 
@@ -24,9 +24,8 @@ describe("Reducers#showFlags", () => {
     const expectedState = reducers({}, { type: types.TOGGLE_FLAGS })
     expect(expectedState).toMatchObject({
       map: {
-        showFlags: true
-      }
+        showFlags: true,
+      },
     })
   })
 })
-

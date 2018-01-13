@@ -6,8 +6,8 @@ describe("Reducers#suggestionInfoIsActive", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        suggestionInfoIsActive: false
-      }
+        suggestionInfoIsActive: false,
+      },
     })
   })
 
@@ -15,20 +15,23 @@ describe("Reducers#suggestionInfoIsActive", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        suggestionInfoIsActive: false
-      }
+        suggestionInfoIsActive: false,
+      },
     })
   })
 
   it("handles TOGGLE_SUGGESTION_INFO_IS_ACTIVE", () => {
-    const expectedState = reducers({}, {
-      type: types.TOGGLE_SUGGESTION_INFO_IS_ACTIVE,
-      data: true
-    })
+    const expectedState = reducers(
+      {},
+      {
+        type: types.TOGGLE_SUGGESTION_INFO_IS_ACTIVE,
+        data: true,
+      },
+    )
     expect(expectedState).toMatchObject({
       map: {
-        suggestionInfoIsActive: true
-      }
+        suggestionInfoIsActive: true,
+      },
     })
   })
 })

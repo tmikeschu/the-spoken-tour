@@ -6,7 +6,7 @@ import Map from "./Map"
 const mapStateToProps = ({ map }) => map
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(actions, dispatch)
+  actions: bindActionCreators(actions, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map)

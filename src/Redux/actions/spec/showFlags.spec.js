@@ -14,5 +14,3 @@ describe("Actions#toggleFlags", () => {
     expect(result).toMatchObject(expectedAction)
   })
 })
-
-

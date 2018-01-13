@@ -19,7 +19,9 @@ describe("<ContactForm />", () => {
     it("updates state", () => {
       expect(wrapper.state("contact").name).toEqual("")
 
-      wrapper.find(".contact-form input[name='name']").first()
+      wrapper
+        .find(".contact-form input[name='name']")
+        .first()
         .simulate("change", { target: { name: "name", value: "b" } })
 
       expect(wrapper.state("contact").name).toEqual("b")
@@ -30,7 +32,7 @@ describe("<ContactForm />", () => {
     it("is called on submit", () => {
       const fakeEvent = { preventDefault: jest.fn() }
       const restore = form.handleSubmit
-      const mock = form.handleSubmit = jest.fn()
+      const mock = (form.handleSubmit = jest.fn())
 
       wrapper.find(".contact-form form").simulate("submit", fakeEvent)
 
@@ -40,12 +42,13 @@ describe("<ContactForm />", () => {
 
     it("makes a post request", async () => {
       const contactForm = shallow(<ContactForm />)
-      const response = await contactForm.instance()
+      const response = await contactForm
+        .instance()
         .handleSubmit(fakeEvent, fakeService, expectedMessageData)
 
       const expectedResponse = {
         status: 201,
-        data: "AHH!"
+        data: "AHH!",
       }
 
       expect(response).toEqual(expectedResponse)
@@ -55,9 +58,10 @@ describe("<ContactForm />", () => {
   describe("#handleResponse", () => {
     it("is called on submit", async () => {
       const restore = ContactForm.prototype.handleResponse
-      const mock = ContactForm.prototype.handleResponse = jest.fn()
+      const mock = (ContactForm.prototype.handleResponse = jest.fn())
       const contactForm = shallow(<ContactForm />)
-      await contactForm.instance()
+      await contactForm
+        .instance()
         .handleSubmit(fakeEvent, fakeService, expectedMessageData)
 
       expect(mock).toHaveBeenCalled()
@@ -102,7 +106,8 @@ describe("<ContactForm />", () => {
       const contactForm = shallow(<ContactForm />).instance()
       const response = contactForm.stateFor(fakeResponse1)
       expect(response).toMatchObject({
-        success: true, contact: { name: "", email: "", message: ""}
+        success: true,
+        contact: { name: "", email: "", message: "" },
       })
     })
 
@@ -110,7 +115,8 @@ describe("<ContactForm />", () => {
       const contactForm = shallow(<ContactForm />).instance()
       const response = contactForm.stateFor(fakeResponse2)
       expect(response).toMatchObject({
-        failure: true, error: "AHH!"
+        failure: true,
+        error: "AHH!",
       })
     })
   })
@@ -120,27 +126,30 @@ const fakeService = {
   post(url, data) {
     return {
       status: 201,
-      data: "AHH!"
+      data: "AHH!",
     }
-  }
+  },
 }
 const fakeResponse1 = {
   status: 201,
-  data: "COOL"
+  data: "COOL",
 }
 const fakeResponse2 = {
   status: 400,
-  data: "AHH!"
+  data: "AHH!",
 }
 const expectedMessageData = {
   contact: {
-    name: "Tommy", email: "tom@my.crosby", message: "yo yo yo"
-  }
+    name: "Tommy",
+    email: "tom@my.crosby",
+    message: "yo yo yo",
+  },
 }
 const fakeEvent = {
   contact: {
-    name: "Tommy", email: "tom@my.crosby", message: "yo yo yo"
+    name: "Tommy",
+    email: "tom@my.crosby",
+    message: "yo yo yo",
   },
-  preventDefault() {}
+  preventDefault() {},
 }
-

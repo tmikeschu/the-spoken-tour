@@ -7,19 +7,18 @@ export { actions }
 export const mockStore = configureMockStore([thunk])
 
 export const fakeService = {
-  get (url) {
+  get(url) {
     return {
       status: 200,
-      data: responses[url]
+      data: responses[url],
     }
-  }
+  },
 }
 
 export const responses = {
   "/api/v1/suggestion_pins": ["suggestion1", "suggestion2"],
   "/api/v1/instagram_photos": ["photo1", "photo2"],
-  "/api/v1/current_location": { lat: 0, lng: 0},
-  "/api/v1/route_pins": [ { lat: 0, lng: 0}, { lat: 1, lng: 1 } ],
-  "/api/v1/actual_path": [ { lat: 0, lng: 0}, { lat: 1, lng: 1 } ]
+  "/api/v1/current_location": { lat: 0, lng: 0 },
+  "/api/v1/route_pins": [{ lat: 0, lng: 0 }, { lat: 1, lng: 1 }],
+  "/api/v1/actual_path": [{ lat: 0, lng: 0 }, { lat: 1, lng: 1 }],
 }
-

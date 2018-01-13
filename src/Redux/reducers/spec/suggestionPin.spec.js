@@ -6,8 +6,8 @@ describe("Reducers#suggestionPin", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        suggestionPin: {}
-      }
+        suggestionPin: {},
+      },
     })
   })
 
@@ -15,20 +15,23 @@ describe("Reducers#suggestionPin", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        suggestionPin: {}
-      }
+        suggestionPin: {},
+      },
     })
   })
 
   it("handles ADD_SUGGESTION_PIN", () => {
-    const expectedState = reducers({}, {
-      type: types.ADD_SUGGESTION_PIN,
-      data: { lat: 0, lng: 0 }
-    })
+    const expectedState = reducers(
+      {},
+      {
+        type: types.ADD_SUGGESTION_PIN,
+        data: { lat: 0, lng: 0 },
+      },
+    )
     expect(expectedState).toMatchObject({
       map: {
-        suggestionPin: { lat: 0, lng: 0 }
-      }
+        suggestionPin: { lat: 0, lng: 0 },
+      },
     })
   })
 })

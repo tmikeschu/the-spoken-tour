@@ -4,16 +4,17 @@ import APIService from "./APIService"
 
 describe("APIService", () => {
   let service
-  
+
   beforeEach(() => {
     service = new APIService("https://spoken-api.herokuapp.com")
   })
-  
+
   describe("constructor", () => {
     it("has a base url", () => {
-      expect(service.connection.defaults.baseURL).toBeTruthy();
-      expect(service.connection.defaults.baseURL)
-        .toEqual("https://spoken-api.herokuapp.com")
+      expect(service.connection.defaults.baseURL).toBeTruthy()
+      expect(service.connection.defaults.baseURL).toEqual(
+        "https://spoken-api.herokuapp.com",
+      )
     })
 
     it("has an API key", () => {

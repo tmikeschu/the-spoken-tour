@@ -6,8 +6,8 @@ describe("Reducers#pinFilters", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        pinFilters: ["DISPLAYNONE"]
-      }
+        pinFilters: ["DISPLAYNONE"],
+      },
     })
   })
 
@@ -15,17 +15,20 @@ describe("Reducers#pinFilters", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        pinFilters: ["DISPLAYNONE"]
-      }
+        pinFilters: ["DISPLAYNONE"],
+      },
     })
   })
 
   it("handles ADD_SUGGESTIONS", () => {
-    const expectedState = reducers({}, { type: types.ADD_PIN_FILTERS, data: [ "stay" ] })
+    const expectedState = reducers(
+      {},
+      { type: types.ADD_PIN_FILTERS, data: ["stay"] },
+    )
     expect(expectedState).toMatchObject({
       map: {
-        pinFilters: [ "stay" ]
-      }
+        pinFilters: ["stay"],
+      },
     })
   })
 })

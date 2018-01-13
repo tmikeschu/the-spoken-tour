@@ -6,8 +6,8 @@ describe("Reducers#actualPath", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        actualPath: []
-      }
+        actualPath: [],
+      },
     })
   })
 
@@ -15,20 +15,23 @@ describe("Reducers#actualPath", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        actualPath: []
-      }
+        actualPath: [],
+      },
     })
   })
 
   it("handles ADD_ACTUAL_PATH", () => {
-    const expectedState = reducers({}, {
-      type: types.ADD_ACTUAL_PATH,
-      data: [ { lat: 0, lng: 0 } ] 
-    })
+    const expectedState = reducers(
+      {},
+      {
+        type: types.ADD_ACTUAL_PATH,
+        data: [{ lat: 0, lng: 0 }],
+      },
+    )
     expect(expectedState).toMatchObject({
       map: {
-        actualPath: [ { lat: 0, lng: 0 } ]
-      }
+        actualPath: [{ lat: 0, lng: 0 }],
+      },
     })
   })
 })

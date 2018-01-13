@@ -3,8 +3,7 @@ import SuggestionInfo from "./SuggestionInfo"
 
 const mapStateToProps = ({ map }) => ({
   currentSuggestion: map.currentSuggestion,
-  suggestionInfoIsActive: map.suggestionInfoIsActive
+  suggestionInfoIsActive: map.suggestionInfoIsActive,
 })
 
 export default connect(mapStateToProps)(SuggestionInfo)
-

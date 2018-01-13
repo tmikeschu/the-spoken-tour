@@ -1,5 +1,5 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react"
+import { NavLink } from "react-router-dom"
 
 const capitalize = str => `${str[0].toUpperCase()}${str.slice(1)}`
 
@@ -11,9 +11,7 @@ const makeLink = ([to, label]) => onClick => (
     key={to}
     to={`/${to}`}
   >
-    <span>
-      {label || capitalize(to)}
-    </span>
+    <span>{label || capitalize(to)}</span>
     <div />
   </NavLink>
 )
@@ -24,14 +22,12 @@ const links = [
   ["podcast"],
   ["contact"],
   ["support"],
-].map(makeLink);
+].map(makeLink)
 
 const Nav = ({ display, onClick }) => (
   <article className={`Nav Nav--${display}`}>
     <Hamburger onClick={onClick} display={display} />
-    <ul>
-      {links.map(link => link(onClick))}
-    </ul>
+    <ul>{links.map(link => link(onClick))}</ul>
   </article>
 )
 
@@ -42,9 +38,9 @@ const Hamburger = ({ display, onClick }) => (
     role="button"
     tabIndex="0"
   >
-    <div className="Hamburger__first"></div>
-    <div className="Hamburger__second"></div>
-    <div className="Hamburger__third"></div>
+    <div className="Hamburger__first" />
+    <div className="Hamburger__second" />
+    <div className="Hamburger__third" />
   </article>
 )
 

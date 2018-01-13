@@ -10,26 +10,26 @@ export default class ContactForm extends Component {
       contact: {
         name: "",
         email: "",
-        message: ""
+        message: "",
       },
       success: false,
       failure: false,
-      error: ""
+      error: "",
     }
     this.emptyForm = this.state.contact
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       contact: {
         ...this.state.contact,
         [event.target.name]: event.target.value,
-      }
+      },
     })
   }
 
   messageData = () => ({
-    contact: this.state.contact
+    contact: this.state.contact,
   })
 
   handleSubmit = async (event, service, messageData) => {
@@ -45,39 +45,53 @@ export default class ContactForm extends Component {
     setTimeout(() => {
       this.setState({
         success: false,
-        failure: false
+        failure: false,
       })
     }, 3000)
   }
 
-  stateFor = (response) => {
+  stateFor = response => {
     const { status, data } = response
     return (
-      status === 201 && { success: true, contact: this.emptyForm }
-    ) || (
-      status === 400 && { failure: true, error: String(data) }
+      (status === 201 && { success: true, contact: this.emptyForm }) ||
+      (status === 400 && { failure: true, error: String(data) })
     )
   }
 
   render() {
     return (
       <article className="component-container contact-form">
-        <form onSubmit={event => this.handleSubmit(event, apiService, this.messageData())}>
-          <input 
-            required type="text" name="name" value={this.state.contact.name} 
-            onChange={this.handleChange} placeholder="Your Name"
+        <form
+          onSubmit={event =>
+            this.handleSubmit(event, apiService, this.messageData())
+          }
+        >
+          <input
+            required
+            type="text"
+            name="name"
+            value={this.state.contact.name}
+            onChange={this.handleChange}
+            placeholder="Your Name"
           />
 
-          <input 
-            required type="text" name="email" value={this.state.contact.email} 
-            onChange={this.handleChange} placeholder="Email Address"
+          <input
+            required
+            type="text"
+            name="email"
+            value={this.state.contact.email}
+            onChange={this.handleChange}
+            placeholder="Email Address"
           />
 
           <input type="hidden" name="_subject" value="Website contact" />
 
-          <textarea 
-            required name="message" value={this.state.contact.message} 
-            onChange={this.handleChange} placeholder="What's up?"
+          <textarea
+            required
+            name="message"
+            value={this.state.contact.message}
+            onChange={this.handleChange}
+            placeholder="What's up?"
           />
 
           <input type="submit" value="Send" />
@@ -86,14 +100,14 @@ export default class ContactForm extends Component {
             Message Sent!
           </p>
           <p style={{ display: this.state.failure ? "" : "none" }}>
-            Message failure: { this.state.error }
+            Message failure: {this.state.error}
           </p>
         </form>
         <p>
-          *Please allow ample time for a response as we are busy bicycling 15,000 miles.
+          *Please allow ample time for a response as we are busy bicycling
+          15,000 miles.
         </p>
       </article>
     )
   }
 }
-

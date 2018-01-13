@@ -6,8 +6,8 @@ describe("Reducers#currentSuggestion", () => {
     const expectedState = reducers(undefined, {})
     expect(expectedState).toMatchObject({
       map: {
-        currentSuggestion: {}
-      }
+        currentSuggestion: {},
+      },
     })
   })
 
@@ -15,20 +15,23 @@ describe("Reducers#currentSuggestion", () => {
     const expectedState = reducers(undefined, { type: "SOMETHING_ELSE" })
     expect(expectedState).toMatchObject({
       map: {
-        currentSuggestion: {}
-      }
+        currentSuggestion: {},
+      },
     })
   })
 
   it("handles ADD_CURRENT_SUGGESTION", () => {
-    const expectedState = reducers({}, {
-      type: types.ADD_CURRENT_SUGGESTION,
-      data: { description: "YES" }
-    })
+    const expectedState = reducers(
+      {},
+      {
+        type: types.ADD_CURRENT_SUGGESTION,
+        data: { description: "YES" },
+      },
+    )
     expect(expectedState).toMatchObject({
       map: {
-        currentSuggestion: { description: "YES" }
-      }
+        currentSuggestion: { description: "YES" },
+      },
     })
   })
 })

@@ -22,7 +22,7 @@ const requestsData = [
   },
   {
     path: "/api/v1/actual_path",
-    action: "addActualPath"
+    action: "addActualPath",
   },
 ]
 
@@ -35,7 +35,7 @@ class Map extends Component {
   }
 
   getInitialData = (requests = requestsData, service = apiService) => {
-    requests.forEach(async (request) => {
+    requests.forEach(async request => {
       const response = await service.get(request.path)
       this.props.actions[request.action](response.data)
     })
@@ -47,7 +47,7 @@ class Map extends Component {
 
   showSuggestionInfo = latLng => {
     const suggestion = this.props.suggestions.find(s =>
-      this.coordinatesCloseEnough(s.location, latLng)
+      this.coordinatesCloseEnough(s.location, latLng),
     )
 
     this.props.actions.addCurrentSuggestion(suggestion)
@@ -55,33 +55,31 @@ class Map extends Component {
     this.toggleSideWrapper()
   }
 
-  coordinatesCloseEnough = (suggestion, event) => (
-    this.elevenDecimalPlaces(suggestion.lat) === this.elevenDecimalPlaces(event.lat()) &&
-      this.elevenDecimalPlaces(suggestion.lng) === this.elevenDecimalPlaces(event.lng())
-  )
+  coordinatesCloseEnough = (suggestion, event) =>
+    this.elevenDecimalPlaces(suggestion.lat) ===
+      this.elevenDecimalPlaces(event.lat()) &&
+    this.elevenDecimalPlaces(suggestion.lng) ===
+      this.elevenDecimalPlaces(event.lng())
 
-  elevenDecimalPlaces = number => ( parseFloat(parseFloat(number).toFixed(11)))
+  elevenDecimalPlaces = number => parseFloat(parseFloat(number).toFixed(11))
 
-  filterPins = (filters, suggestions) => (
-    suggestions.filter(s =>
-      filters.includes("") || filters.includes(s.category)
+  filterPins = (filters, suggestions) =>
+    suggestions.filter(
+      s => filters.includes("") || filters.includes(s.category),
     )
-  )
 
   toggleSideWrapper = () => {
     this.setState({
-      sideVisible: !this.state.sideVisible
+      sideVisible: !this.state.sideVisible,
     })
   }
 
   get sideClass() {
-    return this.state.sideVisible
-      ? "visible" : "hidden"
+    return this.state.sideVisible ? "visible" : "hidden"
   }
 
   get helperClass() {
-    return this.state.sideVisible
-      ? "open" : "closed"
+    return this.state.sideVisible ? "open" : "closed"
   }
 
   render() {
@@ -100,7 +98,7 @@ class Map extends Component {
 
     return (
       <article className="Map">
-        { suggestionMapWrapper }
+        {suggestionMapWrapper}
 
         <div
           className={`helper side ${this.helperClass}`}
@@ -126,10 +124,10 @@ Map.propTypes = {
     addRoutePoints: PropTypes.func.isRequired,
     addActualPath: PropTypes.func.isRequired,
     addCurrentSuggestion: PropTypes.func.isRequired,
-    toggleSuggestionInfo: PropTypes.func.isRequired
+    toggleSuggestionInfo: PropTypes.func.isRequired,
   }),
   suggestions: PropTypes.array.isRequired,
-  pinFilters: PropTypes.array.isRequired
+  pinFilters: PropTypes.array.isRequired,
 }
 
 export default Map
