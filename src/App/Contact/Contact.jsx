@@ -1,5 +1,4 @@
 import React from "react"
-import ContactForm from "./ContactForm/ContactForm"
 
 const Contact = () => (
   <article className="Contact">
@@ -26,7 +25,6 @@ const Contact = () => (
         </a>
       </p>
     </section>
-    <ContactForm />
   </article>
 )
 

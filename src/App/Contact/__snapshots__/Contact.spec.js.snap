@@ -31,6 +31,5 @@ exports[`<Contact /> snapshot is valid 1`] = `
       </a>
     </p>
   </section>
-  <ContactForm />
 </article>
 `;

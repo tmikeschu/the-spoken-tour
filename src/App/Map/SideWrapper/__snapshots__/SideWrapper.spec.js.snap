@@ -11,9 +11,5 @@ exports[`<SideWrapper /> snapshot is valid 1`] = `
   <Connect(Filters)
     categories={Array []}
   />
-  <div>
-    <Info />
-    <Connect(SuggestionForm) />
-  </div>
 </section>
 `;
