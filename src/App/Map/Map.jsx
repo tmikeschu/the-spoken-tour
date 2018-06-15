@@ -1,27 +1,30 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+import * as R from "ramda"
 import SuggestionMapWrapper from "./SuggestionMapWrapper/SuggestionMapWrapper"
 import SideWrapper from "./SideWrapper/SideWrapper"
-import APIService from "../APIService/APIService"
-import _ from "lodash"
+import {
+  actualPath,
+  currentLocation,
+  routePins,
+  suggestionPins,
+} from "../../csvs"
 
-const apiService = new APIService("https://spoken-api.herokuapp.com")
-
-const requestsData = [
+const mapData = [
   {
-    path: "/api/v1/suggestion_pins",
+    data: suggestionPins,
     action: "addSuggestions",
   },
   {
-    path: "/api/v1/current_location",
+    data: currentLocation,
     action: "addCurrentLocation",
   },
   {
-    path: "/api/v1/route_pins",
+    data: routePins,
     action: "addRoutePoints",
   },
   {
-    path: "/api/v1/actual_path",
+    data: actualPath,
     action: "addActualPath",
   },
 ]
@@ -34,15 +37,14 @@ class Map extends Component {
     }
   }
 
-  getInitialData = (requests = requestsData, service = apiService) => {
-    requests.forEach(async request => {
-      const response = await service.get(request.path)
-      this.props.actions[request.action](response.data)
+  hydrate = data => {
+    data.forEach(({ action, data: d }) => {
+      this.props.actions[action](d)
     })
   }
 
   componentDidMount() {
-    this.getInitialData()
+    this.hydrate(mapData)
   }
 
   showSuggestionInfo = latLng => {
@@ -84,7 +86,7 @@ class Map extends Component {
 
   render() {
     const { suggestions, pinFilters } = this.props
-    const categories = _.uniq(suggestions.map(s => s.category))
+    const categories = R.pipe(R.map(R.prop("category")), R.uniq)(suggestions)
     const filteredSuggestions = this.filterPins(pinFilters, suggestions)
 
     const suggestionMapWrapper = (

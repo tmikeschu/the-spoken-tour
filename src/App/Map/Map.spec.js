@@ -34,45 +34,13 @@ describe("<Map />", () => {
   })
 
   describe("#componentDidMount", () => {
-    it("calls getInitialData", () => {
-      const restore = map.getInitialData
-      const mock = (map.getInitialData = jest.fn())
+    it("calls hydrate", () => {
+      const restore = map.hydrate
+      const mock = (map.hydrate = jest.fn())
 
       map.componentDidMount()
       expect(mock).toHaveBeenCalled()
-      map.getInitialData = restore
-    })
-  })
-
-  describe("#getInitialData", () => {
-    const requests = [
-      {
-        path: "/api/v1/suggestion_pins",
-        action: "addSuggestions",
-      },
-      {
-        path: "/api/v1/current_location",
-        action: "addCurrentLocation",
-      },
-    ]
-
-    const fakeService = {
-      get: jest.fn().mockReturnValue({ data: "FAKE DATA" }),
-    }
-
-    it("calls requests for each a path", () => {
-      map.getInitialData(requests, fakeService)
-      requests.forEach(request => {
-        expect(fakeService.get).toHaveBeenCalledWith(request.path)
-      })
-    })
-
-    it("calls actions for each request", () => {
-      requests.forEach(request => {
-        const mock = map.props.actions[request.action]
-        map.componentDidMount()
-        expect(mock).toHaveBeenCalledWith("FAKE DATA")
-      })
+      map.hydrate = restore
     })
   })
 
