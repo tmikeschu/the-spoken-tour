@@ -37,9 +37,7 @@ exports[`<Legend /> snapshot is valid 1`] = `
       <Emoji
         emoji="🚲"
       />
-      → That's Us! ( as of 
-      TODAY
-       )
+       → 🎉 We made it! 🎉
     </li>
     <li>
       <span>

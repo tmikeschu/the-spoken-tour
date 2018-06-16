@@ -21,8 +21,7 @@ const Legend = ({ categories, date, toggleFlags }) => {
           Actual Route
         </li>
         <li>
-          <Emoji emoji={categoryIcons.cycling} />
-          → That's Us! ( as of {date} )
+          <Emoji emoji={categoryIcons.cycling} /> → 🎉 We made it! 🎉
         </li>
         <li>
           <span>
@@ -38,12 +37,11 @@ const Legend = ({ categories, date, toggleFlags }) => {
 
 Legend.defaultProps = {
   date: "",
-  categories: [],
 }
 
 Legend.propTypes = {
   categories: PropTypes.array.isRequired,
-  date: PropTypes.string.isRequired,
+  date: PropTypes.string,
 }
 
 export default Legend
