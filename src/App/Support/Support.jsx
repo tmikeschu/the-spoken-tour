@@ -44,23 +44,6 @@ const Support = () => (
       <section className="sponsor">
         <article>
           <h3>
-            <a href="http://www.tmikeschu.co/">Mike Schutte</a>
-          </h3>
-          <p>
-            You wouldn’t be reading this if it wasn’t for Schutte. Everything on
-            this website, including the badass map, was built by Mike and his
-            keyboard. Like what you see? Check him out by clicking his big name
-            above.
-          </p>
-        </article>
-        <img
-          src="https://www.turing.io/sites/default/files/styles/graduate_full_profile/public/IMG_0689-1_0.jpg?itok=MI9LeK3w"
-          alt="Mike Schutte"
-        />
-      </section>
-      <section className="sponsor">
-        <article>
-          <h3>
             <a href="http://blackholemediafilm.com/">Black Hole Media</a>
           </h3>
           <p>
@@ -74,6 +57,23 @@ const Support = () => (
         <img
           src="https://static1.squarespace.com/static/56632d5ee4b0c4c43295eafd/t/57e8018b37c58188b675963a/1474822567053/"
           alt="Jessica Markowitz"
+        />
+      </section>
+      <section className="sponsor">
+        <article>
+          <h3>
+            <a href="http://www.tmikeschu.co/">Mike Schutte</a>
+          </h3>
+          <p>
+            You wouldn’t be reading this if it wasn’t for Schutte. Everything on
+            this website, including the badass map, was built by Mike and his
+            keyboard. Like what you see? Check him out by clicking his big name
+            above.
+          </p>
+        </article>
+        <img
+          src="https://pbs.twimg.com/profile_images/906270836302127104/tSfPsyWR_400x400.jpg"
+          alt="Mike Schutte"
         />
       </section>
       <section className="sponsor whitePhoto">

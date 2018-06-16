@@ -6,15 +6,19 @@
   display: flex;
   flex-direction: column;
   color: $light;
+
   h2 {
     margin-bottom: 16px;
   }
+
   > p {
     margin: 16px 0;
+
     &:first-of-type {
       color: $color2;
     }
   }
+
   .sponsor {
     &.whitePhoto {
       div {
@@ -22,19 +26,24 @@
         padding: 8px;
       }
     }
+
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     margin: 16px 0;
     background-color: $light;
+
     @include boxShadow;
+
     width: 100%;
     padding: 16px;
     box-sizing: border-box;
     color: $dark;
+
     article {
       width: 65%;
     }
+
     img {
       display: block;
       max-width: 300px;
@@ -42,23 +51,18 @@
       width: auto;
       height: auto;
     }
-    &:nth-of-type(odd) {
-      article {
-        order: 2;
-      }
-      img {
-        order: 1;
-      }
-    }
   }
+
   form {
     margin: 24px 0;
     align-self: center;
     transition: 300ms;
     text-align: center;
+
     input {
       &[type="image"] {
         transition: 300ms;
+
         &:hover,
         &:focus {
           cursor: pointer;
@@ -70,31 +74,22 @@
   }
 
   @media (max-width: 640px) {
-    > p {
-      &:nth-of-type(1) {
-        width: 100%;
-        align-self: flex-start;
-      }
-      &:nth-of-type(2) {
-        width: 100%;
-      }
-      &:nth-of-type(3) {
-        width: 100%;
-      }
-    }
     .sponsor {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-around;
       margin: 5% 0;
+
       article {
         order: 2;
         width: 100%;
+
         h3 {
           margin: 2% 0;
         }
       }
+
       img {
         order: 1;
         display: block;
