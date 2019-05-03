@@ -2,6 +2,9 @@
   "name": "spoke-n",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "8.1.2"
+  },
   "devDependencies": {
     "axios-mock-adapter": "^1.8.1",
     "enzyme": "^3.3.0",
