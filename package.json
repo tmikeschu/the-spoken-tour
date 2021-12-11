@@ -10,7 +10,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.0.2",
     "enzyme-to-json": "^3.2.2",
-    "eslint": "^5.16.0",
+    "eslint": "^6.6.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.4.0",
     "eslint-plugin-react": "^7.5.1",
@@ -27,7 +27,7 @@
     "sass-loader": "^6.0.1"
   },
   "dependencies": {
-    "axios": "^0.16.1",
+    "axios": "^0.24.0",
     "prop-types": "^15.6.0",
     "ramda": "^0.25.0",
     "react": "^16.2.0",
@@ -36,7 +36,7 @@
     "react-notification": "^6.6.0",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^3.0.0",
+    "react-scripts": "3.4.4",
     "react-spinkit": "^2.1.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
