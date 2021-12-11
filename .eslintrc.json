@@ -11,7 +11,7 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier", "prettier/react", "prettier/flowtype"],
+  "plugins": ["react", "prettier", "prettier/flowtype"],
   "rules": {
     "indent": ["error", 4],
     "linebreak-style": ["error", "unix"],
