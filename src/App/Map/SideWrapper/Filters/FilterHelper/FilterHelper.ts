@@ -1,11 +1,9 @@
-// @flow
-
 interface Valuable {
-  value: string;
+  value: string
 }
 
 interface Eventable {
-  target: Valuable;
+  target: Valuable
 }
 
 export function filterPins(
@@ -13,7 +11,10 @@ export function filterPins(
   currentFilters: string[],
 ): string[] {
   const { value }: Valuable = event.target
-  return boxIsChecked[currentFilters.includes(value)](value, currentFilters)
+  return (currentFilters.includes(value) ? uncheck : check)(
+    value,
+    currentFilters,
+  )
 }
 
 export const uncheck = (value: string, currentFilters: string[]): string[] =>
@@ -23,8 +24,3 @@ export const check = (value: string, currentFilters: string[]): string[] =>
   value === "" || value === "DISPLAYNONE"
     ? [value]
     : currentFilters.filter(x => x !== "DISPLAYNONE" && x !== "").concat(value)
-
-const boxIsChecked = {
-  true: uncheck,
-  false: check,
-}

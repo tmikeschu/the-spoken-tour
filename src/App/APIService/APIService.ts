@@ -1,8 +1,7 @@
-// @flow
-import axios from "axios"
+import axios, { type AxiosInstance } from "axios"
 
 export default class APIService {
-  connection: Function
+  connection: AxiosInstance
   key: {}
   constructor(baseURL: string) {
     this.connection = axios.create({

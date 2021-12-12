@@ -5,8 +5,10 @@ export const categoryIcons = {
   bike_shop: "🔧",
   other: "❔",
   endOfDay: "🏳",
-  cycling: "🚲",
-}
+  cycling: "🚲"
+};
+
+export type Category = keyof typeof categoryIcons;
 
 export const categoryLabels = {
   stay: "Places to Stay",
@@ -15,5 +17,5 @@ export const categoryLabels = {
   bike_shop: "Bike Shops",
   other: "Other",
   "": "All",
-  DISPLAYNONE: "None",
-}
+  DISPLAYNONE: "None"
+};

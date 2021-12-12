@@ -11,10 +11,6 @@
     "enzyme-adapter-react-16": "^1.0.2",
     "enzyme-to-json": "^3.2.2",
     "eslint": "^7.11.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.4.0",
-    "eslint-plugin-react": "^7.5.1",
-    "flow-bin": "^0.46.0",
     "husky": "^0.14.3",
     "jest-enzyme": "^4.0.2",
     "lint-staged": "^8.1.6",
@@ -26,14 +22,11 @@
     "redux-mock-store": "^1.2.3",
     "sass-loader": "^6.0.1"
   },
-  "resolutions": {
-    "ansi-regex": "5.0.1",
-    "nth-check": "2.0.1",
-    "set-value": "4.0.1",
-    "immer": "9.0.6",
-    "ansi-html": "https://registry.npmjs.org/ansi-html-community/-/ansi-html-community-0.0.8.tgz"
-  },
   "dependencies": {
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.12",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
     "axios": "^0.24.0",
     "prop-types": "^15.6.0",
     "ramda": "^0.25.0",
@@ -46,17 +39,21 @@
     "react-scripts": "4.0.3",
     "react-spinkit": "^2.1.1",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "typescript": "^4.5.3",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "flow": "flow",
     "precommit": "lint-staged",
     "lint": "eslint src"
   },
@@ -81,6 +78,12 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
     ]
   }
 }
