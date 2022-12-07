@@ -13,7 +13,7 @@
     "eslint": "^7.11.0",
     "husky": "^0.14.3",
     "jest-enzyme": "^4.0.2",
-    "lint-staged": "^8.1.6",
+    "lint-staged": "^13.1.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.1",
     "prettier": "^1.10.2",
